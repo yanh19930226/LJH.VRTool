@@ -1,0 +1,704 @@
+﻿
+@{
+    ViewBag.Title = "VR全景编辑";
+    Layout = "~/Views/Shared/Krpano/_PanoramLayout.cshtml";
+}
+<!--全景工具tour.js-->
+<script src="/static/krp/tour.js"></script>
+<!--头部开始-->
+<div class="f_box">
+    <!--Logo开始-->
+    <div class="f_logo">
+        <a href="http://www.silviscene.com/" target="_blank">
+            <img src="~/lib/krpano/panoram/images/logo.png" />
+        </a>
+    </div>
+    <!--Logo结束-->
+    <div class="f_cont">
+        <ul>
+            <li onclick="openMoreSetting()" data-url="/pano/panoeditmore/redpacket">
+                <a href="javascript:void(0);">
+                    <i class="icon iconfont icon-biaodan"></i>
+                    <p>基本设置</p>
+                </a>
+            </li>
+            <li class="f_sp">
+                <a href="javascript:void(0);">
+                    <i class="icon iconfont icon-wenzi"></i>
+                    <p>全景素材</p>
+                </a>
+                <div class="f_tanbox">
+                    <div class="f_tanboxtop"><img src="/static/editv1/images/f_jiao-2.png" /></div>
+                    <div class="f_tanboxbody">
+                        <dl>
+                            <dt>
+                                常用素材
+                            </dt>
+                            <dd>
+                                <div onclick="custom_media('images_select', 1000, 620);">
+                                    <i class="icon iconfont icon-tupian"></i>
+                                    <p>图片</p>
+                                </div>
+                                <div onclick="custom_media('audio_select', 1000, 620);">
+                                    <i class="icon iconfont icon-yinpin"></i>
+                                    <p>音频</p>
+                                </div>
+                                <div onclick="custom_media('video_select', 1000, 620);">
+                                    <i class="icon iconfont icon-video"></i>
+                                    <p>视频</p>
+                                </div>
+                                <div onclick="custom_media('ebook_select', 1000, 620);">
+                                    <i class="icon iconfont icon-xiangce"></i>
+                                    <p>相册</p>
+                                </div>
+                                <div onclick="custom_media('threed_select', 1000, 620);">
+                                    <i class="icon iconfont icon-3d"></i>
+                                    <p>3D环物</p>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:void(0);" onclick="openMusicSetting()">
+                    <i class="icon iconfont icon-music"></i>
+                    <p>背景和解说</p>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" onclick="effectseting()">
+                    <i class="icon iconfont icon-xiaoguo"></i>
+                    <p>全景特效</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="f_btn">
+        <a href="https://v360720.com/t/261" target="_blank">预览</a>
+        <a href="javascript:void(0);" onclick="save()" id="isEdited">保存</a>
+        <a href="@Url.Action("Index","Home")" class="active">退出</a>
+    </div>
+</div>
+<!--头部结束-->
+<!--全景图开始-->
+<div id="pano" style="width:100%;height:100%;">
+    <noscript>
+        <table style="width:100%;height:100%;">
+            <tr style="vertical-align:middle;">
+                <td>
+                    <div style="text-align:center;">ERROR:<br /><br />Javascript not activated<br /><br /></div>
+                </td>
+            </tr>
+        </table>
+    </noscript>
+    <script type=text/javascript language=javascript>
+        var globalConfig = {
+            set_scene_name_url: "/pano/panoedit/set_scene_name", //修改场景名称
+            del_scene_url: "/pano/panoedit/del_scene", //删除场景
+            set_first_scene_url: "/pano/panoedit/set_first_scene",
+            save_default_view_url: "/pano/panoedit/setdefaultview", //初始视角
+            save_url: "/pano/panoedit/save_view", //设置保存
+            add_hotspot_url: "/pano/panoedit/add_hotspot", //添加热点
+            edit_hotspot_url: "/pano/panoedit/edit_hotspot", //修改热点
+            del_hotspot_url: "/pano/panoedit/del_hotspot", //删除热点
+            get_hotspotbyid_url: "/pano/panoedit/get_hotspotbyid", //获取热点详情
+            cdnhost: "https://panoimg.720hot.com"
+        };
+    </script>
+    <script>
+        embedpano({
+            swf: "/static/krp/tour.swf",
+            xml: "/pano/panoedit/editxml?id=261",
+            target: "pano",
+            html5: "prefer",
+            mobilescale: 1.0,
+            passQueryParameters: true
+        });
+    </script>
+</div>
+<!--全景图结束-->
+
+
+<div class="frame" name="#viewFrame">
+    <button onclick="setAsDefaultView()" class="btn btn-blue" style="z-index:699;">把当前视角设为初始视角</button>
+    <div class="frame-line frame-line-top"></div>
+    <div class="frame-line frame-line-right"></div>
+    <div class="frame-line frame-line-bottom"></div>
+    <div class="frame-line frame-line-left"></div>
+    <span class="angle angle-tl"><i class="angle-a"></i><i class="angle-b"></i></span>
+    <span class="angle angle-tr"><i class="angle-a"></i><i class="angle-b"></i></span>
+    <span class="angle angle-bl"><i class="angle-a"></i><i class="angle-b"></i></span>
+    <span class="angle angle-br"><i class="angle-a"></i><i class="angle-b"></i></span>
+</div>
+<div class="overlay overlay-right">
+    <div class="tool-panel">
+        <div class="tool-main" style="display: block;padding:20px;" name="#viewFrame">
+            <section class="tool-section">
+                <div style="margin: 5px;color: #fff;">
+                    <label>
+                        初始视角FOV
+                        <input type="text" class="fov-input" id="initFov" onblur="updateFov()" />
+                    </label>
+                </div>
+                <section id="sample-pb">
+                    <article>
+                        <div class="number-pb">
+                            <div class="number-pb-shown" style="display: none">
+                                <div class="triangle triangle-up-left" style="float: left;"></div>
+                                <div class="triangle triangle-down"></div>
+                                <div class="triangle triangle-up-right" style="float: right;"></div>
+                            </div>
+                            <div class="number-pb-num" style="left: 70%;">
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <div style="margin: 5px;">
+                    <label>
+                        最近
+                        <input type="text" class="fov-input" id="initFovMin" onblur="updateFov()" />
+                    </label>
+                </div>
+                <div style="margin: 5px;">
+                    <label>
+                        最远
+                        <input type="text" class="fov-input" id="initFovMax" onblur="updateFov()" />
+                    </label>
+                </div>
+            </section>
+            <section class="tool-section">
+                <div style="margin: 5px;">
+                    <label>垂直视角范围限制</label>
+                </div>
+                <div style="margin: 5px;">
+                    <label>
+                        最低
+                        <input type="text" class="fov-input" id="initVlookatMin" value="-90" onblur="updateVlookat()" />
+                    </label>
+                </div>
+                <div style="margin: 5px;">
+                    <label>
+                        最高
+                        <input type="text" class="fov-input" id="initVlookatMax" value="90" onblur="updateVlookat()" />
+                    </label>
+                </div>
+                <div style="margin: 32px;">
+                    <input type="button" style="vertical-align: middle;" value="应用到所有场景" class="btn btn-blue" onclick="setForAll()" />
+                </div>
+            </section>
+        </div>
+        <!--热点操作开始-->
+        <div class="tool-main" name="#toolHot" id="hotToolButton">
+            <section class="tool-section" id="hotspot_type">
+                <h3 style="margin-bottom: 5px;color: #fff;">热点类型</h3>
+                <button class="btn btn-blue" hotspot_type="1">全景切换</button>
+                <button class="btn btn-default" hotspot_type="2" style="padding: 8px 25px;">超链接</button>
+                <button class="btn btn-default" hotspot_type="3">图集热点</button>
+                <button class="btn btn-default" hotspot_type="4">视频热点</button>
+                <button class="btn btn-default" hotspot_type="5">文本热点</button>
+                <button class="btn btn-default" hotspot_type="6">音频热点</button>
+                <button class="btn btn-default" hotspot_type="7">图文热点</button>
+                <button class="btn btn-default" hotspot_type="8">环物热点</button>
+            </section>
+            <section class="tool-section">
+                <h3 style="margin-bottom: 5px;color: #fff;">热点列表</h3>
+                <ul>
+                    <div id="hotSpotList" style="max-height: 400px;overflow-y: auto;overflow-x: hidden;"></div>
+                    <script id="tplHotSpotList" type="text/html">
+                        {{each list as eachSpot}}
+                        <div class="edit-item" data-reshottype="{{eachSpot.hotspot_type}}" {{if eachSpot.hotspot_type != 1}} style="display:none;" {{/if}}>
+                            <div class="card">
+                                <span class="caption">
+                                    <span class="group-change-icon" data-action="editIcon" data-hlookat="{{eachSpot.ath}}" data-vlookat="{{eachSpot.atv}}" data-hotid="{{eachSpot.id}}" data-hotspotidx="{{eachSpot.hotspot_type}}">定位</span>&nbsp;&nbsp;
+                                    <span class="group-rename" data-action="editView" data-hotid="{{eachSpot.id}}" data-hotspotidx="{{eachSpot.hotspot_type}}">修改&nbsp;&nbsp;</span>
+                                    <span class="group-delte" data-hotid="{{eachSpot.id}}">删除</span>
+                                </span>
+                            </div>
+                            <div class="group-item-title">
+                                <div class="hot-spot-list" name="{{eachSpot.name}}Hover">
+                                    <div class="hot-spot-img" style="background-image: url('{{eachSpot.image_url}}')" spot-style="{{eachSpot.style}}"></div>
+                                    <div class="hot-spot-text">{{eachSpot.title}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </script>
+                </ul>
+
+                <button class="hot-spot-button" style="padding-top: 3px;" onclick="addhotbtn()">+</button>
+            </section>
+        </div>
+        <!--热点操作结束-->
+        <!--嵌入开始 <div class="tool-main" style="display: block;padding:20px;" name="#viewFrame"> -->
+        <div class="tool-main" name="#qianru" id="qianru">
+            <section class="tool-section" id="hotspot_type" style="text-align:center;">
+                <button class="btn btn-blue" onclick="qianru('内容click')">嵌入内容</button>
+            </section>
+            <section class="tool-section">
+                <h3 style="margin-bottom: 5px;color: #fff;">当前场景嵌入内容(<span id='qianrunum'></span>)</h3>
+                <ul>
+                    <div id="qianruSpotList">
+                    </div>
+                </ul>
+            </section>
+        </div>
+        <!--嵌入结束-->
+
+        <ul class="tool-btn-lst">
+            <li>
+                <span class="btn J-tool-btn" onclick="openhref($(this), '设置')" data-url="/pano/panoeditmore/beforegifworkschoose">开场</span>
+            </li>
+            <li>
+                <span class="btn J-tool-btn btn-blue" data-target="#viewFrame">视角</span>
+            </li>
+            <li>
+                <span class="btn J-tool-btn" data-target="#toolHot">热点</span>
+            </li>
+            <li>
+                <span class="btn J-tool-btn" data-target="#qianru">嵌入</span>
+            </li>
+            <li>
+                <span class="btn J-tool-btn" onclick="zhezhao()">遮罩</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<style>
+    .ed-del {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+    }
+
+        .ed-del i {
+            color: #fff;
+            font-size: 17px
+        }
+
+        .ed-del a {
+            cursor: pointer;
+            float: left;
+            width: 32px;
+        }
+
+    .f_last {
+        height: 120px
+    }
+</style>
+<!--左侧浮动菜单-->
+<div class="left-column">
+    <div class="scene-select">
+        <div style="position:fixed;width:260px;">
+            <div class="select_scene_text" style="line-height:50px; ">
+                <button id="addgroup" class="btn btn-blue" style="padding:6px 6px; font-size: 12px;">场景分组</button>&nbsp;
+                <button id="viewsort" class="btn btn-blue" style="padding:6px 6px;font-size: 12px;">场景排序</button>&nbsp;
+                <button id="addvrimg" class="btn btn-blue" style="padding:6px 6px;font-size: 12px;">添加全景图</button>
+            </div>
+        </div>
+        <ul class="leftnav">
+            <input type="hidden" name="welcomeFlag" id="welcomeFlag" value="">
+            <div id="sceneList">
+                <div class="group-item-header">
+                    <div class="group-item-title"><img src="~/lib/krpano/panoram/images/vr-btn-scene.png" data-icontype="system"><span>场景选择</span></div>
+                </div>
+                <li key="0" name="360VR案例01" view_id="1869" class="li-scene li-scene-hover">
+                    <div class="g_del_wrap" onclick="changeScene(0)">
+                        <div class="thumbs-img-scene-list" style='background-image: url("https://panoimg.720hot.com/1/47356/3721/thumb.jpg")'></div>
+                        <div class="li-scene-span" id="title_1869">360VR案例01</div>
+                    </div>
+                    <div class="ed-del f_right">
+                        <a title="修改场景" onclick="doRename2($(this))"><i class="fa fa-pencil-square-o"></i></a>
+                        <a title="删除场景" onclick="delview($(this))"><i aria-hidden="true" class="fa fa-trash-o"></i></a>
+                    </div>
+                </li>
+            </div>
+            <li class="f_last"></li>
+        </ul>
+    </div>
+</div>
+<!--左侧浮动菜单结束-->
+<!--是否打开素材-->
+<input type="hidden" id="open" value="0">
+<input type="hidden" id="page" value="0">
+<!--当前热点类型-->
+<input type="hidden" id="hotspot_type_val" name="hotspot_type_val" value="1">
+<!--视角保存设置-->
+<input type="hidden" id="v_initH" value="">
+<input type="hidden" id="v_initV" value="">
+<!--作品编号-->
+<input type="hidden" name="pano_id" id="pano_id" value="261">
+<!--场景编号-->
+<input type="hidden" name="view_id" id="view_id" value="1869">
+<!--作品类型-->
+<input type="hidden" name="init_type" id="init_type" value="0">
+
+<!--当前场景初始化hotspot坐标点 添加热点用-->
+<input type="hidden" name="hotspot_ath" id="hotspot_ath" value="">
+<input type="hidden" name="hotspot_atv" id="hotspot_atv" value="">
+<!--弹层 选择热点图标回调用-->
+<input type="hidden" name="iconid" id="iconid" value="">
+<input type="hidden" name="iconkey" id="iconkey" value="">
+<!--漫游到场景编号-->
+<input type="hidden" name="target_viewid" id="target_viewid" value="">
+<input type="hidden" name="target_viewkey" id="target_viewkey" value="">
+<!--目标场景坐标点击OK-->
+<input type="hidden" name="target_hlookat" id="target_hlookat" value="0">
+<input type="hidden" name="target_vlookat" id="target_vlookat" value="0">
+<!--素材选择图片后回调-->
+<input type="hidden" name="choose_material_id" id="choose_material_id" value="">
+<!--插件选择回调-->
+<input type="hidden" name="binds_eid" id="binds_eid" value="">
+<input type="hidden" name="binds_ident" id="binds_ident" value="">
+
+@section scripts
+    {
+    <script>
+        $("#welcomeFlag").val('');
+        $("#hotspot_type_val").val(1); //初始化热点类型为1
+        $("#v_initH").val('');
+        $("#v_initV").val('');
+        //管理分组
+        $("#addgroup").click(function () {
+            layer.open({
+                type: 2,
+                area: ['50%', '60%'],
+                shade: 0.8,
+                move: false,
+                shadeClose: false,
+                title: '场景分组',
+                content: "/pano/panoedit/fenzulist?pano_id=" + $("#pano_id").val(),
+                cancel: function (index, layero) {
+                    //只有当点击confirm框的确定时，该层才会关闭
+                    layer.close(index);
+                    window.location.reload();
+                    //setleftfenzu($("#pano_id").val());
+                }
+            });
+        });
+        //添加全景图
+        $("#addvrimg").click(function () {
+            var index = layer.open({
+                title: ' ',
+                type: 2,
+                content: "/pano/zuopin/material?open=" + $("#open").val(),
+                maxmin: false
+            });
+            layer.full(index);
+        });
+        //对场景排序
+        $("#viewsort").click(function () {
+            layer.open({
+                type: 2,
+                area: ['50%', '60%'],
+                shade: 0.8,
+                move: false,
+                shadeClose: false,
+                title: '场景排序',
+                content: "/pano/panoedit/viewsort?pano_id=" + $("#pano_id").val(),
+                cancel: function (index, layero) {
+                    //只有当点击confirm框的确定时，该层才会关闭
+                    layer.close(index);
+                    window.location.reload();
+                    //setleftfenzu($("#pano_id").val());//暂时先网页刷新 js操作xml有问题
+                }
+            });
+        });
+        //重置左侧菜单
+        function setleftfenzu(pano_id) {
+            $.ajax({
+                type: "POST",
+                url: "/pano/panoedit/setleftfenzu",
+                data: { pano_id: pano_id },
+                success: function (result) {
+                    $("#sceneList").html(result);
+                    $("li[view_id=" + $('#view_id').val() + "]").addClass("li-scene-hover");
+                }
+            });
+        }
+        //全景图素材选择后回调 给场景增加素材 直接入库 页面发生跳转
+        function get_material_bypid(pids) {
+            $.ajax({
+                type: 'POST',
+                url: "/pano/zuopin/add_viewmaterial_bypid",
+                data: { "pids": pids, "pano_id": $("#pano_id").val() },
+                dataType: 'json',
+                success: function (result) {
+                    if (result.code == 0) {
+                        layer.msg(result.msg, { time: 1500 });
+                        setTimeout(function () {
+                            window.location.href = "/pano/panoedit/edit?id=" + $("#pano_id").val() + "&page=" + $('#page').val();
+                        }, 1000);
+                    } else {
+                        layer.msg(result.msg, { icon: 5 });
+                    }
+                }
+            });
+        }
+        //返回
+        $("#backbtn").click(function () {
+            window.location.href = "/pano/zuopin/index?page=" + $("#page").val();
+        });
+        //热点类型点击
+        $("#hotspot_type > button").click(function () {
+            $(this).siblings().removeClass('btn-blue');
+            $(this).addClass('btn-blue');
+            $("#hotspot_type_val").val($(this).attr('hotspot_type'));
+            var hotspot_type = $(this).attr('hotspot_type');
+            //匹配点击不同热点类型时展示不同热点列表
+            $('#hotSpotList .edit-item').each(function () {
+                var reshottype = $(this).data('reshottype');
+                if (hotspot_type == reshottype) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+        function openMoreSetting() {
+            var view = $('#view_id');
+            viewid = view.val();
+            layer.open({
+                type: 2,
+                title: '设置',
+                id: 66,
+                area: ['70%', '80%'],
+                content: 'http://360720.com/pano/panoeditmore/skinPanosetting/view_id/' + viewid
+            })
+        }
+        function openMusicSetting() {
+            var view = $('#view_id');
+            viewid = view.val();
+            layer.open({
+                type: 2,
+                title: '音乐设置',
+                id: 66,
+                area: ['60%', '80%'],
+                content: 'http://360720.com/pano/panoeditmore/skinJieshuo/view_id/' + viewid
+            })
+        }
+        function effectseting() {
+            var view = $('#view_id');
+            viewid = view.val();
+            layer.open({
+                type: 2,
+                title: '特效设置',
+                area: ['60%', '80%'],
+                content: "/pano/panoedit/effectseting?view_id=" + viewid
+            })
+        }
+        //嵌入功能
+        function qianru(v) {
+            var viewid = $('#view_id').val();
+            layer.open({
+                type: 2,
+                title: '嵌入类型',
+                area: ['60%', '80%'],
+                content: "/pano/panoedit/qianru?view_id=" + viewid
+            });
+        }
+        //编辑嵌入
+        function qianruedit(id) {
+            layer.open({
+                type: 2,
+                title: '嵌入类型',
+                area: ['60%', '80%'],
+                content: "/pano/panoedit/qianruedit?id=" + id
+            });
+        }
+        //删除嵌入
+        function qianru_del(id) {
+            layer.confirm('你确定要删除该嵌入吗？不可恢复', {
+                btn: ['确定', '取消']
+            }, function () {
+                if (id <= 0) {
+                    layer.msg("删除失败");
+                    return false;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/pano/panoedit/qianru_del",
+                    data: { id: id },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.code == 0) {
+                            var HotSpotName = "embed_" + id;
+                            krpano.call("removehotspot(" + HotSpotName + ");");
+                            //更新嵌入列表
+                            get_qianru_data($('#view_id').val());
+                            layer.msg(result.msg, { time: 1200 });
+                        }
+                    }
+                });
+            }, function () { });
+        }
+        //为右侧嵌入列表 绑定鼠标滑过事件
+        function bind_qianruSpotList_mouse() {
+            $('#qianruSpotList .edit-item').bind('mouseover', function () {
+                $(this).find('.card').show();
+                $(this).find('.group-item-title').css({ "z-index": -1 });
+                $(this).siblings().find('.card').hide();
+                $(this).siblings().find('.group-item-title').css({ "z-index": 1 });
+            });
+            $('#qianruSpotList .edit-item').bind('mouseout', function () {
+                $(this).find('.card').hide();
+                $(this).find('.group-item-title').css({ "z-index": 1 });
+            });
+        }
+        //为右侧嵌入 绑定定位事件
+        function bind_qianruSpotList_dingwei() {
+            //绑定热点编辑操作
+            $(".group-change-icon2").click(function () {
+                var hlookat = $(this).data('hlookat');
+                var vlookat = $(this).data('vlookat');
+                krpano.call('lookto(' + hlookat + ', ' + vlookat + ')');
+            });
+        }
+        /**
+         * 根据当前viewid 获取嵌入数据
+         * **/
+        function get_qianru_data(view_id) {
+            $.ajax({
+                type: 'POST',
+                url: '/pano/panoedit/get_qianru_data.html',
+                data: { 'view_id': $('#view_id').val() },
+                success: function (result) {
+                    if (result.code == 0) {
+                        //输出嵌入内容
+                        var str = '';
+                        var data = result.data;
+                        for (var i = 0; i < data.length; i++) {
+                            str += '<div class="edit-item" data-reshottype="1">';
+                            str += '<div class="card" style="display: none;">';
+                            str += '   <span class="caption">';
+                            str += '    <span class="group-change-icon2" data-action="editIcon" data-hlookat="' + data[i].ath + '" data-vlookat="' + data[i].atv + '" data-hotid="12" data-hotspotidx="1">定位</span>&nbsp;&nbsp;';
+                            str += '    <span onclick="qianruedit(' + data[i].id + ')">修改&nbsp;&nbsp;</span>';
+                            str += '    <span onclick="qianru_del(' + data[i].id + ')">删除</span>';
+                            str += '</span>';
+                            str += ' </div>';
+                            str += '<div class="group-item-title" style="z-index: 1;">';
+                            str += '    <div class="hot-spot-list" name="spot_12Hover">';
+                            //文字
+                            if (data[i].type == 1) {
+                                str += '  <div class="hot-spot-img2" style="background-image: url(\'/static/images/word.png\');background-size:25px 25px;background-repeat:no-repeat;background-position:center;"></div>';
+                                str += '  <div class="hot-spot-text2">' + data[i].content + '</div>';
+                            }
+                            //图片
+                            if (data[i].type == 2) {
+                                str += '  <div class="hot-spot-img2" style="background-image: url(\'' + globalConfig.cdnhost + '/' + data[i]['pics_temp'][0].imgurl + '\')" spot-style=""></div>';
+                                str += '  <div class="hot-spot-text2">图片素材</div>';
+                            }
+                            //视频
+                            if (data[i].type == 3) {
+                                str += '  <div class="hot-spot-img2" style="background-image: url(\'' + globalConfig.cdnhost + '/' + data[i].posterurl + '\')" spot-style=""></div>';
+                                str += '  <div class="hot-spot-text2">视频素材</div>';
+                            }
+                            //序列帧
+                            if (data[i].type == 4) {
+                                str += '  <div class="hot-spot-img2" style="background-image: url(\'' + globalConfig.cdnhost + '/' + data[i]['mateinfo'].source_file + '?imageView2/1/w/32/h/32\')" spot-style=""></div>';
+                                str += '  <div class="hot-spot-text2">序列帧素材</div>';
+                            }
+                            str += '   </div>';
+                            str += '</div>';
+                            str += '</div>';
+                        }
+                        $('#qianruSpotList').html(str);
+                        $('#qianrunum').html(data.length);
+                        bind_qianruSpotList_mouse();
+                        bind_qianruSpotList_dingwei();
+                    } else {
+                        layer.msg(result.msg, { time: 3000 });
+                    }
+                },
+                error: function () {
+                    layer.msg('系统错误', { time: 3000 });
+                }
+            });
+        }
+        //天空、地面遮罩
+        function zhezhao() {
+            var viewid = $('#view_id').val();
+            layer.open({
+                type: 2,
+                title: '遮罩',
+                area: ['60%', '80%'],
+                content: "/pano/panoedit/bottom_zhezhao?view_id=" + viewid
+            });
+        }
+        //场景坐标点点击ok回调
+        function targetback(h, v) {
+            $("#target_hlookat").val(h);
+            $("#target_vlookat").val(v);
+        }
+        //素材框选择后回调
+        function chooseCallBack(choose_material_id) {
+            $("#choose_material_id").val(choose_material_id);
+        }
+        //插件选择后回调
+        function addonsCallBack(binds_eid, binds_ident) {
+            if (binds_eid > 0) {
+                $("#binds_eid").val(binds_eid);
+                $("#binds_ident").val(binds_ident);
+            }
+        }
+        window.onload = function () {
+            //初始嵌入数据
+            get_qianru_data($('#view_id').val());
+            var open = $("#open").val();
+            if (open == 1) {
+                $('#addvrimg').click();
+            }
+        };
+    </script>
+    <script>
+        /**
+         * 媒体选择框
+         * m_type 对应控制器函数名称 打开哪种类型的素材框
+         * **/
+        function custom_media(m_type, w, h) {
+            if (w == null || w == '') {
+                w = 1000;
+            }
+            if (h == null || h == '') {
+                h = ($(window).height() - 200);
+            }
+            //初始化素材input
+            var types = new Array();
+            types['images_select'] = "图片";
+            types['audio_select'] = "音频";
+            types['video_select'] = "视频";
+            types['threed_select'] = "3D环物";
+            types['ebook_select'] = "相册";
+            layer.open({
+                type: 2,
+                title: "素材-" + types[m_type],
+                fix: false,
+                shadeClose: false,
+                scrollbar: false,
+                resize: false,
+                area: [w + "px", h + "px"],
+                content: "/pano/material/" + m_type + "/edit/1",
+                end: function () {
+
+                }
+            });
+        }
+        function openhref(el, title) {
+            var url = el.data('url');
+            var view_id = $("#view_id").val();
+            if (url !== '' && url !== undefined) {
+                layer.open({
+                    type: 2,
+                    title: title,
+                    area: ['60%', '85%'],
+                    content: url + '?view_id=' + view_id
+                })
+            }
+        }
+        function noauth() {
+            layer.msg("未获得功能权限", { icon: 5, time: 3000 });
+        }
+    </script>
+}
+
+

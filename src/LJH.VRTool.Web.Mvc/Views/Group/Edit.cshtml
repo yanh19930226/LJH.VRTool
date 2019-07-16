@@ -1,0 +1,37 @@
+﻿@model LJH.VRTool.Users.Dto.CreateUserDto
+@{
+    Layout = "~/Views/Shared/Krpano/_Layout.cshtml";
+}
+@section styles{
+    <link href="~/lib/krpano/hplus/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+}
+<div class="modal-body">
+    <form id="addForm">
+        <div class="form-group">
+            <label for="username">分组名称</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="分组名称">
+        </div>
+    </form>
+</div>
+@section scripts
+    {
+    <script src="~/lib/krpano/hplus/js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+    function deleted() {
+               swal({
+               title: "您确定要删除这条信息吗",
+               text: "删除后将无法恢复，请谨慎操作！",
+               type: "warning",
+               showCancelButton: true,
+               confirmButtonColor: "#DD6B55",
+               confirmButtonText: "删除",
+               closeOnConfirm: false
+            }, function () {
+                  var index = parent.layer.getFrameIndex(window.name);
+                  parent.layer.close(index); //再执行关闭
+              swal("删除成功！", "您已经永久删除了这条信息。", "success");
+          });
+        }
+    </script>
+        }

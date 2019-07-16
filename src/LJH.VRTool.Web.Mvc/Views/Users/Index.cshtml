@@ -1,0 +1,139 @@
+﻿@using AspNetCorePage;
+@model PagedList<LJH.VRTool.Users.Dto.UserDto>
+@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/Krpano/_Layout.cshtml";
+}
+@section styles{
+    <style>
+
+        .table-responsive {
+            margin-top: 40px;
+        }
+
+            .table-responsive table thead tr th, .table-responsive table tbody tr td {
+                text-align: center;
+            }
+    </style>
+}
+<div class="wrapper wrapper-content">
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-3 pull-right">
+                <div class="input-group">
+                    <input type="text" placeholder="请输入关键词" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="layui-btn layui-btn-sm layui-btn-dangery"> 搜索</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-3 pull-right text-right">
+                <button type="button" class="layui-btn layui-btn-sm layui-btn-dangery" onclick="add()">添加</button>
+            </div>
+        </div>
+        <div class="table-responsive animated fadeInRight">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>账号</th>
+                        <th>姓名</th>
+                        <th>手机</th>
+                        <th>日期</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" checked class="i-checks" name="input[]">
+                            </td>
+                            <td>@item.Name</td>
+                            <td>
+                                @item.UserName
+                            </td>
+                            <td>11111111111112</td>
+                            <td>@item.CreationTime</td>
+                            <td>
+                                <button type="button" class="layui-btn layui-btn-sm layui-btn-dangery" onclick="edit()">编辑</button>
+                                <button type="button" class="layui-btn layui-btn-sm layui-btn-dangery" onclick="deleted()">删除</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="text-center">
+                <nav aria-label="Page navigation">
+                    @Html.Pager(Model, new PagerOptions
+               {
+                   PageIndexParameterName = "pageIndex",
+                   TagName = "ul",
+                   CssClass = "pagination",
+                   CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+                   DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+                   PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+                   Id = "bootstrappager"
+               })
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+    {
+    <script>
+        function add(){
+            layer.open({
+            anim: 3,
+            type: 2,
+            title: '添加用户',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['600px', '600px'],
+            content: '@Url.Action("Add", "Users")',
+            btn: ['确认', '取消'],
+            yes: function (index, layero) {
+                var body = layer.getChildFrame('body', index);
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                iframeWin.save();
+            },
+            btn2: function(index, layero){
+                  layer.close(index);
+            }
+          });
+        };
+        function edit(){
+            parent.layer.open({
+            type: 2,
+            title: '编辑用户',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['600px', '600px'],
+            content: '@Url.Action("Edit", "Home")',
+            btn: ['确认', '取消'],
+            yes: function (index, layero) {
+                var body = layer.getChildFrame('body', index);
+                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+                iframeWin.save();
+            },
+            btn2: function(index, layero){
+                  layer.close(index);
+            }
+          });
+        };
+        function deleted() {
+               swal({
+               title: "您确定要删除这条信息吗",
+               text: "删除后将无法恢复，请谨慎操作！",
+               type: "warning",
+               showCancelButton: true,
+               confirmButtonColor: "#DD6B55",
+               confirmButtonText: "删除",
+               closeOnConfirm: false
+            }, function () {
+              swal("删除成功！", "您已经永久删除了这条信息。", "success");
+          });
+        }
+    </script>
+}

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>林景行全景工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link href="~/lib/krpano/hplus/js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/lib/krpano/panoram/css/krpano.editor.css" rel="stylesheet" />
+    <link href="~/lib/krpano/panoram/css/style.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/lib/krpano/panoram/css/iconfont.css" rel="stylesheet" />
+    <script src="~/lib/krpano/hplus/js/jquery.min.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+    <script src="~/lib/krpano/panoram/js/krpano.editor.js"></script>
+    <script src="~/lib/krpano/panoram/js/template-web.js"></script>
+    <script src="~/lib/krpano/panoram/js/common.js"></script>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            background-color: #000000;
+        }
+    </style>
+    <script>
+        //一般直接写在一个js文件中
+        layui.use(['layer'], function () {
+            var layer = layui.layer;
+        });
+    </script>
+</head>
+<body>
+    @RenderSection("styles", required: false)
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

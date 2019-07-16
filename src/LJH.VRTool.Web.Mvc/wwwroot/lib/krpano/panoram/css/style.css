@@ -1,0 +1,34 @@
+*{ margin: 0px; padding: 0px; list-style: none; font-family: "微软雅黑";text-decoration: none;}
+.f_box{ width: 100%; height: 56px; background: #333333; position: fixed; z-index: 99991;}
+.f_logo { width: 225px; height: 41px; background: #333; padding-right: 10px; position: absolute;padding-top:15px; left: 20px;}
+.f_logo a{ display: block; width: 111px; height: 26px; float: left;}
+.f_logo p{ font-size: 14px; float: left; color: #999999; line-height: 26px;  margin-left: 10px;}
+.f_cont{ width: 680px; margin: auto; height: 56px; }
+.f_cont ul{width: 680px;height: 56px;}
+.f_cont ul li a{ display: block; width: 60px;text-align: center;color: #ccc; height: 56px;}
+.f_cont ul li {float: left; }
+.f_cont ul li a p{ margin-top: 0px; font-size: 12px;}
+.f_cont ul li a i{ padding-top: 6px; display: block;}
+.f_cont ul li a:hover{ background: #1593ff; color: #fff;}
+.f_cont ul li a:hover i{color: #fff;}
+.f_cont .iconfont{ font-size: 18px; color: #ccc;  text-align: center;}
+.f_btn{position: absolute; right: 12px; padding: 11px 0; top: 0; background: #333; }
+.f_btn a{ display: block; width: 65px; height: 34px; background: #1593ff; border-radius: 3px; float: left; font-size: 12px; color: #fff; text-align: center; line-height: 34px;margin-left: 10px;}
+.f_btn .active{ background: #666;}
+.f_btn .active:hover{background: #cc0000;}
+.f_btn a:hover{ background: #198ae7;}
+.f_tanbox{ width: 665px;  position: absolute;z-index: 10; left: -302px; top: 55px; display: none; cursor: pointer;}
+.f_tanbox dl {  border-bottom: 1px solid #424242; overflow: hidden; }
+.f_tanbox dl dt{ width: 121px; color: #999999; text-align: center; float: left; line-height: 47px; font-size: 12px; }
+.f_tanbox dl dd{padding-left: 18px; width: 526px; overflow: hidden; background: rgba(17,17,17,0.8); }
+.f_tanbox dl dd div{ width: 128px; height: 47px; float: left; }
+.f_tanbox .iconfont{ font-size: 20px; color: #ccc;float: left;line-height: 47px;}
+.f_tanbox dl dd div p{ float: left; line-height: 47px; color: #ccc; font-size: 12px; text-indent: 18px;}
+.f_tanboxtop img{ display: block; margin: auto;}
+.f_tanboxbody{background: rgba(33,33,33,0.8);}
+.f_sp{ position: relative;}
+.f_sp:hover .f_tanbox{ display: block;}
+.f_tanbox dl dd div:hover p{  color: #1593ff;}
+.f_tanbox dl dd div:hover i{  color: #1593ff;}
+.f_tanbox .spfont16{ font-size: 16px;}
+.f_tanbox .spfont18{ font-size: 18px;}

@@ -1,0 +1,84 @@
+﻿@model LJH.VRTool.Users.Dto.CreateUserDto
+@{
+    Layout = "~/Views/Shared/Krpano/_Layout.cshtml";
+}
+<div class="modal-body">
+    <form id="addForm">
+        <div class="panel blank-panel">
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="tabs_panels.html#tab-4"><i class="fa fa-user"></i>用户信息</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="tabs_panels.html#tab-5"><i class="fa fa-users"></i>角色信息</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div id="tab-4" class="tab-pane active">
+                        <div class="form-group">
+                            <label for="account">账号</label>
+                            <input type="text" class="form-control" id="account" name="account" placeholder="账号（用于登录）">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input type="text" class="form-control" id="password" name="password" placeholder="密码">
+                        </div>
+                    </div>
+                    <div id="tab-5" class="tab-pane">
+                        <div class="form-group">
+                                @for (int i = 0; i < 12; i++)
+                                {
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="checkbox" value="option1">超级管理员
+                                    </label>
+                                }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+<script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="~/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+        });
+    });
+</script>
+<script>
+    function save(){
+      var formData = $("#addForm").serializeArray();
+        $.ajax({
+          url: "@Url.Action("Add", "Users")",
+          type: "POST",
+          data: formData,
+          dataType: "json",
+          success: function (res) {
+              if (res.result.status == "ok") {
+                  parent.location.reload();//刷新父窗口
+                  var index = parent.layer.getFrameIndex(window.name);
+                  parent.layer.close(index); //再执行关闭
+              }
+              else {
+                  alert("error");
+              }
+          },
+          error: function (e) {
+              console.log(e);
+          }
+      });
+    }
+</script>

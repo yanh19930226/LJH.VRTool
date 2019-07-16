@@ -1,0 +1,38 @@
+﻿@model LJH.VRTool.Users.Dto.CreateUserDto
+@{
+    Layout = "~/Views/Shared/Krpano/_Layout.cshtml";
+}
+<div class="modal-body">
+    <form id="addForm">
+        <div class="form-group">
+            <label for="account">名称</label>
+            <input type="text" class="form-control" id="account" name="account" placeholder="名称">
+        </div>
+    </form>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    function save(){
+      var formData = $("#addForm").serializeArray();
+        $.ajax({
+          url: "@Url.Action("Edit", "Source")",
+          type: "POST",
+          data: formData,
+          dataType: "json",
+          success: function (res) {
+              if (res.result.status == "ok") {
+                  parent.location.reload();//刷新父窗口
+                  var index = parent.layer.getFrameIndex(window.name);
+                  parent.layer.close(index); //再执行关闭
+              }
+              else {
+                  alert("error");
+              }
+          },
+          error: function (e) {
+              console.log(e);
+          }
+      });
+    }
+</script>
+

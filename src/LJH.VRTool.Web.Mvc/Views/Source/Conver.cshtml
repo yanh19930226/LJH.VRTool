@@ -1,0 +1,61 @@
+﻿
+@model LJH.VRTool.Users.Dto.CreateUserDto
+@{
+    Layout = "~/Views/Shared/Krpano/_Layout.cshtml";
+}
+<div class="modal-body">
+    <form id="addForm">
+        <div class="form-group">
+            <label for="account">名称</label>
+            <input type="text" class="form-control" id="account" name="account" placeholder="名称">
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">说明：</label>
+            <div class="col-sm-8">
+                <textarea id="ccomment" name="comment" class="form-control" required="" aria-required="true" placeholder="请输入文本信息"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account">角色</label>
+            <div class="radio i-checks">
+                <label>
+                    <input type="radio" value="option1" name="sound"> <i></i> 男声
+                </label>
+
+                <label>
+                    <input type="radio" checked="" value="option2" name="sound"> <i></i>女声
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account">语音</label>
+            <a href="#">立即生成</a>
+        </div>
+    </form>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    function save(){
+      var formData = $("#addForm").serializeArray();
+        $.ajax({
+          url: "@Url.Action("Add", "Users")",
+          type: "POST",
+          data: formData,
+          dataType: "json",
+          success: function (res) {
+              if (res.result.status == "ok") {
+                  parent.location.reload();//刷新父窗口
+                  var index = parent.layer.getFrameIndex(window.name);
+                  parent.layer.close(index); //再执行关闭
+              }
+              else {
+                  alert("error");
+              }
+          },
+          error: function (e) {
+              console.log(e);
+          }
+      });
+    }
+</script>
