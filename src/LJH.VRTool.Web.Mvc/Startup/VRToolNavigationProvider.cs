@@ -31,7 +31,7 @@ namespace LJH.VRTool.Web.Startup
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
-                        L("用户管理"),
+                        L("Users"),
                         url: "Users",
                         icon: "fa fa-user",
                         requiredPermissionName: PermissionNames.Pages_Users
@@ -39,7 +39,7 @@ namespace LJH.VRTool.Web.Startup
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Roles,
-                        L("角色管理"),
+                        L("Roles"),
                         url: "Roles",
                         icon: "fa fa-users",
                         requiredPermissionName: PermissionNames.Pages_Roles
@@ -48,7 +48,7 @@ namespace LJH.VRTool.Web.Startup
                  .AddItem(
                     new MenuItemDefinition(
                         PageNames.Source,
-                        L("素材管理"),
+                        L("Source"),
                         url: "Source",
                         icon: "fa fa-clone",
                         requiredPermissionName: PermissionNames.Pages_Source
@@ -57,7 +57,7 @@ namespace LJH.VRTool.Web.Startup
                  .AddItem(
                     new MenuItemDefinition(
                         PageNames.Panoram,
-                        L("全景管理"),
+                        L("Panoram"),
                         url: "Panoram",
                         icon: "fa fa-youtube-play",
                         requiredPermissionName: PermissionNames.Pages_Panoram
@@ -66,7 +66,7 @@ namespace LJH.VRTool.Web.Startup
                   .AddItem(
                     new MenuItemDefinition(
                         PageNames.Video,
-                        L("视频管理"),
+                        L("Video"),
                         url: "Video",
                         icon: "fa fa-tv",
                         requiredPermissionName: PermissionNames.Pages_Video
