@@ -17,36 +17,6 @@
             <ul class="nav" id="side-menu">
                 @await Component.InvokeAsync(typeof(AccountInfoComponent))
                 @await Component.InvokeAsync(typeof(MenuComponent))
-                @*<li>
-                        <a class="J_menuItem" href="@Url.Action("Index","Home",new { Areas="Admin" })">
-                            <i class="fa fa-home"></i>
-                            <span class="nav-label">主页</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Index","Source")"><i class="fa fa-clone"></i> <span class="nav-label">全景素材管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Index","Panoram")"><i class="fa fa-youtube-play"></i> <span class="nav-label">VR全景管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Index","Video")"><i class="fa fa-tv"></i> <span class="nav-label">VR视频管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Index","Users")"><i class="fa fa-user"></i> <span class="nav-label">用户管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Index","Roles")"><i class="fa fa-user"></i> <span class="nav-label">角色管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Message","Home")"><i class="fa fa-comment"></i> <span class="nav-label">说一说管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Message","Home")"><i class="fa fa-commenting"></i> <span class="nav-label">留言管理</span></a>
-                    </li>
-                    <li>
-                        <a class="J_menuItem" href="@Url.Action("Index","WebSetting")"><i class="fa fa-commenting"></i> <span class="nav-label">网站配置</span></a>
-                    </li>*@
             </ul>
         </div>
     </nav>
@@ -54,6 +24,26 @@
     <!--右侧部分开始-->
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="hidden-xs">
+                        <div class="btn-group roll-nav roll-right">
+                          
+                        </div>
+
+                        @*<a href="index_v1.html" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 购买</a>*@
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a class="right-sidebar-toggle" aria-expanded="false">
+                             前台首页
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
         </div>
         <div class="row content-tabs">
             @await Component.InvokeAsync(typeof(TopBarComponent))

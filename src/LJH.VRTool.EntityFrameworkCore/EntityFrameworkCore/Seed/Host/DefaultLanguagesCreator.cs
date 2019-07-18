@@ -40,7 +40,6 @@ namespace LJH.VRTool.EntityFrameworkCore.Seed.Host
         {
             CreateLanguages();
         }
-
         private void CreateLanguages()
         {
             foreach (var language in InitialLanguages)

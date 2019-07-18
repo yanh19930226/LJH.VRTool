@@ -238,6 +238,37 @@ namespace LJH.VRTool.Users
 
             return MapToEntityDto(user);
         }
+
+
+
+        public async Task<UserDto> CreateUser(CreateUserDtoT a)
+        {
+            CreateUserDto input=new CreateUserDto();
+            CheckCreatePermission();
+            var user = ObjectMapper.Map<User>(input);
+
+            user.TenantId = AbpSession.TenantId;
+            user.IsEmailConfirmed = true;
+
+            await _userManager.InitializeOptionsAsync(AbpSession.TenantId);
+
+            CheckErrors(await _userManager.CreateAsync(user, input.Password));
+
+            if (input.RoleNames != null)
+            {
+                CheckErrors(await _userManager.SetRoles(user, input.RoleNames));
+            }
+
+            CurrentUnitOfWork.SaveChanges();
+
+            return MapToEntityDto(user);
+        }
+
+    }
+    public class CreateUserDtoT
+    {
+
+        public string UserName { get; set; }
     }
 }
 
