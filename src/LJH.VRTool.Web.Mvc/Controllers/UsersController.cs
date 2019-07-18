@@ -12,13 +12,16 @@ using AspNetCorePage;
 using LJH.VRTool.Web.Models.Test;
 using System.IO;
 using System.Linq;
+using LJH.VRTool.Roles;
+using Abp.AspNetCore.Mvc.Controllers;
 
 namespace LJH.VRTool.Web.Controllers
 {
-    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
-    public class UsersController : VRToolControllerBase
+    //[AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    public class UsersController : AbpController
     {
         private readonly IUserAppService _userAppService;
+        private readonly IRoleAppService _roleAppService;
 
         public UsersController(IUserAppService userAppService)
         {
@@ -32,14 +35,15 @@ namespace LJH.VRTool.Web.Controllers
             PagedList<UserDto> model = users.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
             return View(model);
         }
-        public ActionResult Add()
+        public async Task<ActionResult> Add()
         {
-            return View();
+            var roles = (await _userAppService.GetRoles()).Items;
+            return View(roles);
         }
         [HttpPost]
-        public async Task<ActionResult> Add(CreateUserDto model)
+        public  ActionResult Add(SavePersonModel model)
         {
-            var user= (await _userAppService.CreateUser(model));
+            //var user= (await _userAppService.CreateUser(model));
             return Json(new { status = "ok" });
         }
         //public async Task<ActionResult> EditUserModal(long userId)
@@ -53,5 +57,51 @@ namespace LJH.VRTool.Web.Controllers
         //    };
         //    return View("_EditUserModal", model);
         //}
+        [HttpPost]
+        public ActionResult Test()
+        {
+            //var user= (await _userAppService.CreateUser(model));
+            return Json(new { status = "ok" });
+        }
+        public class CreateUserDtoT 
+        {
+          
+            public string Name { get; set; }
+
+            //public string Name { get; set; }
+
+
+            //public string Surname { get; set; }
+
+
+            //public string EmailAddress { get; set; }
+
+
+            //public string[] RoleNames { get; set; }
+
+            //public string Password { get; set; }
+            //public long[] RoleIds { get; set; }
+
+        }
+        public class SavePersonModel
+        {
+
+            public string name { get; set; }
+
+            //public string Name { get; set; }
+
+
+            //public string Surname { get; set; }
+
+
+            //public string EmailAddress { get; set; }
+
+
+            //public string[] RoleNames { get; set; }
+
+            //public string Password { get; set; }
+            //public long[] RoleIds { get; set; }
+
+        }
     }
 }

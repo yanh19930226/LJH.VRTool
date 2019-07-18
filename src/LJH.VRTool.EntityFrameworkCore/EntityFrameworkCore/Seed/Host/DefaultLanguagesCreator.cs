@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Abp.Localization;
+using Abp.Configuration;
 
 namespace LJH.VRTool.EntityFrameworkCore.Seed.Host
 {
@@ -39,15 +40,22 @@ namespace LJH.VRTool.EntityFrameworkCore.Seed.Host
         {
             CreateLanguages();
         }
-
         private void CreateLanguages()
         {
             foreach (var language in InitialLanguages)
             {
                 AddLanguageIfNotExists(language);
             }
+            SetDefaultLanguageIfNotExist("zh-Hans");
         }
+        private void SetDefaultLanguageIfNotExist(string lang)
+        {
+            if (_context.Settings.IgnoreQueryFilters().Any(s => s.Name == LocalizationSettingNames.DefaultLanguage && s.Value == lang))
+                return;
 
+            _context.Settings.Add(new Setting(null, null, LocalizationSettingNames.DefaultLanguage, "zh-Hans"));
+            _context.SaveChanges();
+        }
         private void AddLanguageIfNotExists(ApplicationLanguage language)
         {
             if (_context.Languages.IgnoreQueryFilters().Any(l => l.TenantId == language.TenantId && l.Name == language.Name))
