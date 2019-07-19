@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
@@ -17,5 +18,6 @@ namespace LJH.VRTool.Users
 
         Task<List<UserDto>> GetAllListAsync();
         Task<UserDto> CreateUser(CreateUserDto input);
+        List<UserDto> GetAllList(string Keyword, DateTime? TimeMin, DateTime? TimeMax);
     }
 }

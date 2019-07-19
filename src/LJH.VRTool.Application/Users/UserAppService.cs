@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ using LJH.VRTool.Authorization.Roles;
 using LJH.VRTool.Authorization.Users;
 using LJH.VRTool.Roles.Dto;
 using LJH.VRTool.Users.Dto;
+using LJH.VRTool.Users.Specification;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,36 +57,7 @@ namespace LJH.VRTool.Users
 
         
 
-        public override async Task<UserDto> Update(UserDto input)
-        {
-            CheckUpdatePermission();
-
-            var user = await _userManager.GetUserByIdAsync(input.Id);
-
-            MapToEntity(input, user);
-
-            CheckErrors(await _userManager.UpdateAsync(user));
-
-            if (input.RoleNames != null)
-            {
-                CheckErrors(await _userManager.SetRoles(user, input.RoleNames));
-            }
-
-            return await Get(input);
-        }
-
-        public override async Task Delete(EntityDto<long> input)
-        {
-            var user = await _userManager.GetUserByIdAsync(input.Id);
-            await _userManager.DeleteAsync(user);
-        }
-
-        public async Task<ListResultDto<RoleDto>> GetRoles()
-        {
-            var roles = await _roleRepository.GetAllListAsync();
-            return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
-        }
-
+       
         public async Task ChangeLanguage(ChangeUserLanguageDto input)
         {
             await SettingManager.ChangeSettingForUserAsync(
@@ -197,19 +170,36 @@ namespace LJH.VRTool.Users
             }
 
             return true;
-        } 
+        }
         #endregion
 
 
-
+        /// <summary>
+        /// 获取角色
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ListResultDto<RoleDto>> GetRoles()
+        {
+            var roles = await _roleRepository.GetAllListAsync();
+            return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
+        }
         /// <summary>
         ///异步获取用户
         /// </summary>
         /// <returns></returns>
         public async Task<List<UserDto>> GetAllListAsync()
         {
-            var roles = await Repository.GetAllListAsync();
-            return new List<UserDto>(ObjectMapper.Map<List<UserDto>>(roles));
+            var users = await Repository.GetAllListAsync();
+            return new List<UserDto>(ObjectMapper.Map<List<UserDto>>(users));
+        }
+        public  List<UserDto> GetAllList(string Keyword,DateTime?TimeMin, DateTime? TimeMax)
+        {
+            //var roles = await Repository.GetAllListAsync(new UserSearchSpecification(Keyword, TimeMin, TimeMax));
+            var users = Repository.GetAll()
+                .WhereIf(!string.IsNullOrEmpty(Keyword), q => q.Name.Contains(Keyword) || q.UserName.Contains(Keyword) || q.FullName.Contains(Keyword))
+                .WhereIf(TimeMin.HasValue, q => q.CreationTime >= TimeMin.Value)
+                .WhereIf(TimeMax.HasValue, q => q.CreationTime <= TimeMax.Value);
+            return new List<UserDto>(ObjectMapper.Map<List<UserDto>>(users));
         }
         /// <summary>
         /// 创建用户并分配角色
@@ -238,37 +228,38 @@ namespace LJH.VRTool.Users
 
             return MapToEntityDto(user);
         }
-
-
-
-        public async Task<UserDto> CreateUser(CreateUserDtoT a)
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public override async Task<UserDto> Update(UserDto input)
         {
-            CreateUserDto input=new CreateUserDto();
-            CheckCreatePermission();
-            var user = ObjectMapper.Map<User>(input);
+            CheckUpdatePermission();
 
-            user.TenantId = AbpSession.TenantId;
-            user.IsEmailConfirmed = true;
+            var user = await _userManager.GetUserByIdAsync(input.Id);
 
-            await _userManager.InitializeOptionsAsync(AbpSession.TenantId);
+            MapToEntity(input, user);
 
-            CheckErrors(await _userManager.CreateAsync(user, input.Password));
+            CheckErrors(await _userManager.UpdateAsync(user));
 
             if (input.RoleNames != null)
             {
                 CheckErrors(await _userManager.SetRoles(user, input.RoleNames));
             }
 
-            CurrentUnitOfWork.SaveChanges();
-
-            return MapToEntityDto(user);
+            return await Get(input);
         }
-
-    }
-    public class CreateUserDtoT
-    {
-
-        public string UserName { get; set; }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public override async Task Delete(EntityDto<long> input)
+        {
+            var user = await _userManager.GetUserByIdAsync(input.Id);
+            await _userManager.DeleteAsync(user);
+        }
     }
 }
 

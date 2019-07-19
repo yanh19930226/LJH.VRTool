@@ -38,27 +38,30 @@ namespace LJH.VRTool.Web.Controllers
             var user = (await _roleAppService.CreateRole(model));
             return Json(new { status = "ok" });
         }
+        public async Task<ActionResult> Edit(int roleId)
+        {
+            var output = await _roleAppService.GetRoleForEdit(new EntityDto(roleId));
+            var model = new EditRoleModalViewModel(output);
 
-
-        //public async Task<IActionResult> Index()
-        //{
-        //    var roles = (await _roleAppService.GetRolesAsync(new GetRolesInput())).Items;
-        //    var permissions = (await _roleAppService.GetAllPermissions()).Items;
-        //    var model = new RoleListViewModel
-        //    {
-        //        Roles = roles,
-        //        Permissions = permissions
-        //    };
-
-        //    return View(model);
-        //}
-
-        //public async Task<ActionResult> EditRoleModal(int roleId)
-        //{
-        //    var output = await _roleAppService.GetRoleForEdit(new EntityDto(roleId));
-        //    var model = new EditRoleModalViewModel(output);
-
-        //    return View("_EditRoleModal", model);
-        //}
+            return View("_EditRoleModal", model);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Edit(CreateRoleDto model)
+        {
+            var user = (await _roleAppService.CreateRole(model));
+            return Json(new { status = "ok" });
+        }
+        [HttpPost]
+        public async Task<ActionResult> Delete(CreateRoleDto model)
+        {
+            var user = (await _roleAppService.CreateRole(model));
+            return Json(new { status = "ok" });
+        }
+        [HttpPost]
+        public async Task<ActionResult> BatchDelete(CreateRoleDto model)
+        {
+            var user = (await _roleAppService.CreateRole(model));
+            return Json(new { status = "ok" });
+        }
     }
 }

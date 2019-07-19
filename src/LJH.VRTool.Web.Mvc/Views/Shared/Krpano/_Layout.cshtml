@@ -1,4 +1,22 @@
-﻿@inject LJH.VRTool.Timing.AppTimes AppTimes
+﻿@using System.Globalization
+@using Abp.Configuration
+@using Abp.Configuration.Startup
+@using Abp.Web.Mvc.Alerts
+@using Abp.Web.Security.AntiForgery
+@using LJH.VRTool
+@using LJH.VRTool.Configuration
+@using LJH.VRTool.Web.Resources
+@inject LJH.VRTool.Timing.AppTimes AppTimes
+@inject IAbpAntiForgeryManager AbpAntiForgeryManager
+@inject IMultiTenancyConfig MultiTenancyConfig
+@inject IWebResourceManager WebResourceManager
+@inject ISettingManager SettingManager
+@inject IAlertManager AlertManager
+@{
+    Layout = null;
+    AbpAntiForgeryManager.SetCookie(Context);
+    var uiTheme = await SettingManager.GetSettingValueAsync(AppSettingNames.UiTheme);
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +39,6 @@
         <link href="~/lib/krpano/hplus/js/plugins/layer/skin/layer.ext.css" rel="stylesheet" />
         <link href="~/lib/krpano/hplus/js/plugins/layui/css/layui.css" rel="stylesheet" />
         <link href="~/lib/krpano/hplus/css/plugins/jsTree/jsTree.min.css" rel="stylesheet" />
-        <link href="~/lib/krpano/hplus/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
         <link href="~/lib/krpano/hplus/css/plugins/iCheck/custom.css" rel="stylesheet" />
     </environment>
     @*生产环境压缩*@
@@ -38,36 +55,28 @@
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/abp.js"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js"></script>
         <script src="~/lib/krpano/hplus/js/bootstrap.min.js?v=3.3.5"></script>
-        <script src="~/lib/krpano/hplus/js/demo/peity-demo.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/flot/jquery.flot.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/flot/jquery.flot.spline.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/flot/jquery.flot.resize.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/flot/jquery.flot.pie.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/peity/jquery.peity.min.js"></script>
-        @*<script src="~/lib/krpano/hplus/js/content.min.js?v=1.0.0"></script>*@
         <script src="~/lib/krpano/hplus/js/plugins/jquery-ui/jquery-ui.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/gritter/jquery.gritter.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/easypiechart/jquery.easypiechart.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/sparkline/jquery.sparkline.min.js"></script>
-        <script src="~/lib/krpano/hplus/js/demo/sparkline-demo.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/metisMenu/jquery.metisMenu.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/layer/layer.min.js"></script>
         <script src="~/lib/krpano/hplus/js/hplus.min.js?v=4.0.0"></script>
         <script src="~/lib/krpano/hplus/js/contabs.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/pace/pace.min.js"></script>
-        <script src="~/lib/krpano/hplus/js/plugins/layer/extend/layer.ext.js"></script>
+        @*<script src="~/lib/krpano/hplus/js/plugins/layer/extend/layer.ext.js"></script>*@
         <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/jsTree/jstree.min.js"></script>
-        <script src="~/lib/krpano/hplus/js/plugins/sweetalert/sweetalert.min.js"></script>
         <script src="~/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js"></script>
-
-
-        <script src="~/AbpServiceProxies/GetAll?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
-        <script src="~/AbpScripts/GetScripts?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
-        <script src="~/lib/signalr-client/signalr.min.js" asp-append-version="true"></script>
-        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.signalr-client.js" asp-append-version="true"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/WdatePicker.js"></script>
     </environment>
     @*生产环境压缩*@
     <environment names="Staging,Production">

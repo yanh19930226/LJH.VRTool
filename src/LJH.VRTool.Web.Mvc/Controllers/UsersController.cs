@@ -14,25 +14,23 @@ using System.IO;
 using System.Linq;
 using LJH.VRTool.Roles;
 using Abp.AspNetCore.Mvc.Controllers;
+using SearchOption = LJH.VRTool.Web.Models.Users.SearchOption;
 
 namespace LJH.VRTool.Web.Controllers
 {
-    //[AbpMvcAuthorize(PermissionNames.Pages_Users)]
-    public class UsersController : AbpController
+    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
+    public class UsersController : VRToolControllerBase
     {
         private readonly IUserAppService _userAppService;
-        private readonly IRoleAppService _roleAppService;
 
         public UsersController(IUserAppService userAppService)
         {
             _userAppService = userAppService;
         }
-
-        public async Task<ActionResult> Index(int pageIndex = 1)
+        public ActionResult Index(int pageIndx,SearchOption search)
         {
-            int pageSize = 1;
-            var users = (await _userAppService.GetAllListAsync()); 
-            PagedList<UserDto> model = users.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
+            var users =_userAppService.GetAllList(search.KeyWord, search.TimeMin, search.TimeMax);
+            PagedList <UserDto> model = users.OrderBy(a => a.CreationTime).ToPagedList(search.pageIndex, search.pageSize);
             return View(model);
         }
         public async Task<ActionResult> Add()
@@ -41,67 +39,47 @@ namespace LJH.VRTool.Web.Controllers
             return View(roles);
         }
         [HttpPost]
-        public  ActionResult Add(SavePersonModel model)
+        public async Task<ActionResult> Add(CreateUserDto model)
         {
-            //var user= (await _userAppService.CreateUser(model));
+            var user = (await _userAppService.CreateUser(model));
             return Json(new { status = "ok" });
         }
-        //public async Task<ActionResult> EditUserModal(long userId)
-        //{
-        //    var user = await _userAppService.Get(new EntityDto<long>(userId));
-        //    var roles = (await _userAppService.GetRoles()).Items;
-        //    var model = new EditUserModalViewModel
-        //    {
-        //        User = user,
-        //        Roles = roles
-        //    };
-        //    return View("_EditUserModal", model);
-        //}
         [HttpPost]
-        public ActionResult Test()
+        public async Task<ActionResult> Edit(long userId)
         {
-            //var user= (await _userAppService.CreateUser(model));
+            var user = await _userAppService.Get(new EntityDto<long>(userId));
+            var roles = (await _userAppService.GetRoles()).Items;
+            var model = new EditUserModalViewModel
+            {
+                User = user,
+                Roles = roles
+            };
+            return View("_EditUserModal", model);
+        }
+        public async Task<ActionResult> Edit()
+        {
+            var roles = (await _userAppService.GetRoles()).Items;
+            return View(roles);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Delete(EntityDto<long> input)
+        {
+            await _userAppService.Delete(input);
             return Json(new { status = "ok" });
         }
-        public class CreateUserDtoT 
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="selectedIds"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult> BatchDelete(long[] selectedIds)
         {
-          
-            public string Name { get; set; }
-
-            //public string Name { get; set; }
-
-
-            //public string Surname { get; set; }
-
-
-            //public string EmailAddress { get; set; }
-
-
-            //public string[] RoleNames { get; set; }
-
-            //public string Password { get; set; }
-            //public long[] RoleIds { get; set; }
-
-        }
-        public class SavePersonModel
-        {
-
-            public string name { get; set; }
-
-            //public string Name { get; set; }
-
-
-            //public string Surname { get; set; }
-
-
-            //public string EmailAddress { get; set; }
-
-
-            //public string[] RoleNames { get; set; }
-
-            //public string Password { get; set; }
-            //public long[] RoleIds { get; set; }
-
+            foreach (long id in selectedIds)
+            {
+                await _userAppService.Delete(new EntityDto<long>() { Id = id });
+            }
+            return Json(new { status = "ok" });
         }
     }
 }
