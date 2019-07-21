@@ -1,226 +1,62 @@
-﻿@using AspNetCorePage;
+﻿@using Webdiyer.AspNetCore;
+@using LJH.VRTool.Web.Views.Shared.Components.SearchFormComponent
 @model PagedList<LJH.VRTool.Users.Dto.UserDto>
 @{
-    ViewBag.Title = "用户管理";
-    Layout = "~/Views/Shared/Krpano/_Layout.cshtml";
-}
-@section styles{
-    <style>
-
-        .table-responsive {
-            margin-top: 40px;
-        }
-            .table-responsive table thead tr th, .table-responsive table tbody tr td {
-                text-align: center;
-            }
-    </style>
+    ViewBag.Title = ViewBag.Title;
 }
 <div class="wrapper wrapper-content">
     <div class="ibox-content">
-        <form action="@Url.Action("Index","Users")" method="Get" id="searchForm">
-            <div class="row">
-                日期范围：
-                <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="input-text Wdate" style="width:120px;">
-                -
-                <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="input-text Wdate" style="width:120px;">
-                <div class="col-sm-3 pull-right">
-                    <div class="input-group">
-                        <input type="text" placeholder="请输入关键词" class="input-sm form-control" id="KeyWord" name="KeyWord"> <span class="input-group-btn">
-                            <button type="button" class="layui-btn layui-btn-sm layui-btn-dangery" onclick="search()">
-                                <i class="layui-icon layui-icon-search">
-                                </i> 搜索
-                            </button>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-3 pull-right text-right">
-                    <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="add()">
-                        <i class="layui-icon layui-icon-add-circle-fine">
-                        </i>
-                        添加
-                    </button>
-                </div>
-                <div class="col-sm-3 pull-right text-right">
-                    <button type="button" class="layui-btn layui-btn-sm  layui-btn-danger" onclick="batchdeleted()">
-                        <i class="layui-icon layui-icon-delete">
-                        </i>
-                        批量删除
-                    </button>
-                </div>
-            </div>
+        <button onclick="Test()">测试</button>
+        <button onclick="TestPost()">测试</button>
+        <form id="searchForm" asp-action="Index" asp-controller="Users" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
+            @await Component.InvokeAsync(typeof(SearchFormComponent))
         </form>
-        <div class="table-responsive animated fadeInRight layui-form">
-            <form id="formList">
-                <table class="layui-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox" lay-skin="primary" lay-filter="allChoose">
-                            </th>
-                            <th>ID</th>
-                            <th>用户名</th>
-                            <th>性别</th>
-                            <th>手机</th>
-                            <th>邮箱</th>
-                            <th>地址</th>
-                            <th>加入时间</th>
-                            <th>是否激活</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="selectedIds" value="@item.Id" lay-skin="primary" lay-filter="itemChoose">
-                                </td>
-                                <td>@item.Id</td>
-                                <td>@item.Name</td>
-                                <td>男</td>
-                                <td>13000000000</td>
-                                <td>@item.EmailAddress</td>
-                                <td>北京市 海淀区</td>
-                                <td>@item.CreationTime</td>
-                                <td>
-                                    <input type="checkbox" checked="@item.IsActive" lay-skin="switch" disabled>
-                                </td>
-                                <td>
-
-                                    <button type="button" class="layui-btn layui-btn-sm layui-btn-warm" onclick="edit('@item.Id')">
-                                        <i class="layui-icon layui-icon-edit">
-                                        </i>编辑
-                                    </button>
-                                    <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" onclick="deleted('@item.Id')">
-                                        <i class="layui-icon layui-icon-delete">
-                                        </i>
-                                        删除
-                                    </button>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </form>
-            <div class="text-center">
-                <nav aria-label="Page navigation">
-                    @Html.Pager(Model, new PagerOptions
-               {
-                   PageIndexParameterName = "pageIndex",
-                   TagName = "ul",
-                   CssClass = "pagination",
-                   CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
-                   DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
-                   PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
-                   Id = "bootstrappager"
-               })
-                </nav>
-            </div>
+        <div class="table-responsive animated fadeInRight layui-form" id="ajaxresult">
+            <partial name="List" model="@Model" />
         </div>
     </div>
 </div>
 @section scripts
-    {
-    <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
-    <script>
-        function search() {
-            $("#searchForm").submit();
-        };
-        function add() {
-            layer.open({
-            anim: 3,
-            type: 2,
-            title: '添加用户',
-            shadeClose: true,
-            shade: 0.8,
-            area: ['600px', '600px'],
-            content: '@Url.Action("Add", "Users")',
-            btn: ['确认', '取消'],
-            yes: function (index, layero) {
-                var body = layer.getChildFrame('body', index);
-                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
-                iframeWin.save();
+{
+<script>
+    var Test = function () {
+        $.ajax({
+            type: 'POST',
+            url: "/Users/Test",
+            dataType: 'json',
+            success: function (res) {
+                if (res.result.status == "ok") {
+                    layer.msg('已删除!', { icon: 1, time: 30000 });
+                    location.reload();//刷新页面
+                }
+                else {
+                    layer.msg('删除失败!', { icon: 2, time: 5000 });
+                }
             },
-            btn2: function(index, layero){
-                  layer.close(index);
-            }
-          });
-        };
-        function edit(id){
-            parent.layer.open({
-            type: 2,
-            title: '编辑用户',
-            shadeClose: true,
-            shade: 0.8,
-            area: ['600px', '600px'],
-            content: '@Url.Action("Edit", "Home")?Id='+id,
-            btn: ['确认', '取消'],
-            yes: function (index, layero) {
-                var body = layer.getChildFrame('body', index);
-                var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
-                iframeWin.save();
+            error: function (data) {
+                layer.msg('请求出错!', { icon: 3, time: 5000 });
             },
-            btn2: function(index, layero){
-                  layer.close(index);
-            }
-          });
-        };
-        function deleted(id) {
-                layer.confirm('确认要删除吗？', function () {
-                    $.ajax({
-                        type: 'POST',
-                        url: "@Url.Action("Delete","Users")?Id="+id,
-                        dataType: 'json',
-                        success: function (res) {
-                            if (res.result.status == "ok") {
-                                layer.msg('已删除!', { icon: 1, time: 30000 });
-                                location.reload();//刷新页面
-                            }
-                            else {
-                                layer.msg('删除失败!', { icon: 2, time: 5000 });
-                            }
-                        },
-                        error: function (data) {
-                            layer.msg('请求出错!', { icon: 3, time: 5000 });
-                        },
-                    });
-                });
-        };
-         function batchdeleted() {
-              layer.confirm("确认要批量删除这些数据吗？", function () {
-                    var formData = $("#formList").serializeArray();
-                    $.ajax({
-                        url: "@Url.Action("BatchDelete","Users")",
-                        type: "post",
-                        data: formData,
-                        dataType: "json",
-                        success: function (res) {
-                            if (res.result.status == "ok") {
-                                layer.msg('已删除!', { icon: 1, time: 30000 });
-                                location.reload();//刷新页面
-                            }
-                            else {
-                                layer.msg('删除失败!', { icon: 2, time: 5000 });
-                            }
-                        },
-                        error: function () {
-                            layer.msg('请求出错!', { icon: 3, time: 5000 });
-                        }
-                    });
-                });
-        };
-        layui.use(['form', 'jquery'], function () {
-            var $ = layui.jquery;
-            var form = layui.form;
-            //全选
-            form.on('checkbox(allChoose)', function (data) {
-                var child = $(data.elem).parents('table').find('tbody input[type="checkbox"][name=selectedIds]');
-                child.each(function (index, item) {
-                    item.checked = data.elem.checked;
-                });
-                form.render('checkbox');
-
-            });
         });
-    </script>
+        };
+    var TestPost = function () {
+        $.ajax({
+            type: 'POST',
+            url: "/Users/TestPost",
+            dataType: 'json',
+            success: function (res) {
+                if (res.result.status == "ok") {
+                    layer.msg('已删除!', { icon: 1, time: 30000 });
+                    location.reload();//刷新页面
+                }
+                else {
+                    layer.msg('删除失败!', { icon: 2, time: 5000 });
+                }
+            },
+            error: function (data) {
+                layer.msg('请求出错!', { icon: 3, time: 5000 });
+            },
+        });
+    };
+</script>
+    <script src="~/view-resources/Views/Users/index.js"></script>
 }

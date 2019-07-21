@@ -38,7 +38,7 @@ a:focus {
 .nav > li > a {
     color: #a7b1c2;
     font-weight: 600;
-    padding: 14px 20px 14px 25px
+    padding: 16px 20px 14px 25px
 }
 
 .nav li > a {
@@ -180,7 +180,7 @@ body.body-small .navbar-top-links li:last-child {
 }
 
 .nav-header {
-    padding: 29px 25px;
+    padding: 25px 25px;
     /*background: url(patterns/header-profile.png) no-repeat*/
 }
 
@@ -1534,7 +1534,7 @@ table.dataTable thead .sorting:after {
     text-transform: uppercase
 }
 
-.pace {
+/*.pace {
     -webkit-pointer-events: none;
     pointer-events: none;
     -webkit-user-select: none;
@@ -1554,7 +1554,7 @@ table.dataTable thead .sorting:after {
 
 .pace-inactive {
     display: none
-}
+}*/
 
 .widget {
     border-radius: 5px;
@@ -3135,7 +3135,7 @@ nav.page-tabs {
     width: 100000px;
     height: 40px;
     overflow: hidden;
-    border-left: 1px solid #293846;
+    /*border-left: 1px solid #293846;*/
 }
 
     nav.page-tabs .page-tabs-content {
@@ -3164,7 +3164,6 @@ nav.page-tabs {
 }
 
 .roll-right.btn-group {
-    right: 60px;
     width: 80px;
     padding: 0
 }
@@ -6280,7 +6279,7 @@ body.rtls .top-navigation #page-wrapper, body.rtls .top-navigation .footer.fixed
     }
 
 .content-tabs {
-    border-bottom: solid 2px #2f4050
+    border-bottom: solid 1px #111;
 }
 
 .page-tabs a {

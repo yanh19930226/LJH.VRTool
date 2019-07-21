@@ -1,0 +1,75 @@
+﻿@using Abp.Configuration
+@using Abp.Configuration.Startup
+@using Abp.Web.Mvc.Alerts
+@using Abp.Web.Security.AntiForgery
+@using LJH.VRTool
+@using LJH.VRTool.Configuration
+@using LJH.VRTool.Web.Resources
+@inject LJH.VRTool.Timing.AppTimes AppTimes
+@inject IAbpAntiForgeryManager AbpAntiForgeryManager
+@inject IMultiTenancyConfig MultiTenancyConfig
+@inject IWebResourceManager WebResourceManager
+@inject ISettingManager SettingManager
+@inject IAlertManager AlertManager
+@{
+    Layout = null;
+    AbpAntiForgeryManager.SetCookie(Context);
+    var uiTheme = await SettingManager.GetSettingValueAsync(AppSettingNames.UiTheme);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>@ViewBag.Title</title>
+    @*开发环境*@
+<environment names="Development">
+    <link href="~/lib/krpano/hplus/css/bootstrap.min.css?v=3.3.5" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/css/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/css/style.min.css?v=4.0.0" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/css/plugins/jsTree/jsTree.min.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/css/plugins/iCheck/custom.css" rel="stylesheet" />
+</environment>
+    @*生产环境压缩*@
+    <environment names="Staging,Production">
+        @*<link href="~/view-resources/Views/_Bundles/shared-layout.min.css" rel="stylesheet" asp-append-version="true" />*@
+    </environment>
+</head>
+<body class="fixed-sidebar full-height-layout" style="overflow:hidden">
+    @RenderSection("styles", required: false)
+    @RenderBody()
+    @*开发环境*@
+    <environment names="Development">
+        <script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
+        <script src="~/lib/krpano/hplus/js/jquery.unobtrusive-ajax.js"></script>
+        <script src="~/lib/krpano/hplus/js/bootstrap.min.js?v=3.3.5"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
+        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/abp.js"></script>
+        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="~/lib/krpano/hplus/js/contabs.min.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/pace/pace.min.js"></script>
+        <script src="~/lib/krpano/hplus/js/hplus.min.js?v=4.0.0"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/jsTree/jstree.min.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js"></script>
+        <script src="~/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/WdatePicker.js"></script>
+        <script src="~/lib/krpano/hplus/js/MvcCorePager.min.js"></script>
+    </environment>
+    @*生产环境压缩*@
+    <environment names="Staging,Production">
+        @*<script src="~/view-resources/Views/_Bundles/shared-layout.min.js" asp-append-version="true"></script>*@
+    </environment>
+    @*<script>
+            $(document).ready(function(){WinMove();setTimeout(function(){$.gritter.add({title:"您有2条未读信息",text:'请前往<a href="mailbox.html" class="text-warning">收件箱</a>查看今日任务',time:10000})},2000);$(".chart").easyPieChart({barColor:"#f8ac59",scaleLength:5,lineWidth:4,size:80});$(".chart2").easyPieChart({barColor:"#1c84c6",scaleLength:5,lineWidth:4,size:80});var data1=[[0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]];var data2=[[0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]];$("#flot-dashboard-chart").length&&$.plot($("#flot-dashboard-chart"),[data1,data2],{series:{lines:{show:false,fill:true},splines:{show:true,tension:0.4,lineWidth:1,fill:0.4},points:{radius:0,show:true},shadowSize:2},grid:{hoverable:true,clickable:true,tickColor:"#d5d5d5",borderWidth:1,color:"#d5d5d5"},colors:["#1ab394","#464f88"],xaxis:{},yaxis:{ticks:4},tooltip:false})});
+        </script>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

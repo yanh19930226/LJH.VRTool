@@ -7,14 +7,9 @@ using LJH.VRTool.Controllers;
 using LJH.VRTool.Users;
 using LJH.VRTool.Web.Models.Users;
 using LJH.VRTool.Users.Dto;
-using Microsoft.AspNetCore.Hosting;
-using AspNetCorePage;
-using LJH.VRTool.Web.Models.Test;
-using System.IO;
 using System.Linq;
-using LJH.VRTool.Roles;
-using Abp.AspNetCore.Mvc.Controllers;
-using SearchOption = LJH.VRTool.Web.Models.Users.SearchOption;
+using Webdiyer.AspNetCore;
+using LJH.VRTool.HttpService;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -27,10 +22,15 @@ namespace LJH.VRTool.Web.Controllers
         {
             _userAppService = userAppService;
         }
-        public ActionResult Index(int pageIndx,SearchOption search)
+        public ActionResult Index(UserSearch search, int pageIndex)
         {
-            var users =_userAppService.GetAllList(search.KeyWord, search.TimeMin, search.TimeMax);
-            PagedList <UserDto> model = users.OrderBy(a => a.CreationTime).ToPagedList(search.pageIndex, search.pageSize);
+            var users = _userAppService.GetAllList(search.KeyWord, search.TimeMin, search.TimeMax);
+            PagedList<UserDto> model = users.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, search.pageSize);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("List", model);
+            }
+            ViewBag.Title = "用户管理";
             return View(model);
         }
         public async Task<ActionResult> Add()
@@ -67,11 +67,6 @@ namespace LJH.VRTool.Web.Controllers
             await _userAppService.Delete(input);
             return Json(new { status = "ok" });
         }
-        /// <summary>
-        /// 批量删除
-        /// </summary>
-        /// <param name="selectedIds"></param>
-        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult> BatchDelete(long[] selectedIds)
         {
@@ -80,6 +75,18 @@ namespace LJH.VRTool.Web.Controllers
                 await _userAppService.Delete(new EntityDto<long>() { Id = id });
             }
             return Json(new { status = "ok" });
+        }
+        [HttpPost]
+        public ActionResult Test()
+        {
+            var a=HttpHelper.HttpGet("https://api.douban.com/v2/movie/new_movies?apikey=0b2bdeda43b5688921839c8ecb20399b", null);
+            return null;
+        }
+        public ActionResult TestPost()
+        {
+
+            var a = HttpHelper.HttpPostAsync("https://api.douban.com/v2/movie/new_movies?apikey=0b2bdeda43b5688921839c8ecb20399b", null);
+            return null;
         }
     }
 }

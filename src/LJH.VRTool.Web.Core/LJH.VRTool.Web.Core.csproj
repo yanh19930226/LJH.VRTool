@@ -28,7 +28,4 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Abp.AspNetCore.SignalR" Version="4.3.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HttpService\" />
-  </ItemGroup>
 </Project>

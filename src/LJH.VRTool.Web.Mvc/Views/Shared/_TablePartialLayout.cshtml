@@ -1,0 +1,41 @@
+﻿<link href="~/lib/krpano/hplus/js/plugins/layui/css/layui.css" rel="stylesheet" />
+<style>
+    .layui-table th{
+        font-weight:bold;
+    }
+    .layui-table th,.layui-table td {
+        text-align: center;
+        color:#000000;
+    }
+</style>
+@RenderSection("styles", required: false)
+@RenderBody()
+@RenderSection("scripts", required: false)
+<script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+<script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
+<script>
+    layui.use(['form', 'jquery'], function () {
+        var $ = layui.jquery;
+        var form = layui.form;
+        //全选
+        form.on('checkbox(allChoose)', function (data) {
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"][name=selectedIds]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+    });
+    var OnBegin = function () {
+        var index = layer.load();
+        layer.load(index);
+    };
+    var OnSuccess = function () {
+        var index = layer.load();
+        layer.close(index);
+    };
+    var OnComplete = function () {
+        var index = layer.load();
+        layer.close(index);
+    }
+</script>

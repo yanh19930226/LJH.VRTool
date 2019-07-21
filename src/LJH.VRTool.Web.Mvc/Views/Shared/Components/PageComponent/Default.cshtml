@@ -1,0 +1,18 @@
+﻿@using Webdiyer.AspNetCore;
+@model PagedList<dynamic>
+<div class="text-center">
+    @Html.AjaxPager(Model, new PagerOptions
+            {
+                PrevPageText = "Prev",
+                NextPageText = "Next",
+                FirstPageText = "First",
+                LastPageText = "Last",
+                PageIndexParameterName = "pageIndex",
+                TagName = "ul",
+                CssClass = "pagination",
+                CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+                DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+                PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+                Id = "bootstrappager"
+            }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1, OnComplete = "OnComplete" })
+</div>

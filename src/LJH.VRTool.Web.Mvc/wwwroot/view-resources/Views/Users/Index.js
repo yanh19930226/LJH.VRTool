@@ -1,92 +1,103 @@
-﻿(function() {
-    $(function() {
-
-        var _userService = abp.services.app.user;
-        var _$modal = $('#UserCreateModal');
-        var _$form = _$modal.find('form');
-
-        _$form.validate({
-            rules: {
-                Password: "required",
-                ConfirmPassword: {
-                    equalTo: "#Password"
-                }
-            }
-        });
-
-        $('#RefreshButton').click(function () {
-            refreshUserList();
-        });
-
-        $('.delete-user').click(function () {
-            var userId = $(this).attr("data-user-id");
-            var userName = $(this).attr('data-user-name');
-
-            deleteUser(userId, userName);
-        });
-
-        $('.edit-user').click(function (e) {
-            var userId = $(this).attr("data-user-id");
-
-            e.preventDefault();
-            $.ajax({
-                url: abp.appPath + 'Users/EditUserModal?userId=' + userId,
-                type: 'POST',
-                contentType: 'application/html',
-                success: function (content) {
-                    $('#UserEditModal div.modal-content').html(content);
-                },
-                error: function (e) { }
-            });
-        });
-
-        _$form.find('button[type="submit"]').click(function (e) {
-            e.preventDefault();
-
-            if (!_$form.valid()) {
-                return;
-            }
-
-            var user = _$form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-            user.roleNames = [];
-            var _$roleCheckboxes = $("input[name='role']:checked");
-            if (_$roleCheckboxes) {
-                for (var roleIndex = 0; roleIndex < _$roleCheckboxes.length; roleIndex++) {
-                    var _$roleCheckbox = $(_$roleCheckboxes[roleIndex]);
-                    user.roleNames.push(_$roleCheckbox.val());
-                }
-            }
-
-            abp.ui.setBusy(_$modal);
-            _userService.create(user).done(function () {
-                _$modal.modal('hide');
-                location.reload(true); //reload page to see new user!
-            }).always(function () {
-                abp.ui.clearBusy(_$modal);
-            });
-        });
-        
-        _$modal.on('shown.bs.modal', function () {
-            _$modal.find('input:not([type=hidden]):first').focus();
-        });
-
-        function refreshUserList() {
-            location.reload(true); //reload page to see new user!
-        }
-
-        function deleteUser(userId, userName) {
-            abp.message.confirm(
-                abp.utils.formatString(abp.localization.localize('AreYouSureWantToDelete', 'VRTool'), userName),
-                function (isConfirmed) {
-                    if (isConfirmed) {
-                        _userService.delete({
-                            id: userId
-                        }).done(function () {
-                            refreshUserList();
-                        });
-                    }
-                }
-            );
+﻿function searchlist() {
+    $("#searchForm").submit();
+};
+function add() {
+    layer.open({
+        anim: 3,
+        type: 2,
+        title: '添加用户',
+        shadeClose: true,
+        shade: 0.8,
+        area: ['600px', '600px'],
+        content: '/Users/Add',
+        btn: ['确认', '取消'],
+        yes: function (index, layero) {
+            var body = layer.getChildFrame('body', index);
+            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+            iframeWin.save();
+        },
+        btn2: function (index, layero) {
+            layer.close(index);
         }
     });
-})();
+};
+function edit(id) {
+    parent.layer.open({
+        type: 2,
+        title: '编辑用户',
+        shadeClose: true,
+        shade: 0.8,
+        area: ['600px', '600px'],
+        content: '/Home/EditId=' + id,
+        btn: ['确认', '取消'],
+        yes: function (index, layero) {
+            var body = layer.getChildFrame('body', index);
+            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
+            iframeWin.save();
+        },
+        btn2: function (index, layero) {
+            layer.close(index);
+        }
+    });
+};
+function deleted(id) {
+    layer.confirm('确认要删除吗？', function () {
+        $.ajax({
+            type: 'POST',
+            url: "/Users/Delete?Id=" + id,
+            dataType: 'json',
+            success: function (res) {
+                if (res.result.status == "ok") {
+                    layer.msg('已删除!', { icon: 1, time: 30000 });
+                    location.reload();//刷新页面
+                }
+                else {
+                    layer.msg('删除失败!', { icon: 2, time: 5000 });
+                }
+            },
+            error: function (data) {
+                layer.msg('请求出错!', { icon: 3, time: 5000 });
+            },
+        });
+    });
+};
+function batchdeleted() {
+    var $checkbox = $('tbody input[type="checkbox"][name=selectedIds]');
+    if ($checkbox.is(":checked")) {
+        layer.confirm("确认要批量删除这些数据吗？", function () {
+            var formData = $("#formList").serializeArray();
+            $.ajax({
+                url: "/Users/BatchDelete",
+                type: "post",
+                data: formData,
+                dataType: "json",
+                success: function (res) {
+                    if (res.result.status == "ok") {
+                        layer.msg('已删除!', { icon: 1, time: 30000 });
+                        location.reload();//刷新页面
+                    }
+                    else {
+                        layer.msg('删除失败!', { icon: 2, time: 5000 });
+                    }
+                },
+                error: function () {
+                    layer.msg('请求出错!', { icon: 3, time: 5000 });
+                }
+            });
+        });
+    } else {
+        layer.msg("未选择删除项");
+    }
+};
+layui.use(['form', 'jquery'], function () {
+    var $ = layui.jquery;
+    var form = layui.form;
+    //全选
+    form.on('checkbox(allChoose)', function (data) {
+        var child = $(data.elem).parents('table').find('tbody input[type="checkbox"][name=selectedIds]');
+        child.each(function (index, item) {
+            item.checked = data.elem.checked;
+        });
+        form.render('checkbox');
+    });
+});

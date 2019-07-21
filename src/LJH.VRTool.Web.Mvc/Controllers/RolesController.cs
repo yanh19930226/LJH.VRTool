@@ -7,8 +7,8 @@ using LJH.VRTool.Controllers;
 using LJH.VRTool.Roles;
 using LJH.VRTool.Roles.Dto;
 using LJH.VRTool.Web.Models.Roles;
-using AspNetCorePage;
 using System.Linq;
+using Webdiyer.AspNetCore;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -21,16 +21,21 @@ namespace LJH.VRTool.Web.Controllers
         {
             _roleAppService = roleAppService;
         }
-        public async Task<ActionResult> Index(int pageIndex = 1)
+        public ActionResult Index(RoleSearch search,int pageIndex )
         {
-            int pageSize = 1;
-            var roles = (await _roleAppService.GetAllListAsync());
-            PagedList<RoleDto> model = roles.OrderBy(a => a.Id).ToPagedList(pageIndex, pageSize);
+            var roles = _roleAppService.GetAllList(search.KeyWord, search.TimeMin, search.TimeMax);
+            PagedList<RoleDto> model = roles.OrderBy(a => a.Id).ToPagedList(pageIndex, search.pageSize);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("List", model);
+            }
+            ViewBag.Title = "½ÇÉ«¹ÜÀí";
             return View(model);
         }
-        public ActionResult Add()
+        public async Task<ActionResult> Add()
         {
-            return View();
+            var pers = (await _roleAppService.GetAllPermissions()).Items;
+            return View(pers);
         }
         [HttpPost]
         public async Task<ActionResult> Add(CreateRoleDto model)
@@ -52,15 +57,18 @@ namespace LJH.VRTool.Web.Controllers
             return Json(new { status = "ok" });
         }
         [HttpPost]
-        public async Task<ActionResult> Delete(CreateRoleDto model)
+        public async Task<ActionResult> Delete(EntityDto<int> input)
         {
-            var user = (await _roleAppService.CreateRole(model));
+            await _roleAppService.Delete(input);
             return Json(new { status = "ok" });
         }
         [HttpPost]
-        public async Task<ActionResult> BatchDelete(CreateRoleDto model)
+        public async Task<ActionResult> BatchDelete(int[] selectedIds)
         {
-            var user = (await _roleAppService.CreateRole(model));
+            foreach (int id in selectedIds)
+            {
+                await _roleAppService.Delete(new EntityDto<int>() { Id = id });
+            }
             return Json(new { status = "ok" });
         }
     }

@@ -192,7 +192,14 @@ namespace LJH.VRTool.Users
             var users = await Repository.GetAllListAsync();
             return new List<UserDto>(ObjectMapper.Map<List<UserDto>>(users));
         }
-        public  List<UserDto> GetAllList(string Keyword,DateTime?TimeMin, DateTime? TimeMax)
+        /// <summary>
+        /// 条件搜索
+        /// </summary>
+        /// <param name="Keyword"></param>
+        /// <param name="TimeMin"></param>
+        /// <param name="TimeMax"></param>
+        /// <returns></returns>
+        public List<UserDto> GetAllList(string Keyword,DateTime?TimeMin, DateTime? TimeMax)
         {
             //var roles = await Repository.GetAllListAsync(new UserSearchSpecification(Keyword, TimeMin, TimeMax));
             var users = Repository.GetAll()

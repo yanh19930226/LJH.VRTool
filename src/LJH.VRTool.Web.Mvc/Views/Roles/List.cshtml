@@ -1,0 +1,76 @@
+﻿@using Webdiyer.AspNetCore;
+@{
+    Layout = "~/Views/Shared/_TablePartialLayout.cshtml";
+}
+@model PagedList<LJH.VRTool.Roles.Dto.RoleDto>
+
+@if (Model.Count > 0)
+{
+    <form id="formList">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" lay-skin="primary" lay-filter="allChoose">
+                    </th>
+                    <th>ID</th>
+                    <th>角色名</th>
+                    <th>创建时间</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="selectedIds" value="@item.Id" lay-skin="primary" lay-filter="itemChoose">
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.DisplayName</td>
+                        <td>@item.CreationTime</td>
+                        <td>@item.DisplayName</td>
+                        <td>
+
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-warm" onclick="edit('@item.Id')">
+                                <i class="layui-icon layui-icon-edit">
+                                </i>编辑
+                            </button>
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" onclick="deleted('@item.Id')">
+                                <i class="layui-icon layui-icon-delete">
+                                </i>
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+    <div class="text-center">
+        @Html.AjaxPager(Model, new PagerOptions
+                {
+                    PrevPageText = "Prev",
+                    NextPageText = "Next",
+                    FirstPageText = "First",
+                    LastPageText = "Last",
+                    PageIndexParameterName = "pageIndex",
+                    TagName = "ul",
+                    CssClass = "pagination",
+                    CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+                    DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+                    PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+                    Id = "bootstrappager"
+                }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm" })
+    </div>
+}
+else
+{
+    <div style="text-align: center; padding:11% 0;">
+        <i class="layui-icon layui-icon-file" style="line-height:10rem;font-size:10rem;color:#111">
+        </i>
+        <p style="font-size: 20px; font-weight: 300; color: #111;"> 暂无数据</p>
+    </div>
+}
+

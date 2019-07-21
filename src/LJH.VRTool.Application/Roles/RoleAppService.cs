@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services;
@@ -29,7 +30,7 @@ namespace LJH.VRTool.Roles
             _roleManager = roleManager;
             _userManager = userManager;
         }
-
+        #region MyRegion
         public override async Task<RoleDto> Create(CreateRoleDto input)
         {
             CheckCreatePermission();
@@ -60,50 +61,6 @@ namespace LJH.VRTool.Roles
                 .ToListAsync();
 
             return new ListResultDto<RoleListDto>(ObjectMapper.Map<List<RoleListDto>>(roles));
-        }
-
-        public override async Task<RoleDto> Update(RoleDto input)
-        {
-            CheckUpdatePermission();
-
-            var role = await _roleManager.GetRoleByIdAsync(input.Id);
-
-            ObjectMapper.Map(input, role);
-
-            CheckErrors(await _roleManager.UpdateAsync(role));
-
-            var grantedPermissions = PermissionManager
-                .GetAllPermissions()
-                .Where(p => input.Permissions.Contains(p.Name))
-                .ToList();
-
-            await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
-
-            return MapToEntityDto(role);
-        }
-
-        public override async Task Delete(EntityDto<int> input)
-        {
-            CheckDeletePermission();
-
-            var role = await _roleManager.FindByIdAsync(input.Id.ToString());
-            var users = await _userManager.GetUsersInRoleAsync(role.NormalizedName);
-
-            foreach (var user in users)
-            {
-                CheckErrors(await _userManager.RemoveFromRoleAsync(user, role.NormalizedName));
-            }
-
-            CheckErrors(await _roleManager.DeleteAsync(role));
-        }
-
-        public Task<ListResultDto<PermissionDto>> GetAllPermissions()
-        {
-            var permissions = PermissionManager.GetAllPermissions();
-
-            return Task.FromResult(new ListResultDto<PermissionDto>(
-                ObjectMapper.Map<List<PermissionDto>>(permissions)
-            ));
         }
 
         protected override IQueryable<Role> CreateFilteredQuery(PagedRoleResultRequestDto input)
@@ -142,9 +99,24 @@ namespace LJH.VRTool.Roles
                 Permissions = ObjectMapper.Map<List<FlatPermissionDto>>(permissions).OrderBy(p => p.DisplayName).ToList(),
                 GrantedPermissionNames = grantedPermissions.Select(p => p.Name).ToList()
             };
+        } 
+        #endregion
+
+        /// <summary>
+        /// 条件搜索
+        /// </summary>
+        /// <param name="Keyword"></param>
+        /// <param name="TimeMin"></param>
+        /// <param name="TimeMax"></param>
+        /// <returns></returns>
+        public List<RoleDto> GetAllList(string Keyword, DateTime? TimeMin, DateTime? TimeMax)
+        {
+            var users = Repository.GetAll()
+                .WhereIf(!string.IsNullOrEmpty(Keyword), q => q.Name.Contains(Keyword) || q.DisplayName.Contains(Keyword))
+                .WhereIf(TimeMin.HasValue, q => q.CreationTime >= TimeMin.Value)
+                .WhereIf(TimeMax.HasValue, q => q.CreationTime <= TimeMax.Value);
+            return new List<RoleDto>(ObjectMapper.Map<List<RoleDto>>(users));
         }
-
-
         /// <summary>
         ///异步获取角色
         /// </summary>
@@ -153,6 +125,18 @@ namespace LJH.VRTool.Roles
         {
             var roles = await Repository.GetAllListAsync();
             return new List<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
+        }
+        /// <summary>
+        /// 获取所有权限
+        /// </summary>
+        /// <returns></returns>
+        public Task<ListResultDto<PermissionDto>> GetAllPermissions()
+        {
+            var permissions = PermissionManager.GetAllPermissions();
+
+            return Task.FromResult(new ListResultDto<PermissionDto>(
+                ObjectMapper.Map<List<PermissionDto>>(permissions)
+            ));
         }
         /// <summary>
         /// 创建角色并分配权限
@@ -174,6 +158,43 @@ namespace LJH.VRTool.Roles
             await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
             return MapToEntityDto(role);
         }
+
+       
+        public override async Task<RoleDto> Update(RoleDto input)
+        {
+            CheckUpdatePermission();
+
+            var role = await _roleManager.GetRoleByIdAsync(input.Id);
+
+            ObjectMapper.Map(input, role);
+
+            CheckErrors(await _roleManager.UpdateAsync(role));
+
+            var grantedPermissions = PermissionManager
+                .GetAllPermissions()
+                .Where(p => input.Permissions.Contains(p.Name))
+                .ToList();
+
+            await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
+
+            return MapToEntityDto(role);
+        }
+
+        public override async Task Delete(EntityDto<int> input)
+        {
+            CheckDeletePermission();
+
+            var role = await _roleManager.FindByIdAsync(input.Id.ToString());
+            var users = await _userManager.GetUsersInRoleAsync(role.NormalizedName);
+
+            foreach (var user in users)
+            {
+                CheckErrors(await _userManager.RemoveFromRoleAsync(user, role.NormalizedName));
+            }
+
+            CheckErrors(await _roleManager.DeleteAsync(role));
+        }
+
     }
 }
 
