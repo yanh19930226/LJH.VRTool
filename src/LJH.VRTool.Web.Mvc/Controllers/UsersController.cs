@@ -76,6 +76,16 @@ namespace LJH.VRTool.Web.Controllers
             }
             return Json(new { status = "ok" });
         }
+
+
+        public ActionResult Info()
+        {
+            return View();
+        }
+        public ActionResult ChangePwd()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Test()
         {

@@ -13,5 +13,6 @@
         public const string Pages_Source = "Pages.Source";
         //Vr视频权限
         public const string Pages_Video = "Pages.Video";
+        public const string Pages_WebSetting = "Pages.WebSetting";
     }
 }

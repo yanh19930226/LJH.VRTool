@@ -78,7 +78,6 @@
     <Folder Include="Areas\Web\Data\" />
     <Folder Include="Areas\Web\Models\" />
     <Folder Include="Areas\Web\Views\" />
-    <Folder Include="Views\WebSetting\" />
     <Folder Include="Views\Common\" />
     <Folder Include="wwwroot\lib\krpano\hplus\css\plugins\fancybox\" />
     <Folder Include="wwwroot\view-resources\Views\_Bundles\" />

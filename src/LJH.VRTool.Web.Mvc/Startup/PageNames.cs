@@ -10,6 +10,7 @@
         public const string Video= "Video";
         public const string Panoram = "Panoram";
         public const string Source = "Source";
+        public const string WebSetting = "WebSetting";
 
     }
 }

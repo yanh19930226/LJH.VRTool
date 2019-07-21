@@ -72,6 +72,15 @@ namespace LJH.VRTool.Web.Startup
                         icon: "fa fa-tv",
                         requiredPermissionName: PermissionNames.Pages_Video
                     )
+                )
+                  .AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Video,
+                        L("WebSetting"),
+                        url: "WebSetting",
+                        icon: "fa fa-tv",
+                        requiredPermissionName: PermissionNames.Pages_Video
+                    )
                 );
                 //.AddItem(
                 //    new MenuItemDefinition(
