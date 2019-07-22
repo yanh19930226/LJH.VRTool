@@ -1,5 +1,5 @@
 ﻿@model IReadOnlyList<LJH.VRTool.Roles.Dto.RoleDto>
-<form class="layui-form" id="addForm">
+<form class="layui-form" id="addForm" action="@Url.Action("Add", "Users")">
     <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin: 10px 40px;">
         <ul class="layui-tab-title">
             <li class="layui-this"><i class="fa fa-user"></i>用户信息</li>
@@ -57,7 +57,7 @@
     <div style="position:fixed;bottom:0">
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <input type="button" name="name" class="layui-btn" value="立即提交" onclick="save()" />
+                <input type="button" name="name" lay-submit class="layui-btn" value="立即提交" />
                 @*<button class="layui-btn" lay-submit  onclick="save()">立即提交</button>*@
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
@@ -66,72 +66,80 @@
 </form>
 <script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
 <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+@*<script>
+        function save(){
+            var formData = $("#addForm").serializeArray();
+            $.ajax({
+              url: "@Url.Action("Add", "Users")",
+              type: "POST",
+              data: formData,
+              dataType: "json",
+              success: function (res) {
+                  if (res.result.status == "ok") {
+                      layer.msg('新增成功!', { icon: 1, time: 3000 });
+                      parent.location.reload();//刷新父窗口
+                      var index = parent.layer.getFrameIndex(window.name);
+                      parent.layer.close(index); //再执行关闭
+                  }
+                  else {
+                      layer.msg('新增失败!', { icon: 2, time: 5000 });
+                  }
+              },
+              error: function (e) {
+                  layer.msg('请求出错!', { icon: 3, time: 5000 });
+              }
+          });
+        }
+    </script>*@
+@*<script>
+       layui.use(['form'], function(){
+        var form = layui.form()
+        //,layer = layui.layer
+        ////创建一个编辑器
+        //layedit.build('LAY_demo_editor');
+       //监听提交
+       form.on('submit(lay-submit)', function(data){
+           var url = data.form.action;
+           var formData = $("#addForm").serializeArray();
+            $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            success: function (data) {
+
+             },
+            error: function(data) {
+               alert("error:"+data);
+            }
+         });
+       });
+    </script>*@
 <script>
-//    layui.use(['form','layer'], function(){
-//  var form = layui.form;
-//  var layer = layui.layer;
-//  //下面这个是监听表单的提交     
-//  form.on('submit(adminInfo)', function(data){
-//  //adminInfo是按钮名 下面这个是弹出提示框
-//       console.log(data.field.appid) //获得表单中的appid字段的值
-     
-//    if(data.field.appid != 'aa' ||data.field.appkey != 'aa' ){
-//         layer.confirm('2次的APPID,APPKEY不一样,继续提交会清空原有数据', {
-//          btn: ['返回','继续'] //按钮
-//        }, function(){
-//             layer.closeAll(); //关闭层
-//        }, function(){
-//          data.form.submit(); //提交表单数据
-//        });    
-//    //因为上面有弹窗了,所以这里需要阻止表单的自动提交 
-//     return false; 
-//    }
-     
-     
-//    });
-//    //表单提交完毕
-     
-//    //这里可以监听其他的模块
-     
-//});
+    layui.use('form', function () {
+        var form = layui.form;
+        //自定义验证规则
+        form.verify({
+            errorcodeverify: function (value) {
+                value = $('#errorcode').val();
+                if (value.length < 5) {
+                    return '数据至少5个字符!';
+                }
+                if (!verifyErrorcode()) {
+                    return '此数据已存在,请重新编写输入!';
+                }
+            },
+        });
+    });
+    function verifyErrorcode() {
+        var selectProduct = $('#productNameid').val();
+        var errorCode = $('#errorcode').val();
+        if (errorCode.length < 5) {
+            layer.msg('错误码至少5个字符!');
+            return false;
+        } else {
 
-//    form.on('submit(lay-submit)', function(data){
-//var url = data.form.action;
-//var post = data.field;
-//$.ajax({
-//type: "POST",
-//url: url,
-//data: post,
-//success: function (data) {
-
-//},
-//error: function(data) {
-//alert("error:"+data);
-//}
-//});
-//});
-
-    function save(){
-        var formData = $("#addForm").serializeArray();
-        $.ajax({
-          url: "@Url.Action("Add", "Users")",
-          type: "POST",
-          data: formData,
-          dataType: "json",
-          success: function (res) {
-              if (res.result.status == "ok") {
-                  layer.msg('新增成功!', { icon: 1, time: 3000 });
-                  parent.location.reload();//刷新父窗口
-                  var index = parent.layer.getFrameIndex(window.name);
-                  parent.layer.close(index); //再执行关闭
-              }
-              else {
-                  layer.msg('新增失败!', { icon: 2, time: 5000 });
-              }
-          },
-          error: function (e) {
-              layer.msg('请求出错!', { icon: 3, time: 5000 });
-          }
-      });
+        }
+        return true;
     }
 </script>
+
