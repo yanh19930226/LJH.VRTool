@@ -10,6 +10,8 @@ using LJH.VRTool.Users.Dto;
 using System.Linq;
 using Webdiyer.AspNetCore;
 using LJH.VRTool.HttpService;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Hosting;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -17,10 +19,11 @@ namespace LJH.VRTool.Web.Controllers
     public class UsersController : VRToolControllerBase
     {
         private readonly IUserAppService _userAppService;
-
-        public UsersController(IUserAppService userAppService)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public UsersController(IUserAppService userAppService, IHostingEnvironment hostingEnvironment)
         {
             _userAppService = userAppService;
+            _hostingEnvironment = hostingEnvironment;
         }
         public ActionResult Index(UserSearch search, int pageIndex)
         {
@@ -89,13 +92,26 @@ namespace LJH.VRTool.Web.Controllers
         [HttpPost]
         public ActionResult Test()
         {
-            var a=HttpHelper.HttpGet("https://api.douban.com/v2/movie/new_movies?apikey=0b2bdeda43b5688921839c8ecb20399b", null);
+            var API_KEY = "2AakWsz5sF1Mj9gKhWqqjLMG";
+            var SECRET_KEY = "mTqOIslrK5nIFmcsvPPtXnRgyYY0yFGI";
+            var client = new Baidu.Aip.Speech.Tts(API_KEY, SECRET_KEY);
+            var option = new Dictionary<string, object>()
+            {
+                {"spd", 5}, // 语速
+                {"vol", 7}, // 音量
+                {"per", 4}  // 发音人，4：情感度丫丫童声
+            };
+            var result = client.Synthesis("众里寻他千百度", option);
+
+            if (result.Success)  // 或 result.Success
+            {
+                System.IO.File.WriteAllBytes(_hostingEnvironment.WebRootPath+"tt.mp3", result.Data);
+            }
             return null;
         }
         public ActionResult TestPost()
         {
 
-            var a = HttpHelper.HttpPostAsync("https://api.douban.com/v2/movie/new_movies?apikey=0b2bdeda43b5688921839c8ecb20399b", null);
             return null;
         }
     }

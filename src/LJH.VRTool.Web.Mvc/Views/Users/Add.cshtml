@@ -1,224 +1,116 @@
-﻿@using Abp.Authorization.Users
-@model IReadOnlyList<LJH.VRTool.Roles.Dto.RoleDto>
-@*<form class="layui-form" action="">
-        <div class="layui-form-item">
-            <label class="layui-form-label">输入框</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+﻿@model IReadOnlyList<LJH.VRTool.Roles.Dto.RoleDto>
+<form class="layui-form" id="addForm">
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin: 10px 40px;">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><i class="fa fa-user"></i>用户信息</li>
+            <li><i class="fa fa-users"></i>用户角色</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show animated fadeInRight">
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="UserName" required lay-verify="required" placeholder="请输入用户名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-input-inline">
+                    <label class="layui-form-label">名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="Name" required lay-verify="required" placeholder="请输入用户名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-input-inline">
+                    <label class="layui-form-label">姓</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="Surname" required lay-verify="required" placeholder="请输入用户名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">邮箱</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="EmailAddress" required lay-verify="required" placeholder="请输入邮箱" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="Password" required lay-verify="required" placeholder="请输入密码" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">是否激活</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="IsActive" checked value="true" lay-skin="switch">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item animated fadeInRight">
+                <div class="layui-form-item">
+                    @foreach (var item in Model)
+                    {
+                        <input type="checkbox" id="RoleNames_@item.Id" name="RoleNames" value="@item.Name" lay-skin="primary" title="@item.DisplayName">
+                    }
+                </div>
             </div>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">密码框</label>
-            <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">辅助文字</div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">复选框</label>
-            <div class="layui-input-block">
-                <input type="checkbox" name="like[write]" title="写作">
-                <input type="checkbox" name="like[read]" title="阅读" checked>
-                <input type="checkbox" name="like[dai]" title="发呆">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">开关</label>
-            <div class="layui-input-block">
-                <input type="checkbox" name="switch" lay-skin="switch">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">单选框</label>
-            <div class="layui-input-block">
-                <input type="radio" name="sex" value="男" title="男">
-                <input type="radio" name="sex" value="女" title="女" checked>
-            </div>
-        </div>
-        <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">文本域</label>
-            <div class="layui-input-block">
-                <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
-            </div>
-        </div>
+    </div>
+    <div style="position:fixed;bottom:0">
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                <input type="button" name="name" class="layui-btn" value="立即提交" onclick="save()" />
+                @*<button class="layui-btn" lay-submit  onclick="save()">立即提交</button>*@
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
-    </form>*@
-
-
-@*<div class="x-body layui-anim layui-anim-up">
-        <form class="layui-form">
-            <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">
-                    <span class="x-red">*</span>邮箱
-                </label>
-                <div class="layui-input-inline">
-                    <input type="text" id="L_email" name="email" required lay-verify="email" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid layui-word-aux">
-                    <span class="x-red">*</span>将会成为您唯一的登入名
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label for="L_username" class="layui-form-label">
-                    <span class="x-red">*</span>昵称
-                </label>
-                <div class="layui-input-inline">
-                    <input type="text" id="L_username" name="username" required lay-verify="nikename" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label">
-                    <span class="x-red">*</span>密码
-                </label>
-                <div class="layui-input-inline">
-                    <input type="password" id="L_pass" name="pass" required lay-verify="pass" autocomplete="off" class="layui-input">
-                </div>
-                <div class="layui-form-mid layui-word-aux">
-                    6到16个字符
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label for="L_repass" class="layui-form-label">
-                    <span class="x-red">*</span>确认密码
-                </label>
-                <div class="layui-input-inline">
-                    <input type="password" id="L_repass" name="repass" required lay-verify="repass" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label for="L_repass" class="layui-form-label">
-                </label>
-                <button class="layui-btn" lay-filter="add" lay-submit="">
-                    增加
-                </button>
-            </div>
-        </form>
-    </div>*@
-
-
-@*<div class="layui-tab">
-        <ul class="layui-tab-title">
-            <li class="layui-this">网站设置</li>
-            <li>用户管理</li>
-        </ul>
-        <div class="layui-tab-content">
-            <div class="layui-tab-item layui-show">内容1</div>
-            <div class="layui-tab-item">内容2</div>
-        </div>
-    </div>*@
-<div class="modal-body">
-    <form id="addForm">
-        <div class="panel blank-panel">
-            <div class="panel-heading">
-                <div class="panel-options">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a data-toggle="tab" href="tabs_panels.html#tab-4"><i class="fa fa-user"></i>用户信息</a>
-                        </li>
-                        <li class="">
-                            <a data-toggle="tab" href="tabs_panels.html#tab-5"><i class="fa fa-users"></i>角色信息</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="tab-content">
-                    <div id="tab-4" class="tab-pane active">
-                        <div class="form-group">
-                            <label for="Name">账号</label>
-                            <input type="text" name="Name" class="form-control" required maxlength="@AbpUserBase.MaxNameLength">
-                        </div>
-                        <div class="form-group">
-                            <label for="username">名</label>
-                            <input class="form-control" type="text" name="UserName" required maxlength="@AbpUserBase.MaxUserNameLength" minlength="2">
-                        </div>
-                        <div class="form-group">
-                            <label for="account">姓</label>
-                            <input type="text" name="Surname" class="form-control" required maxlength="@AbpUserBase.MaxSurnameLength">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">邮箱</label>
-                            <input type="email" name="EmailAddress" class="form-control" required maxlength="@AbpUserBase.MaxEmailAddressLength">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">密码</label>
-                            <input type="password" id="Password" name="Password" class="form-control" required maxlength="@AbpUserBase.MaxPlainPasswordLength">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">是否激活</label>
-                            <div class="onoffswitch">
-                                <input type="checkbox" checked class="onoffswitch-checkbox" id="IsActive" name="IsActive" value="true">
-                                <label class="onoffswitch-label" for="IsActive">
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab-5" class="tab-pane">
-                        <div class="form-group">
-                            @foreach (var item in Model)
-                            {
-
-                                <label class="checkbox-inline i-checks" for="RoleNames_@item.Id">
-                                    <input type="checkbox" value="@item.Name" name="RoleNames" id="RoleNames_@item.Id">@item.DisplayName
-                                </label>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </form>
-</div>
+    </div>
+</form>
 <script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
-<script src="~/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-        });
-    });
-</script>
 <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
 <script>
-    layui.use(['form', 'layer'], function () {
-        $ = layui.jquery;
-        var form = layui.form
-            , layer = layui.layer;
-        //自定义验证规则
-        form.verify({
-            nikename: function (value) {
-                if (value.length < 5) {
-                    return '昵称至少得5个字符啊';
-                }
-            }
-            , pass: [/(.+){6,12}$/, '密码必须6到12位']
-            , repass: function (value) {
-                if ($('#L_pass').val() != $('#L_repass').val()) {
-                    return '两次密码不一致';
-                }
-            }
-        });
-        //监听提交
-        form.on('submit(add)', function (data) {
-            console.log(data);
-            //发异步，把数据提交给php
-            layer.alert("增加成功", { icon: 6 }, function () {
-                // 获得frame索引
-                var index = parent.layer.getFrameIndex(window.name);
-                //关闭当前frame
-                parent.layer.close(index);
-            });
-            return false;
-        });
-    });s
+//    layui.use(['form','layer'], function(){
+//  var form = layui.form;
+//  var layer = layui.layer;
+//  //下面这个是监听表单的提交     
+//  form.on('submit(adminInfo)', function(data){
+//  //adminInfo是按钮名 下面这个是弹出提示框
+//       console.log(data.field.appid) //获得表单中的appid字段的值
+     
+//    if(data.field.appid != 'aa' ||data.field.appkey != 'aa' ){
+//         layer.confirm('2次的APPID,APPKEY不一样,继续提交会清空原有数据', {
+//          btn: ['返回','继续'] //按钮
+//        }, function(){
+//             layer.closeAll(); //关闭层
+//        }, function(){
+//          data.form.submit(); //提交表单数据
+//        });    
+//    //因为上面有弹窗了,所以这里需要阻止表单的自动提交 
+//     return false; 
+//    }
+     
+     
+//    });
+//    //表单提交完毕
+     
+//    //这里可以监听其他的模块
+     
+//});
+
+//    form.on('submit(lay-submit)', function(data){
+//var url = data.form.action;
+//var post = data.field;
+//$.ajax({
+//type: "POST",
+//url: url,
+//data: post,
+//success: function (data) {
+
+//},
+//error: function(data) {
+//alert("error:"+data);
+//}
+//});
+//});
+
     function save(){
         var formData = $("#addForm").serializeArray();
         $.ajax({

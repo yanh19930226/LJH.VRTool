@@ -10,15 +10,6 @@ function add() {
         shade: 0.8,
         area: ['600px', '600px'],
         content: '/Users/Add',
-        btn: ['确认', '取消'],
-        yes: function (index, layero) {
-            var body = layer.getChildFrame('body', index);
-            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
-            iframeWin.save();
-        },
-        btn2: function (index, layero) {
-            layer.close(index);
-        }
     });
 };
 function edit(id) {
@@ -29,15 +20,6 @@ function edit(id) {
         shade: 0.8,
         area: ['600px', '600px'],
         content: '/Home/EditId=' + id,
-        btn: ['确认', '取消'],
-        yes: function (index, layero) {
-            var body = layer.getChildFrame('body', index);
-            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
-            iframeWin.save();
-        },
-        btn2: function (index, layero) {
-            layer.close(index);
-        }
     });
 };
 function deleted(id) {

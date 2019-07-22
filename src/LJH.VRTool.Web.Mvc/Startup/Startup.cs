@@ -13,7 +13,7 @@ using LJH.VRTool.Configuration;
 using LJH.VRTool.Identity;
 using LJH.VRTool.Web.Resources;
 using Abp.AspNetCore.SignalR.Hubs;
-
+using LJH.VRTool.HttpService.Test;
 
 namespace LJH.VRTool.Web.Startup
 {
@@ -41,7 +41,7 @@ namespace LJH.VRTool.Web.Startup
 
             services.AddSignalR();
             //Http服务
-            //services.AddHttpClient();
+            services.AddHttpClient<TestService>();
             // Configure Abp and Dependency Injection
             return services.AddAbp<VRToolWebMvcModule>(
                 // Configure Log4Net logging
