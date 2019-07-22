@@ -38,15 +38,14 @@
                         <td>北京市 海淀区</td>
                         <td>@item.CreationTime</td>
                         <td>
-                            <input type="checkbox" checked="@item.IsActive" lay-text="是|否" lay-filter="isShow" lay-skin="switch" disabled>
+                            <input type="checkbox" name="IsActive" checked="@item.IsActive" lay-text="是|否" lay-filter="IsActive'@item.IsActive'" lay-skin="switch">
                         </td>
                         <td>
-
-                            <button type="button" class="layui-btn layui-btn-sm layui-btn-warm" onclick="edit('@item.Id')">
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-warm edit" data-id="@item.Id">
                                 <i class="layui-icon layui-icon-edit">
                                 </i>编辑
                             </button>
-                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" onclick="deleted('@item.Id')">
+                            <button type="button" class="layui-btn layui-btn-sm layui-btn-danger deleted" data-id="@item.Id">
                                 <i class="layui-icon layui-icon-delete">
                                 </i>
                                 删除
