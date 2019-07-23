@@ -4,6 +4,72 @@
 @{
     ViewBag.Title = ViewBag.Title;
 }
+<style>
+    /*按钮基本*/
+    .layui-btn-ext {
+        font-size: 12px;
+        border-radius: 3px;
+        padding: 3px 5px;
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        -webkit-appearance: none;
+        text-align: center;
+        box-sizing: border-box;
+        outline: 0;
+        margin: 0;
+        transition: .1s;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+        .layui-btn-ext:hover {
+            color: #409eff;
+            border-color: #c6e2ff;
+            background-color: #ecf5ff;
+        }
+
+    .layui-btnnobg-ext {
+        color: #409eff;
+        border-color: #c6e2ff;
+    }
+    /*添加按钮*/
+    .layui-btn-primary-ext, .layui-btn-primary-ext:hover {
+        color: #fff;
+        background-color: #1E9FFF;
+        border-color: #1E9FFF;
+    }
+    /*删除按钮(两种)*/
+    .layui-btn-danger-ext, .layui-btn-danger-ext:hover {
+        color: #fff;
+        background-color: #ff4949;
+        border-color: #ff4949;
+    }
+
+    .layui-btn-dangernobg-ext {
+        color: #ff4949;
+        border-color: #ff4949;
+    }
+
+        .layui-btn-dangernobg-ext:hover {
+            color: #ff4949;
+            border-color: #ff4949;
+            background-color: #fef0f0;
+        }
+    /*编辑按钮*/
+    .layui-btn-edit-ext {
+        color: #fff;
+        background-color: #ff4949;
+        border-color: #ff4949;
+    }
+
+    /*切换按钮*/
+    .layui-form-onswitch {
+        border-color: #1E9FFF;
+        background-color: #1E9FFF;
+    }
+</style>
 <div class="wrapper wrapper-content">
     <div class="ibox-content">
         <form id="searchForm" asp-action="Index" asp-controller="Roles" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
