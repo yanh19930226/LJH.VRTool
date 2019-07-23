@@ -79,8 +79,11 @@ namespace LJH.VRTool.Web.Controllers
             }
             return Json(new { status = "ok" });
         }
-
-
+        public async Task<ActionResult> IsActive(long Id)
+        {
+            var user= await _userAppService.ChangeActive(Id);
+            return Json(new { status = "ok" });
+        }
         public ActionResult Info()
         {
             return View();

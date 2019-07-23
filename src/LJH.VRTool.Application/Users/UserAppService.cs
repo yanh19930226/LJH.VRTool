@@ -95,17 +95,7 @@ namespace LJH.VRTool.Users
                 .WhereIf(input.IsActive.HasValue, x => x.IsActive == input.IsActive);
         }
 
-        protected override async Task<User> GetEntityByIdAsync(long id)
-        {
-            var user = await Repository.GetAllIncluding(x => x.Roles).FirstOrDefaultAsync(x => x.Id == id);
-
-            if (user == null)
-            {
-                throw new EntityNotFoundException(typeof(User), id);
-            }
-
-            return user;
-        }
+        
 
         protected override IQueryable<User> ApplySorting(IQueryable<User> query, PagedUserResultRequestDto input)
         {
@@ -209,6 +199,22 @@ namespace LJH.VRTool.Users
             return new List<UserDto>(ObjectMapper.Map<List<UserDto>>(users));
         }
         /// <summary>
+        /// 根据id 获取用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        protected override async Task<User> GetEntityByIdAsync(long id)
+        {
+            var user = await Repository.GetAllIncluding(x => x.Roles).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+            {
+                throw new EntityNotFoundException(typeof(User), id);
+            }
+
+            return user;
+        }
+        /// <summary>
         /// 创建用户并分配角色
         /// </summary>
         /// <param name="input"></param>
@@ -266,6 +272,22 @@ namespace LJH.VRTool.Users
         {
             var user = await _userManager.GetUserByIdAsync(input.Id);
             await _userManager.DeleteAsync(user);
+        }
+        /// <summary>
+        /// 激活用户
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+         public async Task<long> ChangeActive(long id)
+         {
+            var user = await Repository.GetAllIncluding(x => x.Roles).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+            {
+                throw new EntityNotFoundException(typeof(User), id);
+            }
+            user.IsActive = !user.IsActive;
+            return await Repository.InsertOrUpdateAndGetIdAsync(user);
         }
     }
 }

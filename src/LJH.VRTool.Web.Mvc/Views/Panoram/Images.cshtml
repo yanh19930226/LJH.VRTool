@@ -1,0 +1,284 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title></title>
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/lib/html5.js"></script>
+    <script type="text/javascript" src="/static/lib/respond.min.js"></script>
+    <![endif]-->
+    <link href="~/lib/krpano/panoram/hui/static/h-ui/css/H-ui.css" rel="stylesheet" />
+    <link href="~/lib/krpano/panoram/hui/static/h-ui.admin/css/H-ui.admin.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link href="~/lib/krpano/panoram/hui/static/h-ui.admin/skin/default/skin.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.pano/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+    <script src="~/lib/krpano/hplus/js/jquery.min.js"></script>
+    <link href="~/lib/krpano/hplus/js/plugins/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+    <script type=text/javascript language=javascript>
+        var globalConfig = {
+            cdnhost: "https://panoimg.720hot.com",
+        };
+    </script>
+    <style>
+        .cursor {
+            cursor: pointer
+        }
+
+        .help {
+            cursor: help
+        }
+    </style>
+    <!--/meta 作为公共模版分离出去-->
+    <link rel="stylesheet" type="text/css" href="/static/krp_editor/style/editor.css" />
+</head>
+<style>
+    body {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+</style>
+<body style="position:relative">
+
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="padding-left:10px;">
+
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <!--选择开始-->
+
+
+                <div class="LibModalBase_body_1qrtVz">
+                    <div class="LibModalBase_sidebar_2OlqIy" style="width:22%">
+                        <div style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+                            <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
+                                <div data-id="0" class="AlbumItem_item_1IMDZ8 AlbumItem_active_1jwg7b" title="未分组">
+                                    <div class="AlbumItem_name_3UKlcn ellipsis">未分组</div>
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAQAAAAT+RSaAAAAsklEQVQY02XRIU9CYRSAYXQEIsng3AxQHBvJxthMJBONER3NpGaGicakufkD6PwKIsFNAhMpBAaBjVkEH4vh3ntOfJ/yfefk9C01c3G846Ad4cYeR3eRanb4dR/p2hY8Rapag26kKyvQj1S2BC+RLs3Bq5MsnfsAj1komoDndD4zBWOFZL4wAyP5ZC75Am9Ok7ny/4tBdiUb0Evnuh14SOeGbxx1si//xI9WXMPQwm287B+SoKSAwp8kJwAAAABJRU5ErkJggg==" class="AlbumItem_img_2Bvng1">
+                                </div>
+
+                            </div>
+                            <div style="position: absolute; height: 6px; right: 2px; bottom: 2px; left: 2px; border-radius: 3px;">
+                                <div style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); width: 0px;"></div>
+                            </div>
+                            <div style="position: absolute; width: 6px; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;">
+                                <div style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); height: 0px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--素材编辑器 可删除素材-->
+                    <div class="LibModalBase_main__vSwRm" style="width:75%;padding-right: 0;padding-left: 2%">
+                        <div class="LibModalBase_list_1MdMQI" style="width:100%;overflow-y: scroll;overflow-x: hidden;">
+                            <form name="postform" method="get" action="/pano/material/images_select">
+                                <input type="hidden" name="edit" value="1">
+                                <div class="mater_search">
+                                    <input placeholder="关健字.." style="width:40%" id="mater_search_name" name="mater_search_name" class="input-text" type="text" value="">
+                                    <button class="btn btn-primary radius">搜索</button>
+                                    <span id="container"><a class="btn btn-primary radius" style="float: right;" data-title="上传素材" id="pickfiles"> <i class="Hui-iconfont"></i>上传素材</a></span>
+                                </div>
+                            </form>
+                            <div class="Modal_items_4NIrjG">
+                                <div class="ThumbItem_item_1TZGIi">
+                                    <div class="ThumbItem_thumb_rvTDP5" material_id="3450">
+                                        <div style="width: 99%; height: 99%; background-image: url(&quot;https://panoimg.720hot.com/1/47356/img/156263494982206d.jpeg&quot;); background-repeat: no-repeat; background-size: cover; background-position: center center;" title="jp">
+                                        </div>
+                                    </div>
+                                    <div class="ThumbItem_name_1J1HIB ellipsis">jp</div>
+                                    <div class="ThumbItem_name_1J1HIB ellipsis red" onclick="material_del('3450')">删除</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="LibModalBase_footer_gttDsU">
+                            <div class="LibModalBase_page_2e0o1A">
+                            </div>
+                        </div>
+                    </div>
+                    <!--素材选择器-->
+
+
+                </div>
+                <!--选择结束-->
+
+            </div>
+            <div class="layui-tab-item">
+            </div>
+        </div>
+    </div>
+    <!--_footer 作为公共模版分离出去-->
+    <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+    <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+    <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script>
+    <script type="text/javascript" src="/static/h-ui.pano/js/H-ui.admin.page.js"></script>
+    <script>
+        $(function () {
+            var menu_id = "menu-material";
+            console.log(menu_id);
+            $("#" + menu_id).find("dt").addClass("selected");
+            $("#" + menu_id).find("dd").show();
+            var menu_tab = "material-images_select";
+            console.log(menu_tab)
+            if ($("#" + menu_tab)) {
+                $("#" + menu_tab).addClass("current");
+            }
+        });
+    </script>
+    <script>
+        //一般直接写在一个js文件中
+        layui.use(['layer', 'form'], function () {
+            var layer = layui.layer, form = layui.form;
+        });
+        if (parent.layer) {
+            var index = parent.layer.getFrameIndex(window.name);
+        }
+    </script>
+    <script type="text/javascript" src="/static/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+    <script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+
+    <script>
+        $('.kefu-liaotian').click(function () {
+            layer.open({
+                type: 2,
+                title: '快客服咨询',
+                area: ['350px', '350px'],
+                content: '/pano/service/add'
+            })
+        })
+        function service_void() {
+            //页面层
+            layer.open({
+                title: '温馨提示',
+                type: 1,
+                skin: 'layui-layer-rim', //加上边框
+                area: ['420px', '240px'], //宽高
+                content: '<span>当前版本不支持此功能，详情咨询：4000-123-720</span>'
+            });
+        }
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?90db99a11aac11ea399a491092e0b530";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>            <!--/_footer /作为公共模版分离出去-->
+    <script type="text/javascript" src="/static/plupload/plupload.full.min.js"></script>
+    <script type="text/javascript" src="/static/plupload/qiniu.js"></script>
+    <script type="text/javascript" src="/static/js/upqiniu.js"></script>
+    <script>
+        //动态、静态 图片上传
+        var uptoken_url = "/pano/plupload/get_token";
+        var cdnhost = "https://panoimg.720hot.com";
+        function set_upload_path(ret) {
+            $.ajax({
+                type: "POST",
+                url: "/pano/plupload/get_key",
+                data: { "act": ret },
+                dataType: 'json',
+                success: function (result) {
+                    //result = eval("(" + result + ")");
+                    var input = '<input type="hidden" id="qn_' + ret + '" value="' + result.key + '" />';
+                    $("body").append(input);
+                }
+            });
+        }
+        function FileUploaded(up, file, info) {
+            var res = eval("(" + info + ")");
+            var group_id = "0";
+            //入库
+            $.ajax({
+                type: "POST",
+                url: "/pano/material/material_upfiles",
+                data: { sourceLink: res.key, type: 2, group_id: group_id },
+                dataType: 'json',
+                success: function (result) {
+                    //如果上传失败
+                    if (result.code > 0) {
+                        return layer.msg(result.msg, { icon: 5 });
+                    }
+                    //上传成功
+                    if (result.code == 0) {
+                        layer.msg('上传成功');
+                        setTimeout("window.location.reload();", 1000);
+                    }
+                }
+            });
+        }
+        getQiniuUploader("container", "pickfiles", "materialimages");
+
+        $(".iocnei_ton ul>li").click(function () {
+            var iconid = $(this).attr('iconid');
+            var iconkey = $(this).attr('iconkey');
+            parent.$("#iconid").val(iconid);
+            parent.$("#iconkey").val(iconkey);
+            parent.layer.close(index);
+            //回调end函数
+        });
+    </script>
+    <script>
+        //删除素材
+        function material_del(id) {
+            layer.confirm('确认要删除吗？', function (index) {
+                $.ajax({
+                    type: 'POST',
+                    url: "/pano/material/del.html",
+                    data: { 'id': id },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.code == 0) {
+                            layer.msg(result.msg, { icon: 1, time: 1000 });
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+                        } else {
+                            layer.msg(result.msg, { icon: 5, time: 2000 });
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data.msg);
+                    },
+                });
+            });
+        }
+
+        //分组跳转
+        $(document).on("click", ".AlbumItem_item_1IMDZ8", function (e) {
+            var id = $(this).data('id');
+            var url = "/pano/material/images_select?edit=1&selmore=&group_id=" + id;
+            location.href = url;
+        });
+        var choose_material_id = "";
+        //获取选中的图片
+        $(".Button_important").click(function () {
+            // var choose_material_id = "";
+            // $(".ThumbItem_active_uSNVzc").each(function (idx) {
+            //     if (choose_material_id == '') {
+            //         choose_material_id = $(this).attr("material_id");
+            //     } else {
+            //         choose_material_id += "," + $(this).attr("material_id");
+            //     }
+            // });
+            if (choose_material_id == '') {
+                return false;
+            }
+            parent.chooseCallBack(choose_material_id);
+            parent.layer.close(index);
+            //console.log(choose_material_id);
+        });
+    </script>
+      
+</body>
+</html>

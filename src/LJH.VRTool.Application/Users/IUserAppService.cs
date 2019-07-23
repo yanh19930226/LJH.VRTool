@@ -19,5 +19,7 @@ namespace LJH.VRTool.Users
         Task<List<UserDto>> GetAllListAsync();
         Task<UserDto> CreateUser(CreateUserDto input);
         List<UserDto> GetAllList(string Keyword, DateTime? TimeMin, DateTime? TimeMax);
+
+        Task<long> ChangeActive(long id);
     }
 }

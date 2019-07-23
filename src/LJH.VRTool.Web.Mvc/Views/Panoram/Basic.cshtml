@@ -1,0 +1,275 @@
+﻿<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+        <div class="layui-card">
+            <div class="layui-card-header">基本设置</div>
+            <div class="layui-card-body">
+                <div class="info-setting">
+                    <div class="left-setting" style="width:220px">
+                        <div class="fengmian" id="fengmian">
+                            <img src="https://panoimg.720hot.com/1/47356/3789/thumb.jpg" id="panoPoster" alt="" style="width: 100%;">
+                            <div style="z-index: 99999;margin-top: 17px;position: absolute;bottom: 0;left: 0;display: flex">
+                                <div id="upload-pano-poster" class="layui-btn layui-btn-sm layui-btn-normal">修改封面</div>
+                                <div style="color:#4b4b4b;margin-left: 20px">建议:500×500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-setting " style="width:400px">
+                        <form action="/pano/panoeditmore/skinPanosettingsave" class="layui-form" method="post" lay-filter="pano-info">
+                            <input type="hidden" name="pano_id" value="266">
+
+                            <div class="layui-form-item">
+                                <div class="layui-input-inline">
+                                    <input type="text" name="zpname" required lay-verify="required" placeholder="请输入标题"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item layui-form-text">
+                                <div class="layui-input-inline" style="width: 100%;">
+                                    <textarea placeholder="请输入简介" name="short_introduce" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-inline">
+                                    <select name="cate_id" lay-filter="cateid" lay-verify="required">
+                                        <option value="1">景区</option>
+                                        <option value="12">商业</option>
+                                        <option value="10">家居</option>
+                                        <option value="11">室内设计</option>
+                                        <option value="8">房产</option>
+                                        <option value="3">城市</option>
+                                        <option value="4">学校</option>
+                                        <option value="2">风光</option>
+                                        <option value="5">乡村</option>
+                                        <option value="7">其他</option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="show_author" value=""
+                                           placeholder="请输入作者" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <!-- <div class="layui-form-item">
+                                <div class="layui-input-inline">
+                                    <input type="text" name="show_author" value=""
+                                        placeholder="请输入作者" autocomplete="off" class="layui-input">
+                                </div>
+                                <button type="button " class="layui-btn layui-btn-normal" lay-submit lay-filter="author" id="set-author">
+                                    确定
+                                </button>
+                                <button type="button " class="layui-btn layui-btn-danger author" lay-submit lay-filter="del-author">
+                                    删除
+                                </button>
+                            </div> -->
+                            <input type="hidden" name="tags" value="">
+                            <div class="layui-form-item layui-form-text">
+                                <div class="layui-input-inline biaoqiankuang">
+                                    <button class="layui-btn layui-btn-normal add-tages" type="button">添加标签</button>
+                                    <div class="active-tags">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item layui-form-text  ">
+                                <button class="layui-btn layui-btn-normal">保存</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="layui-card">
+            <div class="layui-card-header">标签管理</div>
+            <div class="layui-card-body">
+                <button class="layui-btn layui-btn-normal add-tages">添加</button>
+                <hr>
+                <div class="active-tags">
+
+                </div>
+            </div>
+        </div> -->
+
+        <div class="layui-card">
+            <div class="layui-card-header">全局开关</div>
+            <div class="layui-card-body">
+                <form action="" class="layui-form" lay-filter="*">
+
+                    <div class="layui-form-item" style="display:flex;flex-wrap: wrap;">
+                        <div style="display:inline-block" data-mtpis="显示/隐藏全景顶部的滚动字幕">
+                            <label class="layui-form-label">滚动字幕</label>
+                            <input type="checkbox" name="is_show_roll_title" lay-filter="is_show_roll_title" lay-skin="switch">
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏简介">
+                                <label class="layui-form-label">简介</label>
+                                <input type="checkbox" name="show_jianjie" lay-filter="show_jianjie" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="开启/关闭解说音乐">
+                                <label class="layui-form-label">解说音乐</label>
+                                <input type="checkbox" name="is_jieshuo_open" lay-filter="is_jieshuo_open" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="开启/关闭背景音乐">
+                                <label class="layui-form-label">背景音乐</label>
+                                <input type="checkbox" name="is_bg_music_open" lay-filter="is_bg_music_open" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="进入全景时是否显示开场图片">
+                                <label class="layui-form-label">开场图片</label>
+                                <input type="checkbox" name="start_image" lay-filter="start_image" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="开启/关闭全景访问密码">
+                                <label class="layui-form-label">访问密码</label>
+                                <input type="checkbox" name="visit_password" lay-filter="visit_password" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="开启/关闭打赏">
+                                <label class="layui-form-label">打赏</label>
+                                <input type="checkbox" name="reward" lay-filter="reward" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="开启/关闭抢红包	">
+                                <label class="layui-form-label">抢红包</label>
+                                <input type="checkbox" name="redpacket" lay-filter="redpacket" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏左下角导航">
+                                <label class="layui-form-label">左下角导航</label>
+                                <input type="checkbox" name="iconnav" lay-filter="iconnav" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="以小行星特效进入全景">
+                                <label class="layui-form-label">小行星开场</label>
+                                <input type="checkbox" name="littleplanetintro" lay-filter="littleplanetintro" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="进入全景后是否自动巡游">
+                                <label class="layui-form-label">自动巡游</label>
+                                <input type="checkbox" name="view_rotate" lay-filter="view_rotate" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏LOGO	">
+                                <label class="layui-form-label">logo显示</label>
+                                <input type="checkbox" name="is_logo_show" lay-filter="is_logo_show" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏作者名称">
+                                <label class="layui-form-label">作者名称</label>
+                                <input type="checkbox" name="is_show_author" lay-filter="is_show_author" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏访问量">
+                                <label class="layui-form-label">访问量</label>
+                                <input type="checkbox" name="is_visit_show" lay-filter="is_visit_show" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏全屏按钮">
+                                <label class="layui-form-label">全屏按钮</label>
+                                <input type="checkbox" name="sys_fullscreen" lay-filter="sys_fullscreen" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏右下角位置按钮">
+                                <label class="layui-form-label">作品位置</label>
+                                <input type="checkbox" name="pano_location" lay-filter="pano_location" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏控制按钮">
+                                <label class="layui-form-label">控制按钮</label>
+                                <input type="checkbox" name="control_bar" lay-filter="control_bar" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏右上角栏目导航">
+                                <label class="layui-form-label">栏目导航</label>
+                                <input type="checkbox" name="menunav" lay-filter="menunav" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏右下角企业名片">
+                                <label class="layui-form-label">企业名片</label>
+                                <input type="checkbox" name="business_card" lay-filter="business_card" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏场景说明">
+                                <label class="layui-form-label">场景说明</label>
+                                <input type="checkbox" name="pano_atricle" lay-filter="pano_atricle" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="显示/隐藏微信二维码">
+                                <label class="layui-form-label">微信二维码</label>
+                                <input type="checkbox" name="wx_qrcode" lay-filter="wx_qrcode" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="微信端右上角提醒收藏	">
+                                <label class="layui-form-label">引导收藏</label>
+                                <input type="checkbox" name="is_wx_collect" lay-filter="is_wx_collect" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="是否默认显示场景列表	">
+                                <label class="layui-form-label">场景列表</label>
+                                <input type="checkbox" name="is_auto_show_thumb_list" lay-filter="is_auto_show_thumb_list" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="是否显示右侧咨询按钮	">
+                                <label class="layui-form-label">客服咨询</label>
+                                <input type="checkbox" name="is_show_service" lay-filter="is_show_service" lay-skin="switch">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:inline-block" data-mtpis="如果可用，是否默认开启重力感应	">
+                                <label class="layui-form-label">重力感应</label>
+                                <input type="checkbox" name="is_gyro_auto_on" lay-filter="is_gyro_auto_on" lay-skin="switch">
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+    </div>
+<div class="layui-card edit-tags" style="display:none;padding: 2%;">
+    系统推荐的标签
+    <hr>
+    <div class="system-tags">
+
+    </div>
+
+    <hr>
+    <form action="" class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <input type="text" name="my-tags" placeholder="输入标签,多个用逗号','隔开"
+                       autocomplete="off" class="layui-input">
+            </div>
+            <button title="输入标签,多个用逗号','隔开" type="button" class="layui-btn layui-btn-normal add-my-tags">添加</button>
+
+        </div>
+    </form>
+</div>

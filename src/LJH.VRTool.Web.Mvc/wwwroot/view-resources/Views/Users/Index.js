@@ -16,10 +16,25 @@
     //是否激活
     form.on('switch(IsActive)', function () {
         var index = layer.msg('修改中，请稍候', { icon: 16, time: false, shade: 0.8 });
-        setTimeout(function () {
-            layer.close(index);
-            layer.msg("展示状态修改成功！");
-        }, 2000);
+        var _this = $(this);
+        var id = _this.attr("data-id");
+        $.ajax({
+            type: 'POST',
+            url: "/Users/IsActive?Id=" + id,
+            dataType: 'json',
+            success: function (res) {
+                if (res.result.status === "ok") {
+                    layer.close(index);
+                    layer.msg("修改成功！");
+                }
+                else {
+                    layer.msg('修改失败!', { icon: 2, time: 5000 });
+                }
+            },
+            error: function (data) {
+                layer.msg('请求出错!', { icon: 3, time: 5000 });
+            }
+        });
     });
     //添加
     $(".add").click(function () {
@@ -30,7 +45,7 @@
             shadeClose: true,
             shade: 0.8,
             area: ['600px', '600px'],
-            content: '/Users/Add',
+            content: '/Users/Add'
         });
     });
     //编辑
@@ -41,21 +56,21 @@
         shadeClose: true,
         shade: 0.8,
         area: ['600px', '600px'],
-        content: '/Home/EditId=' + id,
+        content: '/Home/EditId=' + id
        });
     });
     //删除
     $(".deleted").click(function () {
         var _this = $(this);
-        var id = _this.attr("data-id")
+        var id = _this.attr("data-id");
         layer.confirm('确认要删除吗？', function (id) {
             $.ajax({
                 type: 'POST',
                 url: "/Users/Delete?Id=" + id ,
                 dataType: 'json',
                 success: function (res) {
-                    if (res.result.status == "ok") {
-                        layer.msg('已删除!', { icon: 1, time: 30000 });
+                    if (res.result.status === "ok") {
+                        layer.msg("已删除！");
                         location.reload();//刷新页面
                     }
                     else {
@@ -64,7 +79,7 @@
                 },
                 error: function (data) {
                     layer.msg('请求出错!', { icon: 3, time: 5000 });
-                },
+                }
             });
         });
     });
@@ -80,8 +95,8 @@
                     data: formData,
                     dataType: "json",
                     success: function (res) {
-                        if (res.result.status == "ok") {
-                            layer.msg('已删除!', { icon: 1, time: 30000 });
+                        if (res.result.status === "ok") {
+                            layer.msg('已删除!');
                             location.reload();//刷新页面
                         }
                         else {

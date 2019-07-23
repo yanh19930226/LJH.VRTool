@@ -1,0 +1,576 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>高级设置-解说</title>
+    <link rel="stylesheet" type="text/css" href="/static/lib/layui/css/layui.css">
+
+    <script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script>
+
+    <style>
+        .music-setting {
+            display: flex;
+            background: #E6E6E6;
+            flex-wrap: wrap;
+        }
+
+            .music-setting > div {
+                margin: 10px 0;
+            }
+
+        .music-name {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+            width: 200px;
+            overflow: hidden;
+            word-break: keep-all;
+        }
+
+        .row {
+            padding: 10px 10px;
+        }
+
+        .view-thumb {
+            padding: 0 10px;
+        }
+
+            .view-thumb img {
+                width: 120px;
+            }
+
+            .view-thumb p {
+                max-width: 120px;
+                overflow: hidden;
+                word-break: keep-all;
+            }
+    </style>
+
+    <style>
+        .layui-nav-item.layui-this a {
+            background-color: #4E5465;
+            ;
+        }
+
+            .layui-nav-item.layui-this a:hover {
+                background-color: #4E5465;
+                ;
+            }
+
+        .layui-btn-normal {
+            background-color: #427afb;
+        }
+
+
+        .layui-form-onswitch {
+            border-color: #427afb;
+            background-color: #427afb;
+        }
+    </style>
+    <script>
+    document.addEventListener("error", function (e) {
+        var elem = e.target;
+        if (elem.tagName.toLowerCase() === 'img') {
+            elem.style.display="none";
+        }
+        if (elem.tagName.toLowerCase() === 'source') {
+            elem.parentNode.style.display="none";
+        }
+    }, true);
+    $(function(){
+      $('img').each(function(){
+        var thisImg = $(this);
+        if(!thisImg.attr('src')){
+          thisImg.hide()
+        }
+      })
+    })
+
+    function initSwitch(formEle,field,switch_val,form = null,pano_id = 266){
+
+      if(form == null){
+        if(typeof(layui.form) != 'undefined'){
+          form = layui.form
+        }else{
+          return;
+        }
+      }
+
+      var valset = {}
+      valset[field] = switch_val
+
+      form.val(''+formEle+'',valset)
+      form.on('switch('+field+')', function(data){
+          setSwitch.field = field
+          setSwitch.id = pano_id
+
+          if(data.elem.checked){
+              setSwitch.value = 1
+          }else{
+              setSwitch.value = 0
+          }
+          setSwitch.submit();
+      });
+    }
+    function initTableSwitch(table,formEle,field,switch_val,form = null,pano_id = 266){
+      if(form == null){
+        if(typeof(layui.form) != 'undefined'){
+          form = layui.form
+        }else{
+          return;
+        }
+      }
+
+      var valset = {}
+      valset[field] = switch_val
+
+      form.val(''+formEle+'',valset)
+      form.on('switch('+field+')', function(data){
+
+          setTableField.table = table
+          setTableField.field = field
+          setTableField.id = pano_id
+
+          if(data.elem.checked){
+              setTableField.value = 1
+          }else{
+              setTableField.value = 0
+          }
+          setTableField.submit();
+      });
+    }
+    </script>
+    <script type="text/javascript" src="/static/lib/layui/layui.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/localDb.js"></script>
+</head>
+
+<body>
+    <script>
+        var info ={
+            js:{
+                name:'jieshuo',
+                meterial_id:'',
+                view_id:'1882',
+                status:0,
+                loop_start:1,
+                auto_start:1            },
+            bg:{
+                name:'background',
+                meterial_id:'',
+                view_id:'1882',
+                status:0,
+                loop_start:1,
+                auto_start:1            }
+        }
+        if(info.js.meterial_id == '0'){
+            info.js.loop_start = 0
+            info.js.auto_start = 0
+        }
+        if(info.bg.meterial_id == '0'){
+            info.bg.loop_start = 0
+            info.bg.auto_start = 0
+        }
+    </script>
+    <div class="" style="background: #eeeeee;">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+
+            <div class="layui-card">
+                <div class="layui-card-header">背景音乐</div>
+                <div class="layui-card-body">
+                    <form class="layui-form" lay-filter="bg" style="display:none">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">是否开启</label>
+                            <div class="layui-input-block">
+                                <input type="checkbox" name="is_bg_music_open" lay-skin="switch" lay-filter="is_bg_music_open">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">关闭整个作品的背景音乐,所有场景将不会在加载背景音乐</div>
+                        </div>
+                    </form>
+                    <div class="music-setting row">
+                        <audio controls="">
+                            <source src="" type="audio/mpeg">
+                        </audio>
+                        <div style="display: flex;">
+                            <p class="music-name">当前场景未设置背景音乐</p>
+                        </div>
+                        <div class="layui-btn-group" style="width: 40%;">
+                            <button class="layui-btn layui-btn-sm layui-btn-normal bg select" title="选择一个音乐">选择</button>
+                            <button class="layui-btn layui-btn-sm layui-btn-normal bg del" title="删除这个音乐">删除</button>
+                            <!-- <button class="layui-btn layui-btn-sm layui-btn-normal bg setting" title="设置是否循环播放">设置</button> -->
+                            <button class="layui-btn layui-btn-sm layui-btn-normal bg other-views" title="将当前的设置直接作用于其他场景">应用场景</button>
+                            <form class="layui-form" lay-filter="bg_op" style="display: inline-block;margin-left:2%" action="">
+
+                                <input type="checkbox" class="loop_start bg" name="bg_loop_start" lay-filter="bg_loop_start" title="循环播放" lay-skin="primary">
+                                <input type="checkbox" class="auto_start bg" name="bg_auto_start" lay-filter="bg_auto_start" title="自动播放" lay-skin="primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-card">
+                <div class="layui-card-header">解说音乐</div>
+                <div class="layui-card-body">
+                    <form class="layui-form" lay-filter="js" style="display:none">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">是否开启</label>
+                            <div class="layui-input-block">
+                                <input type="checkbox" name="is_jieshuo_open" lay-skin="switch" lay-filter="is_jieshuo_open">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">关闭整个作品的解说音乐,所有场景将不会在加载解说音乐</div>
+                        </div>
+                    </form>
+                    <div class="music-setting row">
+                        <audio controls="">
+                            <source src="" type="audio/mpeg">
+                        </audio>
+                        <div style="display: flex;">
+                            <p class="music-name">当前场景未设置解说音乐</p>
+                        </div>
+                        <div class="layui-btn-group" style="width: 40%;">
+                            <button class="layui-btn layui-btn-sm layui-btn-normal js select" title="选择一个音乐">选择</button>
+                            <button class="layui-btn layui-btn-sm layui-btn-normal js del" title="删除这个音乐">删除</button>
+                            <!-- <button class="layui-btn layui-btn-sm layui-btn-normal js setting" title="设置是否循环播放">设置</button> -->
+                            <button class="layui-btn layui-btn-sm layui-btn-normal js other-views" title="将当前的设置直接作用于其他场景">应用场景</button>
+                            <form class="layui-form" lay-filter="js_op" style="display: inline-block;margin-left:2%" action="">
+
+                                <input type="checkbox" class="loop_start js" name="js_loop_start" lay-filter="js_loop_start" title="循环播放" lay-skin="primary">
+                                <input type="checkbox" class="auto_start js" name="js_auto_start" lay-filter="js_auto_start" title="自动播放" lay-skin="primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="ex-setting" style="display:none">
+        <form class="layui-form" lay-filter="ex-setting" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">循环播放</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="loop_start" lay-skin="switch" checked>
+                </div>
+                <div class="layui-form-mid layui-word-aux">开启后播放完成重播</div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">自动播放</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="auto_start" lay-skin="switch" checked>
+                </div>
+                <div class="layui-form-mid layui-word-aux">是否进入场景自动播放</div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="ex-submit">确定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        layui.use(['element', 'form'], function () {
+
+            var element = layui.element;
+            var form = layui.form;
+            initSwitch('bg','is_bg_music_open',1,form)
+            initSwitch('js','is_jieshuo_open',1,form)
+
+            form.val("js_op", {
+                'js_loop_start': info.js.loop_start,
+
+                'js_auto_start':info.js.auto_start,
+
+            })
+            form.val("bg_op", {
+                'bg_loop_start': info.bg.loop_start,
+
+                'bg_auto_start':info.bg.auto_start,
+
+            })
+
+            form.on('checkbox(js_loop_start)', function(data){
+                if(info.js.meterial_id == '0'){
+                    layer.msg('请先设置音乐')
+                    form.val("js_op", {
+                        js_loop_start:0
+                    })
+                    return false;
+                }
+                setTableField.table = 'view'
+                setTableField.field = 'is_jieshuo_repet'
+                setTableField.id = info.js.view_id
+
+                if(data.elem.checked){
+                    setTableField.value = 1
+                }else{
+                    setTableField.value = 0
+                }
+                info.js.loop_start = setTableField.value
+                setTableField.submit();
+            });
+            form.on('checkbox(js_auto_start)', function(data){
+                if(info.js.meterial_id == '0'){
+                    layer.msg('请先设置音乐')
+                    form.val("js_op", {
+                        js_auto_start:0
+                    })
+                    return false;
+                }
+                setTableField.table = 'view'
+                setTableField.field = 'is_jieshuo_auto_start'
+                setTableField.id = info.js.view_id
+
+                if(data.elem.checked){
+                    setTableField.value = 1
+                }else{
+                    setTableField.value = 0
+                }
+                info.js.auto_start = setTableField.value
+                setTableField.submit();
+            });
+            form.on('checkbox(bg_loop_start)', function(data){
+                if(info.bg.meterial_id == '0'){
+                    layer.msg('请先设置音乐')
+                    form.val("bg_op", {
+                        bg_loop_start:0
+                    })
+                    return false;
+                }
+                setTableField.table = 'view'
+                setTableField.field = 'is_background_repet'
+                setTableField.id = info.bg.view_id
+
+                if(data.elem.checked){
+                    setTableField.value = 1
+                }else{
+                    setTableField.value = 0
+                }
+                info.bg.loop_start = setTableField.value
+                setTableField.submit();
+            });
+            form.on('checkbox(bg_auto_start)', function(data){
+                if(info.bg.meterial_id == '0'){
+                    layer.msg('请先设置音乐')
+                    form.val("bg_op", {
+                        bg_auto_start:0
+                    })
+                    return false;
+                }
+                setTableField.table = 'view'
+                setTableField.field = 'is_background_auto_start'
+                setTableField.id = info.bg.view_id
+
+                if(data.elem.checked){
+                    setTableField.value = 1
+                }else{
+                    setTableField.value = 0
+                }
+                info.bg.auto_start = setTableField.value
+                setTableField.submit();
+            });
+
+
+            $('.del').click(function () {
+                var e = $(this)
+                var target;
+                if (e.hasClass('bg')) {
+                    target = info.bg;
+                } else {
+                    target = info.js;
+                }
+
+
+                if (target.status == 0) {
+                    layer.msg('未设置音乐,无需删除')
+                } else {
+                    var confirm_layer = layer.confirm('确定要删除吗?', {
+                        btn: ['确定删除', '取消'] //按钮
+                    }, function () {
+                        layer.msg('删除成功', {
+                            icon: 1
+                        });
+                        $.ajax({
+                            type: 'post',
+                            url: '/pano/panoeditmore/setSkinJieshuo',
+                            data: {
+                                view_id: target.view_id,
+                                meterial_id: 0,
+                                type: target.name
+                            },
+                            success(result) {
+                                location.reload()
+                            }
+                        })
+                    }, function () {
+                        layer.close(confirm_layer);
+                    });
+                }
+
+            })
+
+            $('.select').click(function () {
+                var e = $(this)
+                var target;
+                if (e.hasClass('bg')) {
+                    target = info.bg;
+                } else {
+                    target = info.js;
+                }
+
+                window.chooseCallBack = function (meterialId) {
+                    $.ajax({
+                        type: 'post',
+                        url: '/pano/panoeditmore/setSkinJieshuo',
+                        data: {
+                            view_id: target.view_id,
+                            meterial_id: meterialId,
+                            type: target.name
+                        },
+                        success(result) {
+                            location.reload()
+                        }
+                    })
+
+                }
+                parent.$("#choose_material_id").val(0);
+                index = parent.layer.open({
+                    type: 2,
+                    title: '选择音频素材',
+                    id:44,
+                    area: ['970px', '400px'],
+                    content: 'http://360720.com/pano/material/audio_select',
+                    end:function(){
+                        var targets = parent.$("#choose_material_id").val();
+                        if(targets != 0){
+                            chooseCallBack(targets)
+                        }
+                    }
+                })
+
+
+
+                // parent.chooseCallBack = function(ids){
+                //     var childWindow = parent.$('#66').find('iframe')[0].contentWindow;
+                //     console.log(childWindow);
+                //     console.log(childWindow.chooseCallBack.toString());
+
+                //     childWindow.chooseCallBack(ids)
+                // }
+
+            })
+
+            $('.setting').click(function () {
+                var e = $(this)
+                var target;
+                if (e.hasClass('bg')) {
+                    info.type = 'background'
+                    target = info.bg
+                } else {
+                    info.type = 'jieshuo'
+                    target = info.js
+                }
+
+                if (target.status == 0) {
+                    layer.msg('还未选择音乐');
+                    return;
+                }
+
+                form.val("ex-setting", {
+                    'loop_start': target.loop_start,
+                    'auto_start':target.auto_start
+                })
+
+                layer.open({
+                    type: 1,
+                    area: ['400px', '320px'],
+                    title: '设置',
+                    content: $('.ex-setting')
+                })
+            })
+
+            $('.other-views').click(function () {
+                var it = $(this)
+                var target;
+                if (it.hasClass('bg')) {
+                    target = info.bg
+                } else {
+                    target = info.js
+                }
+                parent.$("#choose_material_id").val(0);
+                parent.layer_targets = parent.layer.open({
+                    type: 2,
+                    title: '一键设置到其他场景',
+                    id:88,
+                    area: ['800px', '600px'],
+                    content: "http://360720.com/pano/panoedit/targets/view_id/1882",
+                    end:function(){
+                        var targets = parent.$("#choose_material_id").val();
+                        if(targets != 0){
+                            chooseCallBack(targets)
+                        }
+                    }
+                })
+
+                if (!target.status) {
+                    target.meterial_id = 0;
+
+                    parent.layer.confirm('当前未选择音乐,此操作会删除其他场景的设置', {
+                        btn: ['知道了'] //按钮
+                    });
+                }
+
+                window.chooseCallBack = function (targets) {
+                    var targets = targets.split(',')
+
+                    $.each(targets, function (n, e) {
+                        $.ajax({
+                            type: 'post',
+                            url: '/pano/panoeditmore/setSkinJieshuo/view_id/1882',
+                            data: {
+                                view_id: e,
+                                meterial_id: target.meterial_id,
+                                type: target.name,
+                                loop_start: target.loop_start,
+                                auto_start: target.auto_start
+                            }
+                        })
+                    })
+
+                    layer.msg('设置完毕');
+                }
+
+            })
+
+
+            //监听提交
+            form.on('submit(ex-submit)', function (data) {
+                data.field.type = info.type
+                data.field.view_id = info.js.view_id
+                layer.msg('设置成功', {
+                    icon: 1
+                });
+
+                $.ajax({
+                    type: 'post',
+                    data: data.field,
+                    url: '/pano/panoeditmore/setSkinJieshuoSave',
+                    success: function (result) {
+                        location.reload()
+                    }
+                })
+                return false;
+            });
+
+        })
+    </script>
+</body>
+
+</html>

@@ -38,7 +38,7 @@
                         <td>北京市 海淀区</td>
                         <td>@item.CreationTime</td>
                         <td>
-                            <input type="checkbox" name="IsActive" checked="@item.IsActive" lay-text="是|否" lay-filter="IsActive'@item.IsActive'" lay-skin="switch">
+                            <input type="checkbox" data-id="@item.Id" lay-skin="switch"  name="IsActive" lay-filter="IsActive"  checked="@item.IsActive" lay-text="是|否" >
                         </td>
                         <td>
                             <button type="button" class="layui-btn layui-btn-sm layui-btn-warm edit" data-id="@item.Id">

@@ -1,10 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "VR全景编辑";
-    Layout = "~/Views/Shared/Krpano/_PanoramLayout.cshtml";
+    Layout = "~/Views/Shared/_PanoramLayout.cshtml";
 }
 <!--全景工具tour.js-->
-<script src="/static/krp/tour.js"></script>
+@*<script src="~/lib/krpano/panoram/js/tour.js"></script>*@
+<script src="~/tour.js"></script>
 <!--头部开始-->
 <div class="f_box">
     <!--Logo开始-->
@@ -108,8 +109,8 @@
     </script>
     <script>
         embedpano({
-            swf: "/static/krp/tour.swf",
-            xml: "/pano/panoedit/editxml?id=261",
+            swf: "tour.swf",
+            xml: "tour.xml",
             target: "pano",
             html5: "prefer",
             mobilescale: 1.0,
@@ -463,7 +464,7 @@
                 title: '设置',
                 id: 66,
                 area: ['70%', '80%'],
-                content: 'http://360720.com/pano/panoeditmore/skinPanosetting/view_id/' + viewid
+                content: '@Url.Action("openMoreSetting", "Panoram")'
             })
         }
         function openMusicSetting() {
@@ -484,7 +485,7 @@
                 type: 2,
                 title: '特效设置',
                 area: ['60%', '80%'],
-                content: "/pano/panoedit/effectseting?view_id=" + viewid
+                content: '@Url.Action("Effectseting", "Panoram")'
             })
         }
         //嵌入功能

@@ -1,77 +1,121 @@
 ﻿@model IReadOnlyList<LJH.VRTool.Roles.Dto.PermissionDto>
-<div class="modal-body">
-    <form id="addForm">
-        <div class="panel blank-panel">
-            <div class="panel-heading">
-                <div class="panel-options">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a data-toggle="tab" href="tabs_panels.html#tab-4"><i class="fa fa-users"></i>角色信息</a>
-                        </li>
-                        <li class="">
-                            <a data-toggle="tab" href="tabs_panels.html#tab-5"><i class="fa fa-user-plus"></i>权限信息</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="panel-body">
-                <div class="tab-content">
-                    <div id="tab-4" class="tab-pane active">
-                        <div class="form-group">
-                            <label for="account">角色</label>
-                            <input type="text" class="form-control" id="Name" name="Name" placeholder="角色">
-                        </div>
-                        <div class="form-group">
-                            <label for="account">角色</label>
-                            <input type="text" class="form-control" id="DisplayName" name="DisplayName" placeholder="角色">
-                        </div>
-                    </div>
-                    <div id="tab-5" class="tab-pane">
-                        <div class="form-group">
-                            @foreach (var item in Model)
-                            {
-                                <label class="checkbox-inline i-checks" for="Permissions_@item.Id">
-                                    <input type="checkbox" value="@item.Name" name="Permissions" id="RoleNames_@item.Id">@item.DisplayName
-                                </label>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </form>
-</div>
-<script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
-<script src="~/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-        });
-    });
-</script>
-<script>
-    function save(){
-      var formData = $("#addForm").serializeArray();
-        $.ajax({
-          url: "@Url.Action("Add", "Roles")",
-          type: "POST",
-          data: formData,
-          dataType: "json",
-          success: function (res) {
-              if (res.result.status == "ok") {
-                  parent.location.reload();//刷新父窗口
-                  var index = parent.layer.getFrameIndex(window.name);
-                  parent.layer.close(index); //再执行关闭
-              }
-              else {
-                  alert("error");
-              }
-          },
-          error: function (e) {
-              console.log(e);
-          }
-      });
+<style>
+    /*表单修改扩展*/
+    .layui-form-must-ext {
+        color: red;
     }
+
+    .layui-tab-ext {
+        margin: 10px 40px;
+    }
+
+    .layui-tab-content-ext {
+        padding: 25px 10px;
+    }
+
+    .layui-tab-brief > .layui-tab-title .layui-this:after {
+        border-bottom: 2px solid #1E9FFF;
+    }
+
+    .layui-form-checked[lay-skin=primary] i {
+        border-color: #1E9FFF !important;
+        background-color: #1E9FFF;
+        color: #fff;
+    }
+
+    .layui-form-checkbox[lay-skin=primary]:hover i {
+        border-color: #1E9FFF;
+        color: #fff;
+    }
+
+    .layui-form-onswitch {
+        border-color: #1E9FFF;
+        background-color: #1E9FFF;
+    }
+
+    .layui-form-bottombutton-ext {
+        position: fixed;
+        bottom: 0;
+        right: 55px;
+    }
+
+    .layui-btn-ext {
+        background-color: #1E9FFF;
+    }
+
+    .layui-btn-primary-ext:hover {
+        border-color: #1E9FFF;
+        color: #1E9FFF;
+    }
+</style>
+<form class="layui-form" id="addForm">
+    <div class="layui-tab layui-tab-brief layui-tab-ext" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this"><i class="fa fa-users"></i>角色信息</li>
+            <li><i class="fa fa-user-plus"></i>权限信息</li>
+        </ul>
+        <div class="layui-tab-content layui-tab-content-ext">
+            <div class="layui-tab-item layui-show animated fadeInRight">
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">
+                        <span class="layui-form-must-ext">*</span>
+                       角色名
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" name="UserName" required lay-verify="required" placeholder="请输入角色名" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">激活</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="IsActive" checked value="true" lay-skin="switch" lay-text="是|否">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item animated fadeInRight">
+                <div class="layui-form-item">
+                    @foreach (var item in Model)
+                    {
+                            <input type="checkbox" id="RoleNames_@item.Id" name="Permissions"  value="@item.Name" lay-skin="primary" title="@item.DisplayName">
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-bottombutton-ext">
+            <div>
+                <button type="button" lay-filter="save" lay-submit class="layui-btn layui-btn-ext" onclick="save()"><i class="fa fa-save"></i>确认</button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-primary-ext"><i class="fa fa-close"></i>重置</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    var save = function () {
+        layui.use('form', function () {
+            var form = layui.form;
+            form.on('submit(save)', function () {
+                var formData = $("#addForm").serializeArray();
+                $.ajax({
+                    url: "@Url.Action("Add", "Roles")",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.result.status == "ok") {
+                            layer.msg('新增成功!');
+                            parent.location.reload();//刷新父窗口
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index); //再执行关闭
+                        }
+                        else {
+                            layer.msg('新增失败!', { icon: 2, time: 5000 });
+                        }
+                    },
+                    error: function (e) {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                    }
+                });
+            });
+        });
+    };
 </script>

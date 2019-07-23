@@ -34,5 +34,71 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 基本设置
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult openMoreSetting()
+        {
+            return View();
+        }
+        public ActionResult Basic()
+        {
+            return PartialView("Basic");
+        }
+
+
+        /// <summary>
+        /// 背景音乐
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult openMusicSetting()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 全景素材
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult CustomMedia(string type)
+        {
+            if (type=="images_select")
+            {
+                return View("Images");
+            }
+            else if(type == "audio_select")
+            {
+                return View("Audio");
+            }
+            else if (type == "video_select")
+            {
+                return View("Video");
+            }
+            else if (type == "ebook_select")
+            {
+                return View("Ebook");
+            }
+            else
+            {
+                return View("");
+            }
+        }
+        /// <summary>
+        /// 全景特效
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Effectseting()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 遮罩
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Zhezhao()
+        {
+            return View();
+        }
     }
 }

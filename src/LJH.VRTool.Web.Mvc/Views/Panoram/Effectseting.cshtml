@@ -1,0 +1,338 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title></title>
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/static/lib/html5.js"></script>
+    <script type="text/javascript" src="/static/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.pano/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="/static/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.pano/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.pano/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/static/lib/layui/css/layui.css">
+    <script type="text/javascript" src="/static/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/lib/layui/layui.js"></script>
+    <meta name="keywords" content="微景云,全景平台,VR直播,互动平台,智能营销平台,VR全景平台,AI智能,人工智能营销,智能机器人">
+    <meta name="description" content="微景云是基于VR全景+VR直播+互动营销的AI智能营销平台。">
+    <script type=text/javascript language=javascript>
+            var globalConfig = {
+                cdnhost: "https://panoimg.720hot.com",
+            };
+    </script>
+    <!--/meta 作为公共模版分离出去-->
+    <link rel="stylesheet" type="text/css" href="/static/krp_editor/style/editor.css" />
+    <script src="/static/krp/tour.js"></script>
+    <style>
+        .layui-form-radio {
+            width: 15%;
+        }
+
+        .layui-form-label {
+            width: 100px;
+        }
+
+        .Modal_items_4NIrjG {
+            border-top: 0px;
+            width: 760px;
+            float: left;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cl pd-20">
+        <form action="" method="post" class="layui-form" id="postForm">
+            <input type="hidden" name="view_id" id="view_id" value="1882">
+            <div class="layui-form-item">
+                <label class="layui-form-label">特效选择：</label>
+                <div class="layui-input-block">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="0" title="无" checked="">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="1" title="太阳光">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="2" title="下雪">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="3" title="下雨"><br>
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="4" title="下红包">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="5" title="下爱心">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="6" title="下铜钱">
+                    <input lay-filter="effectRadio" type="radio" name="effect_mod" value="99" title="自定义效果">
+                </div>
+            </div>
+            <!--大小设置容器-->
+            <div class="layui-form-item" id="effect_size_div">
+                <label class="layui-form-label">大小设置：</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="effect_size" value="1" title="小">
+                    <input type="radio" name="effect_size" value="2" title="中">
+                    <input type="radio" name="effect_size" value="3" title="大" checked="checked">
+                </div>
+            </div>
+            <!--太阳光设置容器-->
+            <div class="layui-form-item" id="effect_sun_div" style="display:none;width:800px;">
+                <label class="layui-form-label">太阳光：</label>
+                <div id="pano" style="width:600px;height:400px;float:left;"></div>
+                <script>
+                    embedpano({swf: "/static/krp/tour.swf", xml: "/pano/panoedit/lookatxml?target_viewid=1882&target_hlookat=0&target_vlookat=0&opentype=2", target: "pano", html5: "auto", passQueryParameters: true});
+                </script>
+                <div id="sun_zb" style="float:left;margin-left: 127px;margin-top: 20px;">太阳光位置坐标：X：<span class="c-error">0</span> Y：<span class="c-error">0</span></div>
+                <input type="hidden" name="sun_ath" id="sun_ath" value="0">
+                <input type="hidden" name="sun_atv" id="sun_atv" value="0">
+            </div>
+            <!--自定义效果设置-->
+            <div class="layui-form-item" id="effect_self_div" style="display:none;">
+                <label class="layui-form-label">自定义效果：</label>
+                <div class="layui-input-block">
+                    <span id="mate_img"></span>
+                    <input type="hidden" name="choose_material_id" id="choose_material_id" value="0">
+                    <button type="button" onclick="custom_media('images_select')" class="btn btn-primary radius">选择图片</button>&nbsp;100 X 100PNG格式图片
+                </div>
+            </div>
+            <div class="layui-form-item" style="margin-bottom: 0px;">
+                <label class="layui-form-label">应用到场景：</label>
+                <div class="layui-input-block" style="padding-top:10px;">默认仅应用到当前场景，选择其他场景会清空其它场景相应的内容</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"> </label>
+                <div style="width:800px;float:left;">
+
+                    <div style="float:left;"><input type="checkbox" data-groupid="311" name="groupids[]" lay-filter="groupcheckbox" lay-skin="primary" title="场景选择" value="311"></div>
+                    <div class="Modal_items_4NIrjG" id="viewlist_311">
+                        <div class="ThumbItem_item_1TZGIi">
+                            <!--当前场景-->
+                            <div class="ThumbItem_thumb_rvTDP5 ThumbItem_active_uSNVzc" viewid="1882">
+                                <div style="width: 100%; height: 100%; background-image: url(&quot;https://panoimg.720hot.com/1/47356/3789/thumb.jpg&quot;); background-repeat: no-repeat; background-size: cover; background-position: center center;" title="360VR案例01">
+                                </div>
+                            </div>
+                            <div class="ThumbItem_name_1J1HIB ellipsis">360VR案例01</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <button class="layui-btn" lay-submit="" type="submit" lay-filter="demo2">确定</button>
+            </div>
+        </form>
+    </div>
+    <!--_footer 作为公共模版分离出去-->
+    <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+    <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+    <script type="text/javascript" src="/static/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script>
+    <script type="text/javascript" src="/static/h-ui.pano/js/H-ui.admin.page.js"></script>
+    <script>
+        $(function () {
+    var menu_id = "menu-zuopin";
+    console.log(menu_id);
+            $("#" + menu_id).find("dt").addClass("selected");
+            $("#" + menu_id).find("dd").show();
+        var menu_tab = "zuopin-index";
+    console.log(menu_tab)
+            if ($("#" + menu_tab)){
+    $("#" + menu_tab).addClass("current");
+    }
+        });
+    </script>
+    <script>
+//一般直接写在一个js文件中
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer, form = layui.form;
+    });
+    if (parent.layer) {
+        var index = parent.layer.getFrameIndex(window.name);
+    }
+    </script>
+    <script type="text/javascript" src="/static/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+    <script type="text/javascript" src="/static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/static/lib/laypage/1.2/laypage.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+
+    <script>
+    $('.kefu-liaotian').click(function(){
+        layer.open({
+            type:2,
+            title:'快客服咨询',
+            area:['350px','350px'],
+            content:'/pano/service/add'
+        })
+    })
+    function service_void() {
+        //页面层
+        layer.open({
+            title:'温馨提示',
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['420px', '240px'], //宽高
+            content: '<span>当前版本不支持此功能，详情咨询：4000-123-720</span>'
+        });
+    }
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?90db99a11aac11ea399a491092e0b530";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+    </script>    <!--/_footer /作为公共模版分离出去-->
+    <script type="text/javascript">
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form
+                    , layer = layui.layer
+                    , layedit = layui.layedit
+                    , laydate = layui.laydate;
+            //监听指定开关
+            form.on('radio(effectRadio)', function (data) {
+                if (this.value == 1) {
+                    $('#effect_sun_div').show();
+                    $('#effect_self_div').hide();
+                    $('#effect_size_div').hide();
+                } else if (this.value == 99) {
+                    $('#effect_sun_div').hide();
+                    $('#effect_self_div').show();
+                    $('#effect_size_div').show();
+                } else {
+                    $('#effect_sun_div').hide();
+                    $('#effect_self_div').hide();
+                    $('#effect_size_div').show();
+                }
+            });
+            //监听指定开关
+            form.on('checkbox(groupcheckbox)', function (data) {
+                var groupid = $(this).data('groupid');
+                if (this.checked == true) {
+                    //全部选择分组
+                    $('#viewlist_' + groupid + ' .ThumbItem_thumb_rvTDP5').each(function () {
+                        $(this).removeClass("ThumbItem_active_uSNVzc").addClass('ThumbItem_active_uSNVzc');
+                    });
+                } else {
+                    $('#viewlist_' + groupid + ' .ThumbItem_thumb_rvTDP5').each(function () {
+                        $(this).removeClass("ThumbItem_active_uSNVzc");
+                    });
+                }
+            });
+        });
+        $(document).on("click", ".ThumbItem_thumb_rvTDP5", function (e) {
+            if (!$(this).hasClass("ThumbItem_active_uSNVzc")) {
+                $(this).addClass("ThumbItem_active_uSNVzc");
+            } else {
+                $(this).removeClass("ThumbItem_active_uSNVzc");
+            }
+        });
+        //太阳光素材 选择容器
+        function targetback(hlookat, vlookat) {
+            layer.msg("坐标获取成功！", {time: 1000});
+            $("#sun_ath").val(hlookat);
+            $("#sun_atv").val(vlookat);
+            $("#sun_zb").html('太阳光位置坐标：X：<span class="c-error">' + hlookat + '</span> Y：<span class="c-error">' + vlookat + '</span>');
+        }
+        //打开媒体素材
+        function custom_media(m_type) {
+            parent.$("#choose_material_id").val(0);
+            parent.layer.open({
+                type: 2,
+                title: "素材-图片",
+                fix: false,
+                shadeClose: false,
+                scrollbar: false,
+                resize: false,
+                area: ["1000px", "620px"],
+                content: "/pano/material/" + m_type,
+                end: function () {
+                    chooseCallBack();
+                }
+            });
+        }
+        //选择后回调
+        function chooseCallBack() {
+            var choose_material_id = parent.$("#choose_material_id").val();
+            if (choose_material_id > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "/pano/material/ajax_get_material_byid",
+                    data: {choose_material_id: choose_material_id},
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.code == 0) {
+                            var data = result.data;
+                            //console.log(data);
+                            $("#choose_material_id").val(data.material_id);
+                            $('#mate_img').html('<img src="' + data.thumb_file_txt + '" width="40" height="40">');
+                        } else {
+                            layer.msg(result.msg, {icon: 5});
+                        }
+                    }
+                });
+            }
+        }
+        //表单提交
+        $(document).ready(function () {
+            //var index = parent.layer.getFrameIndex(window.name);
+            //特效选中
+            $("input[name='effect_mod'][value=0]").attr("checked", true);
+            //大小选中
+            $("input[name='effect_size'][value=1]").attr("checked", true);
+            if ($("input[name='effect_mod']:checked").val() == 1) {
+                $('#effect_sun_div').show();
+            }
+            $("#postForm").submit(function () {
+                var effect_mod = $("input[name='effect_mod']:checked").val();
+                var effect_size = $("input[name='effect_size']:checked").val();
+                var sun_ath = $("#sun_ath").val();
+                var sun_atv = $("#sun_atv").val();
+                var view_id = $("#view_id").val();
+                var choose_material_id = $("#choose_material_id").val();
+                //应用到场景 取值
+                var viewids = '';
+                $('.ThumbItem_active_uSNVzc').each(function () {
+                    var viewid = $(this).attr('viewid');
+                    if (viewid > 0) {
+                        viewids = viewids + ',' + viewid;
+                    } else {
+                        viewids = viewid;
+                    }
+                });
+                if ($("#title").val() == "") {
+                    layer.msg('请填写热点名称！', {icon: 5});
+                    return false;
+                }
+                if ($("#pano_id").val() < 1 || $("#view_id").val() < 1) {
+                    layer.msg('参数错误，请重新操作！', {icon: 5});
+                    return false;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/pano/panoedit/save_effectseting",
+                    data: {effect_mod: effect_mod, effect_size: effect_size, sun_ath: sun_ath, sun_atv: sun_atv, choose_material_id: choose_material_id, viewids: viewids, view_id, view_id},
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.code == 0) {
+                            layer.msg(result.msg, {time: 1000});
+                            setTimeout(function () {
+                                parent.layer.close(index);
+                            }, 1000);
+                        } else {
+                            layer.msg(result.msg, {icon: 5});
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
