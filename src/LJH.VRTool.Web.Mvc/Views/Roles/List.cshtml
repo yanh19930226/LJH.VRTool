@@ -86,7 +86,7 @@
                     DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
                     PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
                     Id = "bootstrappager"
-                }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm" })
+                }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm",OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1 })
     </div>
 }
 else

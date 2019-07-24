@@ -133,7 +133,6 @@ namespace LJH.VRTool.Roles
         public Task<ListResultDto<PermissionDto>> GetAllPermissions()
         {
             var permissions = PermissionManager.GetAllPermissions();
-
             return Task.FromResult(new ListResultDto<PermissionDto>(
                 ObjectMapper.Map<List<PermissionDto>>(permissions)
             ));
@@ -158,8 +157,11 @@ namespace LJH.VRTool.Roles
             await _roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
             return MapToEntityDto(role);
         }
-
-       
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task<RoleDto> Update(RoleDto input)
         {
             CheckUpdatePermission();
@@ -179,7 +181,11 @@ namespace LJH.VRTool.Roles
 
             return MapToEntityDto(role);
         }
-
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task Delete(EntityDto<int> input)
         {
             CheckDeletePermission();

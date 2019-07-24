@@ -11,7 +11,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Views\Shared\Modals\**" />
-    <Compile Remove="wwwroot\lib\blockUI\**" />
     <Compile Remove="wwwroot\lib\bootstrap-select\**" />
     <Compile Remove="wwwroot\lib\chart.js\**" />
     <Compile Remove="wwwroot\lib\eve-raphael\**" />
@@ -30,7 +29,6 @@
     <Compile Remove="wwwroot\lib\toastr\**" />
     <Compile Remove="wwwroot\lib\Waves\**" />
     <Content Remove="Views\Shared\Modals\**" />
-    <Content Remove="wwwroot\lib\blockUI\**" />
     <Content Remove="wwwroot\lib\bootstrap-select\**" />
     <Content Remove="wwwroot\lib\chart.js\**" />
     <Content Remove="wwwroot\lib\eve-raphael\**" />
@@ -49,7 +47,6 @@
     <Content Remove="wwwroot\lib\toastr\**" />
     <Content Remove="wwwroot\lib\Waves\**" />
     <EmbeddedResource Remove="Views\Shared\Modals\**" />
-    <EmbeddedResource Remove="wwwroot\lib\blockUI\**" />
     <EmbeddedResource Remove="wwwroot\lib\bootstrap-select\**" />
     <EmbeddedResource Remove="wwwroot\lib\chart.js\**" />
     <EmbeddedResource Remove="wwwroot\lib\eve-raphael\**" />
@@ -68,7 +65,6 @@
     <EmbeddedResource Remove="wwwroot\lib\toastr\**" />
     <EmbeddedResource Remove="wwwroot\lib\Waves\**" />
     <None Remove="Views\Shared\Modals\**" />
-    <None Remove="wwwroot\lib\blockUI\**" />
     <None Remove="wwwroot\lib\bootstrap-select\**" />
     <None Remove="wwwroot\lib\chart.js\**" />
     <None Remove="wwwroot\lib\eve-raphael\**" />
@@ -97,6 +93,8 @@
     <None Include="Views\Shared\Components\SideBarNav\Default.cshtml" />
     <None Include="Views\Shared\Components\SideBarUserArea\Default.cshtml" />
     <None Include="Views\Shared\Components\TopBarLanguageSwitch\Default.cshtml" />
+    <None Include="wwwroot\lib\blockUI\jquery.blockUI.js" />
+    <None Include="wwwroot\lib\blockUI\README.md" />
     <None Include="wwwroot\lib\krpano\panoram\hui\lib\datatables\1.10.0\jquery.dataTables.min.js" />
     <None Include="wwwroot\lib\krpano\panoram\hui\lib\DD_belatedPNG_0.0.8a-min.js" />
     <None Include="wwwroot\lib\krpano\panoram\hui\lib\echarts\3.4.0\echarts.common.min.js" />

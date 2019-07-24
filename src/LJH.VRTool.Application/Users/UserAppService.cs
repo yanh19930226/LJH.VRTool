@@ -54,10 +54,6 @@ namespace LJH.VRTool.Users
             _logInManager = logInManager;
         }
         #region MyRegion
-
-        
-
-       
         public async Task ChangeLanguage(ChangeUserLanguageDto input)
         {
             await SettingManager.ChangeSettingForUserAsync(
@@ -95,8 +91,6 @@ namespace LJH.VRTool.Users
                 .WhereIf(input.IsActive.HasValue, x => x.IsActive == input.IsActive);
         }
 
-        
-
         protected override IQueryable<User> ApplySorting(IQueryable<User> query, PagedUserResultRequestDto input)
         {
             return query.OrderBy(r => r.UserName);
@@ -128,7 +122,6 @@ namespace LJH.VRTool.Users
             CurrentUnitOfWork.SaveChanges();
             return true;
         }
-
         public async Task<bool> ResetPassword(ResetPasswordDto input)
         {
             if (_abpSession.UserId == null)
@@ -162,8 +155,7 @@ namespace LJH.VRTool.Users
             return true;
         }
         #endregion
-
-
+        
         /// <summary>
         /// 获取角色
         /// </summary>

@@ -12,6 +12,7 @@ using Webdiyer.AspNetCore;
 using LJH.VRTool.HttpService;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Hosting;
+using Abp.Authorization;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -36,11 +37,13 @@ namespace LJH.VRTool.Web.Controllers
             ViewBag.Title = "用户管理";
             return View(model);
         }
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_Create)]
         public async Task<ActionResult> Add()
         {
             var roles = (await _userAppService.GetRoles()).Items;
             return View(roles);
         }
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_Create)]
         [HttpPost]
         public async Task<ActionResult> Add(CreateUserDto model)
         {
@@ -114,7 +117,6 @@ namespace LJH.VRTool.Web.Controllers
         }
         public ActionResult TestPost()
         {
-
             return null;
         }
     }
