@@ -1,92 +1,85 @@
 ﻿@model IReadOnlyList<LJH.VRTool.Roles.Dto.PermissionDto>
-<style>
-    /*表单修改扩展*/
-    .layui-form-must-ext {
-        color: red;
-    }
-
-    .layui-tab-ext {
-        margin: 10px 40px;
-    }
-
-    .layui-tab-content-ext {
-        padding: 25px 10px;
-    }
-
-    .layui-tab-brief > .layui-tab-title .layui-this:after {
-        border-bottom: 2px solid #1E9FFF;
-    }
-
-    .layui-form-checked[lay-skin=primary] i {
-        border-color: #1E9FFF !important;
-        background-color: #1E9FFF;
-        color: #fff;
-    }
-
-    .layui-form-checkbox[lay-skin=primary]:hover i {
-        border-color: #1E9FFF;
-        color: #fff;
-    }
-
-    .layui-form-onswitch {
-        border-color: #1E9FFF;
-        background-color: #1E9FFF;
-    }
-
-    .layui-form-bottombutton-ext {
-        position: fixed;
-        bottom: 0;
-        right: 55px;
-    }
-
-    .layui-btn-ext {
-        background-color: #1E9FFF;
-    }
-
-    .layui-btn-primary-ext:hover {
-        border-color: #1E9FFF;
-        color: #1E9FFF;
-    }
-</style>
 <form class="layui-form" id="addForm">
-    <div class="layui-tab layui-tab-brief layui-tab-ext" lay-filter="docDemoTabBrief">
-        <ul class="layui-tab-title">
-            <li class="layui-this"><i class="fa fa-users"></i>角色信息</li>
-            <li><i class="fa fa-user-plus"></i>权限信息</li>
-        </ul>
-        <div class="layui-tab-content layui-tab-content-ext">
-            <div class="layui-tab-item layui-show animated fadeInRight">
-                <div class="layui-form-item ">
-                    <label class="layui-form-label">
-                        <span class="layui-form-must-ext">*</span>
-                       角色名
-                    </label>
-                    <div class="layui-input-block">
-                        <input type="text" name="UserName" required lay-verify="required" placeholder="请输入角色名" class="layui-input">
+    <div class="layui-form-content-ext">
+        <div class="layui-tab layui-tab-brief layui-tab-ext" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><i class="fa fa-users"></i><span class="layui-tab-title-icon-ext">角色信息</span></li>
+                <li><i class="fa fa-user-plus"></i><span class="layui-tab-title-icon-ext">权限信息</span></li>
+            </ul>
+            <div class="layui-tab-content layui-tab-content-ext">
+                <div class="layui-tab-item layui-show animated fadeInRight">
+                    <div class="layui-form-item ">
+                        <label class="layui-form-label">
+                            <span class="layui-form-must-ext">*</span>
+                            角色名
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Name" required lay-verify="required" placeholder="请输入角色名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">激活</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="IsActive" checked value="true" lay-skin="switch" lay-text="是|否">
+                        </div>
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">激活</label>
-                    <div class="layui-input-block">
-                        <input type="checkbox" name="IsActive" checked value="true" lay-skin="switch" lay-text="是|否">
+                <div class="layui-tab-item animated fadeInRight">
+                    @*<div class="layui-form-item">
+                        @foreach (var item in Model)
+                        {
+                            <input type="checkbox" id="RoleNames_@item.Id" name="Permissions" value="@item.Name" lay-skin="primary" title="@item.DisplayName">
+                        }
+                    </div>*@
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">
+                            拥有权限
+                        </label>
+                        <table class="layui-table layui-input-block">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="like1[write]" lay-skin="primary" title="用户管理">
+                                    </td>
+                                    <td>
+                                        <div class="layui-input-block">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" title="用户停用" value="2">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户删除">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户修改">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户改密">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户列表">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户改密">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户列表">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户改密">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="用户列表">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                        <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="文章管理">
+                                    </td>
+                                    <td>
+                                        <div class="layui-input-block">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="文章添加">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="文章删除">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="文章修改">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="文章改密">
+                                            <input name="id[]" lay-skin="primary" type="checkbox" value="2" title="文章列表">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            </div>
-            <div class="layui-tab-item animated fadeInRight">
-                <div class="layui-form-item">
-                    @foreach (var item in Model)
-                    {
-                            <input type="checkbox" id="RoleNames_@item.Id" name="Permissions"  value="@item.Name" lay-skin="primary" title="@item.DisplayName">
-                    }
                 </div>
             </div>
         </div>
-        <div class="layui-form-item layui-form-bottombutton-ext">
-            <div>
-                <button type="button" lay-filter="save" lay-submit class="layui-btn layui-btn-ext" onclick="save()"><i class="fa fa-save"></i>确认</button>
-                <button type="reset" class="layui-btn layui-btn-primary layui-btn-primary-ext"><i class="fa fa-close"></i>重置</button>
-            </div>
-        </div>
+    </div>
+    <div class="layui-modalfooter-ext">
+        <button type="button" lay-filter="save" lay-submit class="layui-btn-ext layui-btn-primary-ext" onclick="save()"><i class="fa fa-save"></i>确认</button>
+        <button type="reset" class="layui-btn-ext"><i class="fa fa-close"></i>重置</button>
     </div>
 </form>
 <script>

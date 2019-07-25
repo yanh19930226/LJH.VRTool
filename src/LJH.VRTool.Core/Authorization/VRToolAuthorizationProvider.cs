@@ -12,19 +12,20 @@ namespace LJH.VRTool.Authorization
             #region 基本业务(用户角色权限)
             //用户
             var users = context.CreatePermission(PermissionNames.Pages_Users, L("Users"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Search, L("UserSearch"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Create, L("UserCreate"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Edit, L("UserEdit"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Delete, L("UserDelete"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_BatchDelete, L("UserBatchDelete"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_Search, L("User_Search"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_Create, L("User_Create"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_Edit, L("User_Edit"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_Delete, L("User_Delete"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_BatchDelete, L("User_BatchDelete"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_IsActive, L("User_IsActive"));
 
             //角色
             var roles = context.CreatePermission(PermissionNames.Pages_Roles, L("Roles"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Search, L("RoleSearch"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Create, L("RoleCreate"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Edit, L("RoleEdit"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Delete, L("RoleDelete"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_BatchDelete, L("Roles"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_Search, L("Role_Search"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_Create, L("Role_Create"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_Edit, L("Role_Edit"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_Delete, L("Role_Delete"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_BatchDelete, L("Role_BatchDelete"));
 
             //租户
             var tenants = context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);

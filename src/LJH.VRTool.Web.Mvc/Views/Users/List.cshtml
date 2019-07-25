@@ -3,30 +3,7 @@
     Layout = "~/Views/Shared/_TablePartialLayout.cshtml";
 }
 @model PagedList<LJH.VRTool.Users.Dto.UserDto>
-<style>
-    /*复选按钮*/
-        .layui-form-onswitch {
-            border-color: #1E9FFF;
-            background-color: #1E9FFF;
-        }
-       /*切换按钮*/
-    .layui-form-checked[lay-skin=primary] i {
-        border-color: #1E9FFF !important;
-        background-color: #1E9FFF;
-        color: #fff;
-    }
-    .layui-form-checkbox[lay-skin=primary]:hover i {
-        border-color: #1E9FFF;
-        color: #fff;
-    }
-    .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
-    background-color: #1E9FFF;
-    border-color: #DDD;
-    color: white;
-    cursor: default;
-    z-index: 2;
-}
-</style>
+
 @if (Model.Count > 0)
 {
     <form id="formList">
@@ -62,18 +39,31 @@
                         <td>北京市 海淀区</td>
                         <td>@item.CreationTime</td>
                         <td>
-                            <input type="checkbox"  data-id="@item.Id" lay-skin="switch" name="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否">
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Roles_Edit))
+                            {
+                                <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否">
+                            }
+                            else
+                            {
+                                <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否" disabled>
+                            }
                         </td>
                         <td>
-                            <button type="button" class="layui-btn-ext layui-btnnobg-ext edit" data-id="@item.Id">
-                                <i class="layui-icon layui-icon-edit">
-                                </i>编辑
-                            </button>
-                            <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext deleted" data-id="@item.Id">
-                                <i class="layui-icon layui-icon-delete">
-                                </i>
-                                删除
-                            </button>
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Roles_Edit))
+                            {
+                                <button type="button" class="layui-btn-ext layui-btnnobg-ext" onclick="edit('@item.Id')">
+                                    <i class="layui-icon layui-icon-edit">
+                                    </i>编辑
+                                </button>
+                            }
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_Delete))
+                            {
+                                <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
+                                    <i class="layui-icon layui-icon-delete">
+                                    </i>
+                                    删除
+                                </button>
+                            }
                         </td>
                     </tr>
                 }
@@ -82,19 +72,19 @@
     </form>
     <div class="text-center">
         @Html.AjaxPager(Model, new PagerOptions
-                {
-                    PrevPageText = "Prev",
-                    NextPageText = "Next",
-                    FirstPageText = "First",
-                    LastPageText = "Last",
-                    PageIndexParameterName = "pageIndex",
-                    TagName = "ul",
-                    CssClass = "pagination",
-                    CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
-                    DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
-                    PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
-                    Id = "bootstrappager"
-                }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1 })
+        {
+           PrevPageText = "Prev",
+           NextPageText = "Next",
+           FirstPageText = "First",
+           LastPageText = "Last",
+           PageIndexParameterName = "pageIndex",
+           TagName = "ul",
+           CssClass = "pagination",
+           CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+           DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+           PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+           Id = "bootstrappager"
+        }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1})
     </div>
 }
 else
@@ -104,6 +94,5 @@ else
         </i>
         <p style="font-size: 20px; font-weight: 300; color: #111;"> 暂无数据</p>
     </div>
-
 }
 

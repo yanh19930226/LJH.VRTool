@@ -13,7 +13,7 @@ namespace LJH.VRTool.Roles.Dto
         [StringLength(AbpRoleBase.MaxNameLength)]
         public string Name { get; set; }
         
-        [Required]
+        //[Required]
         [StringLength(AbpRoleBase.MaxDisplayNameLength)]
         public string DisplayName { get; set; }
 

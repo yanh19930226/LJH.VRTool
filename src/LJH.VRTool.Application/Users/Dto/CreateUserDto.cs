@@ -14,10 +14,10 @@ namespace LJH.VRTool.Users.Dto
         [StringLength(AbpUserBase.MaxUserNameLength)]
         public string UserName { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Name { get; set; }
-        [Required]
+        //[Required]
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Surname { get; set; }
 

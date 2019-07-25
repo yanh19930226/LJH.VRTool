@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-Hans">
   <texts>
+    <!--基本业务开始-->
     <text name="HomePage" value="主页" />
     <text name="About" value="关于我们" />
     <text name="WelcomeMessage" value="欢迎使用 VRTool!" />
@@ -98,10 +99,30 @@
     <text name="EditTenant">编辑租户</text>
 
 
+    <text name="User_Search">查询</text>
+    <text name="User_Create">添加</text>
+    <text name="User_Delete">删除</text>
+    <text name="User_Edit">编辑</text>
+    <text name="User_BatchDelete">批量删除</text>
+    <text name="User_IsActive">启用</text>
 
+    <text name="Role_Search">查询</text>
+    <text name="Role_Create">添加</text>
+    <text name="Role_Delete">删除</text>
+    <text name="Role_Edit">编辑</text>
+    <text name="Role_BatchDelete">批量删除</text>
+    <!--基本业务结束-->
+
+
+
+
+
+
+    <!--扩展业务开始-->
     <text name="Source">素材管理</text>
     <text name="Video">视频管理</text>
     <text name="Panoram">全景管理</text>
+    <!--扩展业务结束-->
 
 
 

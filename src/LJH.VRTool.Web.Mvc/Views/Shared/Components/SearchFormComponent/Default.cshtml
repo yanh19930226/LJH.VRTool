@@ -1,43 +1,7 @@
 ﻿<style>
-    .lay-input-ext {
-        height: 31px;
-        line-height: 1.3;
-        line-height: 38px\9;
-        border-color: #D2D2D2 !important;
-        border-width: 1px;
-        border-style: solid;
-        background-color: #fff;
-        border-radius: 2px;
-        display: block;
-        width: 100%;
-        padding-left: 10px;
-        font-size: 14px;
-    }
-
-    .lay-input-exttime {
-        position: relative;
-        top: 2px;
-    }
-
-    ::-webkit-input-placeholder { /* WebKit browsers */
-        color: #999;
-        font-size: 12px;
-    }
-
-    ::-moz-placeholder { /* Mozilla Firefox 19+ */
-        color: #999;
-        font-size: 12px;
-    }
-
-    :-ms-input-placeholder { /* Internet Explorer 10+ */
-        color: #999;
-        font-size: 12px;
-    }
-
     .layui-elem-quote-ext {
         margin-bottom: 10px;
         padding: 15px;
-        /*line-height: 40px;*/
         border-left: none;
         border-radius: 0 2px 2px 0;
         background-color: #f2f2f2;
@@ -51,38 +15,37 @@
         font-weight: bold;
         position: relative;
         top: 4px;
-        color: #000000;
     }
 </style>
 <blockquote class="layui-elem-quote-ext">
     <div class="layui-inline">
         <label class="layui-form-label-ext">日期范围:</label>
         <div class="layui-input-inline" style="width: 120px;">
-            <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-exttime Wdate">
+            <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-time-ext Wdate">
         </div>
         <div class="layui-input-inline" style="width: 120px;">
-            <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-exttime Wdate">
+            <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
         </div>
     </div>
     <div class="layui-inline">
         <div class="layui-input-inline">
             <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
         </div>
-        <a class="layui-btn-ext layui-btnnobg-ext  search">
+        <a class="layui-btn-ext layui-btnnobg-ext " onclick="searchList()">
             <i class="layui-icon layui-icon-search">
             </i>查询
         </a>
     </div>
     <div class="layui-inline">
-        <a class="layui-btn-ext layui-btnnobg-ext add">
+        <a class="layui-btn-ext layui-btnnobg-ext" onclick="add()">
             <i class="layui-icon layui-icon-add-circle-fine">
             </i>添加
         </a>
     </div>
     <div class="layui-inline">
-        <a class="layui-btn-ext layui-btn-dangernobg-ext batchdeleted">
-            <i class="layui-icon layui-icon-delete">
-            </i>批量删除
-        </a>
-    </div>
+            <a class="layui-btn-ext layui-btn-dangernobg-ext" onclick="batchdeleted()">
+                <i class="layui-icon layui-icon-delete">
+                </i>批量删除
+            </a>
+        </div>
 </blockquote>

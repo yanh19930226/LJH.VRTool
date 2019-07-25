@@ -4,78 +4,50 @@
 @{
     ViewBag.Title = ViewBag.Title;
 }
-    <style>
-        /*按钮基本*/
-        .layui-btn-ext {
-            font-size: 12px;
-            border-radius: 3px;
-            padding: 3px 5px;
-            display: inline-block;
-            background: #fff;
-            border: 1px solid #dcdfe6;
-            color: #606266;
-            -webkit-appearance: none;
-            text-align: center;
-            box-sizing: border-box;
-            outline: 0;
-            margin: 0;
-            transition: .1s;
-            font-size: 14px;
-            border-radius: 4px;
-        }
-            .layui-btn-ext:hover {
-                color: #409eff;
-                border-color: #c6e2ff;
-                background-color: #ecf5ff;
-            }
-           .layui-btnnobg-ext{
-               color: #409eff;
-               border-color: #c6e2ff;
-           }
-            /*添加按钮*/
-            .layui-btn-primary-ext,.layui-btn-primary-ext:hover
-            {
-                color: #fff;
-            background-color: #1E9FFF;
-            border-color: #1E9FFF;
-            }
-        /*删除按钮(两种)*/
-        .layui-btn-danger-ext, .layui-btn-danger-ext:hover {
-            color: #fff;
-            background-color: #ff4949;
-            border-color: #ff4949;
-        }
-
-        .layui-btn-dangernobg-ext{
-            color: #ff4949;
-            border-color: #ff4949;
-        }
-         .layui-btn-dangernobg-ext:hover{
-             color: #ff4949;
-             border-color: #ff4949;
-             background-color: #fef0f0;
-          }
-        /*编辑按钮*/
-        .layui-btn-edit-ext {
-            color: #fff;
-            background-color: #ff4949;
-            border-color: #ff4949;
-        }
-
-        /*切换按钮*/
-        .layui-form-onswitch {
-            border-color: #1E9FFF;
-            background-color: #1E9FFF;
-        }
-
-        
-    </style>
 <div class="wrapper wrapper-content">
     <div class="ibox-content">
-        <button onclick="Test()">测试</button>
-        <button onclick="TestPost()">测试</button>
         <form id="searchForm" asp-action="Index" asp-controller="Users" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
-            @await Component.InvokeAsync(typeof(SearchFormComponent))
+            <blockquote class="layui-elem-quote-ext">
+                <div class="layui-inline">
+                    <label class="layui-form-label-ext">日期范围:</label>
+                    <div class="layui-input-inline" style="width: 120px;">
+                        <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-time-ext Wdate">
+                    </div>
+                    <div class="layui-input-inline" style="width: 120px;">
+                        <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
+                    </div>
+                </div>
+                @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_Search))
+                {
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
+                        </div>
+                        <a class="layui-btn-ext layui-btnnobg-ext " onclick="searchList()">
+                            <i class="layui-icon layui-icon-search">
+                            </i>查询
+                        </a>
+                    </div>
+                }
+                @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_Create))
+                {
+                    <div class="layui-inline">
+                        <a class="layui-btn-ext layui-btnnobg-ext" onclick="add()">
+                            <i class="layui-icon layui-icon-add-circle-fine">
+                            </i>添加
+                        </a>
+                    </div>
+                }
+                @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_BatchDelete))
+                {
+                    <div class="layui-inline">
+                        <a class="layui-btn-ext layui-btn-dangernobg-ext" onclick="batchdeleted()">
+                            <i class="layui-icon layui-icon-delete">
+                            </i>批量删除
+                        </a>
+                    </div>
+                }
+            </blockquote>
         </form>
         <div class="table-responsive animated fadeInRight layui-form" id="ajaxresult">
             <partial name="List" model="@Model" />
@@ -83,46 +55,6 @@
     </div>
 </div>
 @section scripts
-{
-<script>
-    var Test = function () {
-        $.ajax({
-            type: 'POST',
-            url: "/Users/Test",
-            dataType: 'json',
-            success: function (res) {
-                if (res.result.status == "ok") {
-                    layer.msg('已删除!', { icon: 1, time: 30000 });
-                    location.reload();//刷新页面
-                }
-                else {
-                    layer.msg('删除失败!', { icon: 2, time: 5000 });
-                }
-            },
-            error: function (data) {
-                layer.msg('请求出错!', { icon: 3, time: 5000 });
-            },
-        });
-        };
-    var TestPost = function () {
-        $.ajax({
-            type: 'POST',
-            url: "/Users/TestPost",
-            dataType: 'json',
-            success: function (res) {
-                if (res.result.status == "ok") {
-                    layer.msg('已删除!', { icon: 1, time: 30000 });
-                    location.reload();//刷新页面
-                }
-                else {
-                    layer.msg('删除失败!', { icon: 2, time: 5000 });
-                }
-            },
-            error: function (data) {
-                layer.msg('请求出错!', { icon: 3, time: 5000 });
-            },
-        });
-    };
-</script>
+    {
     <script src="~/view-resources/Views/Users/index.js"></script>
 }

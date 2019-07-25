@@ -40,7 +40,8 @@ namespace LJH.VRTool.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(CreateRoleDto model)
         {
-            var user = (await _roleAppService.CreateRole(model));
+            model.DisplayName = model.Name;
+            var role = (await _roleAppService.CreateRole(model));
             return Json(new { status = "ok" });
         }
         public async Task<ActionResult> Edit(int roleId)

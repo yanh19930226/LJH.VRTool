@@ -47,6 +47,8 @@ namespace LJH.VRTool.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(CreateUserDto model)
         {
+            model.Name = model.UserName;
+            model.Surname = model.UserName;
             var user = (await _userAppService.CreateUser(model));
             return Json(new { status = "ok" });
         }

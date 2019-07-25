@@ -11,6 +11,7 @@
         public const string Pages_Users_Edit = "Pages_Users_Edit";
         public const string Pages_Users_Delete = "Pages_Users_Delete";
         public const string Pages_Users_BatchDelete = "Pages_Users_BatchDelete";
+        public const string Pages_Users_IsActive = "Pages_Users_IsActive";
 
         public const string Pages_Roles = "Pages.Roles";
         public const string Pages_Roles_Search = "Pages.Roles_Search";
