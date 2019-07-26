@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using LJH.VRTool.Roles.Dto;
 
 namespace LJH.VRTool.Roles
@@ -20,5 +21,8 @@ namespace LJH.VRTool.Roles
         Task<List<RoleDto>> GetAllListAsync();
         Task<RoleDto> CreateRole(CreateRoleDto input);
         List<RoleDto> GetAllList(string Keyword, DateTime? TimeMin, DateTime? TimeMax);
+
+
+        IReadOnlyList<Permission> GetAllPermissionsNotMap();
     }
 }

@@ -9,6 +9,10 @@ using LJH.VRTool.Roles.Dto;
 using LJH.VRTool.Web.Models.Roles;
 using System.Linq;
 using Webdiyer.AspNetCore;
+using System.Collections.Generic;
+using LJH.VRTool.Web.Models.Common.Tree;
+using Abp.Authorization;
+using Newtonsoft.Json;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -35,6 +39,8 @@ namespace LJH.VRTool.Web.Controllers
         public async Task<ActionResult> Add()
         {
             var pers = (await _roleAppService.GetAllPermissions()).Items;
+            var res = GetData();
+            var s = JsonConvert.SerializeObject(res);
             return View(pers);
         }
         [HttpPost]
@@ -71,6 +77,42 @@ namespace LJH.VRTool.Web.Controllers
                 await _roleAppService.Delete(new EntityDto<int>() { Id = id });
             }
             return Json(new { status = "ok" });
+        }
+
+        //递归获取所有树结构的数据
+        public List<TreeItem> GetData()
+        {
+            var allpers = _roleAppService.GetAllPermissionsNotMap().Where(q=>q.Parent==null);
+            List<TreeItem> treelist = new List<TreeItem>();
+            foreach (var item in allpers)
+            {
+                TreeItem tree = new TreeItem();
+                tree.Id = item.Name;
+                tree.Title = item.Name;
+                if (item.Children.Count>0)
+                {
+                    tree.Children=GetChildrens(item);
+                }
+                treelist.Add(tree);
+            }
+            return treelist;
+        }
+        //递归获取子节点
+        public List<TreeItem> GetChildrens(Permission permission)
+        {
+            List<TreeItem> nodetree = new List<TreeItem>();
+            foreach (var item in permission.Children)
+            {
+                TreeItem tree = new TreeItem();
+                tree.Id = item.Name;
+                tree.Title = item.Name;
+                if (item.Children.Count > 0)
+                {
+                    tree.Children=GetChildrens(item);
+                }
+                nodetree.Add(tree);
+            }
+            return nodetree;
         }
     }
 }
