@@ -149,6 +149,7 @@
 /*表单内容区域*/
 .layui-form-content-ext {
     margin: 10px 25px !important;
+    padding-bottom: 120px;
 }
 /*表单验证图标*/
 .layui-form-must-ext {
