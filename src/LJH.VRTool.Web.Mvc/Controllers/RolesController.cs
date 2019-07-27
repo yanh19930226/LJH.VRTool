@@ -46,7 +46,7 @@ namespace LJH.VRTool.Web.Controllers
         public async Task<ActionResult> Add(CreateRoleDto model)
         {
             model.DisplayName = model.Name;
-            var role = (await _roleAppService.CreateRole(model));
+            //var role = (await _roleAppService.CreateRole(model));
             return Json(new { status = "ok" });
         }
         public async Task<ActionResult> Edit(int Id)
@@ -57,7 +57,7 @@ namespace LJH.VRTool.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Edit(CreateRoleDto model)
         {
-            var user = (await _roleAppService.CreateRole(model));
+            //var user = (await _roleAppService.CreateRole(model));
             return Json(new { status = "ok" });
         }
         [HttpPost]

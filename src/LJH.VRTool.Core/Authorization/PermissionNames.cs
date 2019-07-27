@@ -7,11 +7,11 @@
 
         public const string Pages_Users = "Pages.Users";
         public const string Pages_Users_Search = "Pages.Users_Search";
-        public const string Pages_Users_Create = "Pages_Users_Create";
-        public const string Pages_Users_Edit = "Pages_Users_Edit";
-        public const string Pages_Users_Delete = "Pages_Users_Delete";
-        public const string Pages_Users_BatchDelete = "Pages_Users_BatchDelete";
-        public const string Pages_Users_IsActive = "Pages_Users_IsActive";
+        public const string Pages_Users_Create = "Pages.Users_Create";
+        public const string Pages_Users_Edit = "Pages.Users_Edit";
+        public const string Pages_Users_Delete = "Pages.Users_Delete";
+        public const string Pages_Users_BatchDelete = "Pages.Users_BatchDelete";
+        public const string Pages_Users_IsActive = "Pages.Users_IsActive";
 
         public const string Pages_Roles = "Pages.Roles";
         public const string Pages_Roles_Search = "Pages.Roles_Search";
