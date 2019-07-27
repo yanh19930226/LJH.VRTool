@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using LJH.VRTool.Web.Models.Common.Tree;
 using Abp.Authorization;
 using Newtonsoft.Json;
+using LJH.VRTool.Authorization.Roles;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -39,8 +40,6 @@ namespace LJH.VRTool.Web.Controllers
         public async Task<ActionResult> Add()
         {
             var pers = (await _roleAppService.GetAllPermissions()).Items;
-            var res = GetData();
-            var s = JsonConvert.SerializeObject(res);
             return View(pers);
         }
         [HttpPost]
@@ -50,12 +49,10 @@ namespace LJH.VRTool.Web.Controllers
             var role = (await _roleAppService.CreateRole(model));
             return Json(new { status = "ok" });
         }
-        public async Task<ActionResult> Edit(int roleId)
+        public async Task<ActionResult> Edit(int Id)
         {
-            var output = await _roleAppService.GetRoleForEdit(new EntityDto(roleId));
-            var model = new EditRoleModalViewModel(output);
-
-            return View("_EditRoleModal", model);
+            var role = await _roleAppService.GetRoleByAsync(Id);
+            return View(role);
         }
         [HttpPost]
         public async Task<ActionResult> Edit(CreateRoleDto model)
@@ -78,7 +75,27 @@ namespace LJH.VRTool.Web.Controllers
             }
             return Json(new { status = "ok" });
         }
-
+        /// <summary>
+        /// 获取角色权限
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult> GetGrantedPermission(EntityDto<int> input)
+        {
+            var grantedPermissions =await (_roleAppService.GetGrantedPermission(input.Id));
+            return  Json(new { status = "ok", grantedPermissions = grantedPermissions });
+        }
+        /// <summary>
+        /// 获取所有权限
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetAllPermission()
+        {
+            var permission = GetData();
+            return Json(permission);
+        }
         //递归获取所有树结构的数据
         public List<TreeItem> GetData()
         {
@@ -116,3 +133,4 @@ namespace LJH.VRTool.Web.Controllers
         }
     }
 }
+

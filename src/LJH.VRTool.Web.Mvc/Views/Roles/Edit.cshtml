@@ -1,0 +1,226 @@
+﻿@model LJH.VRTool.Roles.Dto.RoleEditDto
+<form class="layui-form" id="addForm">
+    <div class="layui-form-content-ext">
+        <div class="layui-tab layui-tab-brief layui-tab-ext" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><i class="fa fa-users"></i><span class="layui-tab-title-icon-ext">角色信息</span></li>
+                <li><i class="fa fa-user-plus"></i><span class="layui-tab-title-icon-ext">权限信息</span></li>
+            </ul>
+            <div class="layui-tab-content layui-tab-content-ext">
+                <div class="layui-tab-item layui-show animated fadeInRight">
+                    <div class="layui-form-item ">
+                        <label class="layui-form-label">
+                            <span class="layui-form-must-ext">*</span>
+                            角色名
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" name="Name" value="@Model.Name" required lay-verify="required" placeholder="请输入角色名" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">激活</label>
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="IsActive" checked value="@Model.IsStatic" lay-skin="switch" lay-text="是|否">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item animated fadeInRight">
+                    <div class="layui-form-item layui-form-text">
+                        <div id="permission" class="demo-tree-more"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-modalfooter-ext">
+        <button type="button" lay-filter="save" lay-submit class="layui-btn-ext layui-btn-primary-ext" onclick="save()"><i class="fa fa-save"></i>确认</button>
+        <button type="reset" class="layui-btn-ext"><i class="fa fa-close"></i>重置</button>
+    </div>
+</form>
+<script src="~/lib/krpano/hplus/js/jquery.min.js"></script>
+<script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
+<script src="~/lib/krpano/hplus/js/common.js"></script>
+<script>
+    var Id =parseInt(request('Id'));
+    var save = function () {
+            layui.use('form', function () {
+                var form = layui.form;
+                form.on('submit(save)', function () {
+                    var formData = $("#addForm").serializeArray();
+                    $.ajax({
+                        url: "@Url.Action("Add", "Roles")",
+                        type: "POST",
+                        data: formData,
+                        dataType: "json",
+                        success: function (res) {
+                            if (res.result.status == "ok") {
+                                layer.msg('新增成功!');
+                                parent.location.reload();//刷新父窗口
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(index); //再执行关闭
+                            }
+                            else {
+                                layer.msg('新增失败!', { icon: 2, time: 5000 });
+                            }
+                        },
+                        error: function (e) {
+                            layer.msg('请求出错!', { icon: 3, time: 5000 });
+                        }
+                    });
+                });
+            });
+    };
+    var tree = layui.tree;
+
+     var datas = [{
+        title: '一级1'
+        , id: "1"
+        , spread: true
+        , children: [{
+            title: '二级1-1 可允许跳转'
+            , id: "3"
+            , children: [{
+                title: '三级1-1-3'
+                , id: "2"
+                , children: [{
+                    title: '四级1-1-3-1'
+                    , id: "24"
+                    , children: [{
+                        title: '五级1-1-3-1-1'
+                        , id: 30
+                    }, {
+                        title: '五级1-1-3-1-2'
+                        , id: "31"
+                    }]
+                }]
+            }, {
+                title: '三级1-1-1'
+                , id: 7
+                , children: [{
+                    title: '四级1-1-1-1 可允许跳转'
+                    , id: "15"
+                }]
+            }, {
+                title: '三级1-1-2'
+                , id: "8"
+                , children: [{
+                    title: '四级1-1-2-1'
+                    , id: "32"
+                }]
+            }]
+        }, {
+            title: '二级1-2'
+            , id: "4"
+            , spread: true
+            , children: [{
+                title: '三级1-2-1'
+                , id: 9
+            }, {
+                title: '三级1-2-2'
+                , id: "10"
+            }]
+        }, {
+            title: '二级1-3'
+            , id: "20"
+            , children: [{
+                title: '三级1-3-1'
+                , id: "21"
+            }, {
+                title: '三级1-3-2'
+                , id: "22"
+            }]
+        }]
+    }, {
+        title: '一级2'
+        , id: "2"
+        , spread: true
+        , children: [{
+            title: '二级2-1'
+            , id: 5
+            , spread: true
+            , children: [{
+                title: '三级2-1-1'
+                , id: "11"
+            }, {
+                title: '三级2-1-2'
+                , id: "12"
+            }]
+        }, {
+            title: '二级2-2'
+            , id: "6"
+            , children: [{
+                title: '三级2-2-1'
+                , id: "13"
+            }, {
+                title: '三级2-2-2'
+                , id: "14"
+            }]
+        }]
+    }, {
+        title: '一级3'
+        , id: "16"
+        , children: [{
+            title: '二级3-1'
+            , id: "17"
+            , children: [{
+                title: '三级3-1-1'
+                , id: "18"
+            }, {
+                title: '三级3-1-2'
+                , id: "19"
+            }]
+        }, {
+            title: '二级3-2'
+            , id: "27"
+        }]
+            }];
+    //获取所有权限
+    var getAllPermission = function () {
+         abp.ajax({
+         url: '@Url.Action("GetAllPermission", "Roles")',
+       }).done(function(data) {
+           treeRender(datas);
+       });
+    };
+    //获取角色权限
+    var getRolePermission = function () {
+        $.ajax({
+                 url: '@Url.Action("GetGrantedPermission", "Roles")?Id='+Id,
+                 type: "POST",
+                 dataType: "json",
+                 success: function (res) {
+                     if (res.result.status == "ok") {
+                         //var id = res.result.grantedPermissions[1].name;
+                         tree.setChecked('permissiontree',5);
+                     }
+                 },
+                 error: function (e) {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                     }
+                 });
+    };
+    //layui树渲染
+    var treeRender = function (data) {
+        tree.render({
+               elem: '#permission',
+               data: data,
+               showCheckbox: true,
+               id: 'permissiontree',
+               isJump: false,
+               click: function (obj) {
+                  var data = obj.data;  
+                  layer.msg('状态：'+ obj.state + '<br>节点数据：' + JSON.stringify(data));
+               }
+            });
+        //layui.use(['tree'], function(){
+        //    var tree = layui.tree;
+            
+
+        //    //tree.setChecked('permissiontree',id);
+        //});
+     };
+    $(function () {
+        getAllPermission();
+        getRolePermission();
+    });
+</script>

@@ -139,7 +139,19 @@ namespace LJH.VRTool.Roles
         }
         public IReadOnlyList<Permission> GetAllPermissionsNotMap()
         {
-            return PermissionManager.GetAllPermissions();
+            var per= PermissionManager.GetAllPermissions();
+            return per;
+        }
+        /// <summary>
+        /// 获取角色权限
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<List<GrantedPermission>> GetGrantedPermission(int Id)
+        {
+            var role = await _roleManager.GetRoleByIdAsync(Id);
+            var grantedPermissions = (await _roleManager.GetGrantedPermissionsAsync(role));
+            return ObjectMapper.Map<List<GrantedPermission>>(grantedPermissions).ToList();
         }
         /// <summary>
         /// 创建角色并分配权限
@@ -166,6 +178,15 @@ namespace LJH.VRTool.Roles
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
+        public  async Task<Role> GetRoleByIdAsync(int id)
+        {
+            return await Repository.GetAllIncluding(x => x.Permissions).FirstOrDefaultAsync(x => x.Id == id);
+        }
+        public async Task<RoleEditDto> GetRoleByAsync(int id)
+        {
+            var role= await Repository.GetAsync(id);
+            return ObjectMapper.Map<RoleEditDto>(role);
+        }
         public override async Task<RoleDto> Update(RoleDto input)
         {
             CheckUpdatePermission();

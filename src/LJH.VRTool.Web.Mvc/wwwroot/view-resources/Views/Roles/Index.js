@@ -30,7 +30,7 @@ var edit = function (id) {
         shadeClose: true,
         shade: 0.8,
         area: ['600px', '600px'],
-        content: '/Roles/EditId=' + id
+        content: '/Roles/Edit?Id=' + id
     });
 };
 
