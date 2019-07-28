@@ -129,6 +129,14 @@
     <!--扩展业务结束-->
 
 
+    <!--公共-->
+    <text name="Prev">上一页</text>
+    <text name="Next">下一页</text>
+    <text name="First">首页</text>
+    <text name="Last">尾页</text>
+    <!--公共-->
+
+
 
 
   </texts>

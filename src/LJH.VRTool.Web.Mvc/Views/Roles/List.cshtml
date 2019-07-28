@@ -53,12 +53,12 @@
         </table>
     </form>
     <div class="text-center">
-        @Html.AjaxPager(Model, new PagerOptions
-   {
-       PrevPageText = "Prev",
-       NextPageText = "Next",
-       FirstPageText = "First",
-       LastPageText = "Last",
+    @Html.AjaxPager(Model, new PagerOptions
+    {
+       PrevPageText = @L("Prev"),
+       NextPageText = @L("Next"),
+       FirstPageText = @L("First"),
+       LastPageText = @L("Last"),
        PageIndexParameterName = "pageIndex",
        TagName = "ul",
        CssClass = "pagination",

@@ -103,7 +103,6 @@ namespace LJH.VRTool.Web.Controllers
         //递归获取所有树结构的数据
         public List<TreeItem> GetData()
         {
-            var alalpers = _roleAppService.GetAllPermissions().Result.Items.ToList();
             var allpers = _roleAppService.GetAllPermissionsNotMap().Where(q=>q.Parent==null).ToList();
             List<TreeItem> treelist = new List<TreeItem>();
             foreach (var item in allpers)
