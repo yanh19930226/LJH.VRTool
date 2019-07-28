@@ -17,7 +17,7 @@ namespace LJH.VRTool.Web.Startup
                 .AddItem(
                     new MenuItemDefinition(
                         PageNames.Home,
-                        L("HomePage"),
+                        L("Pages_HomePage"),
                         url: "",
                         icon: "home",
                         requiresAuthentication: true
@@ -25,7 +25,7 @@ namespace LJH.VRTool.Web.Startup
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Tenants,
-                        L("Tenants"),
+                        L("Pages_Tenants"),
                         url: "Tenants",
                         icon: "business",
                         requiredPermissionName: PermissionNames.Pages_Tenants
@@ -33,7 +33,7 @@ namespace LJH.VRTool.Web.Startup
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
-                        L("Users"),
+                        L("Pages_Users"),
                         url: "Users",
                         icon: "fa fa-user",
                         requiredPermissionName: PermissionNames.Pages_Users
@@ -41,7 +41,7 @@ namespace LJH.VRTool.Web.Startup
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Roles,
-                        L("Roles"),
+                        L("Pages_Roles"),
                         url: "Roles",
                         icon: "fa fa-users",
                         requiredPermissionName: PermissionNames.Pages_Roles
@@ -50,7 +50,7 @@ namespace LJH.VRTool.Web.Startup
                  .AddItem(
                     new MenuItemDefinition(
                         PageNames.Source,
-                        L("Source"),
+                        L("Pages_Source"),
                         url: "Source",
                         icon: "fa fa-clone",
                         requiredPermissionName: PermissionNames.Pages_Source
@@ -59,7 +59,7 @@ namespace LJH.VRTool.Web.Startup
                  .AddItem(
                     new MenuItemDefinition(
                         PageNames.Panoram,
-                        L("Panoram"),
+                        L("Pages_Panoram"),
                         url: "Panoram",
                         icon: "fa fa-youtube-play",
                         requiredPermissionName: PermissionNames.Pages_Panoram
@@ -68,7 +68,7 @@ namespace LJH.VRTool.Web.Startup
                   .AddItem(
                     new MenuItemDefinition(
                         PageNames.Video,
-                        L("Video"),
+                        L("Pages_Video"),
                         url: "Video",
                         icon: "fa fa-tv",
                         requiredPermissionName: PermissionNames.Pages_Video
@@ -77,7 +77,7 @@ namespace LJH.VRTool.Web.Startup
                   .AddItem(
                     new MenuItemDefinition(
                         PageNames.Video,
-                        L("WebSetting"),
+                        L("Pages_WebSetting"),
                         url: "WebSetting",
                         icon: "fa fa-tv",
                         requiredPermissionName: PermissionNames.Pages_Video

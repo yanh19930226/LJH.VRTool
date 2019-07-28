@@ -10,5 +10,6 @@ namespace LJH.VRTool.Roles.Dto
     {
         public string Name { get; set; }
         public ILocalizableString DisplayName { get; set; }
+        public int? Children { get; set; }
     }
 }

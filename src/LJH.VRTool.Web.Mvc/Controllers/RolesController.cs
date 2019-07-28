@@ -15,6 +15,7 @@ using Abp.Authorization;
 using Newtonsoft.Json;
 using LJH.VRTool.Authorization.Roles;
 using System;
+using Abp.Localization;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -85,7 +86,8 @@ namespace LJH.VRTool.Web.Controllers
         public async Task<ActionResult> GetGrantedPermission(EntityDto<int> input)
         {
             var grantedPermissions =await (_roleAppService.GetGrantedPermission(input.Id));
-            return  Json(new { status = "ok", grantedPermissions = grantedPermissions });
+            var allPermissions = GetData();
+            return  Json(new { status = "ok", grantedPermissions = grantedPermissions, allPermissions= allPermissions });
         }
         /// <summary>
         /// 获取所有权限
@@ -95,18 +97,24 @@ namespace LJH.VRTool.Web.Controllers
         public ActionResult GetAllPermission()
         {
             var permission = GetData();
+            var ss = JsonConvert.SerializeObject(permission);
             return Json(permission);
         }
         //递归获取所有树结构的数据
         public List<TreeItem> GetData()
         {
-            var allpers = _roleAppService.GetAllPermissionsNotMap().Where(q=>q.Parent==null);
+            var alalpers = _roleAppService.GetAllPermissions().Result.Items.ToList();
+            var allpers = _roleAppService.GetAllPermissionsNotMap().Where(q=>q.Parent==null).ToList();
             List<TreeItem> treelist = new List<TreeItem>();
             foreach (var item in allpers)
             {
                 TreeItem tree = new TreeItem();
                 tree.Id = item.Name;
-                tree.Title = item.Name;
+                #region 本地化得用法
+                //tree.Title = LocalizationHelper.Manager.GetString((LocalizableString)item.DisplayName);
+                //tree.Title = L(item.Name);
+                tree.Title = ObjectMapper.Map<string>(item.DisplayName);
+                #endregion
                 if (item.Children.Count>0)
                 {
                     tree.Children=GetChildrens(item);
@@ -123,7 +131,9 @@ namespace LJH.VRTool.Web.Controllers
             {
                 TreeItem tree = new TreeItem();
                 tree.Id = item.Name;
-                tree.Title = item.Name;
+                //tree.Title = L(item.Name);
+                //tree.Title = LocalizationHelper.Manager.GetString((LocalizableString)item.DisplayName);
+                tree.Title = ObjectMapper.Map<string>(item.DisplayName);
                 if (item.Children.Count > 0)
                 {
                     tree.Children=GetChildrens(item);

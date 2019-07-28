@@ -6,11 +6,11 @@
         /// <summary>
         /// 租户管理
         /// </summary>
-        public const string Pages_Tenants = "Pages.Tenants";
+        public const string Pages_Tenants = "Pages_Tenants";
         /// <summary>
         /// 用户管理
         /// </summary>
-        public const string Pages_Users = "Pages.Users";
+        public const string Pages_Users = "Pages_Users";
         public const string Pages_Users_SearchAct = "Pages_Users_SearchAct";
         public const string Pages_Users_CreateAct = "Pages_Users_CreateAct";
         public const string Pages_Users_EditAct = "Pages_Users_EditAct";
@@ -20,23 +20,23 @@
         /// <summary>
         /// 角色管理
         /// </summary>
-        public const string Pages_Roles = "Pages.Roles";
+        public const string Pages_Roles = "Pages_Roles";
         public const string Pages_Roles_SearchAct = "Pages_Roles_SearchAct";
         public const string Pages_Roles_CreateAct = "Pages_Roles_CreateAct";
         public const string Pages_Roles_EditAct = "Pages_Roles_EditAct";
         public const string Pages_Roles_DeleteAct = "Pages_Roles_DeleteAct";
         public const string Pages_Roles_BatchDeleteAct = "Pages_Roles_BatchDeleteAct";
 
-        public const string Pages_WebSetting = "Pages.WebSetting"; 
+        public const string Pages_WebSetting = "Pages_WebSetting"; 
         #endregion
 
         #region 扩展业务
         //全景权限
-        public const string Pages_Panoram = "Pages.Panoram";
+        public const string Pages_Panoram = "Pages_Panoram";
         //素材权限
-        public const string Pages_Source = "Pages.Source";
+        public const string Pages_Source = "Pages_Source";
         //Vr视频权限
-        public const string Pages_Video = "Pages.Video"; 
+        public const string Pages_Video = "Pages_Video"; 
         #endregion
     }
 }

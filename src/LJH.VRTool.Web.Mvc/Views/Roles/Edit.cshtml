@@ -1,4 +1,9 @@
 ﻿@model LJH.VRTool.Roles.Dto.RoleEditDto
+<style>
+    .layui-tree-entry:hover {
+     background-color: none!important; 
+}
+</style>
 <form class="layui-form" id="addForm">
     <div class="layui-form-content-ext">
         <div class="layui-tab layui-tab-brief layui-tab-ext" lay-filter="docDemoTabBrief">
@@ -33,20 +38,22 @@
         </div>
     </div>
     <div class="layui-modalfooter-ext">
-        <button type="button" lay-filter="save" lay-submit class="layui-btn-ext layui-btn-primary-ext" onclick="save()"><i class="fa fa-save"></i>确认</button>
+        <button type="button" lay-filter="save" lay-submit class="layui-btn-ext layui-btn-primary-ext" onclick="save"><i class="fa fa-save"></i>确认</button>
         <button type="reset" class="layui-btn-ext"><i class="fa fa-close"></i>重置</button>
     </div>
 </form>
+@*<link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/eleTree.css" rel="stylesheet" />*@
 <script src="~/lib/krpano/hplus/js/jquery.min.js"></script>
 <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
 <script src="~/lib/krpano/hplus/js/common.js"></script>
+<script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/eleTree.js"></script>
 <script>
-    var Id = parseInt(request('Id'));
-    var tree = layui.tree;
-    var save = function () {
-            layui.use('form', function () {
-                var form = layui.form;
-                form.on('submit(save)', function () {
+        var Id = parseInt(request('Id'));
+        var form = layui.form, layer = layui.layer;
+        var tree = layui.tree;
+        var eleTree = layui.eleTree;
+        var save = function () {
+             form.on('submit(save)', function () {
                     var formData = $("#addForm").serializeArray();
                     for (var i = 0; i < formData.length; i++) {
                         if (formData[i].name === "layuiTreeCheck") {
@@ -74,19 +81,10 @@
                         }
                     });
                 });
-            });
-    };
-    //获取所有权限
-    var getAllPermission = function () {
-         abp.ajax({
-         url: '@Url.Action("GetAllPermission", "Roles")',
-       }).done(function(data) {
-           treeRender(data);
-       });
-    };
-    //获取角色权限
-    var getRolePermission = function () {
-        $.ajax({
+        };
+         //获取角色权限
+         var getRolePermission = function () {
+             $.ajax({
                  url: '@Url.Action("GetGrantedPermission", "Roles")?Id='+Id,
                  type: "POST",
                  dataType: "json",
@@ -94,35 +92,35 @@
                      if (res.result.status == "ok") {
                          var arr = new Array();
                          for (var i = 0; i < res.result.grantedPermissions.length; i++) {
-                             if (res.result.grantedPermissions[i].name.indexOf('Act')>0) {
+                             if (res.result.grantedPermissions[i].name.indexOf('Act')>0||res.result.grantedPermissions[i].children<1) {
                                  arr.push(res.result.grantedPermissions[i].name);
                              }
-                         }
+                         };
+                         treeRender(res.result.allPermissions);
                          tree.setChecked('permissiontree', arr);
                      }
                  },
                  error: function (e) {
                         layer.msg('请求出错!', { icon: 3, time: 5000 });
                      }
-                 });
-    };
-    //layui树渲染
-    var treeRender = function (data) {
-        tree.render({
-               elem: '#permission',
-               data: data,
-               showCheckbox: true,
-               id: 'permissiontree',
-               showLine:true,
-               isJump: false,
-               click: function (obj) {
-                  var data = obj.data;  
-                  layer.msg('状态：'+ obj.state + '<br>节点数据：' + JSON.stringify(data));
-               }
-            });
-     };
-    $(function () {
-        getAllPermission();
-        getRolePermission();
-    });
+              });
+         };
+         //layui树渲染
+        var treeRender = function (data) {
+             tree.render({
+                 elem: '#permission',
+                 data: data,
+                 showCheckbox: true,
+                 id: 'permissiontree',
+                 showLine:false,
+                 isJump: false,
+                 click: function (obj) {
+                    var data = obj.data;
+                    layer.msg('状态：'+ obj.state + '<br>节点数据：' + JSON.stringify(data));
+                 }
+             });
+         };
+         $(function () {
+             getRolePermission();
+         });
 </script>

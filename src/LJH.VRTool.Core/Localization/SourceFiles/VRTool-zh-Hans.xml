@@ -2,7 +2,7 @@
 <localizationDictionary culture="zh-Hans">
   <texts>
     <!--基本业务开始-->
-    <text name="HomePage" value="主页" />
+    
     <text name="About" value="关于我们" />
     <text name="WelcomeMessage" value="欢迎使用 VRTool!" />
     <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
@@ -29,7 +29,7 @@
     <text name="LoginPrompt" >正在登陆，请稍候！</text>
     <text name="UserProfile" >用户资料</text>
    
-    <text name="Tenants" >租户</text>
+    
     <text name="Logout" >注销</text>
     <text name="ManageMenu" >菜单</text>
     <text name="LabelOptions" >页签操作</text>
@@ -95,24 +95,26 @@
     <text name="DefaultPasswordIs">默认密码为：{0}</text>
     <text name="DeleteTenantConfirm">确认删除该租户？</text>
     <text name="EditTenant">编辑租户</text>
-
     
     
-    <text name="Users" >用户管理</text>
-    <text name="Users_SearchAct">查询</text>
-    <text name="Users_CreateAct">添加</text>
-    <text name="Users_DeleteAct">删除</text>
-    <text name="Users_EditAct">编辑</text>
-    <text name="Users_BatchDeleteAct">批量删除</text>
-    <text name="Users_IsActiveAct">启用</text>
+    <text name="Pages_HomePage" value="主页" />
+    <text name="Pages_Tenants" >租户</text>
+    
+    <text name="Pages_Users" >用户管理</text>
+    <text name="Pages_Users_SearchAct">查询</text>
+    <text name="Pages_Users_CreateAct">添加</text>
+    <text name="Pages_Users_DeleteAct">删除</text>
+    <text name="Pages_Users_EditAct">编辑</text>
+    <text name="Pages_Users_BatchDeleteAct">批量删除</text>
+    <text name="Pages_Users_IsActiveAct">启用</text>
     
     
-    <text name="Roles" >角色管理</text>
-    <text name="Roles_SearchAct">查询</text>
-    <text name="Roles_CreateAct">添加</text>
-    <text name="Roles_DeleteAct">删除</text>
-    <text name="Roles_EditAct">编辑</text>
-    <text name="Roles_BatchDeleteAct">批量删除</text>
+    <text name="Pages_Roles" >角色管理</text>
+    <text name="Pages_Roles_SearchAct">查询</text>
+    <text name="Pages_Roles_CreateAct">添加</text>
+    <text name="Pages_Roles_DeleteAct">删除</text>
+    <text name="Pages_Roles_EditAct">编辑</text>
+    <text name="Pages_Roles_BatchDeleteAct">批量删除</text>
     <!--基本业务结束-->
 
 
@@ -121,9 +123,9 @@
 
 
     <!--扩展业务开始-->
-    <text name="Source">素材管理</text>
-    <text name="Video">视频管理</text>
-    <text name="Panoram">全景管理</text>
+    <text name="Pages_Source">素材管理</text>
+    <text name="Pages_Video">视频管理</text>
+    <text name="Pages_Panoram">全景管理</text>
     <!--扩展业务结束-->
 
 

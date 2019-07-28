@@ -4901,8 +4901,8 @@ body .layui-util-face {
 
 .layui-tree-entry {
     position: relative;
-    padding: 3px 0;
-    height: 20px;
+    padding: 6px 0;
+    height: 30px;
     white-space: nowrap
 }
 
