@@ -14,6 +14,7 @@ using LJH.VRTool.Web.Models.Common.Tree;
 using Abp.Authorization;
 using Newtonsoft.Json;
 using LJH.VRTool.Authorization.Roles;
+using System;
 
 namespace LJH.VRTool.Web.Controllers
 {
@@ -46,7 +47,7 @@ namespace LJH.VRTool.Web.Controllers
         public async Task<ActionResult> Add(CreateRoleDto model)
         {
             model.DisplayName = model.Name;
-            //var role = (await _roleAppService.CreateRole(model));
+            var role = (await _roleAppService.CreateRole(model));
             return Json(new { status = "ok" });
         }
         public async Task<ActionResult> Edit(int Id)

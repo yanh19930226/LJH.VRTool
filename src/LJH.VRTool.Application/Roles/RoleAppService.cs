@@ -137,10 +137,15 @@ namespace LJH.VRTool.Roles
                 ObjectMapper.Map<List<PermissionDto>>(permissions)
             ));
         }
+        /// <summary>
+        /// 获取所有权限(该方法和上面的重复了？)
+        /// </summary>
+        /// <returns></returns>
         public IReadOnlyList<Permission> GetAllPermissionsNotMap()
         {
-            var per= PermissionManager.GetAllPermissions();
+            var per = PermissionManager.GetAllPermissions();
             return per;
+
         }
         /// <summary>
         /// 获取角色权限

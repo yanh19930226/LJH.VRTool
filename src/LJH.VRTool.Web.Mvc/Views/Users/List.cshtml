@@ -39,7 +39,7 @@
                         <td>北京市 海淀区</td>
                         <td>@item.CreationTime</td>
                         <td>
-                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Roles_Edit))
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_IsActiveAct))
                             {
                                 <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否">
                             }
@@ -49,14 +49,14 @@
                             }
                         </td>
                         <td>
-                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Roles_Edit))
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_EditAct))
                             {
                                 <button type="button" class="layui-btn-ext layui-btnnobg-ext" onclick="edit('@item.Id')">
                                     <i class="layui-icon layui-icon-edit">
                                     </i>编辑
                                 </button>
                             }
-                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_Delete))
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_DeleteAct))
                             {
                                 <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
                                     <i class="layui-icon layui-icon-delete">

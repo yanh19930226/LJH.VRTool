@@ -94,7 +94,7 @@
                      if (res.result.status == "ok") {
                          var arr = new Array();
                          for (var i = 0; i < res.result.grantedPermissions.length; i++) {
-                             if (res.result.grantedPermissions[i].name,indexOf('_')>0) {
+                             if (res.result.grantedPermissions[i].name.indexOf('Act')>0) {
                                  arr.push(res.result.grantedPermissions[i].name);
                              }
                          }
