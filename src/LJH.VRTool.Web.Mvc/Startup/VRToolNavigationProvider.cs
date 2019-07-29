@@ -19,7 +19,7 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Home,
                         L("Pages_HomePage"),
                         url: "",
-                        icon: "home",
+                        icon: "fa fa-home",
                         requiresAuthentication: true
                     )
                 ).AddItem(
@@ -27,7 +27,7 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Tenants,
                         L("Pages_Tenants"),
                         url: "Tenants",
-                        icon: "business",
+                        icon: "fa fa-th-large",
                         requiredPermissionName: PermissionNames.Pages_Tenants
                     )
                 ).AddItem(
@@ -79,7 +79,16 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Video,
                         L("Pages_WebSetting"),
                         url: "WebSetting",
-                        icon: "fa fa-tv",
+                        icon: "fa fa-gears",
+                        requiredPermissionName: PermissionNames.Pages_Video
+                    )
+                )
+                  .AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Video,
+                        L("Pages_Logs"),
+                        url: "Log",
+                        icon: "fa fa-file-text",
                         requiredPermissionName: PermissionNames.Pages_Video
                     )
                 );

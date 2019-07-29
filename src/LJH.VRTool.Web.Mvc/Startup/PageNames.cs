@@ -11,6 +11,6 @@
         public const string Panoram = "Pages_Panoram";
         public const string Source = "Pages_Source";
         public const string WebSetting = "Pages_WebSetting";
-
+        public const string Logs = "Pages_Logs";
     }
 }

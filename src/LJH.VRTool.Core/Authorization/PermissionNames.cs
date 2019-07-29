@@ -27,7 +27,18 @@
         public const string Pages_Roles_DeleteAct = "Pages_Roles_DeleteAct";
         public const string Pages_Roles_BatchDeleteAct = "Pages_Roles_BatchDeleteAct";
 
-        public const string Pages_WebSetting = "Pages_WebSetting"; 
+        public const string Pages_WebSetting = "Pages_WebSetting";
+
+
+        /// <summary>
+        /// 日志管理
+        /// </summary>
+        public const string Pages_Logs = "Pages_Logs";
+        public const string Pages_Logs_SearchAct = "Pages_Logs_SearchAct";
+        public const string Pages_Logs_DetailAct = "Pages_Logs_DetailAct";
+        public const string Pages_Logs_DeleteAct = "Pages_Logs_DeleteAct";
+        public const string Pages_Logs_BatchDeleteAct = "Pages_Logs_BatchDeleteAct";
+
         #endregion
 
         #region 扩展业务
