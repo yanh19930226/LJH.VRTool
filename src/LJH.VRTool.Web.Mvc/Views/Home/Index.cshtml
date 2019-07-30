@@ -7,16 +7,58 @@
 @using LJH.VRTool.Web.Views.Home.Components.FootBarComponent
 <style>
 .top_menu{ position:absolute; right:0; background:none }
+.layui-nav .layui-nav-child a {
+    color: #333;
+}
+.layui-nav .layui-nav-item .name{
+    padding: 0 10px;
+}
+.layui-nav .layui-nav-item a {
+    display: block;
+    padding: 10px 10px;
+    -webkit-transition: all .3s;
+}
+.top_menu .iconfont {
+    font-size: 14px !important;
+}
+.layui-nav-item a cite {
+    padding: 0 5px;
+}
+.layui-nav-child dd.layui-this {
+    background-color: #111;
+    color: #fff;
+}
+
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+    background-color: #111;
+    
+}
 </style>
 <div id="wrapper">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+        </div>
+        <ul class="layui-nav top_menu">
+            <li class="layui-nav-item ">
+                <a href="javascript:;" class="name">
+                    <img src="images/face.jpg" class="layui-circle" width="35" height="35">
+                    <cite>请叫我马哥</cite>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a class="J_menuItem" href="javascript:;" onclick="info()"><i class="fa fa-list-alt"></i><cite>个人资料</cite></a></dd>
+                    <dd><a class="J_menuItem" href="javascript:;" onclick="changepwd()"><i class="fa fa-gear"></i><cite>修改密码</cite></a></dd>
+                    <dd><a href="@Url.Action("Logout","Account")"><i class="fa fa-power-off"></i><cite>退出</cite></a></dd>
+                </dl>
+            </li>
+        </ul>
+
+    </nav>
+
     <!--左侧导航开始-->
     <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="nav-close">
-            <i class="fa fa-times-circle"></i>
-        </div>
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
-                @await Component.InvokeAsync(typeof(AccountInfoComponent))
                 @await Component.InvokeAsync(typeof(MenuComponent))
             </ul>
         </div>
@@ -25,26 +67,25 @@
     <!--右侧部分开始-->
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
-            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
+            @*<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                 </div>
                 <ul class="layui-nav top_menu">
                     <li class="layui-nav-item ">
-                        <a  href="javascript:;">
+                        <a href="javascript:;">
                             <img src="images/face.jpg" class="layui-circle" width="35" height="35">
                             <cite>请叫我马哥</cite>
                         </a>
                         <dl class="layui-nav-child">
-                            <dd ><a class="J_menuItem" href="javascript:;" onclick="info()"><i class="iconfont icon-zhanghu"></i><cite>个人资料</cite></a></dd>
-                            <dd><a class="J_menuItem"  href="javascript:;" onclick="changepwd()"><i class="iconfont icon-shezhi1"></i><cite>修改密码</cite></a></dd>
+                            <dd><a class="J_menuItem" href="javascript:;" onclick="info()"><i class="iconfont icon-zhanghu"></i><cite>个人资料</cite></a></dd>
+                            <dd><a class="J_menuItem" href="javascript:;" onclick="changepwd()"><i class="iconfont icon-shezhi1"></i><cite>修改密码</cite></a></dd>
                             <dd><a href="@Url.Action("Logout","Account")"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
                         </dl>
                     </li>
                 </ul>
 
-            </nav>
-
+            </nav>*@
         </div>
         <div class="row content-tabs">
             @await Component.InvokeAsync(typeof(TopBarComponent))

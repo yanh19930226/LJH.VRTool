@@ -10,33 +10,40 @@ namespace LJH.VRTool.Authorization
         {
 
             #region 基本业务(用户角色权限)
-            //用户
-            var users = context.CreatePermission(PermissionNames.Pages_Users, L("Users"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Search, L("User_Search"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Create, L("User_Create"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Edit, L("User_Edit"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_Delete, L("User_Delete"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_BatchDelete, L("User_BatchDelete"));
-            users.CreateChildPermission(PermissionNames.Pages_Users_IsActive, L("User_IsActive"));
+            ///租户管理
+            var tenants = context.CreatePermission(PermissionNames.Pages_Tenants, L("Pages_Tenants"), multiTenancySides: MultiTenancySides.Host);
+            ///用户管理
+            var users = context.CreatePermission(PermissionNames.Pages_Users, L("Pages_Users"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_SearchAct, L("Pages_Users_SearchAct"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_CreateAct, L("Pages_Users_CreateAct"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_EditAct, L("Pages_Users_EditAct"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_DeleteAct, L("Pages_Users_DeleteAct"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_BatchDeleteAct, L("Pages_Users_BatchDeleteAct"));
+            users.CreateChildPermission(PermissionNames.Pages_Users_IsActiveAct, L("Pages_Users_IsActiveAct"));
+            ///角色管理
+            var roles = context.CreatePermission(PermissionNames.Pages_Roles, L("Pages_Roles"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_SearchAct, L("Pages_Roles_SearchAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_CreateAct, L("Pages_Roles_CreateAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_EditAct, L("Pages_Roles_EditAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_DeleteAct, L("Pages_Roles_DeleteAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Roles_BatchDeleteAct, L("Pages_Roles_BatchDeleteAct"));
 
-            //角色
-            var roles = context.CreatePermission(PermissionNames.Pages_Roles, L("Roles"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Search, L("Role_Search"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Create, L("Role_Create"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Edit, L("Role_Edit"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_Delete, L("Role_Delete"));
-            roles.CreateChildPermission(PermissionNames.Pages_Roles_BatchDelete, L("Role_BatchDelete"));
 
-            //租户
-            var tenants = context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
-           
+            ///日志管理
+            var logs = context.CreatePermission(PermissionNames.Pages_Logs, L("Pages_Logs"));
+            roles.CreateChildPermission(PermissionNames.Pages_Logs_SearchAct, L("Pages_Logs_SearchAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Logs_DetailAct, L("Pages_Logs_DetailAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Logs_DeleteAct, L("Pages_Logs_DeleteAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Logs_BatchDeleteAct, L("Pages_Logs_BatchDeleteAct"));
+
+            ///网站设置
             context.CreatePermission(PermissionNames.Pages_WebSetting, L("WebSetting"));
             #endregion
 
             #region 扩展业务
-            context.CreatePermission(PermissionNames.Pages_Panoram, L("Panoram"));
-            context.CreatePermission(PermissionNames.Pages_Source, L("Source"));
-            context.CreatePermission(PermissionNames.Pages_Video, L("Video"));
+            context.CreatePermission(PermissionNames.Pages_Panoram, L("Pages_Panoram"));
+            context.CreatePermission(PermissionNames.Pages_Source, L("Pages_Source"));
+            context.CreatePermission(PermissionNames.Pages_Video, L("Pages_Video"));
             #endregion
         }
 

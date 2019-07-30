@@ -1,4 +1,5 @@
-﻿using Abp.Localization;
+﻿using Abp.Authorization;
+using Abp.Localization;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,5 +10,6 @@ namespace LJH.VRTool.Roles.Dto
     {
         public string Name { get; set; }
         public ILocalizableString DisplayName { get; set; }
+        public int? Children { get; set; }
     }
 }

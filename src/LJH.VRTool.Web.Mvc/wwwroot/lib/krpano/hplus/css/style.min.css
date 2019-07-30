@@ -360,6 +360,8 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
 
 .navbar-fixed-top, .navbar-static-top {
     background: #111;
+    position: sticky;
+    top: 0;
 }
 
 .fixed-nav #wrapper {
@@ -2997,7 +2999,7 @@ video {
 #wrapper {
     width: 100%;
     overflow-x: hidden;
-    background-color: #2f4050
+    background-color: #111;
 }
 
 .wrapper {
@@ -3475,7 +3477,6 @@ code {
     -webkit-border-image: none;
     -o-border-image: none;
     border-image: none;
-    border-style: solid solid none;
     border-width: 1px 0
 }
 
@@ -6279,7 +6280,7 @@ body.rtls .top-navigation #page-wrapper, body.rtls .top-navigation .footer.fixed
     }
 
 .content-tabs {
-    border-bottom: solid 1px #111;
+    border-bottom: solid 1px #e2e2e2;
 }
 
 .page-tabs a {

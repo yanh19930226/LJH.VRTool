@@ -31,28 +31,34 @@
                         <td>@item.CreationTime</td>
                         <td>@item.DisplayName</td>
                         <td>
-                            <button type="button" class="layui-btn-ext layui-btnnobg-ext"  onclick="edit('@item.Id')">
-                                <i class="layui-icon layui-icon-edit">
-                                </i>编辑
-                            </button>
-                            <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
-                                <i class="layui-icon layui-icon-delete">
-                                </i>
-                                删除
-                            </button>
-                        </td>
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Roles_EditAct))
+                            {
+                                <button type="button" class="layui-btn-ext layui-btnnobg-ext" onclick="edit('@item.Id')">
+                                    <i class="layui-icon layui-icon-edit">
+                                    </i>编辑
+                                </button>
+                            }
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Roles_DeleteAct))
+                            {
+                                <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
+                                    <i class="layui-icon layui-icon-delete">
+                                    </i>
+                                    删除
+                                </button>
+                            }
+                            </td>
                     </tr>
                 }
             </tbody>
         </table>
     </form>
     <div class="text-center">
-        @Html.AjaxPager(Model, new PagerOptions
-   {
-       PrevPageText = "Prev",
-       NextPageText = "Next",
-       FirstPageText = "First",
-       LastPageText = "Last",
+    @Html.AjaxPager(Model, new PagerOptions
+    {
+       PrevPageText = @L("Prev"),
+       NextPageText = @L("Next"),
+       FirstPageText = @L("First"),
+       LastPageText = @L("Last"),
        PageIndexParameterName = "pageIndex",
        TagName = "ul",
        CssClass = "pagination",

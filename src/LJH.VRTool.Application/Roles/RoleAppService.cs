@@ -137,10 +137,15 @@ namespace LJH.VRTool.Roles
                 ObjectMapper.Map<List<PermissionDto>>(permissions)
             ));
         }
+        /// <summary>
+        /// 获取所有权限(该方法和上面的重复了？)
+        /// </summary>
+        /// <returns></returns>
         public IReadOnlyList<Permission> GetAllPermissionsNotMap()
         {
-            var per= PermissionManager.GetAllPermissions();
+            var per = PermissionManager.GetAllPermissions();
             return per;
+
         }
         /// <summary>
         /// 获取角色权限
@@ -149,9 +154,18 @@ namespace LJH.VRTool.Roles
         /// <returns></returns>
         public async Task<List<GrantedPermission>> GetGrantedPermission(int Id)
         {
+            List<GrantedPermission> list = new List<GrantedPermission>();
             var role = await _roleManager.GetRoleByIdAsync(Id);
             var grantedPermissions = (await _roleManager.GetGrantedPermissionsAsync(role));
-            return ObjectMapper.Map<List<GrantedPermission>>(grantedPermissions).ToList();
+            foreach (var item in grantedPermissions)
+            {
+                GrantedPermission grantedpermission = new GrantedPermission();
+                grantedpermission = ObjectMapper.Map<GrantedPermission>(item);
+                grantedpermission.Children = item.Children.Count;
+                list.Add(grantedpermission);
+            }
+            return list;
+            //return ObjectMapper.Map<List<GrantedPermission>>(grantedPermissions);
         }
         /// <summary>
         /// 创建角色并分配权限

@@ -37,13 +37,13 @@ namespace LJH.VRTool.Web.Controllers
             ViewBag.Title = "用户管理";
             return View(model);
         }
-        [AbpMvcAuthorize(PermissionNames.Pages_Users_Create)]
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_CreateAct)]
         public async Task<ActionResult> Add()
         {
             var roles = (await _userAppService.GetRoles()).Items;
             return View(roles);
         }
-        [AbpMvcAuthorize(PermissionNames.Pages_Users_Create)]
+        [AbpMvcAuthorize(PermissionNames.Pages_Users_CreateAct)]
         [HttpPost]
         public async Task<ActionResult> Add(CreateUserDto model)
         {

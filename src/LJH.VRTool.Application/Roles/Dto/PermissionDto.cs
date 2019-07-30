@@ -1,6 +1,7 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Authorization;
+using System.Collections.Generic;
 
 namespace LJH.VRTool.Roles.Dto
 {

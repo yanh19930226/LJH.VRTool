@@ -2,7 +2,7 @@
 <localizationDictionary culture="zh-Hans">
   <texts>
     <!--基本业务开始-->
-    <text name="HomePage" value="主页" />
+    
     <text name="About" value="关于我们" />
     <text name="WelcomeMessage" value="欢迎使用 VRTool!" />
     <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
@@ -28,9 +28,8 @@
     <text name="CopyRight" >© 2018 VRTool</text>
     <text name="LoginPrompt" >正在登陆，请稍候！</text>
     <text name="UserProfile" >用户资料</text>
-    <text name="Users" >用户管理</text>
-    <text name="Roles" >角色管理</text>
-    <text name="Tenants" >租户</text>
+   
+    
     <text name="Logout" >注销</text>
     <text name="ManageMenu" >菜单</text>
     <text name="LabelOptions" >页签操作</text>
@@ -90,27 +89,39 @@
     <text name="Surname">姓</text>
     <text name="DeleteUserConfirm">确认删除该用户？</text>
     <text name="EditUser">编辑用户</text>
-
     <text name="CreateNewTenant">创建新租户</text>
     <text name="DatabaseConnectionString">数据库连接</text>
     <text name="AdminEmailAddress">管理员邮箱地址</text>
     <text name="DefaultPasswordIs">默认密码为：{0}</text>
     <text name="DeleteTenantConfirm">确认删除该租户？</text>
     <text name="EditTenant">编辑租户</text>
+    
+    
+    <text name="Pages_HomePage" value="主页" />
+    <text name="Pages_Tenants" >租户</text>
+    
+    <text name="Pages_Users" >用户管理</text>
+    <text name="Pages_Users_SearchAct">查询</text>
+    <text name="Pages_Users_CreateAct">添加</text>
+    <text name="Pages_Users_DeleteAct">删除</text>
+    <text name="Pages_Users_EditAct">编辑</text>
+    <text name="Pages_Users_BatchDeleteAct">批量删除</text>
+    <text name="Pages_Users_IsActiveAct">启用</text>
+    
+    
+    <text name="Pages_Roles" >角色管理</text>
+    <text name="Pages_Roles_SearchAct">查询</text>
+    <text name="Pages_Roles_CreateAct">添加</text>
+    <text name="Pages_Roles_DeleteAct">删除</text>
+    <text name="Pages_Roles_EditAct">编辑</text>
+    <text name="Pages_Roles_BatchDeleteAct">批量删除</text>
 
-
-    <text name="User_Search">查询</text>
-    <text name="User_Create">添加</text>
-    <text name="User_Delete">删除</text>
-    <text name="User_Edit">编辑</text>
-    <text name="User_BatchDelete">批量删除</text>
-    <text name="User_IsActive">启用</text>
-
-    <text name="Role_Search">查询</text>
-    <text name="Role_Create">添加</text>
-    <text name="Role_Delete">删除</text>
-    <text name="Role_Edit">编辑</text>
-    <text name="Role_BatchDelete">批量删除</text>
+    <text name="Pages_Logs" >日志管理</text>
+    <text name="Pages_Logs_SearchAct">查询</text>
+    <text name="Pages_Roles_DetailAct">添加</text>
+    <text name="Pages_Logs_DeleteAct">删除</text>
+    <text name="Pages_Logs_BatchDeleteAct">批量删除</text>
+    
     <!--基本业务结束-->
 
 
@@ -119,10 +130,18 @@
 
 
     <!--扩展业务开始-->
-    <text name="Source">素材管理</text>
-    <text name="Video">视频管理</text>
-    <text name="Panoram">全景管理</text>
+    <text name="Pages_Source">素材管理</text>
+    <text name="Pages_Video">视频管理</text>
+    <text name="Pages_Panoram">全景管理</text>
     <!--扩展业务结束-->
+
+
+    <!--公共-->
+    <text name="Prev">上一页</text>
+    <text name="Next">下一页</text>
+    <text name="First">首页</text>
+    <text name="Last">尾页</text>
+    <!--公共-->
 
 
 
