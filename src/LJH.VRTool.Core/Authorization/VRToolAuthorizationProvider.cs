@@ -29,6 +29,14 @@ namespace LJH.VRTool.Authorization
             roles.CreateChildPermission(PermissionNames.Pages_Roles_BatchDeleteAct, L("Pages_Roles_BatchDeleteAct"));
 
 
+            ///组织管理
+            var organizations = context.CreatePermission(PermissionNames.Pages_Organizations, L("Pages_Roles"));
+            roles.CreateChildPermission(PermissionNames.Pages_Organizations_SearchAct, L("Pages_Roles_SearchAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Organizations_CreateAct, L("Pages_Roles_CreateAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Organizations_EditAct, L("Pages_Roles_EditAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Organizations_DeleteAct, L("Pages_Roles_DeleteAct"));
+            roles.CreateChildPermission(PermissionNames.Pages_Organizations_BatchDeleteAct, L("Pages_Roles_BatchDeleteAct"));
+
             ///日志管理
             var logs = context.CreatePermission(PermissionNames.Pages_Logs, L("Pages_Logs"));
             roles.CreateChildPermission(PermissionNames.Pages_Logs_SearchAct, L("Pages_Logs_SearchAct"));

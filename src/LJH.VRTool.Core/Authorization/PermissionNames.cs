@@ -26,6 +26,15 @@
         public const string Pages_Roles_EditAct = "Pages_Roles_EditAct";
         public const string Pages_Roles_DeleteAct = "Pages_Roles_DeleteAct";
         public const string Pages_Roles_BatchDeleteAct = "Pages_Roles_BatchDeleteAct";
+        /// <summary>
+        /// 组织管理
+        /// </summary>
+        public const string Pages_Organizations = "Pages_Organizations";
+        public const string Pages_Organizations_SearchAct = "Pages_Organizations_SearchAct";
+        public const string Pages_Organizations_CreateAct = "Pages_Organizations_CreateAct";
+        public const string Pages_Organizations_EditAct = "Pages_Organizations_EditAct";
+        public const string Pages_Organizations_DeleteAct = "Pages_Organizations_DeleteAct";
+        public const string Pages_Organizations_BatchDeleteAct = "Pages_Organizations_BatchDeleteAct";
 
         public const string Pages_WebSetting = "Pages_WebSetting";
 

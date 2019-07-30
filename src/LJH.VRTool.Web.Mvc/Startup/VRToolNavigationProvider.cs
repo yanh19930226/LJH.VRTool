@@ -4,7 +4,6 @@ using LJH.VRTool.Authorization;
 
 namespace LJH.VRTool.Web.Startup
 {
-    
     /// <summary>
     /// This class defines menus for the application.
     /// </summary>
@@ -31,6 +30,15 @@ namespace LJH.VRTool.Web.Startup
                         requiredPermissionName: PermissionNames.Pages_Tenants
                     )
                 ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Organizations,
+                        L("Pages_Organizations"),
+                        url: "Organizations",
+                        icon: "fa fa-sitemap",
+                        requiredPermissionName: PermissionNames.Pages_Organizations
+                    )
+                )
+                .AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
                         L("Pages_Users"),
@@ -76,20 +84,20 @@ namespace LJH.VRTool.Web.Startup
                 )
                   .AddItem(
                     new MenuItemDefinition(
-                        PageNames.Video,
+                        PageNames.WebSetting,
                         L("Pages_WebSetting"),
                         url: "WebSetting",
                         icon: "fa fa-gears",
-                        requiredPermissionName: PermissionNames.Pages_Video
+                        requiredPermissionName: PermissionNames.Pages_WebSetting
                     )
                 )
                   .AddItem(
                     new MenuItemDefinition(
-                        PageNames.Video,
+                        PageNames.Logs,
                         L("Pages_Logs"),
                         url: "Log",
                         icon: "fa fa-file-text",
-                        requiredPermissionName: PermissionNames.Pages_Video
+                        requiredPermissionName: PermissionNames.Pages_Logs
                     )
                 );
             //.AddItem(

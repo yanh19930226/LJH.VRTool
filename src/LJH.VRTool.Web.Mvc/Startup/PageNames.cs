@@ -7,6 +7,7 @@
         public const string Tenants = "Pages_Tenants";
         public const string Users = "Pages_Users";
         public const string Roles = "Pages_Roles";
+        public const string Organizations = "Pages_Organizations";
         public const string Video= "Pages_Video";
         public const string Panoram = "Pages_Panoram";
         public const string Source = "Pages_Source";

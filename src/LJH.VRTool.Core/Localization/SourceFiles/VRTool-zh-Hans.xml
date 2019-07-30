@@ -115,6 +115,15 @@
     <text name="Pages_Roles_DeleteAct">删除</text>
     <text name="Pages_Roles_EditAct">编辑</text>
     <text name="Pages_Roles_BatchDeleteAct">批量删除</text>
+    
+    
+    <text name="Pages_Organizations" >组织管理</text>
+    <text name="Pages_Organizations_SearchAct">查询</text>
+    <text name="Pages_Organizations_CreateAct">添加</text>
+    <text name="Pages_Organizations_DeleteAct">删除</text>
+    <text name="Pages_Organizations_EditAct">编辑</text>
+    <text name="Pages_Organizations_BatchDeleteAct">批量删除</text>
+    
 
     <text name="Pages_Logs" >日志管理</text>
     <text name="Pages_Logs_SearchAct">查询</text>
