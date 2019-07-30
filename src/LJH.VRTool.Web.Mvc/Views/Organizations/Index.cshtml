@@ -1,0 +1,191 @@
+﻿@using Webdiyer.AspNetCore;
+@model PagedList<LJH.VRTool.Users.Dto.UserDto>
+@section styles{
+    <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/eleTree.css" rel="stylesheet" />
+    <style>
+        .layui-tab-content {
+            padding-left: 50px;
+        }
+
+        .file-option, .file-name {
+            text-align: center
+        }
+
+        .upload-button-container {
+            margin: 15px 0;
+        }
+
+        .add_newgroup {
+            padding: 12px 5px;
+            color: #293846;
+        }
+
+        .jstree-position {
+            width: 180px;
+            position: absolute
+        }
+
+        .tree-selected {
+            background-color: #293846;
+        }
+
+        .tree-dl dl dd span {
+            display: none;
+        }
+
+        .tree-dl dl:hover dd span {
+            display: block;
+            bottom: 22px;
+            right: 6px;
+            position: relative;
+        }
+
+        #tab-audio .file-box {
+            width: 334px;
+        }
+    </style>
+}
+<div class="wrapper wrapper-content">
+    <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
+        <div class="add_newgroup" onclick="add()">+ 新建根节点</div>
+        <div class="tree-dl">
+            <div id="organization"></div>
+        </div>
+    </div>
+    <div class="animated fadeInRight" style="margin-left:210px">
+        <div class="upload-button-container">
+            <button type="button" class="layui-btn" id="pano">上传全景图</button>
+        </div>
+        <div>
+            <form id="formList">
+                <table class="layui-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" lay-skin="primary" lay-filter="allChoose">
+                            </th>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>性别</th>
+                            <th>手机</th>
+                            <th>邮箱</th>
+                            <th>地址</th>
+                            <th>加入时间</th>
+                            <th>是否激活</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="selectedIds" value="@item.Id" lay-skin="primary" lay-filter="itemChoose">
+                                </td>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>男</td>
+                                <td>13000000000</td>
+                                <td>@item.EmailAddress</td>
+                                <td>北京市 海淀区</td>
+                                <td>@item.CreationTime</td>
+                                <td>
+                                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_IsActiveAct))
+                                    {
+                                        <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否">
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否" disabled>
+                                    }
+                                </td>
+                                <td>
+                                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_EditAct))
+                                    {
+                                        <button type="button" class="layui-btn-ext layui-btnnobg-ext" onclick="edit('@item.Id')">
+                                            <i class="layui-icon layui-icon-edit">
+                                            </i>编辑
+                                        </button>
+                                    }
+                                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_DeleteAct))
+                                    {
+                                        <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
+                                            <i class="layui-icon layui-icon-delete">
+                                            </i>
+                                            删除
+                                        </button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="text-center" style="clear:both">
+        <nav aria-label="Page navigation">
+            @Html.Pager(Model, new PagerOptions
+            {
+                PageIndexParameterName = "pageIndex",
+                TagName = "ul",
+                CssClass = "pagination",
+                CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+                DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+                PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+                Id = "bootstrappager"
+            })
+        </nav>
+    </div>
+</div>
+@section scripts
+    {
+    <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/eleTree.js"></script>
+    <script>
+    var eleTree = layui.eleTree;
+     //获取组织机构
+         var getOrganization = function () {
+             $.ajax({
+                 url: '@Url.Action("GetOrganizationData", "Organizations")',
+                 type: "POST",
+                 dataType: "json",
+                 success: function (res) {
+                     if (res.result.status == "ok") {
+                         treeRender(res.result.organizations);
+                     }
+                 },
+                 error: function (e) {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                     }
+              });
+         };
+        //layui树渲染
+        var treeRender = function (data) {
+             eleTree.render({
+                 elem: '#organization',
+                 defaultExpandAll: true,
+               data: data,
+               showCheckbox: true,
+               contextmenuList: ["copy","add","edit","remove"],
+               drag: false,
+               emptText: "暂无数据",
+               accordion: true
+           });
+    };
+        var add = function () {
+            layer.open({
+                anim: 3,
+                type: 2,
+                title: '添加根组织',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['600px', '600px'],
+                content: '/Organizations/Add'
+            });
+        };
+        $(function () {
+               getOrganization();
+        });
+    </script>
+}
