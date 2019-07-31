@@ -56,4 +56,28 @@ namespace LJH.VRTool.Web.Models.Common.Tree
         /// </summary>
         public List<EleTreeItem> Children { get; set; }
     }
+    public class DTreeItem
+    {
+        /// <summary>
+        /// 主键
+        public int Id { get; set; }
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string Title { get; set; }
+
+        public int? CheckArr { get; set; }
+        /// <summary>
+        /// 是否可用
+        /// </summary>
+        public int ParentId { get; set; }
+        /// <summary>
+        /// 子节点 
+        /// </summary>
+        public List<DTreeItem> Children { get; set; }
+        /// <summary>
+        /// 是否可用
+        /// </summary>
+        public string IconClass { get; set; }
+    }
 }

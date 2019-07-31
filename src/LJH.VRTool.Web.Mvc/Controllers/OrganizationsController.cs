@@ -41,15 +41,15 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             var listr = _organizationAppService.GetList();
             //var list=_organizationAppService.GetOrganizationList();
-            List<EleTreeItem> treelist = new List<EleTreeItem>();
+            List<TreeItem> treelist = new List<TreeItem>();
             foreach (var item in listr)
             {
-                EleTreeItem tree = new EleTreeItem();
-                tree.Id = item.Id.ToString();
+                TreeItem tree = new TreeItem();
                 #region 本地化得用法
+                tree.Id = item.Id.ToString();
                 //tree.Title = LocalizationHelper.Manager.GetString((LocalizableString)item.DisplayName);
                 //tree.Title = L(item.Name);
-                tree.Label = item.DisplayName;
+                tree.Title = item.DisplayName;
                 #endregion
                 if (item.Children.Count > 0)
                 {
@@ -60,16 +60,16 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             return Json(new { status = "ok", organizations = treelist });
         }
         //递归获取子节点
-        public List<EleTreeItem> GetChildrens(OrganizationUnitDto permission)
+        public List<TreeItem> GetChildrens(OrganizationUnitDto permission)
         {
-            List<EleTreeItem> nodetree = new List<EleTreeItem>();
+            List<TreeItem> nodetree = new List<TreeItem>();
             foreach (var item in permission.Children)
             {
-                EleTreeItem tree = new EleTreeItem();
+                TreeItem tree = new TreeItem();
                 tree.Id = item.Id.ToString();
                 //tree.Title = L(item.Name);
                 //tree.Title = LocalizationHelper.Manager.GetString((LocalizableString)item.DisplayName);
-                tree.Label = item.DisplayName;
+                tree.Title = item.DisplayName;
                 if (item.Children.Count > 0)
                 {
                     tree.Children = GetChildrens(item);

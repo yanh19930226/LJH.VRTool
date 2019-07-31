@@ -49,8 +49,8 @@
     <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
         <div class="add_newgroup" onclick="add()">+ 新建根节点</div>
         <div class="tree-dl">
-            <div id="organization"></div>
-        </div>
+                <div id="organization"></div>
+            </div>
     </div>
     <div class="animated fadeInRight" style="margin-left:210px">
         <div class="upload-button-container">
@@ -140,19 +140,23 @@
 </div>
 @section scripts
     {
+    <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/eleTree.js"></script>
     <script>
     var eleTree = layui.eleTree;
+     var tree = layui.tree;
      //获取组织机构
-         var getOrganization = function () {
+      var getOrganization = function () {
              $.ajax({
                  url: '@Url.Action("GetOrganizationData", "Organizations")',
                  type: "POST",
                  dataType: "json",
                  success: function (res) {
                      if (res.result.status == "ok") {
-                         treeRender(res.result.organizations);
+                         //treeRender(res.result.organizations);
+
+                         T(res.result.organizations);
                      }
                  },
                  error: function (e) {
@@ -160,20 +164,48 @@
                      }
               });
          };
-        //layui树渲染
-        var treeRender = function (data) {
+     //layui树渲染
+     var treeRender = function (data) {
              eleTree.render({
                  elem: '#organization',
                  defaultExpandAll: true,
                data: data,
-               showCheckbox: true,
+               showCheckbox: false,
                contextmenuList: ["copy","add","edit","remove"],
                drag: false,
                emptText: "暂无数据",
                accordion: true
            });
     };
-        var add = function () {
+
+
+
+
+    var T = function (data) {
+        tree.render({
+           elem: '#organization',
+           data: data,
+           showCheckbox: false,
+           id: 'permissiontree',
+           edit: ['add', 'update', 'del'],
+           showLine: true,
+           oprate: function (obj) {
+               var type = obj.type; //得到操作类型：add、edit、del
+               var data = obj.data; //得到当前节点的数据
+               var elem = obj.elem; //得到当前节点元素
+               //Ajax 操作
+               var id = data.id; //得到节点索引
+               if(type === 'add'){ //增加节点
+                   add();
+               } else if(type === 'update'){ //修改节点
+                 console.log(elem.find('.layui-tree-txt').html()); //得到修改后的内容
+               } else if(type === 'del'){ //删除节点
+                 
+               };
+           }
+        });
+    }
+     var add = function () {
             layer.open({
                 anim: 3,
                 type: 2,
@@ -184,8 +216,8 @@
                 content: '/Organizations/Add'
             });
         };
-        $(function () {
-               getOrganization();
-        });
+     $(function () {
+            getOrganization();
+     });
     </script>
 }
