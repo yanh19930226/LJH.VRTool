@@ -1,5 +1,7 @@
-﻿using Abp.Organizations;
+﻿using Abp.Application.Services;
+using Abp.Organizations;
 using LJH.VRTool.Organizations.Dto;
+using LJH.VRTool.Roles.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace LJH.VRTool.Organizations
 {
-    public interface IOrganizationAppService
+    public interface IOrganizationAppService : IApplicationService
     {
-        Task<List<OrganizationUnit>> GetOrganizationList();
-        //Task<OrganizationUnit> CreateAsync(OrganizationUnitCreateDto organizationUnit);
-        OrganizationUnit Create(OrganizationUnitCreateDto organizationUnit);
+        List<OrganizationUnit> GetOrganizationList();
+
+        List<OrganizationUnitDto> GetList();
+        Task<OrganizationUnit> CreateAsync(OrganizationUnitCreateDto organizationUnit);
+        Task<OrganizationUnit> UpdateAsync(OrganizationUnitUpdateDto organizationUnit);
+        Task DeleteAsync(long Id);
     }
 }

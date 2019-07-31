@@ -39,9 +39,10 @@ namespace LJH.VRTool.Web.Mvc.Controllers
 
         public ActionResult GetOrganizationData()
         {
-            var list=_organizationAppService.GetOrganizationList().Result;
+            var listr = _organizationAppService.GetList();
+            //var list=_organizationAppService.GetOrganizationList();
             List<EleTreeItem> treelist = new List<EleTreeItem>();
-            foreach (var item in list)
+            foreach (var item in listr)
             {
                 EleTreeItem tree = new EleTreeItem();
                 tree.Id = item.Id.ToString();
@@ -59,7 +60,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             return Json(new { status = "ok", organizations = treelist });
         }
         //递归获取子节点
-        public List<EleTreeItem> GetChildrens(OrganizationUnit permission)
+        public List<EleTreeItem> GetChildrens(OrganizationUnitDto permission)
         {
             List<EleTreeItem> nodetree = new List<EleTreeItem>();
             foreach (var item in permission.Children)
@@ -84,7 +85,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult Add(OrganizationUnitCreateDto input)
         {
-            var org=_organizationAppService.Create(input);
+           var res= _organizationAppService.CreateAsync(input);
             return Json(new { status = "ok" });
         }
     }
