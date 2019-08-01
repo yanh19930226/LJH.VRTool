@@ -35,7 +35,6 @@ namespace LJH.VRTool.Organizations
         {
             return _objectMapper.Map<List<OrganizationUnitDto>>(_OrganizationUnitRepository.GetAllList());
         }
-
         public async Task<OrganizationUnit> CreateAsync(OrganizationUnitCreateDto organizationUnit)
         {
             var org = _objectMapper.Map<OrganizationUnit>(organizationUnit);
@@ -44,8 +43,9 @@ namespace LJH.VRTool.Organizations
         }
         public async Task<OrganizationUnit> UpdateAsync(OrganizationUnitUpdateDto organizationUnit)
         {
-            var org = _objectMapper.Map<OrganizationUnit>(organizationUnit);
-            return await _OrganizationUnitRepository.UpdateAsync(org);
+            var org=_OrganizationUnitRepository.Get(organizationUnit.Id);
+            org = _objectMapper.Map<OrganizationUnit>(organizationUnit);
+            return await _OrganizationUnitRepository.InsertOrUpdateAsync(org);
         }
         public async Task DeleteAsync(long Id)
         {

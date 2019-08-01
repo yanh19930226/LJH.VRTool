@@ -37,39 +37,76 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             return View();
         }
 
+        #region 添加组织机构
+        /// <summary>
+        /// 添加组织机构
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Add(OrganizationUnitCreateDto input)
+        {
+            var res = _organizationAppService.CreateAsync(input);
+            return Json(new { status = "ok" });
+        }
+        #endregion
+
+        #region 编辑组织机构
+        [HttpPost]
+        public ActionResult Edit(OrganizationUnitUpdateDto dto)
+        {
+            var res = _organizationAppService.UpdateAsync(dto);
+            return Json(new { status = "ok" });
+        } 
+        #endregion
+
+        #region 删除组织机构
+        /// <summary>
+        /// 删除组织机构
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public ActionResult Delete(long Id)
+        {
+            var res = _organizationAppService.DeleteAsync(Id);
+            return Json(new { status = "ok" });
+        }
+        #endregion
+
+        #region 获取组织机构数据
+        /// <summary>
+        /// 获取组织机构数据
+        /// </summary>
+        /// <returns></returns>
         public ActionResult GetOrganizationData()
         {
             var listr = _organizationAppService.GetList();
-            //var list=_organizationAppService.GetOrganizationList();
-            List<EleTreeItem> treelist = new List<EleTreeItem>();
+            List<DTreeItem> treelist = new List<DTreeItem>();
             foreach (var item in listr)
             {
-                EleTreeItem tree = new EleTreeItem();
+                DTreeItem tree = new DTreeItem();
                 tree.Id = item.Id.ToString();
-                #region 本地化得用法
-                //tree.Title = LocalizationHelper.Manager.GetString((LocalizableString)item.DisplayName);
-                //tree.Title = L(item.Name);
-                tree.Label = item.DisplayName;
-                #endregion
+                tree.Title = item.DisplayName;
                 if (item.Children.Count > 0)
                 {
                     tree.Children = GetChildrens(item);
                 }
                 treelist.Add(tree);
             }
-            return Json(new { status = "ok", organizations = treelist });
+            return Json(new { status = "ok", data = treelist });
         }
         //递归获取子节点
-        public List<EleTreeItem> GetChildrens(OrganizationUnitDto permission)
+        public List<DTreeItem> GetChildrens(OrganizationUnitDto permission)
         {
-            List<EleTreeItem> nodetree = new List<EleTreeItem>();
+            List<DTreeItem> nodetree = new List<DTreeItem>();
             foreach (var item in permission.Children)
             {
-                EleTreeItem tree = new EleTreeItem();
+                DTreeItem tree = new DTreeItem();
                 tree.Id = item.Id.ToString();
-                //tree.Title = L(item.Name);
-                //tree.Title = LocalizationHelper.Manager.GetString((LocalizableString)item.DisplayName);
-                tree.Label = item.DisplayName;
+                tree.Title = item.DisplayName;
                 if (item.Children.Count > 0)
                 {
                     tree.Children = GetChildrens(item);
@@ -78,15 +115,20 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             }
             return nodetree;
         }
-        public ActionResult Add()
+        #endregion
+
+        #region 添加组织成员
+        public ActionResult AddMemer()
         {
-            return View();
+            return Json(null);
         }
-        [HttpPost]
-        public ActionResult Add(OrganizationUnitCreateDto input)
+        #endregion
+
+        #region 移除组织成员
+        public ActionResult RemoveMember()
         {
-           var res= _organizationAppService.CreateAsync(input);
-            return Json(new { status = "ok" });
-        }
+            return Json(null);
+        } 
+        #endregion
     }
 }
