@@ -83,9 +83,9 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         /// <returns></returns>
         public ActionResult GetOrganizationData()
         {
-            var listr = _organizationAppService.GetList();
+            var list = _organizationAppService.GetList().Where(q=>q.ParentId==null);
             List<DTreeItem> treelist = new List<DTreeItem>();
-            foreach (var item in listr)
+            foreach (var item in list)
             {
                 DTreeItem tree = new DTreeItem();
                 tree.Id = item.Id.ToString();
