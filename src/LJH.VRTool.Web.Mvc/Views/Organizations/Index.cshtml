@@ -1,7 +1,8 @@
 ﻿@using Webdiyer.AspNetCore;
 @model PagedList<LJH.VRTool.Users.Dto.UserDto>
 @section styles{
-    <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/eleTree.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/dtree.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.css" rel="stylesheet" />
     <style>
         .layui-tab-content {
             padding-left: 50px;
@@ -48,9 +49,10 @@
 <div class="wrapper wrapper-content">
     <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
         <div class="add_newgroup" onclick="add()">+ 新建根节点</div>
-        <div class="tree-dl">
-                <div id="organization"></div>
-            </div>
+        @*<div style="height: 1000px;overflow: auto;" id="toolbarDiv">*@
+            <ul id="organization" class="dtree" data-id="0"></ul>
+        @*</div>*@
+
     </div>
     <div class="animated fadeInRight" style="margin-left:210px">
         <div class="upload-button-container">
@@ -142,70 +144,114 @@
     {
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
-    <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/eleTree.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js"></script>
     <script>
-    var eleTree = layui.eleTree;
-     var tree = layui.tree;
+        var dtree = layui.dtree;
      //获取组织机构
-      var getOrganization = function () {
+         var getOrganization = function () {
              $.ajax({
                  url: '@Url.Action("GetOrganizationData", "Organizations")',
                  type: "POST",
                  dataType: "json",
                  success: function (res) {
-                     if (res.result.status == "ok") {
-                         //treeRender(res.result.organizations);
-
-                         T(res.result.organizations);
+                     if (res.result.status =="ok") {
+                         DTree(res.result.data);
                      }
                  },
                  error: function (e) {
                         layer.msg('请求出错!', { icon: 3, time: 5000 });
-                     }
+                 }
               });
-         };
-     //layui树渲染
-     var treeRender = function (data) {
-             eleTree.render({
-                 elem: '#organization',
-                 defaultExpandAll: true,
-               data: data,
-               showCheckbox: false,
-               contextmenuList: ["copy","add","edit","remove"],
-               drag: false,
-               emptText: "暂无数据",
-               accordion: true
-           });
-    };
+        };
+        //节点点击事件
+       
 
+        // layui树渲染
+        var DTree = function (res) {
+            dtree.render({
+                elem: "#organization",
+                toolbar:true,
+                data: res, 
+                load: false,
+                initLevel: 1,
+                skin: "laySimple",  
+                toolbarFun: {
+                    addTreeNode: function (treeNode, $div) {
+                        var data = {
+                            disPlayName: treeNode.addNodeName,
+                            parentId: treeNode.parentId
+                        };
+                        $.ajax({
+                            type: "post",
+                            data: data,
+                            dataType: "json",
+                            url: "@Url.Action("Add", "Organizations")",
+                            success: function (res) {
+                                if (res.result.status == "ok") {
+                                    //dtree.changeTreeNodeAdd("refresh"); // 添加成功，局部刷新树
+                                    dtree.reload("organization");
+                                }
+                            },
+                            error: function () {
 
-
-
-    var T = function (data) {
-        tree.render({
-           elem: '#organization',
-           data: data,
-           showCheckbox: false,
-           id: 'permissiontree',
-           edit: ['add', 'update', 'del'],
-           showLine: true,
-           oprate: function (obj) {
-               var type = obj.type; //得到操作类型：add、edit、del
-               var data = obj.data; //得到当前节点的数据
-               var elem = obj.elem; //得到当前节点元素
-               //Ajax 操作
-               var id = data.id; //得到节点索引
-               if(type === 'add'){ //增加节点
-                   add();
-               } else if(type === 'update'){ //修改节点
-                 console.log(elem.find('.layui-tree-txt').html()); //得到修改后的内容
-               } else if(type === 'del'){ //删除节点
-                 
-               };
-           }
-        });
-    }
-     var add = function () {
+                            }
+                        });
+                    },
+                    editTreeNode: function (treeNode, $div) {
+                        var data = {
+                            Id: treeNode.nodeId,
+                            disPlayName: treeNode.editNodeName
+                        };
+                        $.ajax({
+                            type: "post",
+                            data: data,
+                            dataType: "json",
+                            url: "@Url.Action("Edit", "Organizations")",
+                            success: function (res) {
+                                
+                            },
+                            error: function () {
+                            }
+                        });
+                    },
+                    delTreeNode: function (treeNode, $div) {
+                        var data = {
+                            Id: treeNode.nodeId
+                        };
+                        $.ajax({
+                            type: "post",
+                            data: data,
+                            url: "@Url.Action("Delete", "Organizations")",
+                            success: function (res) {
+                                if (res.result.status == "ok") {
+                                    dtree.reload("organization");
+                                }
+                            },
+                            error: function () {
+                                
+                            }
+                        });
+                    }
+                }
+            });
+            dtree.on("node('organization')", function (obj) {
+                layer.msg(JSON.stringify(obj.param));
+                console.log(obj.param); // 点击当前节点传递的参数
+                console.log(obj.dom); // 当前节点的jquery对象
+                console.log(obj.childParams); // 当前节点的所有子节点参数
+                console.log(obj.parentParam); // 当前节点的父节点参数
+            });
+        };
+        //重新渲染
+        //var Reload = function () {
+        //    dtree.reload("commonTree0", {
+        //        url: "../json/case/commonTree2.json",
+        //        method: "get", //默认为post
+        //        initLevel: "1" //默认为2
+        //    });
+        //};
+        //添加根节点
+        var add = function () {
             layer.open({
                 anim: 3,
                 type: 2,
@@ -216,8 +262,8 @@
                 content: '/Organizations/Add'
             });
         };
-     $(function () {
+        $(function () {
             getOrganization();
-     });
+        });
     </script>
 }

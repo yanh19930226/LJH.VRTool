@@ -1288,13 +1288,15 @@ layui.define(['jquery','layer','form'], function(exports) {
 					}
 					var code = "";
 					if (_this.dataStyle == 'layuiStyle'){
-						code = result[_this.response.statusName];
+                        code = result[_this.response.statusName];
+                        //code = result.result.code;
 					} else {
 						code = result.status[_this.response.statusName];
 					}
 
 					if (code == _this.response.statusCode) {
-						var d = result[_this.response.rootName];
+                        var d = result[_this.response.rootName];
+                        //var d = result.result.data;
 						
 						if(typeof d.length === 'undefined'){
 							layer.msg("数据解析异常，url回调后的数据格式不正确", {icon:5});
