@@ -9589,3 +9589,443 @@ INFO  2019-08-01 23:35:38,239 [75   ] soft.AspNetCore.Hosting.Internal.WebHost -
 INFO  2019-08-01 23:35:38,265 [77   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/style.min.css?v=4.0.0  
 INFO  2019-08-01 23:35:38,270 [77   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/style.min.css was not modified
 INFO  2019-08-01 23:35:38,274 [77   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.2228ms 304 text/css
+DEBUG 2019-08-02 16:16:47,673 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-02 16:16:47,896 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-08-02 16:16:47,917 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.Web.Startup.VRToolWebMvcModule, LJH.VRTool.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,920 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolWebCoreModule, LJH.VRTool.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,920 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolApplicationModule, LJH.VRTool.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,920 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolCoreModule, LJH.VRTool.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,920 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,921 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,921 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,921 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,932 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.EntityFrameworkCore.VRToolEntityFrameworkModule, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,933 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,933 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,933 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,933 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,934 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,934 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:47,941 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-08-02 16:16:48,074 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-02 16:16:48,074 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-02 16:16:48,074 [1    ] o.Configuration.LanguageManagementConfig - Converted VRTool (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-02 16:16:48,074 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-02 16:16:49,171 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: LJH.VRTool.EntityFrameworkCore.VRToolDbContext, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-02 16:16:51,599 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-02 16:16:51,876 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-02 16:16:51,925 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-02 16:16:51,952 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: VRTool
+DEBUG 2019-08-02 16:16:51,986 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-02 16:16:52,159 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-08-02 16:16:52,249 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-08-02 16:16:52,249 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-08-02 16:16:52,265 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.CreateUserDto
+DEBUG 2019-08-02 16:16:52,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.UserDto
+DEBUG 2019-08-02 16:16:52,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-02 16:16:52,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-02 16:16:52,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-02 16:16:52,266 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.PermissionDto
+DEBUG 2019-08-02 16:16:52,267 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.RoleDto
+DEBUG 2019-08-02 16:16:52,267 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitCreateDto
+DEBUG 2019-08-02 16:16:52,267 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitDto
+DEBUG 2019-08-02 16:16:52,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitUpdateDto
+DEBUG 2019-08-02 16:16:52,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-02 16:16:52,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-02 16:16:52,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-08-02 16:16:52,268 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Models.Roles.EditRoleModalViewModel
+INFO  2019-08-02 16:17:03,893 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/  
+INFO  2019-08-02 16:17:03,893 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:62119/  0
+INFO  2019-08-02 16:17:04,092 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 184.7449ms 200 
+INFO  2019-08-02 16:17:09,820 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc)
+WARN  2019-08-02 16:17:11,456 [6    ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2019-08-02 16:17:11,477 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2019-08-02 16:17:11,494 [6    ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2019-08-02 16:17:11,525 [6    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2019-08-02 16:17:11,532 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) in 1703.8015ms
+INFO  2019-08-02 16:17:11,559 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7674.3774ms 302 
+INFO  2019-08-02 16:17:11,571 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Account/Login?ReturnUrl=%2F  
+INFO  2019-08-02 16:17:11,717 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:17:17,342 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) with arguments (, /, ) - Validation state: Valid
+INFO  2019-08-02 16:17:17,357 [7    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 10.6568ms.
+INFO  2019-08-02 16:17:18,006 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Login.
+WARN  2019-08-02 16:17:22,043 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'CurrentTenant' in localization source 'VRTool'!
+WARN  2019-08-02 16:17:22,339 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Change' in localization source 'VRTool'!
+INFO  2019-08-02 16:17:23,474 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Login executed in 5537.6729ms.
+INFO  2019-08-02 16:17:23,554 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) in 11764.1423ms
+INFO  2019-08-02 16:17:23,641 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/toastr/toastr.css?v=kKePN_CyxTiMEgsSDu_7z21ru07YOZtR-0UV0JOkt5o  
+INFO  2019-08-02 16:17:23,644 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/bootstrap/dist/css/bootstrap.css?v=opI27tVP8lfzTdiKv9Wi8UuRkNhIAvZwMVLWtOpRHKk  
+INFO  2019-08-02 16:17:23,650 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/fonts/material-icons/materialicons.css?v=8pEJ8MWsFzHRDLY0NI5rssf6T6vankxrJDPnnZxOGrg  
+INFO  2019-08-02 16:17:23,685 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 12093.5033ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:17:23,688 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css?v=JVJiF3s2_kk99xQHfYhfxo_-Dd52ZIruDMOILwPkqv0  
+INFO  2019-08-02 16:17:23,732 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/material-icons/materialicons.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\material-icons\materialicons.css'
+INFO  2019-08-02 16:17:23,735 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\famfamfam-flags\dist\sprite\famfamfam-flags.css'
+INFO  2019-08-02 16:17:23,739 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/toastr/toastr.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\toastr\toastr.css'
+INFO  2019-08-02 16:17:23,741 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 50.2748ms 200 text/css
+INFO  2019-08-02 16:17:23,742 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 102.1963ms 200 text/css
+INFO  2019-08-02 16:17:23,749 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 114.7516ms 200 text/css
+INFO  2019-08-02 16:17:23,775 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/fonts/roboto/roboto.css?v=53F8z0aw8DRnG9ou9x1tuKMPbNjRZWM-VBHl3B0s9-o  
+INFO  2019-08-02 16:17:23,784 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/font-awesome/css/font-awesome.css?v=YIHlqxkiJtENTMuzIHC9EfZaB5RniGr7kF7juUQJUuc  
+INFO  2019-08-02 16:17:23,791 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/Waves/dist/waves.css?v=nd3hxjNg6DhkuFIz5IbxLK8Xw2ac0blsDQpF4pkJxUc  
+INFO  2019-08-02 16:17:23,792 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/roboto/roboto.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\roboto\roboto.css'
+INFO  2019-08-02 16:17:23,804 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.3479ms 200 text/css
+INFO  2019-08-02 16:17:23,813 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/Waves/dist/waves.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\Waves\dist\waves.css'
+INFO  2019-08-02 16:17:23,862 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/animate.css/animate.css?v=IT6GQizZpVcaM1_L_mIiNAYVvZErMgfwewf1GGWXG_I  
+INFO  2019-08-02 16:17:23,872 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 39.1853ms 200 text/css
+INFO  2019-08-02 16:17:23,883 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/css/materialize.css?v=ey-J3xahkqficOYUHVX3jexmzvRFrge9bmux4CQr1DQ  
+INFO  2019-08-02 16:17:23,896 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+INFO  2019-08-02 16:17:23,907 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/materialize.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\css\materialize.css'
+INFO  2019-08-02 16:17:23,909 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 269.9675ms 200 text/css
+INFO  2019-08-02 16:17:24,067 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 113.6004ms 200 text/css
+INFO  2019-08-02 16:17:24,124 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/animate.css/animate.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\animate.css\animate.css'
+INFO  2019-08-02 16:17:24,125 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/font-awesome/css/font-awesome.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\font-awesome\css\font-awesome.css'
+INFO  2019-08-02 16:17:24,127 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/view-resources/Views/Account/_Layout.css?v=xwt8JYbj8Mkb1RNju6XwW_7TfGRHHIDWaSjBggiszMY  
+INFO  2019-08-02 16:17:24,129 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 318.5436ms 200 text/css
+INFO  2019-08-02 16:17:24,135 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 373.2863ms 200 text/css
+INFO  2019-08-02 16:17:24,137 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/view-resources/Views/Account/Login.css?v=poK-oXF5FUWfhU9hEaEbjLzGQhIVms6YtQoQ3OEZtec  
+INFO  2019-08-02 16:17:24,141 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/css/style.css?v=Hmj_hRbtMwZt6Iov-5Sm2qe6D6y7PFUTQRDdUyYreE4  
+INFO  2019-08-02 16:17:24,147 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/_Layout.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Account\_Layout.css'
+INFO  2019-08-02 16:17:24,159 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 25.6245ms 200 text/css
+INFO  2019-08-02 16:17:24,176 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/Login.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Account\Login.css'
+INFO  2019-08-02 16:17:24,184 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 53.7285ms 200 text/css
+INFO  2019-08-02 16:17:24,190 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/style.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\css\style.css'
+INFO  2019-08-02 16:17:24,194 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 54.62ms 200 text/css
+INFO  2019-08-02 16:17:24,363 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/json2/json2.js?v=w3DjWhUtDqy3bSJKv285C-2kagUtW9F64T9z3xRah8g  
+INFO  2019-08-02 16:17:24,373 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/json2/json2.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\json2\json2.js'
+INFO  2019-08-02 16:17:24,375 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 12.0331ms 200 application/javascript
+INFO  2019-08-02 16:17:24,893 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/jquery/dist/jquery.js?v=GcL_g4TBRVIQSi96WoMK71EGaYN9ZfsMIKm-50nlS4s  
+INFO  2019-08-02 16:17:24,913 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\jquery\dist\jquery.js'
+INFO  2019-08-02 16:17:24,920 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 21.3208ms 200 application/javascript
+INFO  2019-08-02 16:17:24,987 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/bootstrap/dist/js/bootstrap.js?v=1fo3W6qowq4PinpCsKshaVqewExoFmzrRBGKbSdAVEk  
+INFO  2019-08-02 16:17:24,994 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+INFO  2019-08-02 16:17:25,002 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.1478ms 200 application/javascript
+INFO  2019-08-02 16:17:25,026 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/moment/min/moment-with-locales.js?v=5f0RFtuChrGi6osDzegxXWf5yOkmx45i7J9fM1p6P5w  
+INFO  2019-08-02 16:17:25,072 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/jquery-validation/dist/jquery.validate.js?v=ZDzsHzuLAtqQVxXwbgRtfAPXQ7UAoJRXBAUDvc9G9CI  
+INFO  2019-08-02 16:17:25,097 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/blockUI/jquery.blockUI.js?v=KKcUNqwNyTLaXzvuMyFk6JisiQq6Hk7ZtrciXnEf3Z0  
+INFO  2019-08-02 16:17:25,100 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/sweetalert/dist/sweetalert.min.js?v=aPktydUv1rN3mouQeXoKi3ioFTIQlULuqYeoTAA2ihY  
+INFO  2019-08-02 16:17:25,102 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/toastr/toastr.js?v=prO6YeBrp6FzpE6glX7_GlSoPssvH4_OmY6Z3YJ2c6c  
+INFO  2019-08-02 16:17:25,107 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/toastr/toastr.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\toastr\toastr.js'
+INFO  2019-08-02 16:17:25,118 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/blockUI/jquery.blockUI.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\blockUI\jquery.blockUI.js'
+INFO  2019-08-02 16:17:25,139 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.3629ms 200 application/javascript
+INFO  2019-08-02 16:17:25,185 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 90.9123ms 200 application/javascript
+INFO  2019-08-02 16:17:25,194 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\jquery-validation\dist\jquery.validate.js'
+INFO  2019-08-02 16:17:25,208 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/sweetalert/dist/sweetalert.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\sweetalert\dist\sweetalert.min.js'
+INFO  2019-08-02 16:17:25,212 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/spin.js/spin.js?v=b1plKpQIB-XuGyjWec42MhmhpPzEPzFI3OC8Ia0XIoc  
+INFO  2019-08-02 16:17:25,223 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 139.4382ms 200 application/javascript
+INFO  2019-08-02 16:17:25,231 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 181.7688ms 200 application/javascript
+INFO  2019-08-02 16:17:25,253 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/spin.js/jquery.spin.js?v=i7H7HL08ldqUANgfQInE7LlU2uWUdQMCJ-Q7-_zLutY  
+INFO  2019-08-02 16:17:25,255 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/Waves/dist/waves.js?v=ZOMv1vwqpT_ezNZGhvr9jJTr_jqu3lYHB7vmpxD7HmA  
+INFO  2019-08-02 16:17:25,260 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/spin.js/spin.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\spin.js\spin.js'
+INFO  2019-08-02 16:17:25,262 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/Waves/dist/waves.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\Waves\dist\waves.js'
+INFO  2019-08-02 16:17:25,266 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js?v=lMgLZMlGsipWDxpvEPxfKVREzRedV_ygRnTj2kvADpw  
+INFO  2019-08-02 16:17:25,268 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 73.7086ms 200 application/javascript
+INFO  2019-08-02 16:17:25,271 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 33.4034ms 200 application/javascript
+INFO  2019-08-02 16:17:25,286 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/abp.js?v=n0VmC7QEsuqAeQKlV_LZ4AOdOn1IWobnvHLYyj8QEas  
+INFO  2019-08-02 16:17:25,292 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/spin.js/jquery.spin.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\spin.js\jquery.spin.js'
+INFO  2019-08-02 16:17:25,295 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js?v=ImopdkB8alCil1HigOwW3CDqWKsLZXyplf7TXBbjRnE  
+INFO  2019-08-02 16:17:25,298 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.jquery.js'
+INFO  2019-08-02 16:17:25,301 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 61.4848ms 200 application/javascript
+INFO  2019-08-02 16:17:25,304 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js?v=Y3zoG-hSFKmbS3BHKo_wFWRPbyzJXKoNrnF73uFdtqU  
+INFO  2019-08-02 16:17:25,308 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js?v=RJuGDX616JN_UziXsmKnth0alpECKCx0gtxKZVrZWxY  
+INFO  2019-08-02 16:17:25,310 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 44.4593ms 200 application/javascript
+INFO  2019-08-02 16:17:25,311 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.toastr.js'
+INFO  2019-08-02 16:17:25,331 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 23.1804ms 200 application/javascript
+INFO  2019-08-02 16:17:25,338 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.spin.js'
+INFO  2019-08-02 16:17:25,340 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.blockUI.js'
+INFO  2019-08-02 16:17:25,342 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js?v=oqP-LI05b85cG48-Rgyndn2bjB4VNX9L8B1hRpv-u78  
+INFO  2019-08-02 16:17:25,345 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/abp.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\abp.js'
+INFO  2019-08-02 16:17:25,346 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 34.4689ms 200 application/javascript
+INFO  2019-08-02 16:17:25,350 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 85.6885ms 200 application/javascript
+INFO  2019-08-02 16:17:25,355 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 40.6831ms 200 application/javascript
+INFO  2019-08-02 16:17:25,386 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.sweet-alert.js'
+INFO  2019-08-02 16:17:25,404 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.9993ms 200 application/javascript
+INFO  2019-08-02 16:17:25,427 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/js/admin.js?v=Arfe4oER5FiUTDitsyC7vauFkVzED5S2QjygyKFEnZ8  
+INFO  2019-08-02 16:17:25,429 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/AbpServiceProxies/GetAll?v=637003594121608223  
+INFO  2019-08-02 16:17:25,431 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/jquery-validation/src/localization/messages_zh_Hans.js?v=XUuMErmB-_cG9KcjKQpdh_se_7xGkbGzQZFXwFWneJg  
+INFO  2019-08-02 16:17:25,432 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/js/main.js?v=5uiiauQ-tn8Vi88U9lUhf1K9RrMuDlGn0T8xzaTsoCI  
+INFO  2019-08-02 16:17:25,442 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/moment/min/moment-with-locales.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\moment\min\moment-with-locales.js'
+INFO  2019-08-02 16:17:25,444 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/main.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\js\main.js'
+INFO  2019-08-02 16:17:25,446 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-validation/src/localization/messages_zh_Hans.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\jquery-validation\src\localization\messages_zh_Hans.js'
+INFO  2019-08-02 16:17:25,447 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 420.7599ms 200 application/javascript
+INFO  2019-08-02 16:17:25,450 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 17.5718ms 200 application/javascript
+INFO  2019-08-02 16:17:25,472 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 21.5742ms 200 application/javascript
+INFO  2019-08-02 16:17:25,481 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/admin.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\js\admin.js'
+INFO  2019-08-02 16:17:25,496 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 58.511ms 200 application/javascript
+INFO  2019-08-02 16:17:25,501 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-08-02 16:17:26,188 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-08-02 16:17:26,189 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/AbpScripts/GetScripts?v=637003594121608223  
+INFO  2019-08-02 16:17:26,214 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-08-02 16:17:26,298 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-08-02 16:17:26,437 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/view-resources/Views/Shared/Components/TenantChange/Default.js?v=637003594434469094  
+INFO  2019-08-02 16:17:26,691 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/fonts/roboto/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2  
+INFO  2019-08-02 16:17:26,828 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/view-resources/Views/Account/Login.js?v=fva4_U7JLc8QKq91dLZyvV5oMz9WxjutKXJ_MOl_Dj8  
+INFO  2019-08-02 16:17:26,844 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/fonts/material-icons/materialicons.woff2  
+INFO  2019-08-02 16:17:26,854 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Shared/Components/TenantChange/Default.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Shared\Components\TenantChange\Default.js'
+INFO  2019-08-02 16:17:27,149 [21   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/material-icons/materialicons.woff2'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\material-icons\materialicons.woff2'
+INFO  2019-08-02 16:17:27,337 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 434.1301ms 200 application/javascript
+INFO  2019-08-02 16:17:27,342 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/Login.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Account\Login.js'
+INFO  2019-08-02 16:17:27,343 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/famfamfam-flags/dist/sprite/famfamfam-flags.png  
+INFO  2019-08-02 16:17:27,348 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/roboto/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\roboto\d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2'
+INFO  2019-08-02 16:17:27,364 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 523.753ms 200 application/javascript
+INFO  2019-08-02 16:17:27,371 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 741.66ms 200 font/woff2
+INFO  2019-08-02 16:17:27,374 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/famfamfam-flags/dist/sprite/famfamfam-flags.png'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\famfamfam-flags\dist\sprite\famfamfam-flags.png'
+INFO  2019-08-02 16:17:27,376 [17   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 518.4816ms 200 font/woff2
+INFO  2019-08-02 16:17:27,378 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 36.8288ms 200 image/png
+INFO  2019-08-02 16:17:27,573 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 1166.5908ms.
+INFO  2019-08-02 16:17:27,582 [13   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-08-02 16:17:27,599 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 1368.3438ms
+WARN  2019-08-02 16:17:27,613 [9    ] ng.AspNetCoreApiDescriptionModelProvider - Controller 'User' contains more than one action with name 'GetAllList' for module 'app'. Ignored: System.Collections.Generic.List`1[LJH.VRTool.Users.Dto.UserDto] GetAllList(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime])
+INFO  2019-08-02 16:17:27,619 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1417.7382ms 200 application/x-javascript; charset=utf-8
+INFO  2019-08-02 16:17:27,635 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 1441.2301ms.
+INFO  2019-08-02 16:17:27,639 [9    ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-08-02 16:17:27,651 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 2137.7689ms
+INFO  2019-08-02 16:17:27,655 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 2226.2195ms 200 application/x-javascript
+INFO  2019-08-02 16:26:16,604 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62119/Account/Login application/x-www-form-urlencoded 256
+INFO  2019-08-02 16:26:16,619 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:26:16,890 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Account.LoginViewModel, /, ) - Validation state: Valid
+INFO  2019-08-02 16:26:18,146 [34   ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application signed in.
+INFO  2019-08-02 16:26:18,152 [34   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1260.4849ms.
+INFO  2019-08-02 16:26:18,231 [34   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-02 16:26:18,244 [34   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) in 1623.0707ms
+INFO  2019-08-02 16:26:18,250 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1644.0166ms 200 application/json; charset=utf-8
+INFO  2019-08-02 16:26:18,268 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/  
+INFO  2019-08-02 16:26:18,344 [34   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:26:18,383 [34   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:26:18,412 [34   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:26:18,415 [34   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.8888ms.
+INFO  2019-08-02 16:26:18,497 [34   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+WARN  2019-08-02 16:26:19,168 [29   ] naries.DictionaryBasedLocalizationSource - Can not find 'Pages_WebSetting' in localization source 'VRTool'!
+INFO  2019-08-02 16:26:19,404 [32   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 935.9498ms.
+INFO  2019-08-02 16:26:19,439 [32   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) in 1086.0223ms
+INFO  2019-08-02 16:26:19,446 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/bootstrap.min.css?v=3.3.5  
+INFO  2019-08-02 16:26:19,448 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1182.7055ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:26:19,464 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/animate.min.css  
+INFO  2019-08-02 16:26:19,473 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/layui.css  
+INFO  2019-08-02 16:26:19,490 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/font-awesome.min.css?v=4.4.0  
+INFO  2019-08-02 16:26:19,508 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/plugins/jsTree/jsTree.min.css  
+INFO  2019-08-02 16:26:19,540 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/style.min.css?v=4.0.0  
+INFO  2019-08-02 16:26:19,582 [32   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/font-awesome.min.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\font-awesome.min.css'
+INFO  2019-08-02 16:26:19,594 [33   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/animate.min.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\animate.min.css'
+INFO  2019-08-02 16:26:19,602 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 123.2664ms 200 text/css
+INFO  2019-08-02 16:26:19,616 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/layui.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\layui.css'
+INFO  2019-08-02 16:26:19,621 [32   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/plugins/jsTree/jsTree.min.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\plugins\jsTree\jsTree.min.css'
+INFO  2019-08-02 16:26:19,623 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 180.3208ms 200 text/css
+INFO  2019-08-02 16:26:19,626 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 132.7837ms 200 text/css
+INFO  2019-08-02 16:26:19,628 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 152.6766ms 200 text/css
+INFO  2019-08-02 16:26:19,631 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/plugins/iCheck/custom.css  
+INFO  2019-08-02 16:26:19,665 [34   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/bootstrap.min.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\bootstrap.min.css'
+INFO  2019-08-02 16:26:19,670 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 227.8619ms 200 text/css
+INFO  2019-08-02 16:26:19,672 [32   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/plugins/iCheck/custom.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\plugins\iCheck\custom.css'
+INFO  2019-08-02 16:26:19,686 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/layuiext.css  
+INFO  2019-08-02 16:26:19,696 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.2611ms 200 text/css
+INFO  2019-08-02 16:26:19,712 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/jquery.min.js?v=2.1.4  
+INFO  2019-08-02 16:26:19,747 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/jquery.unobtrusive-ajax.js  
+INFO  2019-08-02 16:26:19,771 [33   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/layuiext.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\layuiext.css'
+INFO  2019-08-02 16:26:19,773 [34   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/css/style.min.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\css\style.min.css'
+INFO  2019-08-02 16:26:19,776 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 99.5026ms 200 text/css
+INFO  2019-08-02 16:26:19,814 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/jquery.unobtrusive-ajax.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\jquery.unobtrusive-ajax.js'
+INFO  2019-08-02 16:26:19,820 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 264.3592ms 200 text/css
+INFO  2019-08-02 16:26:19,831 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 91.5398ms 200 application/javascript
+INFO  2019-08-02 16:26:19,841 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/layui.js  
+INFO  2019-08-02 16:26:19,847 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/bootstrap.min.js?v=3.3.5  
+INFO  2019-08-02 16:26:19,871 [34   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/jquery.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\jquery.min.js'
+INFO  2019-08-02 16:26:19,873 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/fonts/fontawesome-webfont.woff2?v=4.4.0  
+INFO  2019-08-02 16:26:19,875 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 168.39ms 200 application/javascript
+INFO  2019-08-02 16:26:19,889 [37   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/common.js  
+INFO  2019-08-02 16:26:19,892 [38   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/layui.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\layui.js'
+INFO  2019-08-02 16:26:19,902 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/abp.js  
+INFO  2019-08-02 16:26:19,909 [38   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 73.0992ms 200 application/javascript
+INFO  2019-08-02 16:26:19,932 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/fonts/fontawesome-webfont.woff2'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\fonts\fontawesome-webfont.woff2'
+INFO  2019-08-02 16:26:19,939 [34   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/abp.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\abp.js'
+INFO  2019-08-02 16:26:19,949 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 61.5177ms 200 font/woff2
+INFO  2019-08-02 16:26:19,952 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 48.163ms 200 application/javascript
+INFO  2019-08-02 16:26:19,954 [38   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/common.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\common.js'
+INFO  2019-08-02 16:26:19,955 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js  
+INFO  2019-08-02 16:26:19,959 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/images/face.jpg  
+INFO  2019-08-02 16:26:19,972 [38   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 113.2975ms 200 application/javascript
+INFO  2019-08-02 16:26:19,994 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/layui.all.js  
+INFO  2019-08-02 16:26:20,004 [34   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 26.0541ms 404 
+INFO  2019-08-02 16:26:20,012 [38   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/contabs.min.js  
+INFO  2019-08-02 16:26:20,028 [42   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/bootstrap.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\bootstrap.min.js'
+INFO  2019-08-02 16:26:20,050 [43   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\slimscroll\jquery.slimscroll.min.js'
+INFO  2019-08-02 16:26:20,061 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/pace/pace.min.js  
+INFO  2019-08-02 16:26:20,108 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 201.1515ms 200 application/javascript
+INFO  2019-08-02 16:26:20,151 [41   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/contabs.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\contabs.min.js'
+INFO  2019-08-02 16:26:20,184 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/pace/pace.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\pace\pace.min.js'
+INFO  2019-08-02 16:26:20,206 [40   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/layui.all.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\layui.all.js'
+INFO  2019-08-02 16:26:20,210 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 175.024ms 200 application/javascript
+INFO  2019-08-02 16:26:20,212 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 337.6775ms 200 application/javascript
+INFO  2019-08-02 16:26:20,214 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 172.4248ms 200 application/javascript
+INFO  2019-08-02 16:26:20,215 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js  
+INFO  2019-08-02 16:26:20,218 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/WdatePicker.js  
+INFO  2019-08-02 16:26:20,221 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/jsTree/jstree.min.js  
+INFO  2019-08-02 16:26:20,224 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/metisMenu/jquery.metisMenu.js  
+INFO  2019-08-02 16:26:20,225 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 98.9019ms 200 application/javascript
+INFO  2019-08-02 16:26:20,233 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js  
+INFO  2019-08-02 16:26:20,251 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/hplus.min.js?v=4.0.0  
+INFO  2019-08-02 16:26:20,262 [41   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/metisMenu/jquery.metisMenu.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\metisMenu\jquery.metisMenu.js'
+INFO  2019-08-02 16:26:20,267 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/WdatePicker.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\My97DatePicker\4.8\WdatePicker.js'
+INFO  2019-08-02 16:26:20,280 [40   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\iCheck\icheck.min.js'
+INFO  2019-08-02 16:26:20,298 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 55.075ms 200 application/javascript
+INFO  2019-08-02 16:26:20,308 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.7681ms 200 application/javascript
+INFO  2019-08-02 16:26:20,310 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/modules/laydate/default/laydate.css?v=5.0.9  
+INFO  2019-08-02 16:26:20,312 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/modules/code.css  
+INFO  2019-08-02 16:26:20,314 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 153.2671ms 200 application/javascript
+INFO  2019-08-02 16:26:20,316 [43   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/hplus.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\hplus.min.js'
+INFO  2019-08-02 16:26:20,320 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/layer.css?v=3.1.1  
+INFO  2019-08-02 16:26:20,335 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 90.2077ms 200 application/javascript
+INFO  2019-08-02 16:26:20,340 [44   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.jquery.js'
+INFO  2019-08-02 16:26:20,345 [36   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/laydate/default/laydate.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\laydate\default\laydate.css'
+INFO  2019-08-02 16:26:20,355 [40   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/code.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\code.css'
+INFO  2019-08-02 16:26:20,357 [36   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 48.6467ms 200 text/css
+INFO  2019-08-02 16:26:20,359 [40   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 47.2606ms 200 text/css
+INFO  2019-08-02 16:26:20,360 [41   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/layer.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\layer\default\layer.css'
+INFO  2019-08-02 16:26:20,363 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/WdatePicker.css  
+INFO  2019-08-02 16:26:20,366 [41   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.8237ms 200 text/css
+INFO  2019-08-02 16:26:20,369 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 405.9376ms 200 application/javascript
+INFO  2019-08-02 16:26:20,373 [45   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/jsTree/jstree.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\jsTree\jstree.min.js'
+INFO  2019-08-02 16:26:20,374 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/MvcCorePager.min.js  
+INFO  2019-08-02 16:26:20,411 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 158.5245ms 200 application/javascript
+INFO  2019-08-02 16:26:20,412 [47   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/WdatePicker.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\My97DatePicker\4.8\skin\WdatePicker.css'
+INFO  2019-08-02 16:26:20,419 [47   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 77.916ms 200 text/css
+INFO  2019-08-02 16:26:20,427 [44   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/MvcCorePager.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\MvcCorePager.min.js'
+INFO  2019-08-02 16:26:20,431 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 57.3801ms 200 application/javascript
+INFO  2019-08-02 16:26:25,655 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Organizations?v=4.0  
+INFO  2019-08-02 16:26:25,657 [36   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/loading-0.gif  
+INFO  2019-08-02 16:26:25,665 [42   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/loading-0.gif'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\layer\default\loading-0.gif'
+INFO  2019-08-02 16:26:25,674 [42   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 13.0986ms 200 image/gif
+INFO  2019-08-02 16:26:25,680 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Organizations", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:26:26,001 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:26:26,258 [32   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 254.9711ms.
+INFO  2019-08-02 16:26:26,348 [33   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-02 16:26:26,438 [33   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 119.36ms.
+INFO  2019-08-02 16:26:26,453 [33   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc) in 758.1445ms
+INFO  2019-08-02 16:26:26,471 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 803.6282ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:26:26,473 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/mymodules/dtree.css  
+INFO  2019-08-02 16:26:26,475 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.css  
+INFO  2019-08-02 16:26:26,478 [38   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js  
+INFO  2019-08-02 16:26:26,502 [46   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\font\dtree\font\dtreefont.css'
+INFO  2019-08-02 16:26:26,508 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\lay\mymodules\dtree.js'
+INFO  2019-08-02 16:26:26,512 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 32.1457ms 200 text/css
+INFO  2019-08-02 16:26:26,519 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 39.1358ms 200 application/javascript
+INFO  2019-08-02 16:26:26,521 [47   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/mymodules/dtree.css'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\mymodules\dtree.css'
+INFO  2019-08-02 16:26:26,523 [47   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.1557ms 200 text/css
+INFO  2019-08-02 16:26:26,546 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/font/iconfont.woff2?v=250  
+INFO  2019-08-02 16:26:26,596 [29   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/font/iconfont.woff2'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\font\iconfont.woff2'
+INFO  2019-08-02 16:26:26,599 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 52.7729ms 200 font/woff2
+INFO  2019-08-02 16:26:26,654 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62119/Organizations/GetOrganizationData  0
+INFO  2019-08-02 16:26:26,663 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetOrganizationData", controller = "Organizations", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.GetOrganizationData (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:26:26,689 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.GetOrganizationData (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:26:26,706 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/datePicker.gif  
+INFO  2019-08-02 16:26:26,777 [33   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/datePicker.gif'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\My97DatePicker\4.8\skin\datePicker.gif'
+INFO  2019-08-02 16:26:26,779 [33   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 72.5162ms 200 image/gif
+INFO  2019-08-02 16:26:26,833 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.GetOrganizationData (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 141.2551ms.
+INFO  2019-08-02 16:26:26,881 [29   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-02 16:26:26,898 [29   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.GetOrganizationData (LJH.VRTool.Web.Mvc) in 229.7687ms
+INFO  2019-08-02 16:26:26,906 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 249.8824ms 200 application/json; charset=utf-8
+INFO  2019-08-02 16:26:27,028 [29   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.ttf?x3m8fp  
+INFO  2019-08-02 16:26:27,054 [32   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.ttf'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\font\dtree\font\dtreefont.ttf'
+INFO  2019-08-02 16:26:27,058 [32   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 31.0767ms 200 application/x-font-ttf
+INFO  2019-08-02 16:26:50,516 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/loading-1.gif  
+INFO  2019-08-02 16:26:50,517 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/icon.png  
+INFO  2019-08-02 16:26:50,532 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Organizations/Add  
+INFO  2019-08-02 16:26:50,547 [45   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/loading-1.gif'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\layer\default\loading-1.gif'
+INFO  2019-08-02 16:26:50,557 [43   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/icon.png'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\layer\default\icon.png'
+INFO  2019-08-02 16:26:50,559 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Add", controller = "Organizations", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:26:50,563 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 45.4263ms 200 image/png
+INFO  2019-08-02 16:26:50,566 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 38.3368ms 200 image/gif
+INFO  2019-08-02 16:26:50,592 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:26:50,594 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2971ms.
+INFO  2019-08-02 16:26:50,662 [43   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Add.
+INFO  2019-08-02 16:26:50,675 [43   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Add executed in 36.5513ms.
+INFO  2019-08-02 16:26:50,694 [43   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc) in 115.2338ms
+INFO  2019-08-02 16:26:50,703 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 183.7801ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:26:50,706 [43   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/js/jquery.min.js  
+INFO  2019-08-02 16:26:50,736 [44   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/jquery.min.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\jquery.min.js'
+INFO  2019-08-02 16:26:50,741 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 32.3371ms 200 application/javascript
+INFO  2019-08-02 16:27:36,362 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Organizations/Add  
+INFO  2019-08-02 16:27:36,368 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Add", controller = "Organizations", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:27:36,396 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:27:36,397 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0249ms.
+INFO  2019-08-02 16:27:36,440 [44   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Add.
+INFO  2019-08-02 16:27:36,444 [44   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Add executed in 3.4091ms.
+INFO  2019-08-02 16:27:36,448 [44   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc) in 76.6405ms
+INFO  2019-08-02 16:27:36,470 [44   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 101.488ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:27:36,485 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/style.min.css?v=4.0.0  
+INFO  2019-08-02 16:27:36,494 [45   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/style.min.css was not modified
+INFO  2019-08-02 16:27:36,499 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 12.5175ms 304 text/css
+INFO  2019-08-02 16:27:40,365 [55   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Roles?v=4.0  
+INFO  2019-08-02 16:27:40,374 [55   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Roles", area = ""}. Executing action LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:27:40,376 [55   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:27:40,682 [55   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Roles.RoleSearch, 0) - Validation state: Valid
+INFO  2019-08-02 16:27:40,817 [55   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 132.3269ms.
+INFO  2019-08-02 16:27:40,935 [55   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-02 16:27:41,067 [55   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 169.2716ms.
+INFO  2019-08-02 16:27:41,090 [55   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc) in 693.793ms
+INFO  2019-08-02 16:27:41,100 [55   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 728.8148ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:27:41,102 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/view-resources/Views/Roles/Index.js  
+INFO  2019-08-02 16:27:41,108 [45   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Roles/Index.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Roles\Index.js'
+INFO  2019-08-02 16:27:41,111 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 14.9691ms 200 application/javascript
+INFO  2019-08-02 16:27:42,964 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Roles/Add  
+INFO  2019-08-02 16:27:42,975 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Add", controller = "Roles", area = ""}. Executing action LJH.VRTool.Web.Controllers.RolesController.Add (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:27:42,978 [45   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:27:43,005 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.RolesController.Add (LJH.VRTool.Web.Mvc) - Validation state: Valid
+WARN  2019-08-02 16:27:43,023 [45   ] naries.DictionaryBasedLocalizationSource - Can not find 'WebSetting' in localization source 'VRTool'!
+WARN  2019-08-02 16:27:43,028 [45   ] naries.DictionaryBasedLocalizationSource - Can not find 'Pages_Logs_DetailAct' in localization source 'VRTool'!
+INFO  2019-08-02 16:27:43,082 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.RolesController.Add (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 75.9718ms.
+INFO  2019-08-02 16:27:43,174 [45   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Add.
+INFO  2019-08-02 16:27:43,206 [45   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Add executed in 79.6683ms.
+INFO  2019-08-02 16:27:43,212 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.RolesController.Add (LJH.VRTool.Web.Mvc) in 231.216ms
+INFO  2019-08-02 16:27:43,222 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 252.0837ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:27:43,355 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62119/Roles/GetAllPermission application/json 0
+INFO  2019-08-02 16:27:43,361 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAllPermission", controller = "Roles", area = ""}. Executing action LJH.VRTool.Web.Controllers.RolesController.GetAllPermission (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:27:43,364 [45   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:27:43,394 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.RolesController.GetAllPermission (LJH.VRTool.Web.Mvc) - Validation state: Valid
+WARN  2019-08-02 16:27:49,611 [45   ] naries.DictionaryBasedLocalizationSource - Can not find 'Pages_Logs_DetailAct' in localization source 'VRTool'!
+WARN  2019-08-02 16:27:49,613 [45   ] naries.DictionaryBasedLocalizationSource - Can not find 'WebSetting' in localization source 'VRTool'!
+INFO  2019-08-02 16:27:49,622 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.RolesController.GetAllPermission (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 6225.9921ms.
+INFO  2019-08-02 16:27:49,665 [45   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-02 16:27:49,672 [45   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.RolesController.GetAllPermission (LJH.VRTool.Web.Mvc) in 6307.4952ms
+INFO  2019-08-02 16:27:49,675 [45   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6325.3087ms 200 application/json; charset=utf-8
+INFO  2019-08-02 16:28:25,557 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Users?v=4.0  
+INFO  2019-08-02 16:28:25,564 [46   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Users", area = ""}. Executing action LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:28:25,566 [46   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:28:25,604 [46   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Users.UserSearch, 0) - Validation state: Valid
+INFO  2019-08-02 16:28:25,718 [46   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 112.4571ms.
+INFO  2019-08-02 16:28:25,789 [46   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-02 16:28:25,838 [46   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 71.4937ms.
+INFO  2019-08-02 16:28:25,846 [46   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc) in 274.0095ms
+INFO  2019-08-02 16:28:25,859 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 291.3106ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:28:25,865 [46   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/view-resources/Views/Users/index.js  
+INFO  2019-08-02 16:28:25,878 [56   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Users/index.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Users\index.js'
+INFO  2019-08-02 16:28:25,881 [56   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 16.4511ms 200 application/javascript
+INFO  2019-08-02 16:39:16,697 [54   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Organizations/Add  
+INFO  2019-08-02 16:39:16,703 [54   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Add", controller = "Organizations", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:39:16,731 [54   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:39:16,732 [54   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0268ms.
+INFO  2019-08-02 16:39:16,774 [61   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Add.
+INFO  2019-08-02 16:39:16,779 [61   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Add executed in 4.6189ms.
+INFO  2019-08-02 16:39:16,790 [61   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Add (LJH.VRTool.Web.Mvc) in 83.648ms
+INFO  2019-08-02 16:39:16,815 [61   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 95.6819ms 200 text/html; charset=utf-8
+INFO  2019-08-02 16:39:16,825 [61   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/lib/krpano/hplus/css/style.min.css?v=4.0.0  
+INFO  2019-08-02 16:39:16,827 [61   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/style.min.css was not modified
+INFO  2019-08-02 16:39:16,834 [61   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3.4563ms 304 text/css
+INFO  2019-08-02 16:39:22,219 [64   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62119/Users/Add  
+INFO  2019-08-02 16:39:22,231 [64   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Add", controller = "Users", area = ""}. Executing action LJH.VRTool.Web.Controllers.UsersController.Add (LJH.VRTool.Web.Mvc)
+INFO  2019-08-02 16:39:22,234 [64   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:39:22,236 [64   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-02 16:39:22,264 [64   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.UsersController.Add (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-02 16:39:22,380 [64   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.UsersController.Add (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 115.3486ms.
+INFO  2019-08-02 16:39:22,463 [64   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Add.
+INFO  2019-08-02 16:39:22,479 [64   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Add executed in 42.3849ms.
+INFO  2019-08-02 16:39:22,482 [64   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.UsersController.Add (LJH.VRTool.Web.Mvc) in 247.5158ms
+INFO  2019-08-02 16:39:22,498 [64   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 266.9117ms 200 text/html; charset=utf-8

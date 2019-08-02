@@ -1,0 +1,98 @@
+﻿@using Webdiyer.AspNetCore;
+@{
+    Layout = "~/Views/Shared/_TablePartialLayout.cshtml";
+}
+@model PagedList<LJH.VRTool.Users.Dto.UserDto>
+
+@if (Model.Count > 0)
+{
+    <form id="formList">
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" lay-skin="primary" lay-filter="allChoose">
+                    </th>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>性别</th>
+                    <th>手机</th>
+                    <th>邮箱</th>
+                    <th>地址</th>
+                    <th>加入时间</th>
+                    <th>是否激活</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="selectedIds" value="@item.Id" lay-skin="primary" lay-filter="itemChoose">
+                        </td>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>男</td>
+                        <td>13000000000</td>
+                        <td>@item.EmailAddress</td>
+                        <td>北京市 海淀区</td>
+                        <td>@item.CreationTime</td>
+                        <td>
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_IsActiveAct))
+                            {
+                                <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否">
+                            }
+                            else
+                            {
+                                <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否" disabled>
+                            }
+                        </td>
+                        <td>
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_EditAct))
+                            {
+                                <button type="button" class="layui-btn-ext layui-btnnobg-ext" onclick="edit('@item.Id')">
+                                    <i class="layui-icon layui-icon-edit">
+                                    </i>编辑
+                                </button>
+                            }
+                            @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_DeleteAct))
+                            {
+                                <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
+                                    <i class="layui-icon layui-icon-delete">
+                                    </i>
+                                    删除
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+    <div class="text-center">
+        @Html.AjaxPager(Model, new PagerOptions
+        {
+           PrevPageText = @L("Prev"),
+           NextPageText = @L("Next"),
+           FirstPageText = @L("First"),
+           LastPageText = @L("Last"),
+           PageIndexParameterName = "pageIndex",
+           TagName = "ul",
+           CssClass = "pagination",
+           CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+           DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+           PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+           Id = "bootstrappager"
+        }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1})
+    </div>
+}
+else
+{
+    <div style="text-align: center; padding:11% 0;">
+        <i class="layui-icon layui-icon-file" style="line-height:10rem;font-size:10rem;color:#111">
+        </i>
+        <p style="font-size: 20px; font-weight: 300; color: #111;"> 暂无数据</p>
+    </div>
+}
+

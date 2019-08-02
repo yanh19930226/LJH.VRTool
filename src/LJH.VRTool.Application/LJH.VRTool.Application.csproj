@@ -13,4 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LJH.VRTool.Core\LJH.VRTool.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserOrganizations\Dto\" />
+  </ItemGroup>
 </Project>

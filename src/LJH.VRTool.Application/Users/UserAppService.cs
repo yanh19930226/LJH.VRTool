@@ -183,7 +183,6 @@ namespace LJH.VRTool.Users
         /// <returns></returns>
         public List<UserDto> GetAllList(string Keyword,DateTime?TimeMin, DateTime? TimeMax)
         {
-            //var roles = await Repository.GetAllListAsync(new UserSearchSpecification(Keyword, TimeMin, TimeMax));
             var users = Repository.GetAll()
                 .WhereIf(!string.IsNullOrEmpty(Keyword), q => q.Name.Contains(Keyword) || q.UserName.Contains(Keyword) || q.FullName.Contains(Keyword))
                 .WhereIf(TimeMin.HasValue, q => q.CreationTime >= TimeMin.Value)

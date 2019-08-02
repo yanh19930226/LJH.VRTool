@@ -67,8 +67,10 @@
     </div>
     <div style="margin-left:270px">
         <div class="ibox-content">
-            <form id="searchForm" asp-action="Index" asp-controller="Users" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
+            <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
                 <blockquote class="layui-elem-quote-ext">
+                    @*组织机构*@
+                    <input type="hidden" name="OrganizationId" value="" />
                     <div class="layui-inline">
                         <label class="layui-form-label-ext">日期范围:</label>
                         <div class="layui-input-inline" style="width: 120px;">

@@ -9,6 +9,7 @@ using LJH.VRTool.Organizations.Dto;
 using LJH.VRTool.Users;
 using LJH.VRTool.Users.Dto;
 using LJH.VRTool.Web.Models.Common.Tree;
+using LJH.VRTool.Web.Models.Organizations;
 using Microsoft.AspNetCore.Mvc;
 using Webdiyer.AspNetCore;
 
@@ -24,7 +25,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             _organizationAppService = organizationAppService;
             _userAppService = userAppService;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(OrganizationSearch search)
         {
             int pageIndex = 1;
             int pageSize = 10;
