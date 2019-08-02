@@ -21,5 +21,7 @@ namespace LJH.VRTool.Users
         List<UserDto> GetAllList(string Keyword, DateTime? TimeMin, DateTime? TimeMax);
 
         Task<long> ChangeActive(long id);
+
+        List<UserDto> GetAllListByOrganizationSearch(long? OrganizationId, string Keyword, DateTime? TimeMin, DateTime? TimeMax);
     }
 }

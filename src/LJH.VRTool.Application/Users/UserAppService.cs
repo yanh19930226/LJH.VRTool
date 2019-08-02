@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
+using Abp.Authorization.Users;
 using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
@@ -32,6 +33,7 @@ namespace LJH.VRTool.Users
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
+        private readonly IRepository<UserOrganizationUnit, long> _userOrganizationUnitRepository;
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
@@ -41,6 +43,7 @@ namespace LJH.VRTool.Users
             UserManager userManager,
             RoleManager roleManager,
             IRepository<Role> roleRepository,
+            IRepository<UserOrganizationUnit, long> userOrganizationUnitRepository,
             IPasswordHasher<User> passwordHasher,
             IAbpSession abpSession,
             LogInManager logInManager)
@@ -49,6 +52,7 @@ namespace LJH.VRTool.Users
             _userManager = userManager;
             _roleManager = roleManager;
             _roleRepository = roleRepository;
+            _userOrganizationUnitRepository = userOrganizationUnitRepository;
             _passwordHasher = passwordHasher;
             _abpSession = abpSession;
             _logInManager = logInManager;
@@ -279,6 +283,32 @@ namespace LJH.VRTool.Users
             }
             user.IsActive = !user.IsActive;
             return await Repository.InsertOrUpdateAndGetIdAsync(user);
+        }
+        /// <summary>
+        /// 根据组织机构和条件获取数据
+        /// </summary>
+        /// <param name="OrganizationId"></param>
+        /// <param name="Keyword"></param>
+        /// <param name="TimeMin"></param>
+        /// <param name="TimeMax"></param>
+        /// <returns></returns>
+        public List<UserDto> GetAllListByOrganizationSearch(long? OrganizationId, string Keyword, DateTime? TimeMin, DateTime? TimeMax)
+        {
+            List<UserDto> list = new List<UserDto>();
+            if (OrganizationId>0)
+            {
+                var res = _userOrganizationUnitRepository.GetAllList(q => q.OrganizationUnitId == OrganizationId);
+                foreach (var item in res)
+                {
+                    var map = ObjectMapper.Map<UserDto>(Repository.Get(item.UserId));
+                    list.Add(map);
+                }
+                if (!string.IsNullOrEmpty(Keyword))
+                {
+                    list.Where(q => q.Name.Contains(Keyword));
+                }
+            }
+            return list;
         }
     }
 }

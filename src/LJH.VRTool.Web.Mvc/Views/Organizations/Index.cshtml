@@ -3,6 +3,7 @@
 @section styles{
     <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/dtree.css" rel="stylesheet" />
     <link href="~/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.css" rel="stylesheet" />
+    <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/checkbox.css" rel="stylesheet" />
     <style>
         .layui-tab-content {
             padding-left: 50px;
@@ -19,19 +20,20 @@
         .organizationtree {
             padding: 12px 5px;
             color: #293846;
-            background-color:#f2f2f2;
+            background-color: #f2f2f2;
         }
-        /*.organizationtree h2{
-           
+            /*.organizationtree h2{
+
         }*/
-         .organizationtree span{
-              display: inline;
-            font-size: 15px;
-        }
+            .organizationtree span {
+                display: inline;
+                font-size: 15px;
+            }
+
         .jstree-position {
             position: absolute;
-                height: 100%;
-                border-right:1px solid #e2e2e2;
+            height: 100%;
+            border-right: 1px solid #e2e2e2;
         }
 
         .tree-selected {
@@ -69,8 +71,7 @@
         <div class="ibox-content">
             <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
                 <blockquote class="layui-elem-quote-ext">
-                    @*组织机构*@
-                    <input type="hidden" name="OrganizationId" value="" />
+                    <input type="hidden" name="OrganizationId" id="OrganizationId" />
                     <div class="layui-inline">
                         <label class="layui-form-label-ext">日期范围:</label>
                         <div class="layui-input-inline" style="width: 120px;">
@@ -95,7 +96,7 @@
                     @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_CreateAct))
                     {
                         <div class="layui-inline">
-                            <a class="layui-btn-ext layui-btnnobg-ext" onclick="add()">
+                            <a class="layui-btn-ext layui-btnnobg-ext" onclick="addUser()">
                                 <i class="layui-icon layui-icon-add-circle-fine">
                                 </i>添加
                             </a>
@@ -113,68 +114,7 @@
                 </blockquote>
             </form>
             <div class="table-responsive animated fadeInRight layui-form" id="ajaxresult">
-                <table class="layui-table">
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox" lay-skin="primary" lay-filter="allChoose">
-                            </th>
-                            <th>ID</th>
-                            <th>用户名</th>
-                            <th>性别</th>
-                            <th>手机</th>
-                            <th>邮箱</th>
-                            <th>地址</th>
-                            <th>加入时间</th>
-                            <th>是否激活</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <input type="checkbox" name="selectedIds" value="@item.Id" lay-skin="primary" lay-filter="itemChoose">
-                                </td>
-                                <td>@item.Id</td>
-                                <td>@item.Name</td>
-                                <td>男</td>
-                                <td>13000000000</td>
-                                <td>@item.EmailAddress</td>
-                                <td>北京市 海淀区</td>
-                                <td>@item.CreationTime</td>
-                                <td>
-                                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_IsActiveAct))
-                                    {
-                                        <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否">
-                                    }
-                                    else
-                                    {
-                                        <input type="checkbox" data-id="@item.Id" lay-skin="switch" name="IsActive" id="IsActive" lay-filter="IsActive" checked="@item.IsActive" lay-text="是|否" disabled>
-                                    }
-                                </td>
-                                <td>
-                                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_EditAct))
-                                    {
-                                        <button type="button" class="layui-btn-ext layui-btnnobg-ext" onclick="edit('@item.Id')">
-                                            <i class="layui-icon layui-icon-edit">
-                                            </i>编辑
-                                        </button>
-                                    }
-                                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_DeleteAct))
-                                    {
-                                        <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted('@item.Id')">
-                                            <i class="layui-icon layui-icon-delete">
-                                            </i>
-                                            删除
-                                        </button>
-                                    }
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                <partial name="List" model="@Model" />
             </div>
         </div>
     </div>
@@ -185,7 +125,7 @@
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js"></script>
     <script>
-        var dtree = layui.dtree;
+    var dtree = layui.dtree;
      //获取组织机构
          var getOrganization = function () {
              $.ajax({
@@ -225,7 +165,6 @@
                             url: "@Url.Action("Add", "Organizations")",
                             success: function (res) {
                                 if (res.result.status == "ok") {
-                                    //dtree.changeTreeNodeAdd("refresh"); // 添加成功，局部刷新树
                                     dtree.reload("organization");
                                 }
                             },
@@ -272,11 +211,11 @@
                 }
             });
             dtree.on("node('organization')", function (obj) {
-                layer.msg(JSON.stringify(obj.param));
-                console.log(obj.param); // 点击当前节点传递的参数
-                console.log(obj.dom); // 当前节点的jquery对象
-                console.log(obj.childParams); // 当前节点的所有子节点参数
-                console.log(obj.parentParam); // 当前节点的父节点参数
+                alert(obj.param.nodeId);
+                //清空搜索条件
+                $("#OrganizationId").val(obj.param.nodeId);
+                var v=$("#OrganizationId").val();
+                $("#searchForm").submit();
             });
         };
         //添加根节点
@@ -290,6 +229,21 @@
                 area: ['600px', '600px'],
                 content: '/Organizations/Add'
             });
+    };
+
+    var addUser = function () {
+        layer.open({
+                anim: 3,
+                type: 2,
+                title: '添加根组织',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['600px', '600px'],
+                content: '/Organizations/AddUser'
+            });
+    };
+        var searchList = function () {
+           $("#searchForm").submit();
         };
         $(function () {
             getOrganization();

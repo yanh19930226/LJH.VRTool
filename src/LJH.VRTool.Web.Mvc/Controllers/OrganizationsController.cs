@@ -25,17 +25,17 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             _organizationAppService = organizationAppService;
             _userAppService = userAppService;
         }
-        public async Task<IActionResult> Index(OrganizationSearch search)
+        public IActionResult Index(OrganizationSearch search, int pageIndex)
         {
-            int pageIndex = 1;
-            int pageSize = 10;
-            var users = (await _userAppService.GetAllListAsync());
-            PagedList<UserDto> model = users.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
+            int pageSize = 1;
+            var res=_userAppService.GetAllListByOrganizationSearch(search.OrganizationId=1, search.KeyWord, search.TimeMin, search.TimeMax);
+            PagedList<UserDto> model = res.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("List", model);
+            }
+            ViewBag.Title = "组织机构管理";
             return View(model);
-        }
-        public ActionResult List()
-        {
-            return View();
         }
 
         #region 添加组织机构
@@ -119,7 +119,11 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         #endregion
 
         #region 添加组织成员
-        public ActionResult AddMemer()
+        public ActionResult AddUser()
+        {
+            return View();
+        }
+        public ActionResult AddUser(string p)
         {
             return Json(null);
         }
