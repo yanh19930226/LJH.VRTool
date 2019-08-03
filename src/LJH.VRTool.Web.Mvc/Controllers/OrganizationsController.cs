@@ -141,8 +141,8 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         public ActionResult AddMember(string KeyWord,int pageIndex)
         {
             int pageSize = 2;
-           var resut= _userAppService.GetOrganizationUser(KeyWord);
-           PagedList<OrganizationUserDto> model = resut.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
+            var resut= _userAppService.GetOrganizationUser(KeyWord);
+            PagedList<OrganizationUserDto> model = resut.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
             {
                 return PartialView("AddMemberList", model);
@@ -157,11 +157,13 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         #endregion
 
         #region 移除组织成员
-        public ActionResult Remove()
+        [HttpPost]
+        public ActionResult Delete(long userId,long OrganizationId)
         {
             return Json(null);
         }
-        public ActionResult BatchRemove()
+        [HttpPost]
+        public ActionResult BatchDelete(long userIds, long OrganizationId)
         {
             return Json(null);
         }
