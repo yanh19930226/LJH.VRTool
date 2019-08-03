@@ -1,6 +1,7 @@
 ﻿@using Webdiyer.AspNetCore;
 @model PagedList<LJH.VRTool.Users.Dto.UserDto>
 @section styles{
+    <script src="~/lib/krpano/hplus/js/jquery.min.js"></script>
     <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/dtree.css" rel="stylesheet" />
     <link href="~/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.css" rel="stylesheet" />
     <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/checkbox.css" rel="stylesheet" />
@@ -56,7 +57,7 @@
         }
     </style>
 }
-<div class="wrapper wrapper-content">
+     <div class="wrapper wrapper-content">
     <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
         <div class="organizationtree" style="text-align:center">
             <i class="layui-icon layui-icon-add-circle-fine">
@@ -69,9 +70,12 @@
     </div>
     <div style="margin-left:270px">
         <div class="ibox-content">
-            <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
+            <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-begin="begin" data-ajax-success="success" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
                 <blockquote class="layui-elem-quote-ext">
-                    <input type="hidden" name="OrganizationId" id="OrganizationId" />
+                    @*<div id="OrganizationIdCon">
+
+                    </div>*@
+                    <input type="hidden" name="OrganizationId" id="OrganizationId" value="1"/>
                     <div class="layui-inline">
                         <label class="layui-form-label-ext">日期范围:</label>
                         <div class="layui-input-inline" style="width: 120px;">
@@ -81,8 +85,6 @@
                             <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
                         </div>
                     </div>
-                    @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_SearchAct))
-                    {
                         <div class="layui-inline">
                             <div class="layui-input-inline">
                                 <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
@@ -92,7 +94,6 @@
                                 </i>查询
                             </a>
                         </div>
-                    }
                     @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_CreateAct))
                     {
                         <div class="layui-inline">
@@ -127,27 +128,28 @@
     <script>
     var dtree = layui.dtree;
      //获取组织机构
-         var getOrganization = function () {
-             $.ajax({
-                 url: '@Url.Action("GetOrganizationData", "Organizations")',
-                 type: "POST",
-                 dataType: "json",
-                 success: function (res) {
-                     if (res.result.status =="ok") {
-                         DTree(res.result.data);
-                     }
-                 },
-                 error: function (e) {
+    var getOrganization = function () {
+        $.ajax({
+            url: '@Url.Action("GetOrganizationData", "Organizations")',
+            type: "POST",
+            dataType: "json",
+            success: function (res) {
+                if (res.result.status == "ok") {
+                    DTree(res.result.data);
+                }
+            },
+            error: function (e) {
                         layer.msg('请求出错!', { icon: 3, time: 5000 });
                  }
-              });
-        };
-        // layui树渲染
-        var DTree = function (res) {
+        });
+    };
+    // layui树渲染
+    var DTree = function (res) {
+        var s=JSON.parse(res)
             dtree.render({
                 elem: "#organization",
                 toolbar:true,
-                data: res,
+                data:s,
                 line: true,
                 nodeIconArray: {"3":{"open":"dtree-icon-jian1","close":"dtree-icon-jia1"}},
                 ficon: ["3", "-1"],
@@ -210,16 +212,9 @@
                     }
                 }
             });
-            dtree.on("node('organization')", function (obj) {
-                alert(obj.param.nodeId);
-                //清空搜索条件
-                $("#OrganizationId").val(obj.param.nodeId);
-                var v=$("#OrganizationId").val();
-                $("#searchForm").submit();
-            });
-        };
-        //添加根节点
-        var add = function () {
+     };
+    //添加根节点
+    var add = function () {
             layer.open({
                 anim: 3,
                 type: 2,
@@ -230,9 +225,8 @@
                 content: '/Organizations/Add'
             });
     };
-
     var addUser = function () {
-        layer.open({
+       layer.open({
                 anim: 3,
                 type: 2,
                 title: '添加根组织',
@@ -240,13 +234,33 @@
                 shade: 0.8,
                 area: ['600px', '600px'],
                 content: '/Organizations/AddUser'
-            });
-    };
-        var searchList = function () {
-           $("#searchForm").submit();
-        };
-        $(function () {
-            getOrganization();
         });
+    };
+    var searchList = function () {
+       $("#searchForm").submit();
+    };
+    $(function () {
+        //getOrganization();
+         DTree('@Html.Raw(Json.Serialize(ViewBag.Org))')
+         dtree.on("node('organization')", function (obj) {
+                 //清空搜索条件
+                 $("#OrganizationId").val(obj.param.nodeId);
+                 $("#searchForm").submit();
+         });
+    });
+    var begin = function () {
+       var index = layer.load();
+       layer.load(index);
+    };
+    var success = function () {
+
+        dtree.on("node('organization')", function (obj) {
+                 //清空搜索条件
+                 $("#OrganizationId").val(obj.param.nodeId);
+                 $("#searchForm").submit();
+             });
+        var index = layer.load();
+        layer.close(index);
+    };
     </script>
 }

@@ -185,7 +185,6 @@ body.body-small .navbar-top-links li:last-child {
 }
 
 .nav > li.active {
-    border-left: 4px solid #19aa8d;
     background: #293846
 }
 

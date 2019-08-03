@@ -20,10 +20,38 @@
 }
 @foreach (var menuItem in Model.MainMenu.Items)
 {
-    <li>
-        <a class="J_menuItem" href="@calculateMenuUrl(menuItem.Url)">
-            <i class="@menuItem.Icon"></i>
-            <span class="nav-label">@menuItem.DisplayName</span>
-        </a>
-    </li>
+    if (menuItem.Items.Any())
+    {
+        <li>
+            <a href="#">
+                <i class="@menuItem.Icon"></i>
+                <span class="nav-label">@menuItem.DisplayName</span>
+                <span class="fa arrow"></span>
+            </a>
+            <ul class="nav nav-second-level">
+                @if (menuItem.Items.Count > 0)
+                {
+                    foreach (var cilditem in menuItem.Items)
+                    {
+                        <li>
+                            <a class="J_menuItem" href="@calculateMenuUrl(cilditem.Url)">
+                                <i class="@cilditem.Icon"></i>
+                                <span class="nav-label">@cilditem.DisplayName</span>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+
+        </li>
+    }
+    else
+    {
+        <li>
+            <a class="J_menuItem" href="@calculateMenuUrl(menuItem.Url)">
+                <i class="@menuItem.Icon"></i>
+                <span class="nav-label">@menuItem.DisplayName</span>
+            </a>
+        </li>
+    }
 }

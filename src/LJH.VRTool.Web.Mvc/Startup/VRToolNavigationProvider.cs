@@ -21,15 +21,15 @@ namespace LJH.VRTool.Web.Startup
                         icon: "fa fa-home",
                         requiresAuthentication: true
                     )
-                ).AddItem(
+                )
+                 .AddItem(
                     new MenuItemDefinition(
-                        PageNames.Tenants,
-                        L("Pages_Tenants"),
-                        url: "Tenants",
+                        PageNames.Basic,
+                        L("Menus_Basic"),
+                        url: "",
                         icon: "fa fa-th-large",
-                        requiredPermissionName: PermissionNames.Pages_Tenants
-                    )
-                ).AddItem(
+                        requiredPermissionName: PermissionNames.Menus_Basic
+                    ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Organizations,
                         L("Pages_Organizations"),
@@ -37,8 +37,7 @@ namespace LJH.VRTool.Web.Startup
                         icon: "fa fa-sitemap",
                         requiredPermissionName: PermissionNames.Pages_Organizations
                     )
-                )
-                .AddItem(
+                ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
                         L("Pages_Users"),
@@ -55,7 +54,17 @@ namespace LJH.VRTool.Web.Startup
                         requiredPermissionName: PermissionNames.Pages_Roles
                     )
                 )
-                 .AddItem(
+
+
+
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Logic,
+                        L("Menus_Logic"),
+                        url: "",
+                        icon: "fa fa-th-large",
+                        requiredPermissionName: PermissionNames.Menus_Logic
+                    ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Source,
                         L("Pages_Source"),
@@ -82,7 +91,15 @@ namespace LJH.VRTool.Web.Startup
                         requiredPermissionName: PermissionNames.Pages_Video
                     )
                 )
-                  .AddItem(
+
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.SystemSet,
+                        L("Menus_SystemSet"),
+                        url: "",
+                        icon: "fa fa-th-large",
+                        requiredPermissionName: PermissionNames.Menus_SystemSet
+                    ).AddItem(
                     new MenuItemDefinition(
                         PageNames.WebSetting,
                         L("Pages_WebSetting"),
@@ -99,7 +116,90 @@ namespace LJH.VRTool.Web.Startup
                         icon: "fa fa-file-text",
                         requiredPermissionName: PermissionNames.Pages_Logs
                     )
+                )
+
                 );
+
+
+
+
+
+
+
+
+
+
+               //.AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Organizations,
+               //         L("Pages_Organizations"),
+               //         url: "Organizations",
+               //         icon: "fa fa-sitemap",
+               //         requiredPermissionName: PermissionNames.Pages_Organizations
+               //     )
+               // )
+               // .AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Users,
+               //         L("Pages_Users"),
+               //         url: "Users",
+               //         icon: "fa fa-user",
+               //         requiredPermissionName: PermissionNames.Pages_Users
+               //     )
+               // ).AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Roles,
+               //         L("Pages_Roles"),
+               //         url: "Roles",
+               //         icon: "fa fa-users",
+               //         requiredPermissionName: PermissionNames.Pages_Roles
+               //     )
+               // )
+               //  .AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Source,
+               //         L("Pages_Source"),
+               //         url: "Source",
+               //         icon: "fa fa-clone",
+               //         requiredPermissionName: PermissionNames.Pages_Source
+               //     )
+               // )
+               //  .AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Panoram,
+               //         L("Pages_Panoram"),
+               //         url: "Panoram",
+               //         icon: "fa fa-youtube-play",
+               //         requiredPermissionName: PermissionNames.Pages_Panoram
+               //     )
+               // )
+               //   .AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Video,
+               //         L("Pages_Video"),
+               //         url: "Video",
+               //         icon: "fa fa-tv",
+               //         requiredPermissionName: PermissionNames.Pages_Video
+               //     )
+               // )
+               //   .AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.WebSetting,
+               //         L("Pages_WebSetting"),
+               //         url: "WebSetting",
+               //         icon: "fa fa-gears",
+               //         requiredPermissionName: PermissionNames.Pages_WebSetting
+               //     )
+               // )
+               //   .AddItem(
+               //     new MenuItemDefinition(
+               //         PageNames.Logs,
+               //         L("Pages_Logs"),
+               //         url: "Log",
+               //         icon: "fa fa-file-text",
+               //         requiredPermissionName: PermissionNames.Pages_Logs
+               //     )
+               // );
             //.AddItem(
             //    new MenuItemDefinition(
             //        PageNames.About,

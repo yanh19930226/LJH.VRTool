@@ -295,18 +295,23 @@ namespace LJH.VRTool.Users
         public List<UserDto> GetAllListByOrganizationSearch(long? OrganizationId, string Keyword, DateTime? TimeMin, DateTime? TimeMax)
         {
             List<UserDto> list = new List<UserDto>();
-            if (OrganizationId>0)
+            List<UserOrganizationUnit> li = new List<UserOrganizationUnit>();
+            if (OrganizationId.HasValue)
             {
-                var res = _userOrganizationUnitRepository.GetAllList(q => q.OrganizationUnitId == OrganizationId);
-                foreach (var item in res)
-                {
-                    var map = ObjectMapper.Map<UserDto>(Repository.Get(item.UserId));
-                    list.Add(map);
-                }
-                if (!string.IsNullOrEmpty(Keyword))
-                {
-                    list.Where(q => q.Name.Contains(Keyword));
-                }
+                li = _userOrganizationUnitRepository.GetAllList(q => q.OrganizationUnitId == OrganizationId);
+            }
+            else
+            {
+                li = _userOrganizationUnitRepository.GetAllList();
+            }
+            foreach (var item in li)
+            {
+                var map = ObjectMapper.Map<UserDto>(Repository.Get(item.UserId));
+                list.Add(map);
+            }
+            if (!string.IsNullOrEmpty(Keyword))
+            {
+                list = list.Where(q => q.Name.Contains(Keyword)).ToList();
             }
             return list;
         }

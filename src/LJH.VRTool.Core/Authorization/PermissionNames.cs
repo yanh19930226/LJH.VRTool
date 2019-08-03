@@ -4,6 +4,18 @@
     {
         #region 基本业务(用户角色权限)
         /// <summary>
+        /// 基础管理菜单
+        /// </summary>
+        public const string Menus_Basic = "Menus_Basic";
+        /// <summary>
+        /// 业务管理菜单
+        /// </summary>
+        public const string Menus_Logic = "Menus_Logic";
+        /// <summary>
+        /// 系统设置菜单
+        /// </summary>
+        public const string Menus_SystemSet = "Menus_SystemSet";
+        /// <summary>
         /// 租户管理
         /// </summary>
         public const string Pages_Tenants = "Pages_Tenants";
@@ -47,7 +59,6 @@
         public const string Pages_Logs_DetailAct = "Pages_Logs_DetailAct";
         public const string Pages_Logs_DeleteAct = "Pages_Logs_DeleteAct";
         public const string Pages_Logs_BatchDeleteAct = "Pages_Logs_BatchDeleteAct";
-
         #endregion
 
         #region 扩展业务

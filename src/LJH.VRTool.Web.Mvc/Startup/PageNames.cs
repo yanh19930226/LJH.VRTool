@@ -2,6 +2,10 @@
 {
     public class PageNames
     {
+        public const string Basic = "Menus_Basic";
+        public const string Logic = "Menus_Logic";
+        public const string SystemSet = "Menus_SystemSet";
+
         public const string Home = "Pages_Home";
         public const string About = "Pages_About";
         public const string Tenants = "Pages_Tenants";

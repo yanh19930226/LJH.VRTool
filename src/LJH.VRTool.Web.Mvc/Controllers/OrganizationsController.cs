@@ -28,13 +28,14 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         public IActionResult Index(OrganizationSearch search, int pageIndex)
         {
             int pageSize = 1;
-            var res=_userAppService.GetAllListByOrganizationSearch(search.OrganizationId=1, search.KeyWord, search.TimeMin, search.TimeMax);
+            var res = _userAppService.GetAllListByOrganizationSearch(search.OrganizationId, search.KeyWord, search.TimeMin, search.TimeMax);
             PagedList<UserDto> model = res.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
             {
                 return PartialView("List", model);
             }
             ViewBag.Title = "组织机构管理";
+            ViewBag.Org = GetOrganization();
             return View(model);
         }
 
@@ -98,6 +99,24 @@ namespace LJH.VRTool.Web.Mvc.Controllers
                 treelist.Add(tree);
             }
             return Json(new { status = "ok", data = treelist });
+        }
+
+        public List<DTreeItem> GetOrganization()
+        {
+            var list = _organizationAppService.GetList().Where(q => q.ParentId == null);
+            List<DTreeItem> treelist = new List<DTreeItem>();
+            foreach (var item in list)
+            {
+                DTreeItem tree = new DTreeItem();
+                tree.Id = item.Id.ToString();
+                tree.Title = item.DisplayName;
+                if (item.Children.Count > 0)
+                {
+                    tree.Children = GetChildrens(item);
+                }
+                treelist.Add(tree);
+            }
+            return treelist;
         }
         //递归获取子节点
         public List<DTreeItem> GetChildrens(OrganizationUnitDto permission)

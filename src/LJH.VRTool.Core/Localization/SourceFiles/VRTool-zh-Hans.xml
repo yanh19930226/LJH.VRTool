@@ -98,7 +98,13 @@
     
     
     <text name="Pages_HomePage" value="主页" />
+
+    <text name="Menus_Basic">基础管理</text>
+    <text name="Menus_Logic">全景管理</text>
+    <text name="Menus_SystemSet">系统设置</text>
+    
     <text name="Pages_Tenants" >租户</text>
+    
     
     <text name="Pages_Users" >用户管理</text>
     <text name="Pages_Users_SearchAct">查询</text>
@@ -125,11 +131,7 @@
     <text name="Pages_Organizations_BatchDeleteAct">批量删除</text>
     
 
-    <text name="Pages_Logs" >日志管理</text>
-    <text name="Pages_Logs_SearchAct">查询</text>
-    <text name="Pages_Roles_DetailAct">添加</text>
-    <text name="Pages_Logs_DeleteAct">删除</text>
-    <text name="Pages_Logs_BatchDeleteAct">批量删除</text>
+    
     
     <!--基本业务结束-->
 
@@ -143,6 +145,8 @@
     <text name="Pages_Video">视频管理</text>
     <text name="Pages_Panoram">全景管理</text>
     <!--扩展业务结束-->
+
+    <text name="Pages_WebSettings" >日志管理</text>
 
 
     <!--公共-->
