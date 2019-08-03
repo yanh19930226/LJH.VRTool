@@ -1,0 +1,66 @@
+﻿@using Webdiyer.AspNetCore;
+@model PagedList<LJH.VRTool.Users.Dto.OrganizationUserDto>
+<div class="layui-form-content-ext">
+    <form class="layui-form" id="searchForm" asp-action="AddMember" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-begin="begin" data-ajax-success="success" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
+        <div class="layui-inline">
+            <div class="layui-input-inline">
+                <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
+            </div>
+            <a class="layui-btn-ext layui-btnnobg-ext" onclick="searchList()">
+                <i class="layui-icon layui-icon-search">
+                </i>查询
+            </a>
+        </div>
+    </form>
+    <form class="layui-form" id="addForm">
+        <div id="ajaxresult">
+            <partial name="AddMemberList" model="@Model" />
+        </div>
+        <div class="layui-modalfooter-ext">
+            <button type="button" lay-filter="save" lay-submit class="layui-btn-ext layui-btn-primary-ext" onclick="save()"><i class="fa fa-save"></i>确认</button>
+            <button type="reset" class="layui-btn-ext"><i class="fa fa-close"></i>重置</button>
+        </div>
+    </form>
+</div>
+<script>
+    var save = function () {
+        layui.use('form', function () {
+            var form = layui.form;
+            form.on('submit(save)', function () {
+                var formData = $("#addForm").serializeArray();
+                $.ajax({
+                    url: "@Url.Action("AddMember", "Organizations")",
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.result.status == "ok") {
+                            layer.msg('新增成功!');
+                            console.log(parent);
+                            parent.searchList();//刷新父窗口
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index); //再执行关闭
+                        }
+                        else {
+                            layer.msg('新增失败!', { icon: 2, time: 5000 });
+                        }
+                    },
+                    error: function (e) {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                    }
+                });
+            });
+        });
+    };
+    var searchList = function () {
+       $("#searchForm").submit();
+    };
+    var begin = function () {
+       var index = layer.load();
+       layer.load(index);
+    };
+    var success = function () {
+        var index = layer.load();
+        layer.close(index);
+    };
+</script>

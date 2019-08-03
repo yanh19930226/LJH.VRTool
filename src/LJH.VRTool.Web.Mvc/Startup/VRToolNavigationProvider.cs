@@ -34,7 +34,8 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Organizations,
                         L("Pages_Organizations"),
                         url: "Organizations",
-                        icon: "fa fa-sitemap",
+                        //icon: "fa fa-sitemap",
+                         icon: "",
                         requiredPermissionName: PermissionNames.Pages_Organizations
                     )
                 ).AddItem(
@@ -42,7 +43,8 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Users,
                         L("Pages_Users"),
                         url: "Users",
-                        icon: "fa fa-user",
+                        //icon: "fa fa-user",
+                         icon: "",
                         requiredPermissionName: PermissionNames.Pages_Users
                     )
                 ).AddItem(
@@ -50,7 +52,8 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Roles,
                         L("Pages_Roles"),
                         url: "Roles",
-                        icon: "fa fa-users",
+                        //icon: "fa fa-users",
+                        icon: "",
                         requiredPermissionName: PermissionNames.Pages_Roles
                     )
                 )
@@ -62,14 +65,15 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Logic,
                         L("Menus_Logic"),
                         url: "",
-                        icon: "fa fa-th-large",
+                        icon: "fa fa-camera",
                         requiredPermissionName: PermissionNames.Menus_Logic
                     ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Source,
                         L("Pages_Source"),
                         url: "Source",
-                        icon: "fa fa-clone",
+                        //icon: "fa fa-clone",
+                        icon: "",
                         requiredPermissionName: PermissionNames.Pages_Source
                     )
                 )
@@ -78,7 +82,8 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Panoram,
                         L("Pages_Panoram"),
                         url: "Panoram",
-                        icon: "fa fa-youtube-play",
+                        //icon: "fa fa-youtube-play",
+                        icon: "",
                         requiredPermissionName: PermissionNames.Pages_Panoram
                     )
                 )
@@ -87,7 +92,8 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Video,
                         L("Pages_Video"),
                         url: "Video",
-                        icon: "fa fa-tv",
+                        //icon: "fa fa-tv",
+                        icon: "",
                         requiredPermissionName: PermissionNames.Pages_Video
                     )
                 )
@@ -97,14 +103,15 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.SystemSet,
                         L("Menus_SystemSet"),
                         url: "",
-                        icon: "fa fa-th-large",
+                        icon: "fa fa-gears",
                         requiredPermissionName: PermissionNames.Menus_SystemSet
                     ).AddItem(
                     new MenuItemDefinition(
                         PageNames.WebSetting,
                         L("Pages_WebSetting"),
                         url: "WebSetting",
-                        icon: "fa fa-gears",
+                        //icon: "fa fa-gears",
+                        icon: "",
                         requiredPermissionName: PermissionNames.Pages_WebSetting
                     )
                 )
@@ -113,7 +120,8 @@ namespace LJH.VRTool.Web.Startup
                         PageNames.Logs,
                         L("Pages_Logs"),
                         url: "Log",
-                        icon: "fa fa-file-text",
+                        //icon: "fa fa-file-text",
+                        icon: "",
                         requiredPermissionName: PermissionNames.Pages_Logs
                     )
                 )

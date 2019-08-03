@@ -138,21 +138,33 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         #endregion
 
         #region 添加组织成员
-        public ActionResult AddUser()
+        public ActionResult AddMember(string KeyWord,int pageIndex)
         {
-            return View();
+            int pageSize = 2;
+           var resut= _userAppService.GetOrganizationUser(KeyWord);
+           PagedList<OrganizationUserDto> model = resut.OrderBy(a => a.CreationTime).ToPagedList(pageIndex, pageSize);
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("AddMemberList", model);
+            }
+            return View(model);
         }
-        public ActionResult AddUser(string p)
+        [HttpPost]
+        public ActionResult AddMember(long[] UserIds)
         {
-            return Json(null);
+            return Json(new { status = "ok" });
         }
         #endregion
 
         #region 移除组织成员
-        public ActionResult RemoveMember()
+        public ActionResult Remove()
         {
             return Json(null);
-        } 
+        }
+        public ActionResult BatchRemove()
+        {
+            return Json(null);
+        }
         #endregion
     }
 }

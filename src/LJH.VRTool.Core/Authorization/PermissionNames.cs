@@ -47,18 +47,6 @@
         public const string Pages_Organizations_EditAct = "Pages_Organizations_EditAct";
         public const string Pages_Organizations_DeleteAct = "Pages_Organizations_DeleteAct";
         public const string Pages_Organizations_BatchDeleteAct = "Pages_Organizations_BatchDeleteAct";
-
-        public const string Pages_WebSetting = "Pages_WebSetting";
-
-
-        /// <summary>
-        /// 日志管理
-        /// </summary>
-        public const string Pages_Logs = "Pages_Logs";
-        public const string Pages_Logs_SearchAct = "Pages_Logs_SearchAct";
-        public const string Pages_Logs_DetailAct = "Pages_Logs_DetailAct";
-        public const string Pages_Logs_DeleteAct = "Pages_Logs_DeleteAct";
-        public const string Pages_Logs_BatchDeleteAct = "Pages_Logs_BatchDeleteAct";
         #endregion
 
         #region 扩展业务
@@ -67,7 +55,22 @@
         //素材权限
         public const string Pages_Source = "Pages_Source";
         //Vr视频权限
-        public const string Pages_Video = "Pages_Video"; 
+        public const string Pages_Video = "Pages_Video";
+        #endregion
+
+        #region 系统设置
+        /// <summary>
+        /// 网站设置
+        /// </summary>
+        public const string Pages_WebSetting = "Pages_WebSetting";
+        /// <summary>
+        /// 日志管理
+        /// </summary>
+        public const string Pages_Logs = "Pages_Logs";
+        public const string Pages_Logs_SearchAct = "Pages_Logs_SearchAct";
+        public const string Pages_Logs_DetailAct = "Pages_Logs_DetailAct";
+        public const string Pages_Logs_DeleteAct = "Pages_Logs_DeleteAct";
+        public const string Pages_Logs_BatchDeleteAct = "Pages_Logs_BatchDeleteAct";
         #endregion
     }
 }

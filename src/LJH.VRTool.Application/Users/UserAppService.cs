@@ -315,6 +315,29 @@ namespace LJH.VRTool.Users
             }
             return list;
         }
+        /// <summary>
+        /// 获取所有未分配机构的成员
+        /// </summary>
+        /// <returns></returns>
+        public List<OrganizationUserDto> GetOrganizationUser(string KeyWord)
+        {
+            List<OrganizationUserDto> result = new List<OrganizationUserDto>();
+            var  chosenlist= _userOrganizationUnitRepository.GetAllList().Select(q => q.UserId);
+            var alllist = Repository.GetAllList().Select(q => q.Id);
+            var list = alllist.Except(chosenlist).ToList();
+            if (list.Any())
+            {
+                foreach (var item in list)
+                {
+                    result.Add(ObjectMapper.Map<OrganizationUserDto>(Repository.Get(item)));
+                }
+            }
+            if (!string.IsNullOrEmpty(KeyWord))
+            {
+                result = result.Where(q => q.Name.Contains(KeyWord)).ToList();
+            }
+            return result;
+        }
     }
 }
 

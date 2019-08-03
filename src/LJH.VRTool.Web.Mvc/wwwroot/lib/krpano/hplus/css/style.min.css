@@ -52,12 +52,24 @@ a:focus {
     background-color: none ;
 }
 .nav > li.active > a {
-    color: #fff
+    color: #fff;
+    background-color: #111;
+    border-bottom: 1px solid #20222A;
+}
+
+
+.nav > li.active {
+    border-bottom: 1px solid #20222A;
 }
 
 .navbar-default .nav > li > a:focus, .navbar-default .nav > li > a:hover {
     background-color: rgb(24, 24, 24);
     color: #fff
+}
+
+
+.nav-second-level li:first-child a:hover {
+    border-top: none;
 }
 
 .nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
@@ -185,7 +197,7 @@ body.body-small .navbar-top-links li:last-child {
 }
 
 .nav > li.active {
-    background: #293846
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .nav.nav-second-level > li.active {
@@ -263,15 +275,18 @@ body.body-small .navbar-top-links li:last-child {
 
     .nav-second-level li a {
         padding: 7px 15px 7px 10px;
-        padding-left: 52px
+        padding-left: 52px;
+        border-bottom: 1px solid #20222A;
     }
 
     .nav-third-level li a {
         padding-left: 62px
     }
-
+    .nav-second-level li:last-child a {
+        border-bottom: none;
+    }
     .nav-second-level li:last-child {
-        margin-bottom: 10px
+        /*margin-bottom: 10px*/
     }
 
 .mini-navbar .nav li:focus > .nav-second-level, body:not(.fixed-sidebar):not(.canvas-menu).mini-navbar .nav li:hover > .nav-second-level {

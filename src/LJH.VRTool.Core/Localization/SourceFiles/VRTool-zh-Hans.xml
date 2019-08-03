@@ -145,8 +145,8 @@
     <text name="Pages_Video">视频管理</text>
     <text name="Pages_Panoram">全景管理</text>
     <!--扩展业务结束-->
-
-    <text name="Pages_WebSettings" >日志管理</text>
+    <text name="Pages_Logs">日志管理</text>
+    <text name="Pages_WebSetting">网站设置</text>
 
 
     <!--公共-->

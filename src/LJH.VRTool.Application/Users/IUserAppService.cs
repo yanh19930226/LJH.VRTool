@@ -23,5 +23,7 @@ namespace LJH.VRTool.Users
         Task<long> ChangeActive(long id);
 
         List<UserDto> GetAllListByOrganizationSearch(long? OrganizationId, string Keyword, DateTime? TimeMin, DateTime? TimeMax);
+
+        List<OrganizationUserDto> GetOrganizationUser(string KeyWord);
     }
 }

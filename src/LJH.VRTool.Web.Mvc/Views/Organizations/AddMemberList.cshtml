@@ -1,0 +1,27 @@
+﻿@using Webdiyer.AspNetCore;
+@{
+    Layout = "~/Views/Shared/_TablePartialLayout.cshtml";
+}
+@model PagedList<LJH.VRTool.Users.Dto.OrganizationUserDto>
+<div class="layui-form-item">
+    @foreach (var item in Model)
+    {
+        <input type="checkbox" id="Names_@item.Id" name="UserIds" value="@item.Id" lay-skin="primary" title="@item.Name">
+    }
+</div>
+<div class="text-center">
+    @Html.AjaxPager(Model, new PagerOptions
+    {
+       PrevPageText = @L("Prev"),
+       NextPageText = @L("Next"),
+       FirstPageText = @L("First"),
+       LastPageText = @L("Last"),
+       PageIndexParameterName = "pageIndex",
+       TagName = "ul",
+       CssClass = "pagination",
+       CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+       DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+       PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+       Id = "bootstrappager"
+    }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1 })
+</div>

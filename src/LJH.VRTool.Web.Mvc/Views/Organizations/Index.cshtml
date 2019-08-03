@@ -62,7 +62,7 @@
         <div class="organizationtree" style="text-align:center">
             <i class="layui-icon layui-icon-add-circle-fine">
             </i>
-            <span onclick="add()">新建根节点</span>
+            <span onclick="addroot()">新建根节点</span>
         </div>
         <div style="overflow: auto;" id="toolbarDiv">
             <ul id="organization" class="dtree" data-id="0"></ul>
@@ -72,9 +72,6 @@
         <div class="ibox-content">
             <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-begin="begin" data-ajax-success="success" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
                 <blockquote class="layui-elem-quote-ext">
-                    @*<div id="OrganizationIdCon">
-
-                    </div>*@
                     <input type="hidden" name="OrganizationId" id="OrganizationId" value="1"/>
                     <div class="layui-inline">
                         <label class="layui-form-label-ext">日期范围:</label>
@@ -97,7 +94,7 @@
                     @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_CreateAct))
                     {
                         <div class="layui-inline">
-                            <a class="layui-btn-ext layui-btnnobg-ext" onclick="addUser()">
+                            <a class="layui-btn-ext layui-btnnobg-ext" onclick="add()">
                                 <i class="layui-icon layui-icon-add-circle-fine">
                                 </i>添加
                             </a>
@@ -121,7 +118,7 @@
     </div>
 </div>
 @section scripts
-    {
+{
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js"></script>
@@ -214,7 +211,7 @@
             });
      };
     //添加根节点
-    var add = function () {
+    var addroot = function () {
             layer.open({
                 anim: 3,
                 type: 2,
@@ -225,15 +222,15 @@
                 content: '/Organizations/Add'
             });
     };
-    var addUser = function () {
+    var add = function () {
        layer.open({
                 anim: 3,
                 type: 2,
-                title: '添加根组织',
+                title: '添加人员',
                 shadeClose: true,
                 shade: 0.8,
                 area: ['600px', '600px'],
-                content: '/Organizations/AddUser'
+                content: '@Url.Action("AddMember","Organizations")'
         });
     };
     var searchList = function () {
