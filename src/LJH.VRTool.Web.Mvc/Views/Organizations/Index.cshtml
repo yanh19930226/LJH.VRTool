@@ -1,10 +1,8 @@
 ﻿@using Webdiyer.AspNetCore;
 @model PagedList<LJH.VRTool.Users.Dto.UserDto>
 @section styles{
-    <script src="~/lib/krpano/hplus/js/jquery.min.js"></script>
-    <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/dtree.css" rel="stylesheet" />
-    <link href="~/lib/krpano/hplus/js/plugins/layui/font/dtree/font/dtreefont.css" rel="stylesheet" />
-    <link href="~/lib/krpano/hplus/js/plugins/layui/css/mymodules/checkbox.css" rel="stylesheet" />
+    <script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
+    <link href="~/lib/krpano/hplus/css/plugins/ztree/metroStyle/metroStyle.css" rel="stylesheet" />
     <style>
         .layui-tab-content {
             padding-left: 50px;
@@ -58,21 +56,21 @@
     </style>
 }
 <div class="wrapper wrapper-content">
-    <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
-        <div class="organizationtree" style="text-align:center">
+    <div id="tree" class="jstree jstree-2 jstree-default jstree-position" style="width:200px">
+        <div class="organizationtree" style="text-align:center" onclick="addHoverDom('', '',true)">
             <i class="layui-icon layui-icon-add-circle-fine">
             </i>
-            <span onclick="addroot()">新建根节点</span>
+            <span>新建根节点</span>
         </div>
-        <div style="overflow: auto;" id="toolbarDiv">
-            <ul id="organization" class="dtree" data-id="0"></ul>
+        <div class="zTreeDemoBackground left">
+            <ul id="treeDemo" class="ztree"></ul>
         </div>
     </div>
     <div style="margin-left:270px">
         <div class="ibox-content">
             <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-begin="begin" data-ajax-success="success" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
                 <blockquote class="layui-elem-quote-ext">
-                    <input type="hidden" name="OrganizationId" id="OrganizationId" value="1"/>
+                    <input type="hidden" name="OrganizationId" id="OrganizationId" value="1" />
                     <div class="layui-inline">
                         <label class="layui-form-label-ext">日期范围:</label>
                         <div class="layui-input-inline" style="width: 120px;">
@@ -82,15 +80,15 @@
                             <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
                         </div>
                     </div>
-                        <div class="layui-inline">
-                            <div class="layui-input-inline">
-                                <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
-                            </div>
-                            <a class="layui-btn-ext layui-btnnobg-ext " onclick="searchList()">
-                                <i class="layui-icon layui-icon-search">
-                                </i>查询
-                            </a>
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
                         </div>
+                        <a class="layui-btn-ext layui-btnnobg-ext " onclick="searchList()">
+                            <i class="layui-icon layui-icon-search">
+                            </i>查询
+                        </a>
+                    </div>
                     @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_CreateAct))
                     {
                         <div class="layui-inline">
@@ -103,7 +101,7 @@
                     @if (IsGranted(LJH.VRTool.Authorization.PermissionNames.Pages_Users_BatchDeleteAct))
                     {
                         <div class="layui-inline">
-                            <a class="layui-btn-ext layui-btn-dangernobg-ext" onclick="batchdeleted()">
+                            <a class="layui-btn-ext layui-btn-dangernobg-ext" onclick="deleted()">
                                 <i class="layui-icon layui-icon-delete">
                                 </i>批量删除
                             </a>
@@ -119,109 +117,12 @@
 </div>
 @section scripts
 {
-    <script src="~/lib/krpano/hplus/js/plugins/layui/layui.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.all.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.core.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.excheck.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.exedit.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/layui/layui.all.js"></script>
-    <script src="~/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js"></script>
     <script>
-    var dtree = layui.dtree;
-     //获取组织机构
-    var getOrganization = function () {
-        $.ajax({
-            url: '@Url.Action("GetOrganizationData", "Organizations")',
-            type: "POST",
-            dataType: "json",
-            success: function (res) {
-                if (res.result.status == "ok") {
-                    DTree(res.result.data);
-                }
-            },
-            error: function (e) {
-                        layer.msg('请求出错!', { icon: 3, time: 5000 });
-                 }
-        });
-    };
-    // layui树渲染
-    var DTree = function (res) {
-        var s=JSON.parse(res)
-            dtree.render({
-                elem: "#organization",
-                toolbar:true,
-                data:s,
-                line: true,
-                nodeIconArray: {"3":{"open":"dtree-icon-jian1","close":"dtree-icon-jia1"}},
-                ficon: ["3", "-1"],
-                icon: "0",  //修改二级图标样式
-                toolbarFun: {
-                    addTreeNode: function (treeNode, $div) {
-                        var data = {
-                            disPlayName: treeNode.addNodeName,
-                            parentId: treeNode.parentId
-                        };
-                        $.ajax({
-                            type: "post",
-                            data: data,
-                            dataType: "json",
-                            url: "@Url.Action("Add", "Organizations")",
-                            success: function (res) {
-                                if (res.result.status == "ok") {
-                                    dtree.reload("organization");
-                                }
-                            },
-                            error: function () {
-
-                            }
-                        });
-                    },
-                    editTreeNode: function (treeNode, $div) {
-                        var data = {
-                            Id: treeNode.nodeId,
-                            disPlayName: treeNode.editNodeName
-                        };
-                        $.ajax({
-                            type: "post",
-                            data: data,
-                            dataType: "json",
-                            url: "@Url.Action("Edit", "Organizations")",
-                            success: function (res) {
-
-                            },
-                            error: function () {
-                            }
-                        });
-                    },
-                    delTreeNode: function (treeNode, $div) {
-                        var data = {
-                            Id: treeNode.nodeId
-                        };
-                        $.ajax({
-                            type: "post",
-                            data: data,
-                            url: "@Url.Action("Delete", "Organizations")",
-                            success: function (res) {
-                                if (res.result.status == "ok") {
-                                    dtree.reload("organization");
-                                }
-                            },
-                            error: function () {
-
-                            }
-                        });
-                    }
-                }
-            });
-     };
-    //添加根节点
-    var addroot = function () {
-        layer.open({
-            anim: 3,
-            type: 2,
-            title: '添加根组织',
-            shadeClose: true,
-            shade: 0.8,
-            area: ['600px', '600px'],
-            content: '/Organizations/Add'
-        });
-    };
     var add = function () {
        layer.open({
                 anim: 3,
@@ -237,7 +138,7 @@
         layer.confirm('确认要删除吗？', function () {
             $.ajax({
                 type: 'POST',
-                url: "/Organizations/Delete?Id=" + id,
+                url: "/Organizations/Delete?userId=" + 1+"&OrganizationId="+3,
                 dataType: 'json',
                 success: function (res) {
                     if (res.result.status === "ok") {
@@ -286,27 +187,162 @@
     var searchList = function () {
        $("#searchForm").submit();
     };
-    $(function () {
-        //getOrganization();
-         DTree('@Html.Raw(Json.Serialize(ViewBag.Org))')
-         dtree.on("node('organization')", function (obj) {
-                 //清空搜索条件
-                 $("#OrganizationId").val(obj.param.nodeId);
-                 $("#searchForm").submit();
-         });
-    });
     var begin = function () {
        var index = layer.load();
        layer.load(index);
     };
     var success = function () {
-        dtree.on("node('organization')", function (obj) {
-                 //清空搜索条件
-                 $("#OrganizationId").val(obj.param.nodeId);
-                 $("#searchForm").submit();
-             });
         var index = layer.load();
         layer.close(index);
     };
+    //树形插件CURD
+    var setting = {
+            async: {
+                enable: true,//开启异步加载处理
+                dataFilter: filter//用于对 Ajax 返回数据进行预处理的函数
+            },
+            view: {
+                addHoverDom: addHoverDom,
+                removeHoverDom: removeHoverDom,
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            edit: {
+                enable: true
+            },
+            callback: {
+                //beforeClick: beforeClick,
+				onClick: onClick,
+                beforeRemove: beforeRemove,//用于捕获节点被删除之前的事件回调函数，并且根据返回值确定是否允许删除操作
+                beforeRename: beforeRename//用于捕获节点编辑名称结束（Input 失去焦点 或 按下 Enter 键）之后，更新节点名称数据之前的事件回调函数，并且根据返回值确定是否允许更改名称的操作
+            }
+        };
+    //修改异步获取到的节点name属性
+    function filter(treeId, parentNode, childNodes) {
+            if (!childNodes) return null;
+            for (var i = 0, l = childNodes.length; i < l; i++) {
+                childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+            }
+            return childNodes;
+        }
+    //删除节点信息
+    function beforeRemove(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            zTree.selectNode(treeNode);
+            layer.confirm('确认要删除吗？', function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "/Organizations/Delete?Id=" + treeNode.id,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.result.status === "ok") {
+                            layer.msg("已删除！");
+                        }
+                        else {
+                            layer.msg('删除失败!', { icon: 2, time: 5000 });
+                        }
+                    },
+                    error: function (data) {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                    }
+                });
+            });
+    };
+    //修改节点信息
+    function beforeRename(treeId, treeNode, newName) {
+         if (newName.length == 0) {
+            layer.msg('名字不能为空!');
+             return false;
+         }
+         var treeInfo = treeNode.id;
+         $.ajax({
+             url: "/Organizations/Delete",
+             type: "POST",
+             async: false,
+             success: function (res) {
+                 if (res.result.status === "ok") {
+                    
+                 } else {
+                      layer.msg('修改失败!', { icon: 2, time: 5000 });
+                 }
+             }
+         });
+    };
+    //添加新的节点
+    function addHoverDom(treeId, treeNode, type) {
+         var sObj = $("#" + treeNode.tId + "_span");
+         if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+         var addStr = "<span class='button add' id='addBtn_" + treeNode.tId+ "' title='add node' onfocus='this.blur();'></span>";
+         sObj.after(addStr);
+         var btn = $("#addBtn_" + treeNode.tId);
+         if (btn) btn.bind("click", function () {
+                  var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                  layer.prompt({
+		               formType: 0,
+		               value: '',
+		               title: '请输入节点名称'
+		      }, function (value, index){
+                  layer.close(index);
+                  var data;
+		          var pid = treeNode.id;
+                  var name = value;
+                  if (type) {
+                      data = {
+                          "DisplayName": name,
+                      };
+                  }else {
+                      data = {
+                        "ParentId": pid,
+		                "DisplayName": name,
+                      };
+                  }
+		          $.ajax({
+		        	    type: "POST",
+		              async: false,
+		              url: "/Organizations/Add",
+		              data: {
+		                "ParentId": pid,
+		                "DisplayName": name,
+                      },
+                      data:data,
+		              success: function(res) {
+		                  if(res.result.status == "ok") {
+                                 zTree.addNodes(treeNode, {
+                                 id:res.result.id,
+			                  pId: treeNode.id,
+			                  name: value
+			                });
+			                //onLoadZTree() //重新加载，不然再次添加会报错
+			                layer.msg('添加成功');
+                             }
+                                else {
+		                         layer.msg('添加失败', {
+		                         icon: 5,
+		                         time: 1000
+		                     });
+		                  }
+		              }
+		          });
+                
+		     });
+         });
+     };
+    //设置鼠标移到节点上，在后面显示一个按钮
+    function removeHoverDom(treeId, treeNode) {
+            $("#addBtn_" + treeNode.tId).unbind().remove();
+    };
+    //点击
+    function onClick(event, treeId, treeNode, clickFlag) {
+        $("#OrganizationId").val(treeNode.id);
+        alert(treeNode.id);
+    };	
+    //初始数据
+    var zNodes = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.Org))');
+    $(function () {
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    });
     </script>
 }

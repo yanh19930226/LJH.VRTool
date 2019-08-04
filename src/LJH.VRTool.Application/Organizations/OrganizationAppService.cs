@@ -35,11 +35,11 @@ namespace LJH.VRTool.Organizations
         {
             return _objectMapper.Map<List<OrganizationUnitDto>>(_OrganizationUnitRepository.GetAllList());
         }
-        public async Task<OrganizationUnit> CreateAsync(OrganizationUnitCreateDto organizationUnit)
+        public long InsertAndGetId(OrganizationUnitCreateDto organizationUnit)
         {
             var org = _objectMapper.Map<OrganizationUnit>(organizationUnit);
             org.Code= OrganizationUnit.CreateCode(2);
-            return await _OrganizationUnitRepository.InsertAsync(org);
+            return _OrganizationUnitRepository.InsertAndGetId(org);
         }
         public async Task<OrganizationUnit> UpdateAsync(OrganizationUnitUpdateDto organizationUnit)
         {

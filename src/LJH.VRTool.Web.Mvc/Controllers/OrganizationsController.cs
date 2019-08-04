@@ -35,7 +35,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
                 return PartialView("List", model);
             }
             ViewBag.Title = "组织机构管理";
-            ViewBag.Org = GetOrganization();
+            ViewBag.Org = GetOrganizationDataZtree();
             return View(model);
         }
 
@@ -44,15 +44,12 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         /// 添加组织机构
         /// </summary>
         /// <returns></returns>
-        public ActionResult Add()
-        {
-            return View();
-        }
         [HttpPost]
         public ActionResult Add(OrganizationUnitCreateDto input)
         {
-            var res = _organizationAppService.CreateAsync(input);
-            return Json(new { status = "ok" });
+            var res = _organizationAppService.InsertAndGetId(input);
+            return Json(new { status = "ok",id= res });
+
         }
         #endregion
 
@@ -62,7 +59,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             var res = _organizationAppService.UpdateAsync(dto);
             return Json(new { status = "ok" });
-        } 
+        }
         #endregion
 
         #region 删除组织机构
@@ -71,6 +68,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
+        [HttpPost]
         public ActionResult Delete(long Id)
         {
             var res = _organizationAppService.DeleteAsync(Id);
@@ -83,57 +81,19 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         /// 获取组织机构数据
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetOrganizationData()
+        public List<ZTreeItem> GetOrganizationDataZtree()
         {
-            var list = _organizationAppService.GetList().Where(q=>q.ParentId==null);
-            List<DTreeItem> treelist = new List<DTreeItem>();
+            var list = _organizationAppService.GetList();
+            List<ZTreeItem> treelist = new List<ZTreeItem>();
             foreach (var item in list)
             {
-                DTreeItem tree = new DTreeItem();
-                tree.Id = item.Id.ToString();
-                tree.Title = item.DisplayName;
-                if (item.Children.Count > 0)
-                {
-                    tree.Children = GetChildrens(item);
-                }
-                treelist.Add(tree);
-            }
-            return Json(new { status = "ok", data = treelist });
-        }
-
-        public List<DTreeItem> GetOrganization()
-        {
-            var list = _organizationAppService.GetList().Where(q => q.ParentId == null);
-            List<DTreeItem> treelist = new List<DTreeItem>();
-            foreach (var item in list)
-            {
-                DTreeItem tree = new DTreeItem();
-                tree.Id = item.Id.ToString();
-                tree.Title = item.DisplayName;
-                if (item.Children.Count > 0)
-                {
-                    tree.Children = GetChildrens(item);
-                }
+                ZTreeItem tree = new ZTreeItem();
+                tree.Id = item.Id;
+                tree.pId = item.ParentId == null ? 0 : (long)item.ParentId;
+                tree.Name = item.DisplayName;
                 treelist.Add(tree);
             }
             return treelist;
-        }
-        //递归获取子节点
-        public List<DTreeItem> GetChildrens(OrganizationUnitDto permission)
-        {
-            List<DTreeItem> nodetree = new List<DTreeItem>();
-            foreach (var item in permission.Children)
-            {
-                DTreeItem tree = new DTreeItem();
-                tree.Id = item.Id.ToString();
-                tree.Title = item.DisplayName;
-                if (item.Children.Count > 0)
-                {
-                    tree.Children = GetChildrens(item);
-                }
-                nodetree.Add(tree);
-            }
-            return nodetree;
         }
         #endregion
 
@@ -158,12 +118,12 @@ namespace LJH.VRTool.Web.Mvc.Controllers
 
         #region 移除组织成员
         [HttpPost]
-        public ActionResult Delete(long userId,long OrganizationId)
+        public ActionResult DeleteMember(long userId,long OrganizationId)
         {
             return Json(null);
         }
         [HttpPost]
-        public ActionResult BatchDelete(long userIds, long OrganizationId)
+        public ActionResult BatchDeleteMember(long userIds, long OrganizationId)
         {
             return Json(null);
         }
