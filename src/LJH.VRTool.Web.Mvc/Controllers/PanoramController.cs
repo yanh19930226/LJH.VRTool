@@ -34,7 +34,6 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             return View();
         }
-
         /// <summary>
         /// 基本设置
         /// </summary>
@@ -47,8 +46,6 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             return PartialView("Basic");
         }
-
-
         /// <summary>
         /// 背景音乐
         /// </summary>

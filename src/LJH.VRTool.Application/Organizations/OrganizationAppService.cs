@@ -41,11 +41,12 @@ namespace LJH.VRTool.Organizations
             org.Code= OrganizationUnit.CreateCode(2);
             return _OrganizationUnitRepository.InsertAndGetId(org);
         }
-        public async Task<OrganizationUnit> UpdateAsync(OrganizationUnitUpdateDto organizationUnit)
+        public OrganizationUnit Update(OrganizationUnitUpdateDto organizationUnit)
         {
             var org=_OrganizationUnitRepository.Get(organizationUnit.Id);
-            org = _objectMapper.Map<OrganizationUnit>(organizationUnit);
-            return await _OrganizationUnitRepository.InsertOrUpdateAsync(org);
+            org.DisplayName = organizationUnit.DisplayName;
+            var res = _OrganizationUnitRepository.Update(org);
+            return res;
         }
         public async Task DeleteAsync(long Id)
         {

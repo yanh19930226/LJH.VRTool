@@ -15,7 +15,7 @@ namespace LJH.VRTool.Organizations
 
         List<OrganizationUnitDto> GetList();
         long InsertAndGetId(OrganizationUnitCreateDto organizationUnit);
-        Task<OrganizationUnit> UpdateAsync(OrganizationUnitUpdateDto organizationUnit);
+        OrganizationUnit Update(OrganizationUnitUpdateDto organizationUnit);
         Task DeleteAsync(long Id);
     }
 }

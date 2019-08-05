@@ -57,7 +57,7 @@
 }
 <div class="wrapper wrapper-content">
     <div id="tree" class="jstree jstree-2 jstree-default jstree-position" style="width:240px">
-        <div class="organizationtree" style="text-align:center" onclick="addHoverDom('', '',true)">
+        <div class="organizationtree" style="text-align:center" onclick="addroot()">
             <i class="layui-icon layui-icon-add-circle-fine">
             </i>
             <span>新建根节点</span>
@@ -257,10 +257,14 @@
             layer.msg('名字不能为空!');
              return false;
          }
-         var treeInfo = treeNode.id;
+        data = {
+            "Id": treeNode.id,
+            "DisplayName": newName,
+        };
          $.ajax({
-             url: "/Organizations/Delete",
+             url: "/Organizations/Edit",
              type: "POST",
+             data:data,
              async: false,
              success: function (res) {
                  if (res.result.status === "ok") {
@@ -275,7 +279,7 @@
     function addHoverDom(treeId, treeNode, type) {
          var sObj = $("#" + treeNode.tId + "_span");
          if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
-         var addStr = "<span class='button add' id='addBtn_" + treeNode.tId+ "' title='add node' onfocus='this.blur();'></span>";
+         var addStr = "<span class='button add' id='addBtn_" + treeNode.tId + "' title='add node' onfocus='this.blur();'></span>";
          sObj.after(addStr);
          var btn = $("#addBtn_" + treeNode.tId);
          if (btn) btn.bind("click", function () {
@@ -289,18 +293,8 @@
                   var data;
 		          var pid = treeNode.id;
                   var name = value;
-                  if (type) {
-                      data = {
-                          "DisplayName": name,
-                      };
-                  }else {
-                      data = {
-                        "ParentId": pid,
-		                "DisplayName": name,
-                      };
-                  }
 		          $.ajax({
-		        	    type: "POST",
+		        	  type: "POST",
 		              async: false,
 		              url: "/Organizations/Add",
 		              data: {
@@ -315,7 +309,6 @@
 			                  pId: treeNode.id,
 			                  name: value
 			                });
-			                //onLoadZTree() //重新加载，不然再次添加会报错
 			                layer.msg('添加成功');
                              }
                                 else {
@@ -326,18 +319,51 @@
 		                  }
 		              }
 		          });
-                
 		     });
          });
-     };
+        };
+    //添加根节点
+    var addroot=function(e){
+         var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+         nodes = zTree.getSelectedNodes(),
+         treeNode = nodes[0];
+         layer.prompt({
+             formType: 0,
+             value: '',
+             title: '请输入根节点名称'
+         }, function (value, index) {
+             layer.close(index);
+             var name = value;
+             $.ajax({
+                 type: "POST",
+                 async: false,
+                 url: "/Organizations/Add",
+                 data: {
+                     "DisplayName": name,
+                 },
+                 success: function (res) {
+                     if (res.result.status == "ok") {
+                         treeNode = zTree.addNodes(null, { id: res.result.id, pId: 0, name: name });
+                         layer.msg('添加成功');
+                     }
+                     else {
+                         layer.msg('添加失败', {
+                             icon: 5,
+                             time: 1000
+                         });
+                     }
+                 }
+             });
+         });
+    };
     //设置鼠标移到节点上，在后面显示一个按钮
     function removeHoverDom(treeId, treeNode) {
             $("#addBtn_" + treeNode.tId).unbind().remove();
     };
-    //点击
+    //点击节点搜索
     function onClick(event, treeId, treeNode, clickFlag) {
         $("#OrganizationId").val(treeNode.id);
-        alert(treeNode.id);
+        $("#searchForm").submit();
     };	
     //初始数据
     var zNodes = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.Org))');

@@ -11,6 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Views\Shared\Modals\**" />
+    <Compile Remove="Views\Source\Components\**" />
     <Compile Remove="wwwroot\lib\bootstrap-select\**" />
     <Compile Remove="wwwroot\lib\chart.js\**" />
     <Compile Remove="wwwroot\lib\eve-raphael\**" />
@@ -29,6 +30,7 @@
     <Compile Remove="wwwroot\lib\toastr\**" />
     <Compile Remove="wwwroot\lib\Waves\**" />
     <Content Remove="Views\Shared\Modals\**" />
+    <Content Remove="Views\Source\Components\**" />
     <Content Remove="wwwroot\lib\bootstrap-select\**" />
     <Content Remove="wwwroot\lib\chart.js\**" />
     <Content Remove="wwwroot\lib\eve-raphael\**" />
@@ -47,6 +49,7 @@
     <Content Remove="wwwroot\lib\toastr\**" />
     <Content Remove="wwwroot\lib\Waves\**" />
     <EmbeddedResource Remove="Views\Shared\Modals\**" />
+    <EmbeddedResource Remove="Views\Source\Components\**" />
     <EmbeddedResource Remove="wwwroot\lib\bootstrap-select\**" />
     <EmbeddedResource Remove="wwwroot\lib\chart.js\**" />
     <EmbeddedResource Remove="wwwroot\lib\eve-raphael\**" />
@@ -65,6 +68,7 @@
     <EmbeddedResource Remove="wwwroot\lib\toastr\**" />
     <EmbeddedResource Remove="wwwroot\lib\Waves\**" />
     <None Remove="Views\Shared\Modals\**" />
+    <None Remove="Views\Source\Components\**" />
     <None Remove="wwwroot\lib\bootstrap-select\**" />
     <None Remove="wwwroot\lib\chart.js\**" />
     <None Remove="wwwroot\lib\eve-raphael\**" />

@@ -57,7 +57,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         [HttpPost]
         public ActionResult Edit(OrganizationUnitUpdateDto dto)
         {
-            var res = _organizationAppService.UpdateAsync(dto);
+            var res = _organizationAppService.Update(dto);
             return Json(new { status = "ok" });
         }
         #endregion
@@ -85,6 +85,7 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             var list = _organizationAppService.GetList();
             List<ZTreeItem> treelist = new List<ZTreeItem>();
+            //ZTreeItem root= new ZTreeItem() { };
             foreach (var item in list)
             {
                 ZTreeItem tree = new ZTreeItem();
