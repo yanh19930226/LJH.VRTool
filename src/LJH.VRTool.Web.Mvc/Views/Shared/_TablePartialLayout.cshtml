@@ -58,11 +58,6 @@
         layer.load(index);
     };
     var OnSuccess = function () {
-        dtree.on("node('organization')", function (obj) {
-               //清空搜索条件
-               $("#OrganizationId").val(obj.param.nodeId);
-               $("#searchForm").submit();
-        });
         var index = layer.load();
         layer.close(index);
     };

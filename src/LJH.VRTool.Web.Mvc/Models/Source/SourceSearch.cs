@@ -7,5 +7,9 @@ namespace LJH.VRTool.Web.Models.Source
 {
     public class SourceSearch
     {
+        public int? MediaType { get; set; }
+
+        public int pageIndex { get; set; }
+        public int pageSize => 1;
     }
 }
