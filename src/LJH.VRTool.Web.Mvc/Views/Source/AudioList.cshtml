@@ -1,0 +1,87 @@
+﻿@using Webdiyer.AspNetCore;
+@model PagedList<LJH.VRTool.Web.Models.Source.Source>
+<div id="tab-picture" class="tab-pane active">
+    <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
+        <div class="add_newgroup" onclick="add_newGroup()">+ 新建分组</div>
+        <div class="tree-dl">
+            <dl class="tree-selected">
+                <dt onclick="selectGroup()">
+                    <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>未分组(5)</a>
+                </dt>
+                <dd>
+                    <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt onclick="selectGroup()">
+                    <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>图片(5)</a>
+                </dt>
+                <dd>
+                    <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
+                </dd>
+            </dl>
+            <dl>
+                <dt onclick="selectGroup()">
+                    <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>图片(5)</a>
+                </dt>
+                <dd>
+                    <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="animated fadeInRight" style="margin-left:210px">
+        <div class="upload-button-container">
+            <button type="button" class="layui-btn" id="pano">上传图片</button>
+        </div>
+        <div>
+            @for (int i = 0; i < 18; i++)
+            {
+                <div class="file-box">
+                    <div class="file">
+                        <span class="corner"></span>
+                        <div class="image">
+                            <img alt="image" class="img-responsive" src="~/lib/krpano/hplus/img/p1.jpg" />
+                        </div>
+                        <div class="file-name">
+                            Italy street.jpg <br />
+                            <small>添加时间：2014-10-13</small>
+                        </div>
+                        <div class="file-option">
+                            <a onclick="preview()" class="fancybox" href="~/lib/krpano/hplus/img/p1.jpg" title="picname">预览</a>
+                            <a href="#" onclick="edit()">编辑</a>
+                            <a href="#" onclick="deleted()">删除</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="text-center">
+        @Html.AjaxPager(Model, new PagerOptions
+        {
+           PrevPageText = @L("Prev"),
+           NextPageText = @L("Next"),
+           FirstPageText = @L("First"),
+           LastPageText = @L("Last"),
+           PageIndexParameterName = "pageIndex",
+           TagName = "ul",
+           CssClass = "pagination",
+           CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+           DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+           PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+           Id = "bootstrappager"
+        }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1 })
+    </div>
+</div>
+<script>
+    var OnBegin = function () {
+        var index = layer.load();
+        layer.load(index);
+    };
+    var OnSuccess = function () {
+        var index = layer.load();
+        layer.close(index);
+    };
+</script>
+
