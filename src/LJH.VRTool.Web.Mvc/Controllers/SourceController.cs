@@ -63,11 +63,11 @@ namespace LJH.VRTool.Web.Mvc.Controllers
             {
                 if (search.MediaType == 1)
                 {
-                    return PartialView("PanoramList", vmodel);
+                    return PartialView("PanoramList", vmodel.sourcelist);
                 }
                 else
                 {
-                    return PartialView("AudioList", vmodel);
+                    return PartialView("AudioList", vmodel.sourcelist);
                 }
             }
             return View(vmodel);
