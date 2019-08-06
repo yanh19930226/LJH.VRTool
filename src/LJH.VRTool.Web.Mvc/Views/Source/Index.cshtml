@@ -59,7 +59,7 @@
                 <li class="" onclick="changeTab('audio')">
                     <a data-toggle="tab" href="#tab-audio" aria-expanded="false">音频</a>
                 </li>
-                <li class="" onclick="changeTab()">
+                <li class="" onclick="changeTab('video')">
                     <a data-toggle="tab" href="#tab-audio" aria-expanded="false">视频</a>
                 </li>
             </ul>
@@ -67,15 +67,19 @@
         <div class="tab-content" id="ajaxresult">
             @if (Model.MediaType == 1)
             {
-               <partial name="PanoramList" model="@Model.sourcelist" />
+                <partial name="PanoramList" model="@Model.sourcelist" />
+            }
+            else if (Model.MediaType == 2)
+            {
+                <partial name="PictureList" model="@Model.sourcelist" />
             }
             else if (Model.MediaType == 3)
             {
-               <partial name="AudioList" model="@Model.sourcelist" />
+                <partial name="AudioList" model="@Model.sourcelist" />
             }
             else
             {
-                
+                <partial name="VideoList" model="@Model.sourcelist" />
             }
         </div>
     </div>
