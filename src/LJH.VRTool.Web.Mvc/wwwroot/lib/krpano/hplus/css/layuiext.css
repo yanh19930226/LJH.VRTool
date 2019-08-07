@@ -175,7 +175,7 @@
 }
     .nav-tabs > li:last-child {
         padding: 7px;
-        margin-left: 50px;
+        margin-left: 150px;
     }
     .nav-tabs > li > a {
         border: none;
@@ -184,8 +184,12 @@
     }
 .tabs-container .nav-tabs > li.active > a, .tabs-container .nav-tabs > li.active > a:focus, .tabs-container .nav-tabs > li.active > a:hover {
     border: none;
-    border-bottom: 1px solid #409eff;
+    border-bottom: 2px solid #409eff;
     color: #409eff;
+}
+/*树形菜单右边表格容器头部tab搜索菜单样式*/
+.layui-treeform-label-ext {
+    top: 8px;
 }
 /*==========================表格==========================*/
 /*==========================表单==========================*/
