@@ -3,61 +3,10 @@
 @section styles{
     <script src="~/lib/krpano/hplus/js/jquery.min.js?v=2.1.4"></script>
     <link href="~/lib/krpano/hplus/css/plugins/ztree/metroStyle/metroStyle.css" rel="stylesheet" />
-    <style>
-        .layui-tab-content {
-            padding-left: 50px;
-        }
-
-        .file-option, .file-name {
-            text-align: center
-        }
-
-        .upload-button-container {
-            margin: 15px 0;
-        }
-
-        .organizationtree {
-            padding: 12px 5px;
-            color: #293846;
-            background-color: #f2f2f2;
-        }
-            /*.organizationtree h2{
-
-        }*/
-            .organizationtree span {
-                display: inline;
-                font-size: 15px;
-            }
-
-        .jstree-position {
-            position: absolute;
-            height: 100%;
-            border-right: 1px solid #e2e2e2;
-        }
-
-        .tree-selected {
-            background-color: #293846;
-        }
-
-        .tree-dl dl dd span {
-            display: none;
-        }
-
-        .tree-dl dl:hover dd span {
-            display: block;
-            bottom: 22px;
-            right: 6px;
-            position: relative;
-        }
-
-        #tab-audio .file-box {
-            width: 334px;
-        }
-    </style>
 }
 <div class="wrapper wrapper-content">
-    <div id="tree" class="jstree jstree-2 jstree-default jstree-position" style="width:240px">
-        <div class="organizationtree" style="text-align:center" onclick="addroot()">
+    <div id="tree" class="layui-tree-containerext">
+        <div class="layui-tree-container-rootext" onclick="addroot()">
             <i class="layui-icon layui-icon-add-circle-fine">
             </i>
             <span>新建根节点</span>
@@ -66,7 +15,7 @@
             <ul id="treeDemo" class="ztree"></ul>
         </div>
     </div>
-    <div style="margin-left:270px">
+    <div class="layui-treetable-containerext">
         <div class="ibox-content">
             <form id="searchForm" asp-action="Index" asp-controller="Organizations" data-ajax="true" data-ajax-method="POST" data-ajax-begin="begin" data-ajax-success="success" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
                 <blockquote class="layui-elem-quote-ext">

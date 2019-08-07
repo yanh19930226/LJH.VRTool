@@ -1,91 +1,60 @@
 ﻿@using Webdiyer.AspNetCore;
 @model PagedList<LJH.VRTool.Web.Models.Source.Source>
 <div id="tab-pano" class="tab-pane active">
-    <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
-          <div class="add_newgroup" onclick="add_newGroup()">+ 新建分组</div>
-          <div class="tree-dl">
-              <dl class="tree-selected">
-                  <dt onclick="selectGroup()">
-                      <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>未分组(5)</a>
-                  </dt>
-                  <dd>
-                      <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
-                  </dd>
-              </dl>
-              <dl>
-                  <dt onclick="selectGroup()">
-                      <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>未分组(5)</a>
-                  </dt>
-                  <dd>
-                      <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
-                  </dd>
-              </dl>
-              <dl>
-                  <dt onclick="selectGroup()">
-                      <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>未分组(5)</a>
-                  </dt>
-                  <dd>
-                      <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
-                  </dd>
-              </dl>
-          </div>
-      </div>
-    <div class="animated fadeInRight" style="margin-left:210px">
-          <div class="upload-button-container">
-              <button type="button" class="layui-btn" id="pano">上传全景图</button>
-          </div>
-          @if (Model.Count > 0)
-          {
-              <div>
-                  @foreach (var item in Model)
-                  {
-                      <div class="file-box">
-                          <div class="file">
-                              <a href="file_manager.html#">
-                                  <span class="corner"></span>
-                                  <div class="image">
-                                      <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p1.jpg" />
-                                  </div>
-                                  <div class="file-name">
-                                      @item.Title <br />
-                                      <small>@item.CreateTime</small>
-                                  </div>
-                                  <div class="file-option">
-                                      <a href="#" onclick="preview()">预览</a>
-                                      <a href="#" onclick="edit()">编辑</a>
-                                      <a href="#" onclick="deleted()">删除</a>
-                                  </div>
-                              </a>
-                          </div>
-                      </div>
-                  }
-              </div>
-          }
-          else
-          {
-              <div style="text-align: center; padding:11% 0;">
-                  <i class="layui-icon layui-icon-file" style="line-height:10rem;font-size:10rem;color:#111">
-                  </i>
-                  <p style="font-size: 20px; font-weight: 300; color: #111;"> 暂无数据</p>
-              </div>
-          }
-      </div>
-    <div class="text-center">
-          @Html.AjaxPager(Model, new PagerOptions
-          {
-             PrevPageText = @L("Prev"),
-             NextPageText = @L("Next"),
-             FirstPageText = @L("First"),
-             LastPageText = @L("Last"),
-             PageIndexParameterName = "pageIndex",
-             TagName = "ul",
-             CssClass = "pagination",
-             CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
-             DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
-             PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
-             Id = "bootstrappager"
-          }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1 })
-      </div>
+    <div class="animated fadeInRight">
+       
+        @if (Model.Count > 0)
+        {
+            <div>
+                @foreach (var item in Model)
+                {
+                    <div class="file-box">
+                        <div class="file">
+                            <a href="file_manager.html#">
+                                <span class="corner"></span>
+                                <div class="image">
+                                    <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p1.jpg" />
+                                </div>
+                                <div class="file-name">
+                                    @item.Title <br />
+                                    <small>@item.CreateTime</small>
+                                </div>
+                                <div class="file-option">
+                                    <a href="#" onclick="preview()">预览</a>
+                                    <a href="#" onclick="edit()">编辑</a>
+                                    <a href="#" onclick="deleted()">删除</a>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div style="text-align: center; padding:11% 0;">
+                <i class="layui-icon layui-icon-file" style="line-height:10rem;font-size:10rem;color:#111">
+                </i>
+                <p style="font-size: 20px; font-weight: 300; color: #111;"> 暂无数据</p>
+            </div>
+        }
+    </div>
+    <div class="text-center layui-pagebar-ext">
+        @Html.AjaxPager(Model, new PagerOptions
+        {
+           PrevPageText = @L("Prev"),
+           NextPageText = @L("Next"),
+           FirstPageText = @L("First"),
+           LastPageText = @L("Last"),
+           PageIndexParameterName = "pageIndex",
+           TagName = "ul",
+           CssClass = "pagination",
+           CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+           DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+           PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+           Id = "bootstrappager"
+        }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1 })
+    </div>
 </div>
 <script>
     var OnBegin = function () {
@@ -97,41 +66,3 @@
         layer.close(index);
     };
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        @*@for (int i = 0; i < 18; i++)
-            {
-                <div class="file-box">
-                    <div class="file">
-                        <a href="file_manager.html#">
-                            <span class="corner"></span>
-                            <div class="image">
-                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p1.jpg" />
-                            </div>
-                            <div class="file-name">
-                                Italy street.jpg <br />
-                                <small>添加时间：2014-10-13</small>
-                            </div>
-                            <div class="file-option">
-                                <a href="#" onclick="preview()">预览</a>
-                                <a href="#" onclick="edit()">编辑</a>
-                                <a href="#" onclick="deleted()">删除</a>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            }*@

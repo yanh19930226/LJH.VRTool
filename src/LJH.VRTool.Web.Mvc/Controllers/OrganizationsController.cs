@@ -85,7 +85,6 @@ namespace LJH.VRTool.Web.Mvc.Controllers
         {
             var list = _organizationAppService.GetList();
             List<ZTreeItem> treelist = new List<ZTreeItem>();
-            //ZTreeItem root= new ZTreeItem() { };
             foreach (var item in list)
             {
                 ZTreeItem tree = new ZTreeItem();

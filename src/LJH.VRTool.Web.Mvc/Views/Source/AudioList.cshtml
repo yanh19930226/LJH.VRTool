@@ -1,39 +1,7 @@
 ﻿@using Webdiyer.AspNetCore;
 @model PagedList<LJH.VRTool.Web.Models.Source.Source>
 <div id="tab-picture" class="tab-pane active">
-    <div id="tree" class="jstree jstree-2 jstree-default jstree-position">
-        <div class="add_newgroup" onclick="add_newGroup()">+ 新建分组</div>
-        <div class="tree-dl">
-            <dl class="tree-selected">
-                <dt onclick="selectGroup()">
-                    <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>未分组(5)</a>
-                </dt>
-                <dd>
-                    <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
-                </dd>
-            </dl>
-            <dl>
-                <dt onclick="selectGroup()">
-                    <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>图片(5)</a>
-                </dt>
-                <dd>
-                    <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
-                </dd>
-            </dl>
-            <dl>
-                <dt onclick="selectGroup()">
-                    <a class="jstree-anchor" href="#"><i class="jstree-icon jstree-themeicon"></i>图片(5)</a>
-                </dt>
-                <dd>
-                    <span class="pull-right" onclick="edit_newGroup()"><i class="fa fa-navicon"></i></span>
-                </dd>
-            </dl>
-        </div>
-    </div>
-    <div class="animated fadeInRight" style="margin-left:210px">
-        <div class="upload-button-container">
-            <button type="button" class="layui-btn" id="pano">上传图片</button>
-        </div>
+    <div class="animated fadeInRight">
         <div>
             @for (int i = 0; i < 18; i++)
             {
@@ -57,7 +25,7 @@
             }
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center layui-pagebar-ext">
         @Html.AjaxPager(Model, new PagerOptions
         {
            PrevPageText = @L("Prev"),

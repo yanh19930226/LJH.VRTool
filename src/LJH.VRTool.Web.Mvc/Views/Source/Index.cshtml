@@ -2,91 +2,97 @@
 @section styles{
     <link href="~/lib/krpano/hplus/css/plugins/blueimp/css/blueimp-gallery.min.css" rel="stylesheet" />
     <link href="~/lib/krpano/hplus/css/plugins/fancybox/fancybox.css" rel="stylesheet" />
-    <style>
-        .layui-tab-content {
-            padding-left: 50px;
-        }
-
-        .file-option, .file-name {
-            text-align: center
-        }
-
-        .upload-button-container {
-            margin: 15px 0;
-        }
-
-        .add_newgroup {
-            padding: 12px 5px;
-            color: #293846;
-        }
-
-        .jstree-position {
-            width: 180px;
-            position: absolute
-        }
-
-        .tree-selected {
-            background-color: #293846;
-        }
-
-        .tree-dl dl dd span {
-            display: none;
-        }
-
-        .tree-dl dl:hover dd span {
-            display: block;
-            bottom: 22px;
-            right: 6px;
-            position: relative;
-        }
-
-        #tab-audio .file-box {
-            width: 334px;
-        }
-    </style>
+    <link href="~/lib/krpano/hplus/css/plugins/ztree/metroStyle/metroStyle.css" rel="stylesheet" />
 }
 <div class="wrapper wrapper-content">
-    <div class="tabs-container">
-        <form id="searchForm" asp-action="Index" asp-controller="Source" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
-            <input type="hidden" id="MediaType" name="MediaType"/>
-            <ul class="nav nav-tabs">
-                <li class="active" onclick="changeTab('panoram')">
-                    <a data-toggle="tab" href="#tab-pano" aria-expanded="true"> 全景图片</a>
-                </li>
-                <li class="" onclick="changeTab('picture')">
-                    <a data-toggle="tab" href="#tab-picture" aria-expanded="false">图片</a>
-                </li>
-                <li class="" onclick="changeTab('audio')">
-                    <a data-toggle="tab" href="#tab-audio" aria-expanded="false">音频</a>
-                </li>
-                <li class="" onclick="changeTab()">
-                    <a data-toggle="tab" href="#tab-audio" aria-expanded="false">视频</a>
-                </li>
-            </ul>
-        </form>
-        <div class="tab-content" id="ajaxresult">
-            @if (Model.MediaType == 1)
-            {
-               <partial name="PanoramList" model="@Model.sourcelist" />
-            }
-            else if (Model.MediaType == 3)
-            {
-               <partial name="AudioList" model="@Model.sourcelist" />
-            }
-            else
-            {
-                
-            }
+    <div id="tree" class="layui-tree-containerext">
+        <div class="layui-tree-container-rootext" onclick="addroot()">
+            <i class="layui-icon layui-icon-add-circle-fine">
+            </i>
+            <span>新建分组</span>
+        </div>
+        <div class="zTreeDemoBackground left">
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+    </div>
+    <div class="layui-treetable-containerext">
+        <div class="tabs-container">
+            <form id="searchForm" asp-action="Index" asp-controller="Source" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#ajaxresult">
+                @*多媒体类型*@
+                <input type="hidden" id="MediaType" name="MediaType" />
+                @*分组id*@
+                <input type="hidden" id="MediaGroupId" name="MediaGroupId" />
+                <ul class="nav nav-tabs">
+                    <li class="active" onclick="changeTab('panoram')">
+                        <a data-toggle="tab" href="#tab-pano" aria-expanded="true"> 全景图片</a>
+                    </li>
+                    <li class="" onclick="changeTab('picture')">
+                        <a data-toggle="tab" href="#tab-picture" aria-expanded="false">图片</a>
+                    </li>
+                    <li class="" onclick="changeTab('audio')">
+                        <a data-toggle="tab" href="#tab-audio" aria-expanded="false">音频</a>
+                    </li>
+                    <li class="" onclick="changeTab('video')">
+                        <a data-toggle="tab" href="#tab-audio" aria-expanded="false">视频</a>
+                    </li>
+                    <li class="">
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn" id="test2">上传</button>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label-ext">日期范围:</label>
+                            <div class="layui-input-inline" style="width: 120px;">
+                                <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-time-ext Wdate">
+                            </div>
+                            <div class="layui-input-inline" style="width: 120px;">
+                                <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
+                            </div>
+                            <a class="layui-btn-ext layui-btnnobg-ext " onclick="searchList()">
+                                <i class="layui-icon layui-icon-search">
+                                </i>查询
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+            <div class="ibox-content">
+                <div class="tab-content" id="ajaxresult">
+                    @if (Model.MediaType == 1)
+                    {
+                        <partial name="PanoramList" model="@Model.sourcelist" />
+                    }
+                    else if (Model.MediaType == 2)
+                    {
+                        <partial name="PictureList" model="@Model.sourcelist" />
+                    }
+                    else if (Model.MediaType == 3)
+                    {
+                        <partial name="AudioList" model="@Model.sourcelist" />
+                    }
+                    else
+                    {
+                        <partial name="VideoList" model="@Model.sourcelist" />
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>
 @section scripts
-{
+    {
     <script src="~/lib/krpano/hplus/js/plugins/blueimp/jquery.blueimp-gallery.min.js"></script>
     <script src="~/lib/krpano/hplus/js/plugins/fancybox/jquery.fancybox.js"></script>
+    @*ztree组件*@
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.all.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.core.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.excheck.js"></script>
+    <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.exedit.js"></script>
     <script>
-        //tab点击切换
-        var changeTab = function (type) {
+    //tab点击切换
+    var changeTab = function (type) {
             if (type =="panoram") {
                 $("#MediaType").val(1);
             }
@@ -96,36 +102,194 @@
             if (type == "audio") {
                 $("#MediaType").val(3);
             }
+            if (type == "video") {
+                $("#MediaType").val(4);
+            }
+            //获取树形结构数据
+            getMediaTypeGroupList($("#MediaType").val());
             $("#searchForm").submit();
         };
-        //缩略图预览
-        function preview() {
+    //缩略图预览
+    var preview = function() {
             $('.fancybox').fancybox({
                 openEffect: 'none',
                 closeEffect: 'none'
             });
         };
-        //文字转语音
-        function conver() {
-            layer.open({
-            anim: 3,
-            type: 2,
-            title: '文字转语音',
-            shadeClose: true,
-            shade: 0.8,
-            area: ['600px', '600px'],
-            content: '@Url.Action("Conver", "Source")',
-            btn: ['确认', '取消'],
-            yes: function (index, layero) {
+    //文字转语音
+    var conver = function() {
+        layer.open({
+        anim: 3,
+        type: 2,
+        title: '文字转语音',
+        shadeClose: true,
+        shade: 0.8,
+        area: ['600px', '600px'],
+        content: '@Url.Action("Conver", "Source")',
+        btn: ['确认', '取消'],
+        yes: function (index, layero) {
                 var body = layer.getChildFrame('body', index);
                 var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
                 iframeWin.deleted();
             },
-            btn2: function(index, layero){
+        btn2: function(index, layero){
                   layer.close(index);
             }
+        });
+    };
+    //搜索
+    var searchList = function () {
+
+    };
+    //上传
+    var upload = function () {
+
+    };
+    //根据媒体类型获取媒体分组
+    var getMediaTypeGroupList = function (MediaType) {
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/MediaGroup/Index",
+                data: {
+                    "MediaType": MediaType
+                },
+                success: function (res) {
+                    if (res.result.status == "ok") {
+                        $.fn.zTree.init($("#treeDemo"), setting, res.result.zNodes);
+                    }
+                    else {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                    }
+                }
             });
         };
+    //树形插件CURD
+    var setting = {
+            async: {
+                enable: true,//开启异步加载处理
+                dataFilter: filter//用于对 Ajax 返回数据进行预处理的函数
+            },
+            view: {
+                removeHoverDom: removeHoverDom,
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            edit: {
+                enable: true
+            },
+            callback: {
+				onClick: onClick,
+                beforeRemove: beforeRemove,//用于捕获节点被删除之前的事件回调函数，并且根据返回值确定是否允许删除操作
+                beforeRename: beforeRename//用于捕获节点编辑名称结束（Input 失去焦点 或 按下 Enter 键）之后，更新节点名称数据之前的事件回调函数，并且根据返回值确定是否允许更改名称的操作
+            }
+        };
+    //修改异步获取到的节点name属性
+    function filter(treeId, parentNode, childNodes) {
+            if (!childNodes) return null;
+            for (var i = 0, l = childNodes.length; i < l; i++) {
+                childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+            }
+            return childNodes;
+        }
+    //删除节点信息
+    function beforeRemove(treeId, treeNode) {
+            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+            zTree.selectNode(treeNode);
+            layer.confirm('确认要删除吗？', function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "/MediaGroup/Delete?Id=" + treeNode.id,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.result.status === "ok") {
+                            layer.msg("已删除！");
+                        }
+                        else {
+                            layer.msg('删除失败!', { icon: 2, time: 5000 });
+                        }
+                    },
+                    error: function (data) {
+                        layer.msg('请求出错!', { icon: 3, time: 5000 });
+                    }
+                });
+            });
+    };
+    //修改节点信息
+    function beforeRename(treeId, treeNode, newName) {
+         if (newName.length == 0) {
+            layer.msg('名字不能为空!');
+             return false;
+         }
+        data = {
+            "Id": treeNode.id,
+            "Title": newName,
+        };
+         $.ajax({
+             url: "/MediaGroup/Edit",
+             type: "POST",
+             data:data,
+             async: false,
+             success: function (res) {
+                 if (res.result.status === "ok") {
+
+                 } else {
+                      layer.msg('修改失败!', { icon: 2, time: 5000 });
+                 }
+             }
+         });
+    };
+    //添加分组
+    var addroot=function(e){
+         var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+         nodes = zTree.getSelectedNodes(),
+         treeNode = nodes[0];
+         layer.prompt({
+             formType: 0,
+             value: '',
+             title: '请输入根节点名称'
+         }, function (value, index) {
+             layer.close(index);
+             var name = value;
+             $.ajax({
+                 type: "POST",
+                 async: false,
+                 url: "/MediaGroup/Add",
+                 data: {
+                     "MediaType": $("#MediaType").val(),
+                     "Title": name,
+                 },
+                 success: function (res) {
+                     if (res.result.status == "ok") {
+                         treeNode = zTree.addNodes(null, { id: res.result.id, pId: 0, name: name });
+                         layer.msg('添加成功');
+                     }
+                     else {
+                         layer.msg('添加失败', {
+                             icon: 5,
+                             time: 1000
+                         });
+                     }
+                 }
+             });
+         });
+    };
+    //设置鼠标移到节点上，在后面显示一个按钮
+    function removeHoverDom(treeId, treeNode) {
+            $("#addBtn_" + treeNode.tId).unbind().remove();
+    };
+    //点击节点搜索
+    function onClick(event, treeId, treeNode, clickFlag) {
+        $("#MediaGroupId").val(treeNode.id);
+        $("#searchForm").submit();
+     };
+    //初始树形数据
+    $(function () {
+        getMediaTypeGroupList(1)
+    });
     </script>
 }
 
