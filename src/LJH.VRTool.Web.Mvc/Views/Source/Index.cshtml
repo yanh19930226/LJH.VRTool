@@ -37,9 +37,6 @@
                     </li>
                     <li class="">
                         <div class="layui-inline">
-                            <button type="button" class="layui-btn" id="test2">上传</button>
-                        </div>
-                        <div class="layui-inline">
                             <label class="layui-form-label-ext">日期范围:</label>
                             <div class="layui-input-inline" style="width: 120px;">
                                 <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-time-ext Wdate">
@@ -50,10 +47,20 @@
                             <div class="layui-input-inline">
                                 <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
                             </div>
-                            <a class="layui-btn-ext layui-btnnobg-ext " onclick="searchList()">
+                            <a class="layui-btn-ext layui-btnnobg-ext" onclick="searchList()">
                                 <i class="layui-icon layui-icon-search">
                                 </i>查询
                             </a>
+                        </div>
+                        <div class="layui-inline">
+                            <button type="button" class="layui-btn-ext layui-btnnobg-ext" id="test2">
+                                <i class="layui-icon layui-icon-delete">
+                                </i>上传
+                            </button>
+                            <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" id="test2">
+                                <i class="layui-icon layui-icon-delete">
+                                </i>批量删除
+                            </button>
                         </div>
                     </li>
                 </ul>

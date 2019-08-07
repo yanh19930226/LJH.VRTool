@@ -163,16 +163,31 @@
     }
 /*树形菜单右边表格容器*/
 .layui-treetable-containerext {
-    margin-left: 238px
+    margin-left: 240px
 }
-/*树形菜单右边表格容器头部tab菜单*/
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-   border-top:none;
+/*树形菜单右边表格容器头部tab菜单样式*/
+.tabs-container .nav-tabs {
+     border-bottom: none; 
 }
 
+.nav-tabs {
+    border-bottom: none;
+}
+    .nav-tabs > li:last-child {
+        padding: 7px;
+        margin-left: 50px;
+    }
+    .nav-tabs > li > a {
+        border: none;
+        border-radius: 0;
+        padding: 16px 20px 10px 25px;
+    }
+.tabs-container .nav-tabs > li.active > a, .tabs-container .nav-tabs > li.active > a:focus, .tabs-container .nav-tabs > li.active > a:hover {
+    border: none;
+    border-bottom: 1px solid #409eff;
+    color: #409eff;
+}
 /*==========================表格==========================*/
-
-
 /*==========================表单==========================*/
 /*表单内容区域*/
 .layui-form-content-ext {
