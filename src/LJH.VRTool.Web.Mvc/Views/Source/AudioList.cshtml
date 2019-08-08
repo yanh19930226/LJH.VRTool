@@ -2,28 +2,26 @@
 @model PagedList<LJH.VRTool.Web.Models.Source.Source>
 <div id="tab-picture" class="tab-pane active">
     <div class="animated fadeInRight">
-        <div>
-            @for (int i = 0; i < 18; i++)
-            {
-                <div class="file-box">
-                    <div class="file">
-                        <span class="corner"></span>
-                        <div class="image">
-                            <img alt="image" class="img-responsive" src="~/lib/krpano/hplus/img/p1.jpg" />
-                        </div>
-                        <div class="file-name">
-                            Italy street.jpg <br />
-                            <small>添加时间：2014-10-13</small>
-                        </div>
-                        <div class="file-option">
-                            <a onclick="preview()" class="fancybox" href="~/lib/krpano/hplus/img/p1.jpg" title="picname">预览</a>
-                            <a href="#" onclick="edit()">编辑</a>
-                            <a href="#" onclick="deleted()">删除</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
+       @for (int i = 0; i < 18; i++)
+       {
+           <div class="file-box">
+               <div class="file">
+                   <span class="corner"></span>
+                   <div class="image">
+                       <img alt="image" class="img-responsive" src="~/lib/krpano/hplus/img/p1.jpg" />
+                   </div>
+                   <div class="file-name">
+                       Italy street.jpg <br />
+                       <small>添加时间：2014-10-13</small>
+                   </div>
+                   <div class="file-option">
+                       <a onclick="preview()" class="fancybox" href="~/lib/krpano/hplus/img/p1.jpg" title="picname">预览</a>
+                       <a href="#" onclick="edit()">编辑</a>
+                       <a href="#" onclick="deleted()">删除</a>
+                   </div>
+               </div>
+           </div>
+       }
     </div>
     <div class="text-center layui-pagebar-ext">
         @Html.AjaxPager(Model, new PagerOptions

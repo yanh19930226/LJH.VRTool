@@ -3484,6 +3484,7 @@ code {
 }
 
 .ibox-content {
+    text-align: center;
     background-color: #fff;
     color: inherit;
     padding: 15px 20px 20px;
