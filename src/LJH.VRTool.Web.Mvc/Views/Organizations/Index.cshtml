@@ -239,18 +239,15 @@
 		               title: '请输入节点名称'
 		      }, function (value, index){
                   layer.close(index);
-                  var data;
-		          var pid = treeNode.id;
                   var name = value;
 		          $.ajax({
 		        	  type: "POST",
 		              async: false,
 		              url: "/Organizations/Add",
 		              data: {
-		                "ParentId": pid,
+		                "ParentId": treeNode.id,
 		                "DisplayName": name,
                       },
-                      data:data,
 		              success: function(res) {
 		                  if(res.result.status == "ok") {
                                  zTree.addNodes(treeNode, {
