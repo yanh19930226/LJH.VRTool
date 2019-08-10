@@ -171,34 +171,34 @@
         };
     //修改异步获取到的节点name属性
     function filter(treeId, parentNode, childNodes) {
-            if (!childNodes) return null;
-            for (var i = 0, l = childNodes.length; i < l; i++) {
-                childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
-            }
-            return childNodes;
+        if (!childNodes) return null;
+        for (var i = 0, l = childNodes.length; i < l; i++) {
+            childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
         }
+        return childNodes;
+    };
     //删除节点信息
     function beforeRemove(treeId, treeNode) {
-            var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-            zTree.selectNode(treeNode);
-            layer.confirm('确认要删除吗？', function () {
-                $.ajax({
-                    type: 'POST',
-                    url: "/Organizations/Delete?Id=" + treeNode.id,
-                    dataType: 'json',
-                    success: function (res) {
-                        if (res.result.status === "ok") {
-                            layer.msg("已删除！");
-                        }
-                        else {
-                            layer.msg('删除失败!', { icon: 2, time: 5000 });
-                        }
-                    },
-                    error: function (data) {
-                        layer.msg('请求出错!', { icon: 3, time: 5000 });
-                    }
-                });
-            });
+         var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+         zTree.selectNode(treeNode);
+         layer.confirm('确认要删除吗？', function () {
+             $.ajax({
+                 type: 'POST',
+                 url: "/Organizations/Delete?Id=" + treeNode.id,
+                 dataType: 'json',
+                 success: function (res) {
+                     if (res.result.status === "ok") {
+                         layer.msg("已删除！");
+                     }
+                     else {
+                         layer.msg('删除失败!', { icon: 2, time: 5000 });
+                     }
+                 },
+                 error: function (data) {
+                     layer.msg('请求出错!', { icon: 3, time: 5000 });
+                 }
+             });
+         });
     };
     //修改节点信息
     function beforeRename(treeId, treeNode, newName) {
