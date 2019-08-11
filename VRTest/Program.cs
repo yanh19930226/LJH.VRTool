@@ -46,13 +46,18 @@ namespace VRTest
 
             #endregion
 
+            #region 水印缩略图
+            #region 图片水印
             //using (Image<Rgba32> image = Image.Load("E:\\1.png"))
             //{
             //    image.Mutate(x => x
             //         .Resize(200, 100)
             //         .DrawImage(Image.Load("E:\\weixin.png"), new SixLabors.Primitives.Point(10, 10), PixelColorBlendingMode.Normal, PixelAlphaCompositionMode.Dest, (float)0.4));
             //    image.Save("E:\\246.png");
-            //}
+            //} 
+            #endregion
+
+            #region 文字水印
             using (Image<Rgba32> image = Image.Load("E:\\bg1.jpg"))
             {
                 var font = SixLabors.Fonts.SystemFonts.CreateFont("Arial", 20);
@@ -61,6 +66,8 @@ namespace VRTest
                     .DrawText("sdfdssd", font, Rgba32.AntiqueWhite, new SixLabors.Primitives.PointF(130, 80)));
                 image.Save("E:\\246.png");
             }
+            #endregion 
+            #endregion
         }
     }
 }
