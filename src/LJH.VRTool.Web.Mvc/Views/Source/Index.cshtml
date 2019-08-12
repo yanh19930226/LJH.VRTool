@@ -36,31 +36,31 @@
                         <a data-toggle="tab" href="#tab-audio" aria-expanded="false">视频</a>
                     </li>
                     <li class="">
-                        <div class="layui-inline">
-                            <label class="layui-form-label-ext layui-treeform-label-ext">日期范围:</label>
-                            <div class="layui-input-inline" style="width: 120px;">
-                                <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-time-ext Wdate">
-                            </div>
-                            <div class="layui-input-inline" style="width: 120px;">
-                                <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
-                            </div>
-                            <div class="layui-input-inline">
-                                <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
-                            </div>
-                            <button class="layui-btn-ext layui-btnnobg-ext" onclick="searchList()">
-                                <i class="layui-icon layui-icon-search">
-                                </i>查询
-                            </button>
-                            <button type="button" class="layui-btn-ext layui-btnnobg-ext" id="test2">
-                                <i class="layui-icon layui-icon-delete">
-                                </i>上传
-                            </button>
-                            <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" id="test2">
-                                <i class="layui-icon layui-icon-delete">
-                                </i>批量删除
-                            </button>
-                        </div>
-                    </li>
+                <div class="layui-inline">
+                    <label class="layui-form-label-ext layui-treeform-label-ext">日期范围:</label>
+                    <div class="layui-input-inline" style="width: 120px;">
+                        <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'TimeMin\')||\'%y-%M-%d\'}' })" id="TimeMin" name="TimeMin" class="lay-input-ext lay-input-time-ext Wdate">
+                    </div>
+                    <div class="layui-input-inline" style="width: 120px;">
+                        <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'TimeMax\')}',maxDate:'%y-%M-%d' })" id="TimeMax" name="TimeMax" class="lay-input-ext lay-input-time-ext Wdate">
+                    </div>
+                    <div class="layui-input-inline">
+                        <input type="text" id="KeyWord" name="KeyWord" placeholder="请输入关键字" class="lay-input-ext">
+                    </div>
+                    <button class="layui-btn-ext layui-btnnobg-ext" onclick="searchList()">
+                        <i class="layui-icon layui-icon-search">
+                        </i>查询
+                    </button>
+                    <button type="button" class="layui-btn-ext layui-btnnobg-ext" id="test2">
+                        <i class="layui-icon layui-icon-delete">
+                        </i>上传
+                    </button>
+                    <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" id="test2">
+                        <i class="layui-icon layui-icon-delete">
+                        </i>批量删除
+                    </button>
+                </div>
+            </li>
                 </ul>
             </form>
             <div class="ibox-content">
