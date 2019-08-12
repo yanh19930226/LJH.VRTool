@@ -1,0 +1,420 @@
+﻿@using Webdiyer.AspNetCore;
+@{
+    Layout = "~/Views/Shared/_TablePartialLayout.cshtml";
+}
+@model PagedList<LJH.VRTool.Users.Dto.UserDto>
+
+@if (Model.Count > 0)
+{
+    <form id="formList">
+        <div class="ibox-content">
+            <div class="table-responsive animated fadeInRight">
+                <div class="file-box">
+                    <div class="file">
+                        <a href="#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-file"></i>
+                            </div>
+                            <div class="file-name">
+                                Document_2014.doc <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p1.jpg" />
+                            </div>
+                            <div class="file-name">
+                                Italy street.jpg <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p2.jpg" />
+                            </div>
+                            <div class="file-name">
+                                My feel.png <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option text-center">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-music"></i>
+                            </div>
+                            <div class="file-name">
+                                Michal Jackson.mp3 <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p3.jpg" />
+                            </div>
+                            <div class="file-name">
+                                Document_2014.doc <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="img-responsive fa fa-film"></i>
+                            </div>
+                            <div class="file-name">
+                                Monica's birthday.mpg4 <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <a href="file_manager.html#">
+                        <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-bar-chart-o"></i>
+                            </div>
+                            <div class="file-name">
+                                Annual report 2014.xls <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-file"></i>
+                            </div>
+                            <div class="file-name">
+                                Document_2014.doc <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p1.jpg" />
+                            </div>
+                            <div class="file-name">
+                                Italy street.jpg <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p2.jpg" />
+                            </div>
+                            <div class="file-name">
+                                My feel.png <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-music"></i>
+                            </div>
+                            <div class="file-name">
+                                Michal Jackson.mp3 <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p3.jpg" />
+                            </div>
+                            <div class="file-name">
+                                Document_2014.doc <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="img-responsive fa fa-film"></i>
+                            </div>
+                            <div class="file-name">
+                                Monica's birthday.mpg4 <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <a href="file_manager.html#">
+                        <div class="file">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-bar-chart-o"></i>
+                            </div>
+                            <div class="file-name">
+                                Annual report 2014.xls <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-file"></i>
+                            </div>
+                            <div class="file-name">
+                                Document_2014.doc <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p1.jpg" />
+                            </div>
+                            <div class="file-name">
+                                Italy street.jpg <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p2.jpg" />
+                            </div>
+                            <div class="file-name">
+                                My feel.png <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="fa fa-music"></i>
+                            </div>
+                            <div class="file-name">
+                                Michal Jackson.mp3 <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="image">
+                                <img alt="image" class="img-responsive" src="http://www.zi-han.net/theme/hplus/img/p3.jpg" />
+                            </div>
+                            <div class="file-name">
+                                Document_2014.doc <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="file-box">
+                    <div class="file">
+                        <a href="file_manager.html#">
+                            <span class="corner"></span>
+                            <div class="icon">
+                                <i class="img-responsive fa fa-film"></i>
+                            </div>
+                            <div class="file-name">
+                                Monica's birthday.mpg4 <br />
+                                <small>添加时间：2014-10-13</small>
+                            </div>
+                            <div class="file-option">
+                                <a href="#">预览</a>
+                                <a href="#" onclick="edit()">编辑</a>
+                                <a href="#">删除</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <div class="text-center layui-clear">
+        @Html.AjaxPager(Model, new PagerOptions
+        {
+           PrevPageText = @L("Prev"),
+           NextPageText = @L("Next"),
+           FirstPageText = @L("First"),
+           LastPageText = @L("Last"),
+           PageIndexParameterName = "pageIndex",
+           TagName = "ul",
+           CssClass = "pagination",
+           CurrentPagerItemTemplate = "<li class=\"page-item active\"><a  class=\"page-link\" href=\"javascript:void(0);\">{0}</a></li>",
+           DisabledPagerItemTemplate = "<li class=\"page-item disabled\"><a class=\"page-link\">{0}</a></li>",
+           PagerItemTemplate = "<li class=\"page-item\">{0}</li>",
+           Id = "bootstrappager"
+        }, new MvcAjaxOptions { UpdateTargetId = "ajaxresult", DataFormId = "searchForm", OnBegin = "OnBegin", OnSuccess = "OnSuccess", LoadingElementDuration = 1})
+    </div>
+}
+else
+{
+    <div style="text-align: center; padding:11% 0;">
+        <i class="layui-icon layui-icon-file" style="line-height:10rem;font-size:10rem;color:#111">
+        </i>
+        <p style="font-size: 20px; font-weight: 300; color: #111;"> 暂无数据</p>
+    </div>
+}
