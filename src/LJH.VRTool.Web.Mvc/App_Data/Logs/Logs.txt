@@ -3578,3 +3578,806 @@ INFO  2019-08-08 17:05:26,680 [38   ] soft.AspNetCore.Hosting.Internal.WebHost -
 INFO  2019-08-08 17:05:26,683 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js?_=1565254836880  
 INFO  2019-08-08 17:05:26,698 [27   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js'. Physical path: 'F:\林景行\全景\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\lay\mymodules\dtree.js'
 INFO  2019-08-08 17:05:26,702 [27   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 25.4523ms 200 application/javascript
+DEBUG 2019-08-11 17:42:20,858 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-11 17:42:21,059 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-08-11 17:42:21,079 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.Web.Startup.VRToolWebMvcModule, LJH.VRTool.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,083 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolWebCoreModule, LJH.VRTool.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,084 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolApplicationModule, LJH.VRTool.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,084 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolCoreModule, LJH.VRTool.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,084 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,084 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,085 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,085 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,086 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.EntityFrameworkCore.VRToolEntityFrameworkModule, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,086 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,086 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,087 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,087 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,087 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,087 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:21,093 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-08-11 17:42:21,204 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:42:21,204 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:42:21,204 [1    ] o.Configuration.LanguageManagementConfig - Converted VRTool (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:42:21,204 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:42:21,806 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: LJH.VRTool.EntityFrameworkCore.VRToolDbContext, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:42:24,088 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-11 17:42:24,349 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-11 17:42:24,411 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-11 17:42:24,436 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: VRTool
+DEBUG 2019-08-11 17:42:24,472 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-11 17:42:25,010 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-08-11 17:42:25,076 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-08-11 17:42:25,076 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-08-11 17:42:25,085 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.CreateUserDto
+DEBUG 2019-08-11 17:42:25,086 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.UserDto
+DEBUG 2019-08-11 17:42:25,086 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-11 17:42:25,087 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-11 17:42:25,087 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-11 17:42:25,087 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.PermissionDto
+DEBUG 2019-08-11 17:42:25,087 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.RoleDto
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitCreateDto
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitDto
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitUpdateDto
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-08-11 17:42:25,088 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Models.Roles.EditRoleModalViewModel
+WARN  2019-08-11 17:42:45,490 [6    ] Abp.BackgroundJobs.BackgroundJobManager  - System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Table() in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 39
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 88
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 68
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount) in D:\Github\aspnetboilerplate\src\Abp.Zero.Common\BackgroundJobs\BackgroundJobStore.cs:line 36
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 78
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork() in D:\Github\aspnetboilerplate\src\Abp\BackgroundJobs\BackgroundJobManager.cs:line 93
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e) in D:\Github\aspnetboilerplate\src\Abp\Threading\BackgroundWorkers\PeriodicBackgroundWorkerBase.cs:line 48
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Table() in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 39
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 88
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 68
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount) in D:\Github\aspnetboilerplate\src\Abp.Zero.Common\BackgroundJobs\BackgroundJobStore.cs:line 36
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 78
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork() in D:\Github\aspnetboilerplate\src\Abp\BackgroundJobs\BackgroundJobManager.cs:line 93
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e) in D:\Github\aspnetboilerplate\src\Abp\Threading\BackgroundWorkers\PeriodicBackgroundWorkerBase.cs:line 48
+WARN  2019-08-11 17:43:05,522 [6    ] Abp.BackgroundJobs.BackgroundJobManager  - System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Table() in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 39
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 88
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 68
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount) in D:\Github\aspnetboilerplate\src\Abp.Zero.Common\BackgroundJobs\BackgroundJobStore.cs:line 36
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 78
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork() in D:\Github\aspnetboilerplate\src\Abp\BackgroundJobs\BackgroundJobManager.cs:line 93
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e) in D:\Github\aspnetboilerplate\src\Abp\Threading\BackgroundWorkers\PeriodicBackgroundWorkerBase.cs:line 48
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Table() in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 39
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 88
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 68
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount) in D:\Github\aspnetboilerplate\src\Abp.Zero.Common\BackgroundJobs\BackgroundJobStore.cs:line 36
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 78
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork() in D:\Github\aspnetboilerplate\src\Abp\BackgroundJobs\BackgroundJobManager.cs:line 93
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e) in D:\Github\aspnetboilerplate\src\Abp\Threading\BackgroundWorkers\PeriodicBackgroundWorkerBase.cs:line 48
+DEBUG 2019-08-11 17:43:22,275 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-11 17:43:22,314 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-08-11 17:43:22,332 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.Web.Startup.VRToolWebMvcModule, LJH.VRTool.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,336 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolWebCoreModule, LJH.VRTool.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,336 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolApplicationModule, LJH.VRTool.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,336 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolCoreModule, LJH.VRTool.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,337 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,337 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,337 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,338 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,338 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.EntityFrameworkCore.VRToolEntityFrameworkModule, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,338 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,338 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,339 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,339 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,339 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,339 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:22,343 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-08-11 17:43:22,407 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:22,407 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:22,407 [1    ] o.Configuration.LanguageManagementConfig - Converted VRTool (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:22,407 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:22,732 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: LJH.VRTool.EntityFrameworkCore.VRToolDbContext, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:23,199 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-11 17:43:23,443 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-11 17:43:23,489 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-11 17:43:23,512 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: VRTool
+DEBUG 2019-08-11 17:43:23,544 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-11 17:43:23,580 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-08-11 17:43:23,633 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-08-11 17:43:23,633 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-08-11 17:43:23,642 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.CreateUserDto
+DEBUG 2019-08-11 17:43:23,642 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.UserDto
+DEBUG 2019-08-11 17:43:23,643 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-11 17:43:23,643 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-11 17:43:23,643 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-11 17:43:23,643 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.PermissionDto
+DEBUG 2019-08-11 17:43:23,643 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.RoleDto
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitCreateDto
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitDto
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitUpdateDto
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-08-11 17:43:23,644 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Models.Roles.EditRoleModalViewModel
+WARN  2019-08-11 17:43:43,691 [6    ] Abp.BackgroundJobs.BackgroundJobManager  - System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Table() in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 39
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 88
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 68
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount) in D:\Github\aspnetboilerplate\src\Abp.Zero.Common\BackgroundJobs\BackgroundJobStore.cs:line 36
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 78
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork() in D:\Github\aspnetboilerplate\src\Abp\BackgroundJobs\BackgroundJobManager.cs:line 93
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e) in D:\Github\aspnetboilerplate\src\Abp\Threading\BackgroundWorkers\PeriodicBackgroundWorkerBase.cs:line 48
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransaction(IsolationLevel isolationLevel)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.BeginTransaction(DatabaseFacade databaseFacade, IsolationLevel isolationLevel)
+   at Abp.EntityFrameworkCore.Uow.DbContextEfCoreTransactionStrategy.CreateDbContext[TDbContext](String connectionString, IDbContextResolver dbContextResolver) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\DbContextEfCoreTransactionStrategy.cs:line 38
+   at Abp.EntityFrameworkCore.Uow.EfCoreUnitOfWork.GetOrCreateDbContext[TDbContext](Nullable`1 multiTenancySide, String name) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Uow\EfCoreUnitOfWork.cs:line 120
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.get_Table() in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 39
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.GetAllIncluding(Expression`1[] propertySelectors) in D:\Github\aspnetboilerplate\src\Abp.EntityFrameworkCore\EntityFrameworkCore\Repositories\EfCoreRepositoryBaseOfTEntityAndTPrimaryKey.cs:line 88
+   at Castle.Proxies.Invocations.IRepository`2_GetAll_3.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 68
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IRepository`2Proxy_1.GetAll()
+   at Abp.BackgroundJobs.BackgroundJobStore.GetWaitingJobsAsync(Int32 maxResultCount) in D:\Github\aspnetboilerplate\src\Abp.Zero.Common\BackgroundJobs\BackgroundJobStore.cs:line 36
+   at Castle.Proxies.Invocations.BackgroundJobStore_GetWaitingJobsAsync.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformAsyncUow(IInvocation invocation, UnitOfWorkOptions options) in D:\Github\aspnetboilerplate\src\Abp\Domain\Uow\UnitOfWorkInterceptor.cs:line 78
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.BackgroundJobStoreProxy.GetWaitingJobsAsync(Int32 maxResultCount)
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Nito.AsyncEx.Synchronous.TaskExtensions.WaitAndUnwrapException[TResult](Task`1 task)
+   at Nito.AsyncEx.AsyncContext.Run[TResult](Func`1 action)
+   at Abp.BackgroundJobs.BackgroundJobManager.DoWork() in D:\Github\aspnetboilerplate\src\Abp\BackgroundJobs\BackgroundJobManager.cs:line 93
+   at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e) in D:\Github\aspnetboilerplate\src\Abp\Threading\BackgroundWorkers\PeriodicBackgroundWorkerBase.cs:line 48
+DEBUG 2019-08-11 17:43:58,504 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-11 17:43:58,692 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-08-11 17:43:58,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.Web.Startup.VRToolWebMvcModule, LJH.VRTool.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,717 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolWebCoreModule, LJH.VRTool.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,717 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolApplicationModule, LJH.VRTool.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,717 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolCoreModule, LJH.VRTool.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,718 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,718 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,718 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,719 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,719 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.EntityFrameworkCore.VRToolEntityFrameworkModule, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,719 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,719 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,720 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,720 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,720 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,720 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:43:58,724 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-08-11 17:43:58,835 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:58,836 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:58,836 [1    ] o.Configuration.LanguageManagementConfig - Converted VRTool (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:58,836 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-11 17:43:59,412 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: LJH.VRTool.EntityFrameworkCore.VRToolDbContext, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-11 17:44:01,278 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-11 17:44:01,560 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-11 17:44:01,623 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-11 17:44:01,646 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: VRTool
+DEBUG 2019-08-11 17:44:01,680 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-11 17:44:02,028 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-08-11 17:44:02,115 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-08-11 17:44:02,115 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-08-11 17:44:02,124 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.CreateUserDto
+DEBUG 2019-08-11 17:44:02,125 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.UserDto
+DEBUG 2019-08-11 17:44:02,125 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-11 17:44:02,126 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-11 17:44:02,126 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-11 17:44:02,126 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.PermissionDto
+DEBUG 2019-08-11 17:44:02,126 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.RoleDto
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitCreateDto
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitDto
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitUpdateDto
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.TenantDto
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Views.Shared.Components.TenantChange.TenantChangeViewModel
+DEBUG 2019-08-11 17:44:02,127 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Web.Models.Roles.EditRoleModalViewModel
+INFO  2019-08-11 17:44:09,534 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/  
+INFO  2019-08-11 17:44:09,534 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:62115/  0
+INFO  2019-08-11 17:44:09,534 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/  
+INFO  2019-08-11 17:44:09,657 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 139.2875ms 200 
+INFO  2019-08-11 17:44:17,532 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:44:17,536 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc)
+WARN  2019-08-11 17:44:18,251 [10   ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+WARN  2019-08-11 17:44:18,251 [9    ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(IEnumerable`1 authorizeAttributes) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 42
+   at Abp.Authorization.AuthorizationHelper.CheckPermissions(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 107
+   at Abp.Authorization.AuthorizationHelper.AuthorizeAsync(MethodInfo methodInfo, Type type) in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 56
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2019-08-11 17:44:18,264 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2019-08-11 17:44:18,268 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2019-08-11 17:44:18,284 [10   ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2019-08-11 17:44:18,288 [9    ] Microsoft.AspNetCore.Mvc.ChallengeResult - Executing ChallengeResult with authentication schemes ().
+INFO  2019-08-11 17:44:18,319 [10   ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2019-08-11 17:44:18,323 [9    ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application was challenged.
+INFO  2019-08-11 17:44:18,330 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) in 786.2674ms
+INFO  2019-08-11 17:44:18,334 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) in 786.266ms
+INFO  2019-08-11 17:44:18,373 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8858.1075ms 302 
+INFO  2019-08-11 17:44:18,377 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8858.079ms 302 
+INFO  2019-08-11 17:44:18,381 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/Account/Login?ReturnUrl=%2F  
+INFO  2019-08-11 17:44:18,440 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:44:24,507 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) with arguments (, /, ) - Validation state: Valid
+INFO  2019-08-11 17:44:24,523 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 8.5986ms.
+INFO  2019-08-11 17:44:24,993 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Login.
+WARN  2019-08-11 17:44:25,591 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'CurrentTenant' in localization source 'VRTool'!
+WARN  2019-08-11 17:44:25,680 [6    ] naries.DictionaryBasedLocalizationSource - Can not find 'Change' in localization source 'VRTool'!
+INFO  2019-08-11 17:44:25,853 [6    ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Login executed in 952.3569ms.
+INFO  2019-08-11 17:44:25,871 [6    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) in 7419.4932ms
+INFO  2019-08-11 17:44:25,917 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/fonts/roboto/roboto.css?v=53F8z0aw8DRnG9ou9x1tuKMPbNjRZWM-VBHl3B0s9-o  
+INFO  2019-08-11 17:44:25,925 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/bootstrap/dist/css/bootstrap.css?v=opI27tVP8lfzTdiKv9Wi8UuRkNhIAvZwMVLWtOpRHKk  
+INFO  2019-08-11 17:44:25,932 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/fonts/material-icons/materialicons.css?v=8pEJ8MWsFzHRDLY0NI5rssf6T6vankxrJDPnnZxOGrg  
+INFO  2019-08-11 17:44:25,936 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/toastr/toastr.css?v=kKePN_CyxTiMEgsSDu_7z21ru07YOZtR-0UV0JOkt5o  
+INFO  2019-08-11 17:44:25,941 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css?v=JVJiF3s2_kk99xQHfYhfxo_-Dd52ZIruDMOILwPkqv0  
+INFO  2019-08-11 17:44:25,959 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7582.1706ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:44:25,963 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/font-awesome/css/font-awesome.css?v=YIHlqxkiJtENTMuzIHC9EfZaB5RniGr7kF7juUQJUuc  
+INFO  2019-08-11 17:44:26,041 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/font-awesome/css/font-awesome.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\font-awesome\css\font-awesome.css'
+INFO  2019-08-11 17:44:26,046 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\famfamfam-flags\dist\sprite\famfamfam-flags.css'
+INFO  2019-08-11 17:44:26,059 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/material-icons/materialicons.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\material-icons\materialicons.css'
+INFO  2019-08-11 17:44:26,063 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 110.7713ms 200 text/css
+INFO  2019-08-11 17:44:26,069 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 82.0951ms 200 text/css
+INFO  2019-08-11 17:44:26,073 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 157.7592ms 200 text/css
+INFO  2019-08-11 17:44:26,077 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/css/materialize.css?v=ey-J3xahkqficOYUHVX3jexmzvRFrge9bmux4CQr1DQ  
+INFO  2019-08-11 17:44:26,087 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/toastr/toastr.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\toastr\toastr.css'
+INFO  2019-08-11 17:44:26,093 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/Waves/dist/waves.css?v=nd3hxjNg6DhkuFIz5IbxLK8Xw2ac0blsDQpF4pkJxUc  
+INFO  2019-08-11 17:44:26,102 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/view-resources/Views/Account/_Layout.css?v=xwt8JYbj8Mkb1RNju6XwW_7TfGRHHIDWaSjBggiszMY  
+INFO  2019-08-11 17:44:26,107 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/materialize.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\css\materialize.css'
+INFO  2019-08-11 17:44:26,114 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 161.0478ms 200 text/css
+INFO  2019-08-11 17:44:26,123 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 39.832ms 200 text/css
+INFO  2019-08-11 17:44:26,134 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\bootstrap\dist\css\bootstrap.css'
+INFO  2019-08-11 17:44:26,139 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/view-resources/Views/Account/Login.css?v=poK-oXF5FUWfhU9hEaEbjLzGQhIVms6YtQoQ3OEZtec  
+INFO  2019-08-11 17:44:26,146 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/Waves/dist/waves.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\Waves\dist\waves.css'
+INFO  2019-08-11 17:44:26,152 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 220.0357ms 200 text/css
+INFO  2019-08-11 17:44:26,158 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 76.7307ms 200 text/css
+INFO  2019-08-11 17:44:26,163 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/_Layout.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Account\_Layout.css'
+INFO  2019-08-11 17:44:26,167 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/Login.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Account\Login.css'
+INFO  2019-08-11 17:44:26,171 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 77.9288ms 200 text/css
+INFO  2019-08-11 17:44:26,175 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/json2/json2.js?v=w3DjWhUtDqy3bSJKv285C-2kagUtW9F64T9z3xRah8g  
+INFO  2019-08-11 17:44:26,179 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 44.2474ms 200 text/css
+INFO  2019-08-11 17:44:26,183 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/bootstrap/dist/js/bootstrap.js?v=1fo3W6qowq4PinpCsKshaVqewExoFmzrRBGKbSdAVEk  
+INFO  2019-08-11 17:44:26,187 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/moment/min/moment-with-locales.js?v=5f0RFtuChrGi6osDzegxXWf5yOkmx45i7J9fM1p6P5w  
+INFO  2019-08-11 17:44:26,191 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/jquery/dist/jquery.js?v=GcL_g4TBRVIQSi96WoMK71EGaYN9ZfsMIKm-50nlS4s  
+INFO  2019-08-11 17:44:26,207 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/animate.css/animate.css?v=IT6GQizZpVcaM1_L_mIiNAYVvZErMgfwewf1GGWXG_I  
+INFO  2019-08-11 17:44:26,212 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/json2/json2.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\json2\json2.js'
+INFO  2019-08-11 17:44:26,219 [19   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/roboto/roboto.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\roboto\roboto.css'
+INFO  2019-08-11 17:44:26,224 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 53.9604ms 200 application/javascript
+INFO  2019-08-11 17:44:26,230 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\bootstrap\dist\js\bootstrap.js'
+INFO  2019-08-11 17:44:26,235 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/jquery-validation/dist/jquery.validate.js?v=ZDzsHzuLAtqQVxXwbgRtfAPXQ7UAoJRXBAUDvc9G9CI  
+INFO  2019-08-11 17:44:26,240 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 58.8002ms 200 application/javascript
+INFO  2019-08-11 17:44:26,244 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/animate.css/animate.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\animate.css\animate.css'
+INFO  2019-08-11 17:44:26,249 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 339.3535ms 200 text/css
+INFO  2019-08-11 17:44:26,255 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 130.1589ms 200 text/css
+INFO  2019-08-11 17:44:26,260 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/css/style.css?v=Hmj_hRbtMwZt6Iov-5Sm2qe6D6y7PFUTQRDdUyYreE4  
+INFO  2019-08-11 17:44:26,265 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\jquery-validation\dist\jquery.validate.js'
+INFO  2019-08-11 17:44:26,271 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 36.0691ms 200 application/javascript
+INFO  2019-08-11 17:44:26,283 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/blockUI/jquery.blockUI.js?v=KKcUNqwNyTLaXzvuMyFk6JisiQq6Hk7ZtrciXnEf3Z0  
+INFO  2019-08-11 17:44:26,290 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/blockUI/jquery.blockUI.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\blockUI\jquery.blockUI.js'
+INFO  2019-08-11 17:44:26,295 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.9868ms 200 application/javascript
+INFO  2019-08-11 17:44:26,330 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery/dist/jquery.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\jquery\dist\jquery.js'
+INFO  2019-08-11 17:44:26,335 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 176.8972ms 200 application/javascript
+INFO  2019-08-11 17:44:26,367 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/toastr/toastr.js?v=prO6YeBrp6FzpE6glX7_GlSoPssvH4_OmY6Z3YJ2c6c  
+INFO  2019-08-11 17:44:26,374 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/toastr/toastr.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\toastr\toastr.js'
+INFO  2019-08-11 17:44:26,379 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.942ms 200 application/javascript
+INFO  2019-08-11 17:44:26,388 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/sweetalert/dist/sweetalert.min.js?v=aPktydUv1rN3mouQeXoKi3ioFTIQlULuqYeoTAA2ihY  
+INFO  2019-08-11 17:44:26,395 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/sweetalert/dist/sweetalert.min.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\sweetalert\dist\sweetalert.min.js'
+INFO  2019-08-11 17:44:26,400 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 14.0263ms 200 application/javascript
+INFO  2019-08-11 17:44:26,407 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/spin.js/spin.js?v=b1plKpQIB-XuGyjWec42MhmhpPzEPzFI3OC8Ia0XIoc  
+INFO  2019-08-11 17:44:26,413 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/spin.js/spin.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\spin.js\spin.js'
+INFO  2019-08-11 17:44:26,418 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10.8032ms 200 application/javascript
+INFO  2019-08-11 17:44:26,425 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/spin.js/jquery.spin.js?v=i7H7HL08ldqUANgfQInE7LlU2uWUdQMCJ-Q7-_zLutY  
+INFO  2019-08-11 17:44:26,437 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/spin.js/jquery.spin.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\spin.js\jquery.spin.js'
+INFO  2019-08-11 17:44:26,437 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/Waves/dist/waves.js?v=ZOMv1vwqpT_ezNZGhvr9jJTr_jqu3lYHB7vmpxD7HmA  
+INFO  2019-08-11 17:44:26,442 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/moment/min/moment-with-locales.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\moment\min\moment-with-locales.js'
+INFO  2019-08-11 17:44:26,448 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 17.7744ms 200 application/javascript
+INFO  2019-08-11 17:44:26,453 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/abp.js?v=Lv72M45aVFSACYPVEY1iM6bdNbcxj1rsem070VokUOw  
+INFO  2019-08-11 17:44:26,459 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 264.4039ms 200 application/javascript
+INFO  2019-08-11 17:44:26,464 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/Waves/dist/waves.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\Waves\dist\waves.js'
+INFO  2019-08-11 17:44:26,470 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 32.6419ms 200 application/javascript
+INFO  2019-08-11 17:44:26,475 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js?v=XEXcdRYb4eN3XoQCbnM-BSR6UifHRLsXYDIVFZ7Oc6Q  
+INFO  2019-08-11 17:44:26,480 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js?v=QiSp17ew3zyFmdlcKq4HCIOw7UaqE8MC46Ekv50GzPs  
+INFO  2019-08-11 17:44:26,485 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/abp.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\abp.js'
+INFO  2019-08-11 17:44:26,489 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/style.css'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\css\style.css'
+INFO  2019-08-11 17:44:26,493 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 41.935ms 200 application/javascript
+INFO  2019-08-11 17:44:26,501 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 239.5646ms 200 text/css
+INFO  2019-08-11 17:44:26,506 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js?v=vMuHbqHh635SKL2RG2qsGGCDyHg1yFeGqhPKpS34g4k  
+INFO  2019-08-11 17:44:26,511 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.jquery.js'
+INFO  2019-08-11 17:44:26,516 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.toastr.js'
+INFO  2019-08-11 17:44:26,522 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.7701ms 200 application/javascript
+INFO  2019-08-11 17:44:26,532 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 53.8869ms 200 application/javascript
+INFO  2019-08-11 17:44:26,538 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.blockUI.js'
+INFO  2019-08-11 17:44:26,544 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js?v=djoKib6ssm5DDzbXLe5pD7ayfFg3siaoEk-BFYzQlvI  
+INFO  2019-08-11 17:44:26,549 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 68.6255ms 200 application/javascript
+INFO  2019-08-11 17:44:26,554 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/js/admin.js?v=Arfe4oER5FiUTDitsyC7vauFkVzED5S2QjygyKFEnZ8  
+INFO  2019-08-11 17:44:26,559 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/js/main.js?v=5uiiauQ-tn8Vi88U9lUhf1K9RrMuDlGn0T8xzaTsoCI  
+INFO  2019-08-11 17:44:26,563 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/jquery-validation/src/localization/messages_zh_Hans.js?v=XUuMErmB-_cG9KcjKQpdh_se_7xGkbGzQZFXwFWneJg  
+INFO  2019-08-11 17:44:26,568 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/AbpServiceProxies/GetAll?v=637011422420305734  
+INFO  2019-08-11 17:44:26,574 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js?v=jYqUPExk8DRUhTM1FHOri6Uh6qPVj7ShEIwYQRqRC1Y  
+INFO  2019-08-11 17:44:26,585 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.spin.js'
+INFO  2019-08-11 17:44:26,591 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/main.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\js\main.js'
+INFO  2019-08-11 17:44:26,596 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/js/admin.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\js\admin.js'
+INFO  2019-08-11 17:44:26,601 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 52.76ms 200 application/javascript
+INFO  2019-08-11 17:44:26,606 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\abp-web-resources\Abp\Framework\scripts\libs\abp.sweet-alert.js'
+INFO  2019-08-11 17:44:26,613 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 43.4277ms 200 application/javascript
+INFO  2019-08-11 17:44:26,617 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-validation/src/localization/messages_zh_Hans.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\jquery-validation\src\localization\messages_zh_Hans.js'
+INFO  2019-08-11 17:44:26,621 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/view-resources/Views/Account/Login.js?v=fva4_U7JLc8QKq91dLZyvV5oMz9WxjutKXJ_MOl_Dj8  
+INFO  2019-08-11 17:44:26,625 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 78.128ms 200 application/javascript
+INFO  2019-08-11 17:44:26,641 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/AbpScripts/GetScripts?v=637011422420305734  
+INFO  2019-08-11 17:44:26,644 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/famfamfam-flags/dist/sprite/famfamfam-flags.png  
+INFO  2019-08-11 17:44:26,649 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 72.6295ms 200 application/javascript
+INFO  2019-08-11 17:44:26,653 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 68.1833ms 200 application/javascript
+INFO  2019-08-11 17:44:26,661 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/view-resources/Views/Shared/Components/TenantChange/Default.js?v=637011422658256360  
+INFO  2019-08-11 17:44:26,693 [19   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Account/Login.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Account\Login.js'
+INFO  2019-08-11 17:44:26,699 [7    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/view-resources/Views/Shared/Components/TenantChange/Default.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\view-resources\Views\Shared\Components\TenantChange\Default.js'
+INFO  2019-08-11 17:44:26,704 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/fonts/roboto/CWB0XYA8bzo0kSThX0UTuA.woff2  
+INFO  2019-08-11 17:44:26,709 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 54.4186ms 200 application/javascript
+INFO  2019-08-11 17:44:26,716 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/famfamfam-flags/dist/sprite/famfamfam-flags.png'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\famfamfam-flags\dist\sprite\famfamfam-flags.png'
+INFO  2019-08-11 17:44:26,722 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/fonts/roboto/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2  
+INFO  2019-08-11 17:44:26,728 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 92.5671ms 200 image/png
+INFO  2019-08-11 17:44:26,752 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 80.7133ms 200 application/javascript
+INFO  2019-08-11 17:44:26,762 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/fonts/material-icons/materialicons.woff2  
+INFO  2019-08-11 17:44:26,767 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/roboto/d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\roboto\d-6IYplOFocCacKzxwXSOFtXRa8TVwTICgirnJhmVJw.woff2'
+INFO  2019-08-11 17:44:26,771 [14   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/roboto/CWB0XYA8bzo0kSThX0UTuA.woff2'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\roboto\CWB0XYA8bzo0kSThX0UTuA.woff2'
+INFO  2019-08-11 17:44:26,789 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 57.7968ms 200 font/woff2
+INFO  2019-08-11 17:44:26,799 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 79.6418ms 200 font/woff2
+INFO  2019-08-11 17:44:26,804 [19   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/fonts/material-icons/materialicons.woff2'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\fonts\material-icons\materialicons.woff2'
+INFO  2019-08-11 17:44:26,808 [19   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 51.6279ms 200 font/woff2
+INFO  2019-08-11 17:44:26,817 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetScripts", controller = "AbpScripts", area = ""}. Executing action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore)
+INFO  2019-08-11 17:44:26,830 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "GetAll", controller = "AbpServiceProxies", area = ""}. Executing action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore)
+INFO  2019-08-11 17:44:26,918 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) with arguments (, False) - Validation state: Valid
+INFO  2019-08-11 17:44:26,989 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) with arguments (Abp.AspNetCore.Mvc.Proxying.ApiProxyGenerationModel) - Validation state: Valid
+INFO  2019-08-11 17:44:27,167 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 244.4863ms.
+INFO  2019-08-11 17:44:27,178 [11   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript; charset=utf-8
+INFO  2019-08-11 17:44:27,188 [11   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Controllers.AbpScriptsController.GetScripts (Abp.AspNetCore) in 360.9363ms
+INFO  2019-08-11 17:44:27,191 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 573.868ms 200 application/x-javascript; charset=utf-8
+WARN  2019-08-11 17:44:27,213 [10   ] ng.AspNetCoreApiDescriptionModelProvider - Controller 'User' contains more than one action with name 'GetAllList' for module 'app'. Ignored: System.Collections.Generic.List`1[LJH.VRTool.Users.Dto.UserDto] GetAllList(System.String, System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime])
+INFO  2019-08-11 17:44:27,231 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore), returned result Microsoft.AspNetCore.Mvc.ContentResult in 239.0894ms.
+INFO  2019-08-11 17:44:27,237 [10   ] Mvc.Infrastructure.ContentResultExecutor - Executing ContentResult with HTTP Response ContentType of application/x-javascript
+INFO  2019-08-11 17:44:27,245 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action Abp.AspNetCore.Mvc.Proxying.AbpServiceProxiesController.GetAll (Abp.AspNetCore) in 405.2975ms
+INFO  2019-08-11 17:44:27,252 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 685.5642ms 200 application/x-javascript
+INFO  2019-08-11 17:47:35,466 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/Account/Login application/x-www-form-urlencoded 256
+INFO  2019-08-11 17:47:35,488 [39   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Login", controller = "Account", area = ""}. Executing action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:47:35,627 [39   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Account.LoginViewModel, /, ) - Validation state: Valid
+INFO  2019-08-11 17:47:36,735 [24   ] tion.Cookies.CookieAuthenticationHandler - AuthenticationScheme: Identity.Application signed in.
+INFO  2019-08-11 17:47:36,742 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1112.0283ms.
+INFO  2019-08-11 17:47:36,809 [24   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-11 17:47:36,824 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.AccountController.Login (LJH.VRTool.Web.Mvc) in 1332.2601ms
+INFO  2019-08-11 17:47:36,828 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1360.5414ms 200 application/json; charset=utf-8
+INFO  2019-08-11 17:47:36,841 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/  
+INFO  2019-08-11 17:47:36,908 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:47:36,951 [13   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:47:36,980 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) - Validation state: Valid
+INFO  2019-08-11 17:47:36,983 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.5455ms.
+INFO  2019-08-11 17:47:37,035 [13   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-11 17:47:37,791 [13   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 766.6836ms.
+INFO  2019-08-11 17:47:37,810 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.HomeController.Index (LJH.VRTool.Web.Mvc) in 890.823ms
+INFO  2019-08-11 17:47:37,819 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/bootstrap.min.css?v=3.3.5  
+INFO  2019-08-11 17:47:37,826 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 981.0006ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:47:37,829 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/font-awesome.min.css?v=4.4.0  
+INFO  2019-08-11 17:47:37,837 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/plugins/jsTree/jsTree.min.css  
+INFO  2019-08-11 17:47:37,845 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/css/layui.css  
+INFO  2019-08-11 17:47:37,858 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/animate.min.css  
+INFO  2019-08-11 17:47:37,862 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/style.min.css?v=4.0.0  
+INFO  2019-08-11 17:47:37,869 [50   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/plugins/jsTree/jsTree.min.css was not modified
+INFO  2019-08-11 17:47:37,872 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/style.min.css was not modified
+INFO  2019-08-11 17:47:37,876 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/animate.min.css was not modified
+INFO  2019-08-11 17:47:37,878 [25   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/css/layui.css was not modified
+INFO  2019-08-11 17:47:37,881 [23   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/bootstrap.min.css was not modified
+INFO  2019-08-11 17:47:37,884 [22   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/font-awesome.min.css was not modified
+INFO  2019-08-11 17:47:37,889 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 63.4091ms 304 text/css
+INFO  2019-08-11 17:47:37,895 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 25.6055ms 304 text/css
+INFO  2019-08-11 17:47:37,900 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 55.5468ms 304 text/css
+INFO  2019-08-11 17:47:37,915 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 41.29ms 304 text/css
+INFO  2019-08-11 17:47:37,918 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 46.1931ms 304 text/css
+INFO  2019-08-11 17:47:37,921 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/bootstrap.min.js?v=3.3.5  
+INFO  2019-08-11 17:47:37,924 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/plugins/iCheck/custom.css  
+INFO  2019-08-11 17:47:37,927 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/jquery.min.js?v=2.1.4  
+INFO  2019-08-11 17:47:37,930 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/jquery.unobtrusive-ajax.js  
+INFO  2019-08-11 17:47:37,933 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/bootstrap.min.js was not modified
+INFO  2019-08-11 17:47:37,937 [50   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/plugins/iCheck/custom.css was not modified
+INFO  2019-08-11 17:47:37,942 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 18.4578ms 304 application/javascript
+INFO  2019-08-11 17:47:37,946 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.5759ms 304 text/css
+INFO  2019-08-11 17:47:37,949 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/jquery.min.js was not modified
+INFO  2019-08-11 17:47:37,952 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/layui.all.js  
+INFO  2019-08-11 17:47:37,959 [50   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/layui.all.js was not modified
+INFO  2019-08-11 17:47:37,963 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 34.44ms 304 application/javascript
+INFO  2019-08-11 17:47:37,966 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 11.1954ms 304 application/javascript
+INFO  2019-08-11 17:47:37,970 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/layui.js  
+INFO  2019-08-11 17:47:37,974 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/abp.js  
+INFO  2019-08-11 17:47:37,977 [25   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/jquery.unobtrusive-ajax.js was not modified
+INFO  2019-08-11 17:47:37,984 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.9442ms 304 text/css
+INFO  2019-08-11 17:47:37,986 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js  
+INFO  2019-08-11 17:47:37,989 [50   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/abp-web-resources/Abp/Framework/scripts/abp.js was not modified
+INFO  2019-08-11 17:47:37,993 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/layui.js was not modified
+INFO  2019-08-11 17:47:37,999 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.7101ms 304 application/javascript
+INFO  2019-08-11 17:47:38,003 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js was not modified
+INFO  2019-08-11 17:47:38,006 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 44.5086ms 304 application/javascript
+INFO  2019-08-11 17:47:38,010 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js  
+INFO  2019-08-11 17:47:38,015 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 27.2298ms 304 application/javascript
+INFO  2019-08-11 17:47:38,018 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/contabs.min.js  
+INFO  2019-08-11 17:47:38,021 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/pace/pace.min.js  
+INFO  2019-08-11 17:47:38,023 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 58.982ms 304 application/javascript
+INFO  2019-08-11 17:47:38,027 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js was not modified
+INFO  2019-08-11 17:47:38,030 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/contabs.min.js was not modified
+INFO  2019-08-11 17:47:38,035 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 23.7874ms 304 application/javascript
+INFO  2019-08-11 17:47:38,038 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/pace/pace.min.js was not modified
+INFO  2019-08-11 17:47:38,045 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 23.9924ms 304 application/javascript
+INFO  2019-08-11 17:47:38,048 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/hplus.min.js?v=4.0.0  
+INFO  2019-08-11 17:47:38,051 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.7988ms 304 application/javascript
+INFO  2019-08-11 17:47:38,054 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/jsTree/jstree.min.js  
+INFO  2019-08-11 17:47:38,056 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/iCheck/icheck.min.js  
+INFO  2019-08-11 17:47:38,059 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/metisMenu/jquery.metisMenu.js  
+INFO  2019-08-11 17:47:38,062 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/hplus.min.js was not modified
+INFO  2019-08-11 17:47:38,065 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/jsTree/jstree.min.js was not modified
+INFO  2019-08-11 17:47:38,070 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/iCheck/icheck.min.js was not modified
+INFO  2019-08-11 17:47:38,073 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 24.8794ms 304 application/javascript
+INFO  2019-08-11 17:47:38,077 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 18.8246ms 304 application/javascript
+INFO  2019-08-11 17:47:38,080 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/WdatePicker.js  
+INFO  2019-08-11 17:47:38,083 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 19.8079ms 304 application/javascript
+INFO  2019-08-11 17:47:38,086 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/WdatePicker.js was not modified
+INFO  2019-08-11 17:47:38,089 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/images/face.jpg  
+INFO  2019-08-11 17:47:38,093 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 12.5647ms 304 application/javascript
+INFO  2019-08-11 17:47:38,096 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/MvcCorePager.min.js  
+INFO  2019-08-11 17:47:38,099 [25   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/metisMenu/jquery.metisMenu.js was not modified
+INFO  2019-08-11 17:47:38,103 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/common.js  
+INFO  2019-08-11 17:47:38,106 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/MvcCorePager.min.js was not modified
+INFO  2019-08-11 17:47:38,110 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.8938ms 304 application/javascript
+INFO  2019-08-11 17:47:38,114 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 23.0225ms 304 application/javascript
+INFO  2019-08-11 17:47:38,116 [23   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/common.js was not modified
+INFO  2019-08-11 17:47:38,119 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/layuiext.css  
+INFO  2019-08-11 17:47:38,122 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 133.4404ms 304 application/javascript
+INFO  2019-08-11 17:47:38,124 [22   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/layuiext.css was not modified
+INFO  2019-08-11 17:47:38,128 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 222.9998ms 304 text/css
+INFO  2019-08-11 17:47:38,135 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 47.2597ms 404 
+INFO  2019-08-11 17:47:38,222 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/fonts/fontawesome-webfont.woff2?v=4.4.0  
+INFO  2019-08-11 17:47:38,226 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/fonts/fontawesome-webfont.woff2 was not modified
+INFO  2019-08-11 17:47:38,232 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.1402ms 304 font/woff2
+INFO  2019-08-11 17:47:38,247 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/css/modules/laydate/default/laydate.css?v=5.0.9  
+INFO  2019-08-11 17:47:38,251 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/css/modules/laydate/default/laydate.css was not modified
+INFO  2019-08-11 17:47:38,255 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.3314ms 304 text/css
+INFO  2019-08-11 17:47:38,349 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/css/modules/code.css  
+INFO  2019-08-11 17:47:38,353 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/layer.css?v=3.1.1  
+INFO  2019-08-11 17:47:38,356 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/WdatePicker.css  
+INFO  2019-08-11 17:47:38,360 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/css/modules/code.css was not modified
+INFO  2019-08-11 17:47:38,365 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/layer.css was not modified
+INFO  2019-08-11 17:47:38,368 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/WdatePicker.css was not modified
+INFO  2019-08-11 17:47:38,371 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 16.3231ms 304 text/css
+INFO  2019-08-11 17:47:38,375 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 20.8803ms 304 text/css
+INFO  2019-08-11 17:47:38,378 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 22.0615ms 304 text/css
+INFO  2019-08-11 17:47:57,418 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/Organizations?v=4.0  
+INFO  2019-08-11 17:47:57,434 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/loading-0.gif  
+INFO  2019-08-11 17:47:57,439 [50   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/krpano/hplus/js/plugins/layui/css/modules/layer/default/loading-0.gif'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Mvc\wwwroot\lib\krpano\hplus\js\plugins\layui\css\modules\layer\default\loading-0.gif'
+INFO  2019-08-11 17:47:57,443 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.5179ms 200 image/gif
+INFO  2019-08-11 17:47:57,452 [22   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Organizations", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:47:57,980 [22   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Organizations.OrganizationSearch, 0) - Validation state: Valid
+INFO  2019-08-11 17:47:58,245 [22   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 261.2308ms.
+INFO  2019-08-11 17:47:58,296 [13   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-11 17:47:58,407 [13   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 106.2632ms.
+INFO  2019-08-11 17:47:58,412 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.OrganizationsController.Index (LJH.VRTool.Web.Mvc) in 954.6573ms
+INFO  2019-08-11 17:47:58,416 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 999.876ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:47:58,434 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js  
+INFO  2019-08-11 17:47:58,437 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/lay/mymodules/dtree.js was not modified
+INFO  2019-08-11 17:47:58,442 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.889ms 304 application/javascript
+INFO  2019-08-11 17:47:58,569 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/layui/font/iconfont.woff2?v=250  
+INFO  2019-08-11 17:47:58,575 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/layui/font/iconfont.woff2 was not modified
+INFO  2019-08-11 17:47:58,582 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.8145ms 304 font/woff2
+INFO  2019-08-11 17:47:58,684 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/datePicker.gif  
+INFO  2019-08-11 17:47:58,688 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/datePicker.gif was not modified
+INFO  2019-08-11 17:47:58,691 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.1858ms 304 image/gif
+INFO  2019-08-11 17:48:04,362 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/Users?v=4.0  
+INFO  2019-08-11 17:48:04,374 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Users", area = ""}. Executing action LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:04,378 [13   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:04,417 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Users.UserSearch, 0) - Validation state: Valid
+INFO  2019-08-11 17:48:04,529 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 109.0174ms.
+INFO  2019-08-11 17:48:04,573 [24   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-11 17:48:04,648 [24   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 74.2827ms.
+INFO  2019-08-11 17:48:04,652 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.UsersController.Index (LJH.VRTool.Web.Mvc) in 274.3233ms
+INFO  2019-08-11 17:48:04,658 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 294.6434ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:48:04,665 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/view-resources/Views/Users/index.js  
+INFO  2019-08-11 17:48:04,668 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /view-resources/Views/Users/index.js was not modified
+INFO  2019-08-11 17:48:04,672 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.4078ms 304 application/javascript
+INFO  2019-08-11 17:48:05,566 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/Roles?v=4.0  
+INFO  2019-08-11 17:48:05,580 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Roles", area = ""}. Executing action LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:05,584 [50   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:05,986 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Roles.RoleSearch, 0) - Validation state: Valid
+INFO  2019-08-11 17:48:06,092 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 103.2625ms.
+INFO  2019-08-11 17:48:06,134 [24   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-11 17:48:06,173 [24   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 38.1097ms.
+INFO  2019-08-11 17:48:06,177 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Controllers.RolesController.Index (LJH.VRTool.Web.Mvc) in 593.6398ms
+INFO  2019-08-11 17:48:06,182 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 615.4121ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:48:06,188 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/view-resources/Views/Roles/Index.js  
+INFO  2019-08-11 17:48:06,192 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /view-resources/Views/Roles/Index.js was not modified
+INFO  2019-08-11 17:48:06,196 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 6.9427ms 304 application/javascript
+INFO  2019-08-11 17:48:07,620 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/Source?v=4.0  
+INFO  2019-08-11 17:48:07,632 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Source", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:07,638 [25   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:07,683 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Source.SourceSearch) - Validation state: Valid
+INFO  2019-08-11 17:48:07,708 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.ViewResult in 20.7996ms.
+INFO  2019-08-11 17:48:07,750 [39   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executing ViewResult, running view Index.
+INFO  2019-08-11 17:48:07,796 [39   ] Core.Mvc.ViewFeatures.ViewResultExecutor - Executed ViewResult - view Index executed in 43.2588ms.
+INFO  2019-08-11 17:48:07,801 [39   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) in 163.3527ms
+INFO  2019-08-11 17:48:07,810 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 186.5419ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:48:07,817 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/plugins/blueimp/css/blueimp-gallery.min.css  
+INFO  2019-08-11 17:48:07,826 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/css/plugins/fancybox/fancybox.css  
+INFO  2019-08-11 17:48:07,830 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/blueimp/jquery.blueimp-gallery.min.js  
+INFO  2019-08-11 17:48:07,835 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/fancybox/jquery.fancybox.js  
+INFO  2019-08-11 17:48:07,839 [22   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/plugins/blueimp/css/blueimp-gallery.min.css was not modified
+INFO  2019-08-11 17:48:07,843 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/css/plugins/fancybox/fancybox.css was not modified
+INFO  2019-08-11 17:48:07,849 [39   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/fancybox/jquery.fancybox.js was not modified
+INFO  2019-08-11 17:48:07,855 [13   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/blueimp/jquery.blueimp-gallery.min.js was not modified
+INFO  2019-08-11 17:48:07,860 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 24.612ms 304 text/css
+INFO  2019-08-11 17:48:07,865 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 36.2608ms 304 application/javascript
+INFO  2019-08-11 17:48:07,869 [39   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 29.881ms 304 application/javascript
+INFO  2019-08-11 17:48:07,873 [22   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 29.4112ms 304 text/css
+INFO  2019-08-11 17:48:07,963 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/MediaGroup/Index application/x-www-form-urlencoded; charset=UTF-8 11
+INFO  2019-08-11 17:48:07,972 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "MediaGroup", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:08,005 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) with arguments (1) - Validation state: Valid
+INFO  2019-08-11 17:48:08,011 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1.9411ms.
+INFO  2019-08-11 17:48:08,049 [25   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-11 17:48:08,055 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) in 78.9344ms
+INFO  2019-08-11 17:48:08,059 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 95.184ms 200 application/json; charset=utf-8
+INFO  2019-08-11 17:48:15,662 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/MediaGroup/Index application/x-www-form-urlencoded; charset=UTF-8 11
+INFO  2019-08-11 17:48:15,671 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "MediaGroup", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:15,705 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) with arguments (2) - Validation state: Valid
+INFO  2019-08-11 17:48:15,709 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.0098ms.
+INFO  2019-08-11 17:48:15,752 [25   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-11 17:48:15,755 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) in 80.4619ms
+INFO  2019-08-11 17:48:15,758 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 97.2865ms 200 application/json; charset=utf-8
+INFO  2019-08-11 17:48:15,783 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/Source application/x-www-form-urlencoded; charset=UTF-8 310
+INFO  2019-08-11 17:48:15,790 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Source", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:15,794 [24   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:15,825 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Source.SourceSearch) - Validation state: Valid
+INFO  2019-08-11 17:48:15,836 [24   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 8.0361ms.
+INFO  2019-08-11 17:48:15,880 [25   ] c.ViewFeatures.PartialViewResultExecutor - Executing PartialViewResult, running view PictureList.
+INFO  2019-08-11 17:48:15,890 [25   ] c.ViewFeatures.PartialViewResultExecutor - Executed PartialViewResult - view PictureList executed in 13.1339ms.
+INFO  2019-08-11 17:48:15,893 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) in 99.6815ms
+INFO  2019-08-11 17:48:15,896 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 112.9233ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:48:16,517 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/MediaGroup/Index application/x-www-form-urlencoded; charset=UTF-8 11
+INFO  2019-08-11 17:48:16,524 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "MediaGroup", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:16,557 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) with arguments (3) - Validation state: Valid
+INFO  2019-08-11 17:48:16,561 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.0111ms.
+INFO  2019-08-11 17:48:16,603 [49   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-11 17:48:16,609 [49   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) in 79.7915ms
+INFO  2019-08-11 17:48:16,614 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 96.3585ms 200 application/json; charset=utf-8
+INFO  2019-08-11 17:48:16,624 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/Source application/x-www-form-urlencoded; charset=UTF-8 310
+INFO  2019-08-11 17:48:16,633 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Source", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:16,638 [13   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:16,677 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Source.SourceSearch) - Validation state: Valid
+INFO  2019-08-11 17:48:16,689 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 7.3773ms.
+INFO  2019-08-11 17:48:16,730 [23   ] c.ViewFeatures.PartialViewResultExecutor - Executing PartialViewResult, running view AudioList.
+INFO  2019-08-11 17:48:16,749 [23   ] c.ViewFeatures.PartialViewResultExecutor - Executed PartialViewResult - view AudioList executed in 14.8732ms.
+INFO  2019-08-11 17:48:16,753 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) in 116.1553ms
+INFO  2019-08-11 17:48:16,759 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 134.2717ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:48:16,767 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/img/p1.jpg  
+INFO  2019-08-11 17:48:16,771 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/img/p1.jpg was not modified
+INFO  2019-08-11 17:48:16,775 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7.5382ms 304 image/jpeg
+INFO  2019-08-11 17:48:17,215 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/MediaGroup/Index application/x-www-form-urlencoded; charset=UTF-8 11
+INFO  2019-08-11 17:48:17,226 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "MediaGroup", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:17,259 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) with arguments (4) - Validation state: Valid
+INFO  2019-08-11 17:48:17,262 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.0102ms.
+INFO  2019-08-11 17:48:17,306 [23   ] matters.Json.Internal.JsonResultExecutor - Executing JsonResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-11 17:48:17,310 [23   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.MediaGroupController.Index (LJH.VRTool.Web.Mvc) in 80.7548ms
+INFO  2019-08-11 17:48:17,316 [23   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 100.8163ms 200 application/json; charset=utf-8
+INFO  2019-08-11 17:48:17,328 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/Source application/x-www-form-urlencoded; charset=UTF-8 310
+INFO  2019-08-11 17:48:17,337 [49   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Source", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:17,343 [49   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:17,376 [49   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Source.SourceSearch) - Validation state: Valid
+INFO  2019-08-11 17:48:17,388 [49   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 7.2863ms.
+INFO  2019-08-11 17:48:17,428 [50   ] c.ViewFeatures.PartialViewResultExecutor - Executing PartialViewResult, running view VideoList.
+INFO  2019-08-11 17:48:17,439 [50   ] c.ViewFeatures.PartialViewResultExecutor - Executed PartialViewResult - view VideoList executed in 12.0922ms.
+INFO  2019-08-11 17:48:17,444 [50   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) in 101.3057ms
+INFO  2019-08-11 17:48:17,449 [50   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 120.9915ms 200 text/html; charset=utf-8
+INFO  2019-08-11 17:48:19,184 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/lang/zh-cn.js  
+INFO  2019-08-11 17:48:19,190 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/default/datepicker.css  
+INFO  2019-08-11 17:48:19,194 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/calendar.js  
+INFO  2019-08-11 17:48:19,199 [25   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/lang/zh-cn.js was not modified
+INFO  2019-08-11 17:48:19,204 [49   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/default/datepicker.css was not modified
+INFO  2019-08-11 17:48:19,209 [24   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/calendar.js was not modified
+INFO  2019-08-11 17:48:19,217 [49   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 24.9543ms 304 text/css
+INFO  2019-08-11 17:48:19,222 [24   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 29.8208ms 304 application/javascript
+INFO  2019-08-11 17:48:19,226 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 23.8333ms 304 application/javascript
+INFO  2019-08-11 17:48:19,266 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:62115/lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/default/img.gif  
+INFO  2019-08-11 17:48:19,271 [25   ] NetCore.StaticFiles.StaticFileMiddleware - The file /lib/krpano/hplus/js/plugins/My97DatePicker/4.8/skin/default/img.gif was not modified
+INFO  2019-08-11 17:48:19,276 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.987ms 304 image/gif
+INFO  2019-08-11 17:48:20,694 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:62115/Source application/x-www-form-urlencoded; charset=UTF-8 310
+INFO  2019-08-11 17:48:20,705 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Source", area = ""}. Executing action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc)
+INFO  2019-08-11 17:48:20,710 [13   ] uthorization.DefaultAuthorizationService - Authorization was successful.
+INFO  2019-08-11 17:48:20,741 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) with arguments (LJH.VRTool.Web.Models.Source.SourceSearch) - Validation state: Valid
+INFO  2019-08-11 17:48:20,747 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc), returned result Microsoft.AspNetCore.Mvc.PartialViewResult in 1.0291ms.
+INFO  2019-08-11 17:48:20,803 [25   ] c.ViewFeatures.PartialViewResultExecutor - Executing PartialViewResult, running view VideoList.
+INFO  2019-08-11 17:48:20,807 [25   ] c.ViewFeatures.PartialViewResultExecutor - Executed PartialViewResult - view VideoList executed in 5.1272ms.
+INFO  2019-08-11 17:48:20,810 [25   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Mvc.Controllers.SourceController.Index (LJH.VRTool.Web.Mvc) in 101.7136ms
+INFO  2019-08-11 17:48:20,814 [25   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 123.3437ms 200 text/html; charset=utf-8
