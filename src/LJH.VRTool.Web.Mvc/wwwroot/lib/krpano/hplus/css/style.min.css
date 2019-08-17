@@ -3027,7 +3027,8 @@ video {
 #page-wrapper {
     padding: 0 15px;
     position: inherit;
-    margin: 0 0 0 220px
+    margin: 0 0 0 220px;
+    height: calc(100% - 50px) !important;
 }
 
 .title-action {
@@ -3487,7 +3488,7 @@ code {
     text-align: center;
     background-color: #fff;
     color: inherit;
-    padding: 15px 20px 20px;
+    padding: 10px 30px;
     border-color: #e7eaec;
     -webkit-border-image: none;
     -o-border-image: none;

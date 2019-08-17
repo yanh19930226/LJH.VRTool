@@ -55,6 +55,10 @@
                                 <i class="layui-icon layui-icon-delete">
                                 </i>上传
                             </button>
+                            <button type="button" class="layui-btn-ext layui-btnnobg-ext" style="display:none" id="convert">
+                                <i class="layui-icon layui-icon-delete">
+                                </i>文字转语音
+                            </button>
                             <button type="button" class="layui-btn-ext layui-btn-dangernobg-ext" id="test2">
                                 <i class="layui-icon layui-icon-delete">
                                 </i>批量删除
@@ -97,7 +101,8 @@
     <script src="~/lib/krpano/hplus/js/plugins/ztree/jquery.ztree.exedit.js"></script>
     <script>
     //tab点击切换
-    var changeTab = function (type) {
+        var changeTab = function (type) {
+            $("#convert").css("display", "none");
             if (type =="panoram") {
                 $("#MediaType").val(1);
             }
@@ -106,6 +111,7 @@
             }
             if (type == "audio") {
                 $("#MediaType").val(3);
+                $("#convert").css("display","inline-block");
             }
             if (type == "video") {
                 $("#MediaType").val(4);
