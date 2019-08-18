@@ -352,3 +352,90 @@ INFO  2019-07-28 10:02:45,664 [10   ] soft.AspNetCore.Hosting.Internal.WebHost -
 INFO  2019-07-28 10:02:45,670 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
 INFO  2019-07-28 10:02:45,674 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 9.5493ms 200 image/png
 INFO  2019-07-28 10:02:45,910 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 311.0202ms 200 application/json;charset=utf-8
+DEBUG 2019-08-18 14:05:54,870 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-08-18 14:05:55,134 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-08-18 14:05:55,162 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.Web.Host.Startup.VRToolWebHostModule, LJH.VRTool.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,166 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolWebCoreModule, LJH.VRTool.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolApplicationModule, LJH.VRTool.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,167 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.VRToolCoreModule, LJH.VRTool.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,168 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,169 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,170 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: LJH.VRTool.EntityFrameworkCore.VRToolEntityFrameworkModule, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,170 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,170 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,172 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:55,177 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-08-18 14:05:55,336 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-18 14:05:55,336 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-18 14:05:55,336 [1    ] o.Configuration.LanguageManagementConfig - Converted VRTool (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-18 14:05:55,336 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-08-18 14:05:55,875 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: LJH.VRTool.EntityFrameworkCore.VRToolDbContext, LJH.VRTool.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-08-18 14:05:57,888 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-08-18 14:05:58,338 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-08-18 14:05:58,390 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-08-18 14:05:58,414 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: VRTool
+DEBUG 2019-08-18 14:05:58,446 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-08-18 14:05:58,848 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-08-18 14:05:58,901 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 13 classes define auto mapping attributes
+DEBUG 2019-08-18 14:05:58,901 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-08-18 14:05:58,909 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.CreateUserDto
+DEBUG 2019-08-18 14:05:58,910 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Users.Dto.UserDto
+DEBUG 2019-08-18 14:05:58,910 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-08-18 14:05:58,910 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-08-18 14:05:58,911 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.CreateRoleDto
+DEBUG 2019-08-18 14:05:58,911 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.PermissionDto
+DEBUG 2019-08-18 14:05:58,911 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Roles.Dto.RoleDto
+DEBUG 2019-08-18 14:05:58,911 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitCreateDto
+DEBUG 2019-08-18 14:05:58,912 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitDto
+DEBUG 2019-08-18 14:05:58,912 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.Organizations.Dto.OrganizationUnitUpdateDto
+DEBUG 2019-08-18 14:05:58,912 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-08-18 14:05:58,912 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - LJH.VRTool.MultiTenancy.Dto.TenantDto
+INFO  2019-08-18 14:06:05,896 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:21021/  0
+INFO  2019-08-18 14:06:05,896 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-08-18 14:06:06,005 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 118.7307ms 200 
+INFO  2019-08-18 14:06:13,743 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action LJH.VRTool.Web.Host.Controllers.HomeController.Index (LJH.VRTool.Web.Host)
+INFO  2019-08-18 14:06:16,189 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Web.Host.Controllers.HomeController.Index (LJH.VRTool.Web.Host) - Validation state: Valid
+INFO  2019-08-18 14:06:16,196 [12   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Web.Host.Controllers.HomeController.Index (LJH.VRTool.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 2.3601ms.
+INFO  2019-08-18 14:06:16,506 [10   ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-08-18 14:06:16,524 [10   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Web.Host.Controllers.HomeController.Index (LJH.VRTool.Web.Host) in 2773.0253ms
+INFO  2019-08-18 14:06:16,547 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10662.5888ms 302 
+INFO  2019-08-18 14:06:16,551 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-08-18 14:06:16,567 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 16.8959ms 301 
+INFO  2019-08-18 14:06:16,574 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-08-18 14:06:16,609 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 35.002ms 200 text/html
+INFO  2019-08-18 14:06:16,632 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-08-18 14:06:16,653 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-08-18 14:06:16,657 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-08-18 14:06:16,661 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-08-18 14:06:16,665 [7    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-08-18 14:06:16,728 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2019-08-18 14:06:16,731 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Users\89136\Desktop\LJH.VRTool\src\LJH.VRTool.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2019-08-18 14:06:16,736 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 66.596ms 200 application/javascript
+INFO  2019-08-18 14:06:16,739 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.8768ms 200 application/javascript
+INFO  2019-08-18 14:06:16,747 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-08-18 14:06:16,759 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 126.3794ms 200 text/css
+INFO  2019-08-18 14:06:16,801 [11   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-08-18 14:06:16,813 [11   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 147.7483ms 200 application/javascript
+INFO  2019-08-18 14:06:17,001 [10   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-08-18 14:06:17,009 [10   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 367.2026ms 200 application/javascript
+INFO  2019-08-18 14:06:17,484 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-08-18 14:06:17,572 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-32x32.png  
+INFO  2019-08-18 14:06:17,576 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+INFO  2019-08-18 14:06:17,581 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 8.6414ms 200 image/png
+INFO  2019-08-18 14:06:17,816 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 323.5756ms 200 application/json;charset=utf-8
+INFO  2019-08-18 14:07:36,565 [26   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/services/app/TestApi/TestStr  0
+INFO  2019-08-18 14:07:36,622 [26   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-08-18 14:07:36,627 [26   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-08-18 14:07:36,648 [26   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {area = "app", action = "TestStr", controller = "TestApi"}. Executing action LJH.VRTool.Test.TestApiAppService.TestStr (LJH.VRTool.Application)
+INFO  2019-08-18 14:07:36,653 [26   ] pNetCore.Cors.Infrastructure.CorsService - CORS policy execution failed.
+INFO  2019-08-18 14:07:36,658 [26   ] pNetCore.Cors.Infrastructure.CorsService - Request origin http://localhost:21021 does not have permission to access the resource.
+INFO  2019-08-18 14:07:36,711 [26   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method LJH.VRTool.Test.TestApiAppService.TestStr (LJH.VRTool.Application) - Validation state: Valid
+INFO  2019-08-18 14:07:36,716 [26   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method LJH.VRTool.Test.TestApiAppService.TestStr (LJH.VRTool.Application), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.527ms.
+INFO  2019-08-18 14:07:36,784 [14   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-08-18 14:07:36,811 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action LJH.VRTool.Test.TestApiAppService.TestStr (LJH.VRTool.Application) in 159.9774ms
+INFO  2019-08-18 14:07:36,816 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 281.2577ms 200 application/json; charset=utf-8

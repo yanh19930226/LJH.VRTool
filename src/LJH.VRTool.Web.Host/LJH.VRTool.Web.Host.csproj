@@ -28,6 +28,7 @@
     <ProjectReference Include="..\LJH.VRTool.Web.Core\LJH.VRTool.Web.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Abp.Web.Api" Version="4.8.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.1">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>

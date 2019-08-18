@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using LJH.VRTool.Configuration;
+using Abp.WebApi.Controllers.Dynamic.Builders;
+using LJH.VRTool.Test;
 
 namespace LJH.VRTool.Web.Host.Startup
 {

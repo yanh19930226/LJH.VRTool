@@ -4,14 +4,16 @@ using LJH.VRTool.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LJH.VRTool.Migrations
 {
     [DbContext(typeof(VRToolDbContext))]
-    partial class VRToolDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190818065705_201908183")]
+    partial class _201908183
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1046,75 +1048,13 @@ namespace LJH.VRTool.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("LJH.VRTool.Entities.StudentTeacher.StudentTeacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<int?>("StudentId");
-
-                    b.Property<int?>("TeacherId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("StudentTeachers");
-                });
-
-            modelBuilder.Entity("LJH.VRTool.Entities.Teacher.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teachers");
-                });
-
-            modelBuilder.Entity("LJH.VRTool.Entities.UserStudent.UserStudent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<int?>("StudentId");
-
                     b.Property<long?>("UserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StudentId");
-
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserStudent");
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("LJH.VRTool.MultiTenancy.Tenant", b =>
@@ -1317,25 +1257,10 @@ namespace LJH.VRTool.Migrations
                         .HasForeignKey("LastModifierUserId");
                 });
 
-            modelBuilder.Entity("LJH.VRTool.Entities.StudentTeacher.StudentTeacher", b =>
+            modelBuilder.Entity("LJH.VRTool.Entities.Student.Student", b =>
                 {
-                    b.HasOne("LJH.VRTool.Entities.Student.Student")
-                        .WithMany("StudentTeachers")
-                        .HasForeignKey("StudentId");
-
-                    b.HasOne("LJH.VRTool.Entities.Teacher.Teacher")
-                        .WithMany("StudentTeachers")
-                        .HasForeignKey("TeacherId");
-                });
-
-            modelBuilder.Entity("LJH.VRTool.Entities.UserStudent.UserStudent", b =>
-                {
-                    b.HasOne("LJH.VRTool.Entities.Student.Student")
-                        .WithMany("UserStudents")
-                        .HasForeignKey("StudentId");
-
                     b.HasOne("LJH.VRTool.Authorization.Users.User")
-                        .WithMany("UserStudents")
+                        .WithMany("Students")
                         .HasForeignKey("UserId");
                 });
 

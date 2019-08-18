@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Abp.Authorization.Users;
 using Abp.Extensions;
+using LJH.VRTool.Entities.Student;
+using LJH.VRTool.Entities.UserStudent;
 
 namespace LJH.VRTool.Authorization.Users
 {
@@ -30,5 +32,6 @@ namespace LJH.VRTool.Authorization.Users
 
             return user;
         }
+        public virtual ICollection<UserStudent> UserStudents { get; set; }
     }
 }
